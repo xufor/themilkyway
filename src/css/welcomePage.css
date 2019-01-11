@@ -31,7 +31,9 @@
 }
 
 .logo {
-    font-size: 17rem;
+    font-size: 10rem;
+    font-family: 'Dancing Script', cursive;
+    margin: 50px 0 15px 0;
 }
 
 .quote {

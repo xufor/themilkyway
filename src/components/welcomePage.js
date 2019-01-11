@@ -8,7 +8,7 @@ class WelcomePage extends Component {
         return(
             <div className='welcomePageBackground'>
                 <div className='welcomeText'>
-                    <div className='logo white tc'>Elixir</div>
+                    <div className='logo white tc'>The Milky Way</div>
                         <div className='quote white tc'>{ sampleQuote }</div>
                         <div className='author tr'>- Boris Pasternak</div>
                         <div className= 'buttons'>
