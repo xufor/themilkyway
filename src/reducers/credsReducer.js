@@ -1,9 +1,16 @@
 import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 
-export default (state = {}, action) => {
+let INITIAL_STATE = {
+	verifiedFlag: null
+};
+
+export default (state = INITIAL_STATE, action) => {
 	switch(action.type) {
 		case FETCH_USER_CREDENTIALS:
-			return action.payload;
+			return {
+				verifiedFlag: true,
+				data: action.payload.data
+			};
 		default:
 		  	return state;
 	}

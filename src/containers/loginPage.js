@@ -14,6 +14,12 @@ class LoginPage extends Component {
         }
     }
 
+    componentDidUpdate() {
+        if (this.props.credentials.verifiedFlag === true) {
+          this.props.history.push('./home');
+        }
+    }
+
     onEmailChange = (event) => {
         this.setState({
             email: event.target.value
@@ -30,9 +36,10 @@ class LoginPage extends Component {
     onClickSignIn = () => {
         let actionPacket = {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            history: this.props.history
         };
-        console.log(this.props);
+
         this.props.fetchUserCredentials(actionPacket);
     };
 
