@@ -1,0 +1,95 @@
+.loginPageBackground {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: url(../images/image_1.jpg) no-repeat;
+	background-size: cover;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 100;
+	}
+}
+
+
+.loginBox {
+	position: absolute;
+	width: 350px;
+  	height: 450px;
+	top: 50%;
+	left: 50%;
+	margin-left: -175px;
+	margin-top: -225px;
+	border: solid 1px white ;
+	border-radius: 1rem;
+	background: rgba(0,0,0,0.1);
+	text-align: center;
+	animation: fadeIn 2s 1 forwards;
+}
+
+.boxHeading {
+	margin-top: 10px;
+	margin-bottom: 35px;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 3rem;
+	font-weight: bolder;
+	color: white;
+}
+
+.inputBox {
+	width: 300px;
+	height: 30px;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom: solid 2px white;
+	background-color: transparent;
+	margin-left: 10px;
+	color: white;
+}
+
+.inputBox:focus {
+	outline: none;
+}
+
+
+.inputLabelLgBx {
+	margin-top: 70px;
+	text-align: left;
+	margin-left: 30px;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1rem;
+	font-weight: bolder;
+	color: white;
+}
+
+.loginButton {
+	margin: 30px 0 20px 0;
+	height: 40px;
+	width: 100px;
+	border: none;
+	color: white;
+	border-radius: 1rem;
+	font-size: 1rem;
+	font-weight: bolder;
+	background-color: #0064FFFF;
+	font-family: 'Quicksand', sans-serif;
+	outline: none;
+	cursor: pointer;
+}
+
+.registerInstead {
+	display: block;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1rem;
+	font-weight: bolder;
+	color: white;
+	cursor: pointer;
+}
+

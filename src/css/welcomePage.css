@@ -1,0 +1,69 @@
+.welcomePageBackground {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: url(../images/image_2.jpg) no-repeat;
+    background-size: cover;
+    animation: fadeIn 2s 1 forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+    }
+}
+
+.welcomeText {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 900px;
+    height: 700px;
+    margin-left: -450px;
+    margin-top: -300px;
+    color: white;
+}
+
+.logo {
+    font-size: 17rem;
+}
+
+.quote {
+    font-size: 2rem;
+}
+
+.author {
+    font-size: 2rem;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.routeButton {
+    display: inline;
+    margin: 20px 20px;
+    height: 40px;
+    width: 100px;
+    border: none;
+    border-radius: 1rem;
+    padding: 10px;
+    outline: none;
+    cursor: pointer;
+    background-color: #0064FFFF;
+
+}
+
+.linkProps {
+    font-size: 1rem;
+    font-weight: bolder;
+    text-underline: none;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+}
