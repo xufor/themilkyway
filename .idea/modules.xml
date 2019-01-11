@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/elixir.iml" filepath="$PROJECT_DIR$/.idea/elixir.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/themilkyway.iml" filepath="$PROJECT_DIR$/.idea/themilkyway.iml" />
     </modules>
   </component>
 </project>
