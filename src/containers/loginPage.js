@@ -32,7 +32,7 @@ class LoginPage extends Component {
             email: this.state.email,
             password: this.state.password
         };
-        console.log()
+        console.log(this.props);
         this.props.fetchUserCredentials(actionPacket);
     };
 
