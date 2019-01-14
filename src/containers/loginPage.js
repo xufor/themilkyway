@@ -52,7 +52,7 @@ class LoginPage extends Component {
                     <div className='inputLabelLgBx'>Password</div>
                     <input onChange={this.onPasswordChange} className='inputBox' type='password' required/>
                     <button onClick={() => this.onClickSignIn()} className='loginButton grow'>Login</button>
-                    <Link to='/register' className='registerInstead grow'>Don't have an account?</Link>
+                    <Link to={'/register'} className='registerInstead grow'>Don't have an account?</Link>
                 </div>
             </div>
         );

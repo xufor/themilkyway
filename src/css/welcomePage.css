@@ -1,4 +1,4 @@
-.welcomePageBackground {
+#welcomePageBackground {
     position: fixed;
     top: 0;
     right: 0;
@@ -18,7 +18,7 @@
     }
 }
 
-.welcomeText {
+#welcomeText {
     display: block;
     position: absolute;
     top: 50%;
@@ -30,21 +30,21 @@
     color: white;
 }
 
-.logo {
+#logo {
     font-size: 10rem;
     font-family: 'Dancing Script', cursive;
     margin: 50px 0 15px 0;
 }
 
-.quote {
+#quote {
     font-size: 2rem;
 }
 
-.author {
+#author {
     font-size: 2rem;
 }
 
-.buttons {
+#buttons {
     text-align: center;
 }
 

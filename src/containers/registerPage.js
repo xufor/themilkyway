@@ -51,7 +51,7 @@ class RegisterPage extends Component {
                     <div className='inputLabelRgBx'>Password</div>
                     <input onChange={this.onPasswordChange} className='inputBox' type='password'/>
                     <button onClick={() => this.onClickRegister()} className='registerButton grow'>Register</button>
-                    <Link to='/login' className='loginInstead grow'>Already have an account?</Link>
+                    <Link to={'/login'} className='loginInstead grow'>Already have an account?</Link>
                 </div>
             </div>
         );

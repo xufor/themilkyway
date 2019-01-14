@@ -6,17 +6,17 @@ import '../css/welcomePage.css';
 class WelcomePage extends Component {
     render() {
         return(
-            <div className='welcomePageBackground'>
-                <div className='welcomeText'>
-                    <div className='logo white tc'>The Milky Way</div>
-                        <div className='quote white tc'>{ sampleQuote }</div>
-                        <div className='author tr'>- Boris Pasternak</div>
-                        <div className= 'buttons'>
+            <div id='welcomePageBackground'>
+                <div id='welcomeText'>
+                    <div id='logo' className='white tc'>The Milky Way</div>
+                        <div id='quote' className='white tc'>{ sampleQuote }</div>
+                        <div id='author' className='tr'>- Boris Pasternak</div>
+                        <div id='buttons'>
                             <button className='routeButton grow'>
-                                <Link to= '/login' className='linkProps'>Login</Link>
+                                <Link to={'/login'} className='linkProps link'>Login</Link>
                             </button>
                             <button className='routeButton grow'>
-                                <Link to= '/register' className='linkProps'>Register</Link>
+                                <Link to={'/register'} className='linkProps link'>Register</Link>
                             </button>
                         </div>
                     </div>
