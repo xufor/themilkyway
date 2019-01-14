@@ -39,7 +39,6 @@ class LoginPage extends Component {
             password: this.state.password,
             history: this.props.history
         };
-
         this.props.fetchUserCredentials(actionPacket);
     };
 
@@ -53,8 +52,8 @@ class LoginPage extends Component {
                     <div id='inputLabelLgBx'>Password</div>
                     <input onChange={this.onPasswordChange} className='inputBox' type='password' required/>
                     <button onClick={() => this.onClickSignIn()} id='loginButton' className='grow'>Login</button>
-                    <Link to='/register' id='registerInstead' className='grow'>Don't have an account?</Link>
-                </div>
+                    <Link to={'/register'} id='registerInstead' className='grow'>Don't have an account?</Link>
+                 </div>
             </div>
         );
     }

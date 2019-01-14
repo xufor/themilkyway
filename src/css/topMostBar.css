@@ -1,0 +1,89 @@
+#topMostBarContainer{
+    margin: 15px 15px 15px 15px;
+}
+
+#topMostBar {
+    display: flex;
+    height: 63px;
+    font-weight: bolder;
+    background-color: rgb(255,255,255);
+}
+
+.alg-slf {
+    align-self: center;
+}
+
+#searchGlassImage {
+    height: 35px;
+    width: 35px;
+}
+
+#boxTriggerImage {
+    display: none;
+}
+
+#signIcon {
+    display:none;
+}
+
+#afterTriggerSearchIcon {
+    width: 30px;
+    height: 30px;
+}
+
+#afterTriggerCloseIcon {
+    width: 20px;
+    height: 20px;
+}
+
+#logoText {
+    flex-grow: 10;
+    font-size: 2.75rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+#searchBox {
+    height: 40px;
+    width: 450px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    border: 3px #000000FF solid;
+    padding: 0 10px 0 10px;
+    outline: none;
+    background-color: rgba(255,255,255,0.5);
+    transition: box-shadow, border-color 0.3s ease-out;
+}
+
+#searchBox:hover {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+#searchBox:focus {
+    border-color: #186BE6FF;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+#signOut {
+    font-weight: 900;
+    font-size: 1.5rem;
+    transition: color 0.30s ease-out;
+    font-family: 'Dancing Script', cursive;
+}
+
+#signIn:hover {
+    color: #19a974;
+}
+
+#signUp:hover {
+    color: #a463f2;
+}
+
+#profilePic {
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+
+
