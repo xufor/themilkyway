@@ -10,8 +10,10 @@ const TopMostBar = () => {
             <div id="topMostBar" className='center shadow-5 mv1'>
                 <Link to={'/home'} id='logoText' className='ml4 link black pointer alg-slf'>The Milky Way</Link>
                 <input id='searchBox' className='br4 mr2 alg-slf' type='text' maxLength='30' placeholder='Search' aria-label='Search'/>
-                <img id='searchGlassImage' className='grow alg-slf mr3 pointer' alt='srhGls' src={searchGlass}/>
-                <Link to={'/home/profile'} className={'alg-slf'}>
+                <Link to={'/search'} className='alg-slf'>
+                    <img id='searchGlassImage' className='grow mr3 pointer' alt='srhGls' src={searchGlass}/>
+                </Link>
+                <Link to={'/profile'} className={'alg-slf'}>
                     <img id='profilePic' src={profilePic} alt={'pPic'}/>
                 </Link>
                 <Link to={'/login'} className='mr3 link black hover-green pointer alg-slf' id='signOut'>SignOut</Link>
