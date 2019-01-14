@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import GreetBox from './greetBox';
 
 class HomePage extends Component {
 
     render() {
         return (
-            <div className='tc mt2 f-5'>This is the homepage</div>
+            <div>
+                <GreetBox/>
+            </div>
         )
     }
 }

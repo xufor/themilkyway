@@ -1,0 +1,15 @@
+#greetBox {
+    display: flex;
+}
+
+#composeLink {
+    flex-grow: 1;
+    align-self: flex-end;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}
+#greeting {
+    flex-grow: 99;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}

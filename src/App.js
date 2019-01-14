@@ -12,10 +12,10 @@ class App extends Component {
       return(
           <BrowserRouter>
               <div>
-                  <Route path= '/' exact component = { WelcomePage }/>
-                  <Route path= '/login' exact component = { LoginPage }/>
-                  <Route path= '/register' exact component = { RegisterPage }/>
-                  <Route path= '/home' exact component = { HomePage }/>
+                  {/*<Route path= '/' exact component = { WelcomePage }/>*/}
+                  {/*<Route path= '/login' exact component = { LoginPage }/>*/}
+                  {/*<Route path= '/register' exact component = { RegisterPage }/>*/}
+                  <Route path= '/' exact component = { HomePage }/>
               </div>
           </BrowserRouter>
       );
