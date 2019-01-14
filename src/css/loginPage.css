@@ -4,7 +4,7 @@
 	right: 0;
 	left: 0;
 	bottom: 0;
-	background: url(../images/image_2.jpg) no-repeat;
+	background: url(../assets/image_2.jpg) no-repeat;
 	background-size: cover;
 }
 
@@ -30,7 +30,7 @@
 	border-radius: 1rem;
 	background: rgba(0,0,0,0.1);
 	text-align: center;
-	animation: fadeIn 2s 1 forwards;
+	animation: fadeIn 1s 1 forwards;
 }
 
 .boxHeading {

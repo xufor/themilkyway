@@ -39,7 +39,6 @@ class LoginPage extends Component {
             password: this.state.password,
             history: this.props.history
         };
-
         this.props.fetchUserCredentials(actionPacket);
     };
 
