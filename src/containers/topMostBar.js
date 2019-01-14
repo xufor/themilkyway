@@ -7,14 +7,14 @@ import { Link } from 'react-router-dom';
 const TopMostBar = () => {
     return(
         <div id='topMostBarContainer'>
-            <div id="topMostBar" className='center br4 shadow-5 mv1'>
+            <div id="topMostBar" className='center shadow-5 mv1'>
                 <Link to={'/home'} id='logoText' className='ml4 link black pointer alg-slf'>The Milky Way</Link>
                 <input id='searchBox' className='br4 mr2 alg-slf' type='text' maxLength='30' placeholder='Search' aria-label='Search'/>
                 <img id='searchGlassImage' className='grow alg-slf mr3 pointer' alt='srhGls' src={searchGlass}/>
                 <Link to={'/home/profile'} className={'alg-slf'}>
                     <img id='profilePic' src={profilePic} alt={'pPic'}/>
                 </Link>
-                <Link to={'/login'} className='mr2 link black hover-green pointer alg-slf' id='signOut'>SignOut</Link>
+                <Link to={'/login'} className='mr3 link black hover-green pointer alg-slf' id='signOut'>SignOut</Link>
             </div>
         </div>
     );
