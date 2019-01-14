@@ -1,7 +1,11 @@
 import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 
 let INITIAL_STATE = {
-	verifiedFlag: null
+	verifiedFlag: null,
+	data: {
+		name: 'John Seed',
+		dob: '16, June 2000'
+	}
 };
 
 export default (state = INITIAL_STATE, action) => {
