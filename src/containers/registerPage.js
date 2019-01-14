@@ -41,17 +41,17 @@ class RegisterPage extends Component {
 
     render() {
         return (
-            <div className='registerPageBackground'>
-                <div className='registerBox'>
+            <div id='registerPageBackground'>
+                <div id='registerBox'>
                     <div className='boxHeading'>Register</div>
-                    <div className='inputLabelRgBx'>Name</div>
+                    <div id='inputLabelRgBx'>Name</div>
                     <input onChange={this.onNameChange} className='inputBox' type='text'/>
-                    <div className='inputLabelRgBx'>Email</div>
+                    <div id='inputLabelRgBx'>Email</div>
                     <input onChange={this.onEmailChange} className='inputBox' type='email'/>
-                    <div className='inputLabelRgBx'>Password</div>
+                    <div id='inputLabelRgBx'>Password</div>
                     <input onChange={this.onPasswordChange} className='inputBox' type='password'/>
-                    <button onClick={() => this.onClickRegister()} className='registerButton grow'>Register</button>
-                    <Link to='/login' className='loginInstead grow'>Already have an account?</Link>
+                    <button onClick={() => this.onClickRegister()} id='registerButton' className='grow'>Register</button>
+                    <Link to='/login' id='loginInstead' className='grow'>Already have an account?</Link>
                 </div>
             </div>
         );

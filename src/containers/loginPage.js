@@ -45,15 +45,15 @@ class LoginPage extends Component {
 
     render() {
         return (
-            <div className='loginPageBackground'>
-                <div className='loginBox'>
+            <div id='loginPageBackground'>
+                <div id='loginBox'>
                     <div className='boxHeading'>Login</div>
-                    <div className='inputLabelLgBx'>Email</div>
+                    <div id='inputLabelLgBx'>Email</div>
                     <input onChange={this.onEmailChange} className='inputBox' type='email' required/>
-                    <div className='inputLabelLgBx'>Password</div>
+                    <div id='inputLabelLgBx'>Password</div>
                     <input onChange={this.onPasswordChange} className='inputBox' type='password' required/>
-                    <button onClick={() => this.onClickSignIn()} className='loginButton grow'>Login</button>
-                    <Link to='/register' className='registerInstead grow'>Don't have an account?</Link>
+                    <button onClick={() => this.onClickSignIn()} id='loginButton' className='grow'>Login</button>
+                    <Link to='/register' id='registerInstead' className='grow'>Don't have an account?</Link>
                 </div>
             </div>
         );

@@ -1,4 +1,4 @@
-.loginPageBackground {
+#loginPageBackground {
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -18,7 +18,7 @@
 }
 
 
-.loginBox {
+#loginBox {
 	position: absolute;
 	width: 350px;
   	height: 450px;
@@ -59,7 +59,7 @@
 }
 
 
-.inputLabelLgBx {
+#inputLabelLgBx {
 	margin-top: 70px;
 	text-align: left;
 	margin-left: 30px;
@@ -69,7 +69,7 @@
 	color: white;
 }
 
-.loginButton {
+#loginButton {
 	margin: 30px 0 20px 0;
 	height: 40px;
 	width: 100px;
@@ -84,7 +84,7 @@
 	cursor: pointer;
 }
 
-.registerInstead {
+#registerInstead {
 	display: block;
 	font-family: 'Quicksand', sans-serif;
 	font-size: 1rem;
