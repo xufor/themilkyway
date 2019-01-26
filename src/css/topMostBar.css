@@ -38,7 +38,6 @@
 }
 
 #logoText {
-    flex-grow: 10;
     font-size: 2.75rem;
     font-family: 'Dancing Script', cursive;
 }
@@ -49,7 +48,7 @@
     font-family: 'Courier New', monospace;
     font-size: 1.5rem;
     font-weight: bolder;
-    border: 3px #000000FF solid;
+    border: 2px #000000FF solid;
     padding: 0 10px 0 10px;
     outline: none;
     background-color: rgba(255,255,255,0.5);
@@ -81,9 +80,10 @@
 }
 
 #profilePic {
-    height: 50px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 15px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
 }
 
 

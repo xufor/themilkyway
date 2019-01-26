@@ -5,7 +5,6 @@ import GreetBox from './greetBox';
 import '../css/homePage.css';
 
 class HomePage extends Component {
-
     render() {
         return (
           <div className='homePageBackground'>

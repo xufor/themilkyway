@@ -9,6 +9,7 @@ const TopMostBar = () => {
         <div id='topMostBarContainer'>
             <div id="topMostBar" className='center shadow-5 mv1'>
                 <Link to={'/home'} id='logoText' className='ml4 link black pointer alg-slf'>The Milky Way</Link>
+                <div className='emptySpace'/>
                 <input id='searchBox' className='br4 mr2 alg-slf' type='text' maxLength='30' placeholder='Search' aria-label='Search'/>
                 <Link to={'/search'} className='alg-slf'>
                     <img id='searchGlassImage' className='grow mr3 pointer' alt='srhGls' src={searchGlass}/>

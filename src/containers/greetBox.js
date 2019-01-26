@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../css/greetBox.css';
 
-class Greetbox extends Component {
+class GreetBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -44,6 +44,7 @@ class Greetbox extends Component {
         return (
             <div id='greetBox' className='center br4 shadow-5 mv1'>
                 <div id='greeting'>Good {this.suffixGen()} {this.props.credentials.data.name} !</div>
+                <div className='emptySpace'/>
                 <Link id='composeLink' className='link black' to={'/compose'}>Want to write Something?</Link>
             </div>
         );
@@ -56,4 +57,4 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps)(Greetbox);
+export default connect(mapStateToProps)(GreetBox);
