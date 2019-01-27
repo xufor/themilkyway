@@ -10,6 +10,7 @@
     position: fixed;
     background-size: cover;
 	background-color: rgb(218, 224, 230);
+	animation: fadeIn 0.3s 1 forwards;
 }
 
 #mainBox {
