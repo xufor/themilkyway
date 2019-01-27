@@ -4,7 +4,11 @@ let INITIAL_STATE = {
 	verifiedFlag: null,
 	data: {
 		name: 'John',
-		dob: '16, June 2000'
+		dob: '16, June 2000',
+		followers: '50',
+		following: '100',
+		praises: '100',
+		views: '500'
 	}
 };
 

@@ -1,0 +1,31 @@
+#samplePic {
+	height: 250px;
+	border-radius: 50%;
+}
+#profilePageBackground {
+	top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    background-size: cover;
+	background-color: rgb(218, 224, 230);
+}
+
+#mainBox {
+	display: flex;
+}
+
+#lbox {
+	width: max-content;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.3rem;
+	flex-grow: 1;
+}
+
+#rbox {
+	display: inline-block;
+	background: rgb(255,255,255);
+	height: -webkit-fill-available;
+	flex-grow: 99;
+}
