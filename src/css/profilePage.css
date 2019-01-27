@@ -15,6 +15,7 @@
 
 #mainBox {
 	display: flex;
+	align-content: stretch;
 }
 
 #lbox {
@@ -27,6 +28,6 @@
 #rbox {
 	display: inline-block;
 	background: rgb(255,255,255);
-	height: -webkit-fill-available;
 	flex-grow: 99;
+	height: calc(100vh);
 }
