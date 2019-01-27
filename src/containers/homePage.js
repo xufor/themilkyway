@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TopMostBar from './topMostBar.js';
-import GreetBox from './greetBox';
+import GreetBox from './greetBox.js';
+import FeedBox from './feedBox.js';
 import '../css/homePage.css';
 
 class HomePage extends Component {
@@ -10,6 +11,7 @@ class HomePage extends Component {
           <div className='homePageBackground'>
                 <TopMostBar/>
                 <GreetBox/>
+                <FeedBox/>
           </div>
         )
     }
