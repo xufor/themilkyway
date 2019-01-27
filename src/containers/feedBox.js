@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import '../css/feedBox.css';
 
 class FeedBox extends Component {
     render() {
-        return <div>I am here!</div>;
+        return <div>hey</div>;
     }
 }
 
