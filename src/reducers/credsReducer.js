@@ -3,7 +3,8 @@ import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 let INITIAL_STATE = {
 	verifiedFlag: null,
 	data: {
-		name: 'John',
+		fname: 'John',
+		sname: 'Seed',
 		dob: '16, June 2000',
 		followers: '50',
 		following: '100',

@@ -18,6 +18,13 @@
 	align-content: stretch;
 }
 
+#nameWrapper {
+	display: inline-flex;
+}
+
+#editPen {
+	height: 23px;
+}
 #lbox {
 	width: max-content;
 	font-family: 'Quicksand', sans-serif;
