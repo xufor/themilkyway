@@ -1,6 +1,9 @@
 #samplePic {
 	height: 250px;
+	background-color: white;
 	border-radius: 50%;
+	margin-left: calc(50% - 137px) ;
+	padding: 10px;
 }
 #profilePageBackground {
 	top: 0;
@@ -16,7 +19,6 @@
 
 #mainBox {
 	display: flex;
-	align-content: stretch;
 }
 
 #nameWrapper {
@@ -36,17 +38,18 @@
 }
 
 #lbox {
-	width: max-content;
 	font-size: 1.3rem;
-	flex-grow: 1;
+	flex-grow: 30;
+	width: calc(30vw);
 }
 
 #rbox {
 	display: inline-block;
 	background: rgb(255,255,255);
-	flex-grow: 99;
+	flex-grow: 5;
 	height: calc(100vh);
 	height: -webkit-fill-available;
+	width: calc(70vw);
 }
 
 #bioBox {

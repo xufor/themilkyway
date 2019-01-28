@@ -1,4 +1,5 @@
 import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
+import { sampleBio } from '../strings.js';
 
 let INITIAL_STATE = {
 	verifiedFlag: null,
@@ -10,7 +11,7 @@ let INITIAL_STATE = {
 		following: '100',
 		praises: '100',
 		views: '500',
-		bio: 'I am a tech enthusiast from Germany, love to code, make friends and have fun!',
+		bio: sampleBio,
 	}
 };
 
