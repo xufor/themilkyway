@@ -30,4 +30,5 @@
 	background: rgb(255,255,255);
 	flex-grow: 99;
 	height: calc(100vh);
+	height: -webkit-fill-available;
 }
