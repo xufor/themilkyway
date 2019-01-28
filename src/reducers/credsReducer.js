@@ -9,7 +9,8 @@ let INITIAL_STATE = {
 		followers: '50',
 		following: '100',
 		praises: '100',
-		views: '500'
+		views: '500',
+		bio: 'I am a tech enthusiast from Germany, love to code, make friends and have fun!',
 	}
 };
 

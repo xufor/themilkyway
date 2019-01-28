@@ -13,18 +13,23 @@ class profilePage extends Component {
 	         	<div id='lbox' className='ml4 mt4 mr4'>
 	       			<img id='samplePic' src={samplePic} alt='smpPic'/>
 	       			<div className='tc mt3 b'>
-			       		<div id='nameWrapper'>
+			       		<div id='nameWrapper' className='mb5'>
 			       			<div>{this.props.credentials.data.fname} {this.props.credentials.data.sname}</div>
-			       			<img id='editPen' className='ml3' src={editPen} alt='ePic'/>
+			       			<img id='editPen' className='ml2' src={editPen} alt='ePic'/>
 			       		</div>
-			       		<div className= 'mt5'>Followers: {this.props.credentials.data.followers}</div>
-		       			<div className= 'mt3'>Following: {this.props.credentials.data.following}</div>
-		       			<div className= 'mt3'>Praises: {this.props.credentials.data.praises}</div>
-		       			<div className= 'mt3'>Views: {this.props.credentials.data.views}</div>
+						<div id='detailWrapper'>
+							<div className= 'mt3'>Followers: {this.props.credentials.data.followers}</div>
+							<div className= 'mt3'>Following: {this.props.credentials.data.following}</div>
+							<div className= 'mt3'>Praises: {this.props.credentials.data.praises}</div>
+							<div className= 'mt3'>Views: {this.props.credentials.data.views}</div>
+						</div>
 	       			</div>
 	       		</div>	
 	       		<div id='rbox'>
-	       			More Content Coming Soon!
+	       			<div id='bioBox'>
+						<div id='bioHeading'>Bio:</div>
+						<p id='bioContent'>{this.props.credentials.data.bio}</p>
+					</div>
 	       		</div>
 	       	</div>
        	</div>
