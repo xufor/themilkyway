@@ -1,28 +1,14 @@
 #topMostBar {
-    height: 150px;
+    height: 250px;
     background-color: #24292e;
+    max-width: calc(100vw);
 }
 
-.alg-slf {
-    align-self: center;
-}
-
-#boxTriggerImage {
-    display: none;
-}
-
-#signIcon {
-    display:none;
-}
-
-#afterTriggerSearchIcon {
-    width: 30px;
-    height: 30px;
-}
-
-#afterTriggerCloseIcon {
-    width: 20px;
-    height: 20px;
+#galaxyPic {
+    display: block;
+    margin-left: calc(50vw - 50px);
+    height: 100px;
+    width: 110px;
 }
 
 #logoText {
@@ -30,18 +16,18 @@
     font-family: 'Pacifico', cursive;
     font-weight: normal;
     text-align: center;
+    padding-top: 5px;
 }
 
 #searchWrapper {
     display: flex;
-    margin-top: 15px;
+    margin-top: 20px;
     position: center;
     margin-left: calc(50% - 240px);
 }
 
 #searchGlassImage {
     height: 30px;
-    margin-top: 4px;
 }
 
 #searchBox {

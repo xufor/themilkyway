@@ -2,11 +2,13 @@ import React from 'react';
 import '../css/topMostBar.css';
 import searchGlass from '../assets/searchGlass.png';
 import profilePic from '../assets/profilePic.png';
+import galaxyPic from '../assets/galaxyPic.png';
 import { Link } from 'react-router-dom';
 
 const TopMostBar = () => {
     return(
         <div id="topMostBar" className='shadow-5'>
+            <img id='galaxyPic' className='pointer' alt='galPic' src={galaxyPic}/>
             <Link to={'/home'}>
                 <div  id='logoText' className='white pointer'>The Milky Way</div>
             </Link>
