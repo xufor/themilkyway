@@ -1,23 +1,10 @@
-#topMostBarContainer{
-
-    margin: 15px 15px 15px 15px;
-}
-
 #topMostBar {
-    display: flex;
-    height: 63px;
-    font-weight: bolder;
-    background-color: rgb(255,255,255);
-    border-radius: 2rem;
+    height: 150px;
+    background-color: #24292e;
 }
 
 .alg-slf {
     align-self: center;
-}
-
-#searchGlassImage {
-    height: 35px;
-    width: 35px;
 }
 
 #boxTriggerImage {
@@ -39,45 +26,34 @@
 }
 
 #logoText {
-    font-size: 2.75rem;
-    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    font-family: 'Pacifico', cursive;
+    font-weight: normal;
+    text-align: center;
+}
+
+#searchWrapper {
+    display: flex;
+    margin-top: 15px;
+    position: center;
+    margin-left: calc(50% - 240px);
+}
+
+#searchGlassImage {
+    height: 30px;
+    margin-top: 4px;
 }
 
 #searchBox {
-    height: 40px;
+    height: 30px;
     width: 450px;
-    font-family: 'Courier New', monospace;
-    font-size: 1.5rem;
-    font-weight: bolder;
-    border: 2px #000000FF solid;
+    font-family: 'Raleway', monospace;
+    font-size: 1rem;
+    font-weight: normal;
     padding: 0 10px 0 10px;
     outline: none;
-    background-color: rgba(255,255,255,0.5);
-    transition: box-shadow, border-color 0.3s ease-out;
-}
-
-#searchBox:hover {
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
-}
-
-#searchBox:focus {
-    border-color: #186BE6FF;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
-}
-
-#signOut {
-    font-weight: 900;
-    font-size: 1.5rem;
-    transition: color 0.30s ease-out;
-    font-family: 'Dancing Script', cursive;
-}
-
-#signIn:hover {
-    color: #19a974;
-}
-
-#signUp:hover {
-    color: #a463f2;
+    background-color: rgb(255,255,255);
+    display: block;
 }
 
 #profilePic {

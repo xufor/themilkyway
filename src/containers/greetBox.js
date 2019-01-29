@@ -42,7 +42,7 @@ class GreetBox extends Component {
 
     render() {
         return (
-            <div id='greetBox' className='center br4 shadow-5 mv1'>
+            <div id='greetBox' className='shadow-5'>
                 <div id='greeting'>Good {this.suffixGen()} {this.props.credentials.data.name} !</div>
                 <div className='emptySpace'/>
                 <Link id='composeLink' className='link black' to={'/compose'}>Want to write Something?</Link>

@@ -3,7 +3,7 @@ import '../css/feedBox.css';
 
 class FeedBox extends Component {
     render() {
-        return <div>hey</div>;
+        return <div>{}</div>;
     }
 }
 
