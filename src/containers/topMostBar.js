@@ -13,7 +13,7 @@ const TopMostBar = () => {
                 <div  id='logoText' className='white pointer'>The Milky Way</div>
             </Link>
             <div id='searchWrapper'>
-                <input id='searchBox' className='alg-slf' type='text' maxLength='30' placeholder='Search' aria-label='Search'/>
+                <input id='searchBox' className='alg-slf' type='text' maxLength='30' placeholder='Searching for something?' aria-label='Search'/>
                 <Link to={'/search'}>
                     <img id='searchGlassImage' className='pointer' alt='srhGls' src={searchGlass}/>
                 </Link>
