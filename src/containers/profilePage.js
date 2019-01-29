@@ -15,7 +15,7 @@ class profilePage extends Component {
 	       			<div className='tc mt3 b'>
 			       		<div id='nameWrapper' className='mb5'>
 			       			<div>{this.props.credentials.data.fname} {this.props.credentials.data.sname}</div>
-			       			<img id='editPen' className='ml2' src={editPen} alt='ePic'/>
+			       			<img id='editPen' className='ml2 button' src={editPen} alt='ePic'/>
 			       		</div>
 						<div id='detailWrapper'>
 							<div className= 'mt3'>Followers: {this.props.credentials.data.followers}</div>

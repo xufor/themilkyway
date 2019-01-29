@@ -43,7 +43,16 @@
 	flex-grow: 30;
 	width: calc(30vw);
 }
-
+.button {
+  background-color: #e7e7e7;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+.button:hover {
+  background-color: #4CAF50; 
+  color: white;
+}
 #rbox {
 	display: inline-block;
 	background: rgb(255,255,255);
