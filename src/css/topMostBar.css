@@ -2,6 +2,7 @@
     height: 250px;
     background-color: #24292e;
     max-width: calc(100vw);
+    transition: height 0.5s ease-out;
 }
 
 #galaxyPic {
@@ -22,7 +23,6 @@
 #searchWrapper {
     display: flex;
     margin-top: 20px;
-    position: center;
     margin-left: calc(50% - 240px);
 }
 
@@ -43,6 +43,7 @@
 }
 
 #profilePic {
+    display: none;
     height: 40px;
     border-radius: 50%;
     margin-right: 15px;
