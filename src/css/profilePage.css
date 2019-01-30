@@ -52,7 +52,13 @@
 .button:hover {
   background-color: #4CAF50; 
   color: white;
+  
 }
+.shadow{
+	box-shadow: 5px 3px 2px #888888;
+	cursor:pointer;
+}
+
 #rbox {
 	display: inline-block;
 	background: rgb(255,255,255);
@@ -68,4 +74,7 @@
 	background-color: aliceblue;
 	border-radius: 2rem;
 	padding: 10px 30px 10px 30px;
+}
+.nameShadow {
+	 text-shadow: 2px 2px 8px;
 }

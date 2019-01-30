@@ -13,9 +13,9 @@ class profilePage extends Component {
 	         	<div id='lbox' className='ml4 mt4 mr4'>
 	       			<img id='samplePic' src={samplePic} alt='smpPic'/>
 	       			<div className='tc mt3 b'>
-			       		<div id='nameWrapper' className='mb5'>
+			       		<div id='nameWrapper' className='mb5 nameShadow'>
 			       			<div>{this.props.credentials.data.fname} {this.props.credentials.data.sname}</div>
-			       			<img id='editPen' className='ml2 button' src={editPen} alt='ePic'/>
+			       			<img id='editPen' className='ml2 shadow grow' src={editPen} alt='ePic'/>
 			       		</div>
 						<div id='detailWrapper'>
 							<div className= 'mt3'>Followers: {this.props.credentials.data.followers}</div>
