@@ -3,6 +3,7 @@ import '../css/topMostBar.css';
 import searchGlass from '../assets/searchGlass.png';
 import profilePic from '../assets/profilePic.png';
 import galaxyPic from '../assets/galaxyPic.png';
+import searchOpener from '../assets/searchOpener.png';
 import { Link } from 'react-router-dom';
 
 class TopMostBar extends Component {
@@ -13,19 +14,19 @@ class TopMostBar extends Component {
         this.search = React.createRef();
         this.user = React.createRef();
         this.pic = React.createRef();
+        this.opn = React.createRef();
     }
 
     componentDidMount() {
         this.bar.current.addEventListener('mouseleave', this.shrink);
-        this.bar.current.addEventListener('mouseenter', this.expand);
-
     }
 
     shrink = () => {
         setTimeout(() => {
+            this.opn.current.style.display = 'block';
             this.logo.current.style.fontSize= '1.5rem';
-            this.bar.current.style.height = '50px';
-            this.bar.current.style.display = 'flex';
+            this.bar.current.style.height= '50px';
+            this.bar.current.style.display= 'flex';
             this.bar.current.style.alignItems= 'center';
             this.search.current.style.display= 'none';
             this.user.current.style.display= 'block';
@@ -36,16 +37,15 @@ class TopMostBar extends Component {
     };
 
     expand = () => {
-        setTimeout( () => {
-            this.logo.current.style.fontSize= '3rem';
-            this.bar.current.style.height = '250px';
-            this.bar.current.style.display = 'block';
-            this.search.current.style.display= 'flex';
-            this.user.current.style.display= 'none';
-            this.pic.current.style.marginLeft= 'calc(50vw - 50px)';
-            this.pic.current.style.height= '100px';
-            this.pic.current.style.width= '110px';
-        }, 500);
+        this.opn.current.style.display = 'none';
+        this.logo.current.style.fontSize= '3rem';
+        this.bar.current.style.height= '250px';
+        this.bar.current.style.display= 'block';
+        this.search.current.style.display= 'flex';
+        this.user.current.style.display= 'none';
+        this.pic.current.style.marginLeft= 'calc(50vw - 50px)';
+        this.pic.current.style.height= '100px';
+        this.pic.current.style.width= '110px';
     };
 
     render() {
@@ -63,6 +63,7 @@ class TopMostBar extends Component {
                     </Link>
                 </div>
                 <div className='emptySpace'/>
+                <img src={searchOpener} ref={this.opn} onClick={this.expand} alt='srhOpn' id='searchOpenImage'/>
                 <Link to={'/profile'}>
                     <img id='profilePic' ref={this.user} src={profilePic} alt={'pPic'}/>
                 </Link>
