@@ -36,14 +36,16 @@ class TopMostBar extends Component {
     };
 
     expand = () => {
-        this.logo.current.style.fontSize= '3rem';
-        this.bar.current.style.height = '250px';
-        this.bar.current.style.display = 'block';
-        this.search.current.style.display= 'flex';
-        this.user.current.style.display= 'none';
-        this.pic.current.style.marginLeft= 'calc(50vw - 50px)';
-        this.pic.current.style.height= '100px';
-        this.pic.current.style.width= '110px';
+        setTimeout( () => {
+            this.logo.current.style.fontSize= '3rem';
+            this.bar.current.style.height = '250px';
+            this.bar.current.style.display = 'block';
+            this.search.current.style.display= 'flex';
+            this.user.current.style.display= 'none';
+            this.pic.current.style.marginLeft= 'calc(50vw - 50px)';
+            this.pic.current.style.height= '100px';
+            this.pic.current.style.width= '110px';
+        }, 500);
     };
 
     render() {
