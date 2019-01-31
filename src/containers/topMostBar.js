@@ -22,22 +22,23 @@ class TopMostBar extends Component {
     }
 
     shrink = () => {
-        console.log(this.bar.current.style);
-        this.logo.current.style.fontSize= '1.5rem';
-        this.bar.current.style.height = '50px';
-        this.bar.current.style.display = 'flex';
-        this.bar.current.style.alignItems= 'center';
-        this.search.current.style.display= 'none';
-        this.user.current.style.display= 'block';
-        this.pic.current.style.marginLeft= '5px';
-        this.pic.current.style.height= '50px';
-        this.pic.current.style.width= '50px';
+        setTimeout(() => {
+            this.logo.current.style.fontSize= '1.5rem';
+            this.bar.current.style.height = '50px';
+            this.bar.current.style.display = 'flex';
+            this.bar.current.style.alignItems= 'center';
+            this.search.current.style.display= 'none';
+            this.user.current.style.display= 'block';
+            this.pic.current.style.marginLeft= '5px';
+            this.pic.current.style.height= '50px';
+            this.pic.current.style.width= '50px';
+        }, 1000);
     };
 
     expand = () => {
         this.logo.current.style.fontSize= '3rem';
         this.bar.current.style.height = '250px';
-        this.bar.current.style.display = 'block'
+        this.bar.current.style.display = 'block';
         this.search.current.style.display= 'flex';
         this.user.current.style.display= 'none';
         this.pic.current.style.marginLeft= 'calc(50vw - 50px)';
@@ -61,7 +62,7 @@ class TopMostBar extends Component {
                 </div>
                 <div className='emptySpace'/>
                 <Link to={'/profile'}>
-                <img id='profilePic' ref={this.user} src={profilePic} alt={'pPic'}/>
+                    <img id='profilePic' ref={this.user} src={profilePic} alt={'pPic'}/>
                 </Link>
             </div>
         );

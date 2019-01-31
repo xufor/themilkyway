@@ -2,7 +2,7 @@
     height: 250px;
     background-color: #24292e;
     max-width: calc(100vw);
-    transition: height 0.5s ease-out;
+    transition: height 0.7s ease-out;
 }
 
 #galaxyPic {
@@ -10,6 +10,7 @@
     margin-left: calc(50vw - 50px);
     height: 100px;
     width: 110px;
+    animation: fadeEntry 1.5s ease-out 0.1s alternate 1 backwards running;
 }
 
 #logoText {
@@ -18,12 +19,14 @@
     font-weight: normal;
     text-align: center;
     padding-top: 5px;
+    animation: fadeEntry 1.5s ease-out 0.3s alternate 1 backwards running;
 }
 
 #searchWrapper {
     display: flex;
     margin-top: 20px;
     margin-left: calc(50% - 240px);
+    animation: fadeEntry 1.5s ease-out 0.5s alternate 1 backwards running;
 }
 
 #searchGlassImage {
@@ -50,5 +53,13 @@
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
 }
 
+@keyframes fadeEntry {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 
