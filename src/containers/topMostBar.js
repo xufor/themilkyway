@@ -9,16 +9,21 @@ import { Link } from 'react-router-dom';
 class TopMostBar extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+          searchString: ''
+        };
         this.bar = React.createRef();
         this.logo = React.createRef();
         this.search = React.createRef();
         this.user = React.createRef();
         this.pic = React.createRef();
         this.opn = React.createRef();
+        this.input = React.createRef();
     }
 
     componentDidMount() {
         this.bar.current.addEventListener('mouseleave', this.shrink);
+        this.bar.current.addEventListener('keypress', this.onEnter);
     }
 
     shrink = () => {
@@ -48,6 +53,19 @@ class TopMostBar extends Component {
         this.pic.current.style.width= '110px';
     };
 
+    onEnter = (event) => {
+        console.log(this.props);
+        if(event.key === "Enter"){
+            this.props.history.push('/profile');
+        }
+    };
+
+    onSearchChange = (event) => {
+        this.setState({
+            searchString: event.target.value
+        });
+    };
+
     render() {
         return (
             <div id="topMostBar" ref={this.bar} className='shadow-5'>
@@ -56,7 +74,7 @@ class TopMostBar extends Component {
                     <div id='logoText' ref={this.logo} className='white pointer'>The Milky Way</div>
                 </Link>
                 <div id='searchWrapper' ref={this.search} >
-                    <input id='searchBox' className='alg-slf' type='text' maxLength='30'
+                    <input id='searchBox' ref={this.input} onChange={this.onSearchChange} type='text' maxLength='30'
                            placeholder='Searching for something?' aria-label='Search'/>
                     <Link to={'/search'}>
                         <img id='searchGlassImage' className='pointer' alt='srhGls' src={searchGlass}/>

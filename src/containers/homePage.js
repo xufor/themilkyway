@@ -9,7 +9,7 @@ class HomePage extends Component {
     render() {
         return (
           <div className='homePageBackground'>
-                <TopMostBar/>
+                <TopMostBar history={this.props.history}/>
                 <GreetBox/>
                 <FeedBox/>
           </div>

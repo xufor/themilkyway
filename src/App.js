@@ -8,8 +8,8 @@ import './App.css';
 
 
 class App extends Component {
-  render() {
-      return(
+    render() {
+        return(
           <BrowserRouter>
               <div>
                   {/*<Route path= '/' exact component = { WelcomePage }/>*/}

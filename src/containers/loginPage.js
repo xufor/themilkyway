@@ -16,7 +16,7 @@ class LoginPage extends Component {
 
     componentDidUpdate() {
         if (this.props.credentials.verifiedFlag === true) {
-          this.props.history.push('./home');
+          this.props.history.push('/home');
         }
     }
 
