@@ -1,0 +1,10 @@
+#boxWrapper{
+    width: 70vw;
+    margin: 15px auto;
+    background-color: rgb(255,255,255);
+    font-size: 1.2rem;
+    font-family: 'Quicksand', sans-serif;
+    padding: 50px;
+
+}
+
