@@ -43,21 +43,11 @@
 	flex-grow: 30;
 	width: calc(30vw);
 }
-.button {
-  background-color: #e7e7e7;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  border-radius: 0.25rem;
-}
-.button:hover {
-  background-color: #4CAF50; 
-  color: white;
-  
-}
-.shadow{
-	box-shadow: 5px 3px 2px #888888;
+
+.cursor{
 	cursor:pointer;
 }
+
 
 #rbox {
 	display: inline-block;
@@ -77,4 +67,16 @@
 }
 .nameShadow {
 	 text-shadow: 2px 2px 8px;
+}
+#db{
+	display:inline-flex;
+	padding:10px 20px 10px 20px;
+	border-radius: 2rem;
+	background-color:aliceblue;
+}
+#dbc {
+	display:inline-flex;
+	padding:10px 20px 10px 20px;
+	border-radius: 2rem;
+	background-color:aquamarine;
 }

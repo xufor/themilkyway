@@ -15,7 +15,7 @@ class profilePage extends Component {
 	       			<div className='tc mt3 b'>
 			       		<div id='nameWrapper' className='mb5 nameShadow'>
 			       			<div>{this.props.credentials.data.fname} {this.props.credentials.data.sname}</div>
-			       			<img id='editPen' className='ml2 shadow grow' src={editPen} alt='ePic'/>
+			       			<img id='editPen' className='ml2 cursor grow' src={editPen} alt='ePic'/>
 			       		</div>
 						<div id='detailWrapper'>
 							<div className= 'mt3'>Followers: {this.props.credentials.data.followers}</div>
@@ -26,6 +26,10 @@ class profilePage extends Component {
 	       			</div>
 	       		</div>	
 	       		<div id='rbox'>
+	       		  <div className='dateob'>
+	       		    <div id='db'>Date Of Birth:</div>
+                      <div id='dbc'>{this.props.credentials.data.dob}</div>
+                  </div>
 	       			<div id='bioBox'>
 						<div id='bioHeading'>Bio:</div>
 						<p id='bioContent'>{this.props.credentials.data.bio}</p>
