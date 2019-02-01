@@ -25,7 +25,7 @@ class TopMostBar extends Component {
     }
 
     componentDidMount() {
-        this.bar.current.addEventListener('mouseleave', this.shrink);
+        // this.bar.current.addEventListener('mouseleave', this.shrink);
         this.bar.current.addEventListener('keypress', this.onEnter);
     }
 
