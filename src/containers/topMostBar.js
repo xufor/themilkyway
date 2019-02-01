@@ -4,6 +4,9 @@ import searchGlass from '../assets/searchGlass.png';
 import profilePic from '../assets/profilePic.png';
 import galaxyPic from '../assets/galaxyPic.png';
 import searchOpener from '../assets/searchOpener.png';
+import { updateSearchString } from '../actions/searchStringAction.js';
+import { connect } from 'react-redux';
+import { bindActionCreators} from "redux";
 import { Link } from 'react-router-dom';
 
 class TopMostBar extends Component {
@@ -26,19 +29,21 @@ class TopMostBar extends Component {
         this.bar.current.addEventListener('keypress', this.onEnter);
     }
 
+    componentWillUnmount() {
+        this.props.updateSearchString(this.state.searchString);
+    }
+
     shrink = () => {
-        setTimeout(() => {
-            this.opn.current.style.display = 'block';
-            this.logo.current.style.fontSize= '1.5rem';
-            this.bar.current.style.height= '50px';
-            this.bar.current.style.display= 'flex';
-            this.bar.current.style.alignItems= 'center';
-            this.search.current.style.display= 'none';
-            this.user.current.style.display= 'block';
-            this.pic.current.style.marginLeft= '5px';
-            this.pic.current.style.height= '50px';
-            this.pic.current.style.width= '50px';
-        }, 1000);
+        this.opn.current.style.display = 'block';
+        this.logo.current.style.fontSize= '1.5rem';
+        this.bar.current.style.height= '50px';
+        this.bar.current.style.display= 'flex';
+        this.bar.current.style.alignItems= 'center';
+        this.search.current.style.display= 'none';
+        this.user.current.style.display= 'block';
+        this.pic.current.style.marginLeft= '5px';
+        this.pic.current.style.height= '50px';
+        this.pic.current.style.width= '50px';
     };
 
     expand = () => {
@@ -53,17 +58,16 @@ class TopMostBar extends Component {
         this.pic.current.style.width= '110px';
     };
 
-    onEnter = (event) => {
-        console.log(this.props);
-        if(event.key === "Enter"){
-            this.props.history.push('/profile');
-        }
-    };
-
     onSearchChange = (event) => {
         this.setState({
             searchString: event.target.value
         });
+    };
+
+    onEnter = (event) => {
+        if(event.key === "Enter"){
+            this.props.history.push('/profile');
+        }
     };
 
     render() {
@@ -90,4 +94,8 @@ class TopMostBar extends Component {
     };
 }
 
-export default TopMostBar;
+const mapActionToProps = (dispatch) => {
+    return bindActionCreators({ updateSearchString }, dispatch);
+};
+
+export default connect(null, mapActionToProps)(TopMostBar);

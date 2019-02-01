@@ -1,7 +1,7 @@
 import axLib from 'axios';
 export const FETCH_USER_CREDENTIALS = 'FETCH_USER_CREDENTIALS';
 
-export const fetchUserCredentials = ({ email, password}) => {
+export const fetchUserCredentials = ({ email, password }) => {
 
 	const responseFromServer = axLib.request({
 		url: '/login',
