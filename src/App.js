@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import WelcomePage from './components/welcomePage.js';
-import LoginPage from './containers/loginPage.js';
+// import WelcomePage from './components/welcomePage.js';
+// import LoginPage from './containers/loginPage.js';
 import HomePage from './containers/homePage.js';
-import RegisterPage from './containers/registerPage.js';
+// import RegisterPage from './containers/registerPage.js';
 import {BrowserRouter, Route} from "react-router-dom";
 import './App.css';
 
@@ -20,7 +20,7 @@ class App extends Component {
           </BrowserRouter>
       );
   };
-};
+}
 
 
 export default App;
