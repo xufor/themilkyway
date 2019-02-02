@@ -1,3 +1,8 @@
 .emptySpace {
-    flex-grow: 100;
+     flex-grow: 100;
+ }
+
+a {
+    text-decoration: none;
 }
+

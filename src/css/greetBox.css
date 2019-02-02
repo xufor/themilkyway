@@ -1,20 +1,19 @@
 #greetBox {
     display: flex;
     height: 30px;
-    background-color: rgba(255,255,255,1);
-    margin: 0 20px 0 20px;
-    border-radius: 1rem;
+    background-color: rgb(255,255,255);
+    width: calc(100vw);
 }
 
 #composeLink {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
+    font-family: 'Raleway', monospace;
+    font-weight: normal;
     margin-right: 15px;
     align-self: center;
 }
 #greeting {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    margin-left: 20px;
+    font-family: 'Raleway', monospace;
+    font-weight: normal;
+    margin-left: 15px;
     align-self: center;
 }
