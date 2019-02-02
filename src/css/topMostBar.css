@@ -1,7 +1,7 @@
 #topMostBar {
     height: 250px;
     background-color: #24292e;
-    max-width: calc(100vw);
+    width: calc(100vw);
     transition: height 0.3s ease-in-out;
 }
 

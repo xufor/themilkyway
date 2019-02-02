@@ -8,7 +8,7 @@ import '../css/homePage.css';
 class HomePage extends Component {
     render() {
         return (
-          <div className='homePageBackground'>
+          <div id={'homePageBackground'}>
                 <TopMostBar history={this.props.history}/>
                 <GreetBox/>
                 <FeedBox/>

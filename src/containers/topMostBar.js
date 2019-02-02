@@ -25,7 +25,7 @@ class TopMostBar extends Component {
     }
 
     componentDidMount() {
-        // this.bar.current.addEventListener('mouseleave', this.shrink);
+        this.bar.current.addEventListener('mouseleave', this.shrink);
         this.bar.current.addEventListener('keypress', this.onEnter);
     }
 
@@ -34,16 +34,18 @@ class TopMostBar extends Component {
     }
 
     shrink = () => {
-        this.opn.current.style.display = 'block';
-        this.logo.current.style.fontSize= '1.5rem';
-        this.bar.current.style.height= '50px';
-        this.bar.current.style.display= 'flex';
-        this.bar.current.style.alignItems= 'center';
-        this.search.current.style.display= 'none';
-        this.user.current.style.display= 'block';
-        this.pic.current.style.marginLeft= '5px';
-        this.pic.current.style.height= '50px';
-        this.pic.current.style.width= '50px';
+        setTimeout( () => {
+            this.opn.current.style.display = 'block';
+            this.logo.current.style.fontSize= '1.5rem';
+            this.bar.current.style.height= '50px';
+            this.bar.current.style.display= 'flex';
+            this.bar.current.style.alignItems= 'center';
+            this.search.current.style.display= 'none';
+            this.user.current.style.display= 'block';
+            this.pic.current.style.marginLeft= '5px';
+            this.pic.current.style.height= '50px';
+            this.pic.current.style.width= '50px';
+        }, 1000);
     };
 
     expand = () => {
