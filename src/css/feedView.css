@@ -1,0 +1,33 @@
+#intro {
+    font-size: 1.5rem;
+}
+
+#title {
+    font-size: 2.5rem;
+}
+
+#upper {
+    display: flex;
+}
+
+#feedView {
+    padding: 30px;
+    border-radius: 2rem;
+    background-color: aliceblue;
+    margin-bottom: 40px;
+    height: 100%;
+}
+
+#pPic {
+    display: inline-block;
+    width: 150px;
+    height : 150px;
+    border-radius: 50%;
+    border: 10px white solid;
+    position: relative;
+    top: -15px;
+}
+
+#summary {
+    margin: 10px auto;
+}

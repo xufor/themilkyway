@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { sampleStory } from "../strings";
+import FeedView from './feedView';
 import '../css/feedBox.css';
 
 class FeedBox extends Component {
-    constructor(props) {
-        super(props);
-        this.box = React.createRef();
-    }
+
+    viewGen = (n) => {
+        let i, arr = [];
+        for(i=0; i<n; i++) {
+            arr[i] = <FeedView/>;
+        }
+        return arr;
+    };
 
     render() {
         return (
-            <div id={'boxWrapper'} ref={this.box}>
-                <p>{ sampleStory }</p>
+            <div id={'boxWrapper'}>
+                    {this.viewGen(5)}
             </div>
         );
     }
