@@ -1,6 +1,5 @@
 export var sampleQuote = "Literature is the art of discovering something extraordinary about ordinary people, and saying with ordinary words something extraordinary.";
-export var sampleStory = "ONE DOLLAR AND EIGHTY-SEVEN CENTS.\n" +
-    "That was all. And sixty cents of it was in pennies. \n" +
+export var sampleStory = "That was all. And sixty cents of it was in pennies. \n" +
     "Pennies saved one and two at a time by\n" +
     "bulldozing the grocer and the vegetable man and the butcher\n" +
     "until one's cheek burned with the silent imputation of parsimony\n" +
@@ -196,3 +195,6 @@ export var sampleStory = "ONE DOLLAR AND EIGHTY-SEVEN CENTS.\n" +
     "give gifts these two were the wisest. Of all who give and receive\n" +
     "gifts, such as they are wisest. Everywhere they are wisest. They are\n" +
     "the magi.";
+export var summary = "A story of a boy who met a wolf on the journey to his hometown and how they became best friends. " +
+    " Discover how Magi helps the boy to overcome his fears when he needed a friend the most." +
+    " Join Magi and his new friend on their eventful journey. ";
