@@ -36,21 +36,21 @@ class TopMostBar extends Component {
     shrink = () => {
         setTimeout( () => {
             this.opn.current.style.display = 'block';
-            this.logo.current.style.fontSize= '2rem';
+            this.logo.current.style.fontSize= '2.3rem';
             this.bar.current.style.height= '50px';
             this.bar.current.style.display= 'flex';
             this.bar.current.style.alignItems= 'center';
             this.search.current.style.display= 'none';
             this.user.current.style.display= 'block';
             this.pic.current.style.marginLeft= '5px';
-            this.pic.current.style.height= '50px';
-            this.pic.current.style.width= '50px';
+            this.pic.current.style.height= '40px';
+            this.pic.current.style.width= '40px';
         }, 1000);
     };
 
     expand = () => {
         this.opn.current.style.display = 'none';
-        this.logo.current.style.fontSize= '3.5rem';
+        this.logo.current.style.fontSize= '4rem';
         this.bar.current.style.height= '250px';
         this.bar.current.style.display= 'block';
         this.search.current.style.display= 'flex';

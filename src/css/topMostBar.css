@@ -14,11 +14,10 @@
 }
 
 #logoText {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-family: 'Caveat', cursive;
     font-weight: normal;
     text-align: center;
-    padding-top: 0px;
     animation: fadeEntry 1.5s ease-out 0.3s alternate 1 backwards running;
 }
 
