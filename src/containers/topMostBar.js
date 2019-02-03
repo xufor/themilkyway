@@ -36,7 +36,7 @@ class TopMostBar extends Component {
     shrink = () => {
         setTimeout( () => {
             this.opn.current.style.display = 'block';
-            this.logo.current.style.fontSize= '1.5rem';
+            this.logo.current.style.fontSize= '2rem';
             this.bar.current.style.height= '50px';
             this.bar.current.style.display= 'flex';
             this.bar.current.style.alignItems= 'center';
@@ -50,7 +50,7 @@ class TopMostBar extends Component {
 
     expand = () => {
         this.opn.current.style.display = 'none';
-        this.logo.current.style.fontSize= '3rem';
+        this.logo.current.style.fontSize= '3.5rem';
         this.bar.current.style.height= '250px';
         this.bar.current.style.display= 'block';
         this.search.current.style.display= 'flex';

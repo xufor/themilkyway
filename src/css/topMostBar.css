@@ -2,7 +2,7 @@
     height: 250px;
     background-color: #24292e;
     width: calc(100vw);
-    transition: height 0.3s ease-in-out;
+    transition: height 0.5s ease-in-out;
 }
 
 #galaxyPic {
@@ -14,11 +14,11 @@
 }
 
 #logoText {
-    font-size: 3rem;
-    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    font-family: 'Caveat', cursive;
     font-weight: normal;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 0px;
     animation: fadeEntry 1.5s ease-out 0.3s alternate 1 backwards running;
 }
 
