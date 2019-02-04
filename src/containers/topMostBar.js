@@ -34,22 +34,19 @@ class TopMostBar extends Component {
     }
 
     shrink = () => {
-        setTimeout( () => {
-            this.opn.current.style.display = 'block';
-            this.logo.current.style.fontSize= '2.3rem';
-            this.bar.current.style.height= '50px';
-            this.bar.current.style.display= 'flex';
-            this.bar.current.style.alignItems= 'center';
-            this.search.current.style.display= 'none';
-            this.user.current.style.display= 'block';
-            this.pic.current.style.marginLeft= '5px';
-            this.pic.current.style.height= '40px';
-            this.pic.current.style.width= '40px';
-        }, 1000);
+        this.logo.current.style.fontSize= '2.3rem';
+        this.bar.current.style.height= '50px';
+        this.bar.current.style.display= 'flex';
+        this.bar.current.style.alignItems= 'center';
+        this.search.current.style.display= 'none';
+        this.user.current.style.display= 'block';
+        this.pic.current.style.marginLeft= '5px';
+        this.pic.current.style.height= '40px';
+        this.pic.current.style.width= '40px';
+        this.opn.current.style.display = 'block';
     };
 
     expand = () => {
-        this.opn.current.style.display = 'none';
         this.logo.current.style.fontSize= '4rem';
         this.bar.current.style.height= '250px';
         this.bar.current.style.display= 'block';
@@ -58,6 +55,7 @@ class TopMostBar extends Component {
         this.pic.current.style.marginLeft= 'calc(50vw - 50px)';
         this.pic.current.style.height= '100px';
         this.pic.current.style.width= '110px';
+        this.opn.current.style.display = 'none';
     };
 
     onSearchChange = (event) => {
