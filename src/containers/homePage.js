@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TopMostBar from './topMostBar.js';
-import GreetBox from './greetBox.js';
-import FeedBox from './feedBox.js';
+import TopMostBar from './topMostBar';
+import GreetBox from './greetBox';
+import FeedBox from './feedBox';
+import PageFooter from '../components/pageFooter';
 import '../css/homePage.css';
 
 class HomePage extends Component {
@@ -12,6 +13,7 @@ class HomePage extends Component {
                 <TopMostBar history={this.props.history}/>
                 <GreetBox/>
                 <FeedBox/>
+                <PageFooter/>
           </div>
         )
     }
