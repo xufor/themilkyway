@@ -4,6 +4,8 @@ import TopMostBar from './topMostBar';
 import GreetBox from './greetBox';
 import FeedBox from './feedBox';
 import PageFooter from '../components/pageFooter';
+import BlackScreen from '../components/blackScreen';
+import Loader from '../components/loader';
 import '../css/homePage.css';
 
 // https://connoratherton.com/loaders
@@ -12,6 +14,8 @@ class HomePage extends Component {
     render() {
         return (
             <div>
+                <BlackScreen/>
+                <Loader/>
                 <div id={'homePageBackground'}>
                     <TopMostBar history={this.props.history}/>
                     <GreetBox/>

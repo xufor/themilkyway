@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import WelcomePage from './components/welcomePage.js';
 import LoginPage from './containers/loginPage.js';
 import HomePage from './containers/homePage.js';
-import BlackScreen from './components/blackScreen';
-import Loader from './components/loader';
 import RegisterPage from './containers/registerPage.js';
 import {BrowserRouter, Route} from "react-router-dom";
 import './App.css';
@@ -17,9 +15,7 @@ class App extends Component {
                   <Route path= {'/welcome'} exact component = { WelcomePage }/>
                   <Route path= {'/login'} exact component = { LoginPage }/>
                   <Route path= {'/register'} exact component = { RegisterPage }/>
-                  <Route path= {'/'} component = { HomePage }/>
-                  <Route path= {'/bs'} component = {BlackScreen}/>
-                  <Route path={'/ld'} component = {Loader}/>
+                  <Route path= {'/'} exact component = { HomePage }/>
               </div>
           </BrowserRouter>
       );
