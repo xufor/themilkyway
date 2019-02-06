@@ -9,6 +9,7 @@ import ReduxPromise from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
 import rootReducer from './reducers/essential.js';
 import 'tachyons';
+import 'loaders.css';
 
 //This is a statement to enable redux dev tools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -6,15 +6,19 @@ import FeedBox from './feedBox';
 import PageFooter from '../components/pageFooter';
 import '../css/homePage.css';
 
+// https://connoratherton.com/loaders
+
 class HomePage extends Component {
     render() {
         return (
-          <div id={'homePageBackground'}>
-                <TopMostBar history={this.props.history}/>
-                <GreetBox/>
-                <FeedBox/>
-                <PageFooter/>
-          </div>
+            <div>
+                <div id={'homePageBackground'}>
+                    <TopMostBar history={this.props.history}/>
+                    <GreetBox/>
+                    <FeedBox/>
+                    <PageFooter/>
+                </div>
+            </div>
         )
     }
 }
