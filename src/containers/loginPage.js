@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import { fetchUserCredentials } from '../actions/fetchCredsAction.js';
+import LoaderAnimation from '../components/loaderAnimation';
+import { fetchUserCredentials } from '../actions/fetchCredsAction';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from  'react-router-dom';
 import '../css/loginPage.css';
+import BlackScreen from "../components/blackScreen";
 
 class LoginPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            loaderFlag: 0,
         }
     }
 
@@ -32,7 +35,6 @@ class LoginPage extends Component {
         });
     };
 
-
     onClickSignIn = () => {
         let actionPacket = {
             email: this.state.email,
@@ -40,20 +42,38 @@ class LoginPage extends Component {
             history: this.props.history
         };
         this.props.fetchUserCredentials(actionPacket);
+        this.setState({ loaderFlag: 1});
+        setTimeout(() => {
+            this.setState({ loaderFlag: 0});
+        }, 5000);
+    };
+
+    displayLoader = (flag) => {
+        if(flag === 1) {
+            return (
+                <div>
+                    <LoaderAnimation/>
+                    <BlackScreen/>
+                </div>
+            );
+        }
     };
 
     render() {
         return (
-            <div id='loginPageBackground'>
-                <div id='loginBox'>
-                    <div className='boxHeading'>Login</div>
-                    <div id='inputLabelLgBx'>Email</div>
-                    <input onChange={this.onEmailChange} className='inputBox' type='email' required/>
-                    <div id='inputLabelLgBx'>Password</div>
-                    <input onChange={this.onPasswordChange} className='inputBox' type='password' required/>
-                    <button onClick={() => this.onClickSignIn()} id='loginButton' className='grow'>Login</button>
-                    <Link to={'/register'} id='registerInstead' className='grow'>Don't have an account?</Link>
-                 </div>
+            <div>
+                {this.displayLoader(this.state.loaderFlag)}
+                <div id='loginPageBackground'>
+                    <div id='loginBox'>
+                        <div className='boxHeading'>Login</div>
+                        <div id='inputLabelLgBx'>Email</div>
+                        <input onChange={this.onEmailChange} className='inputBox' type='email' required/>
+                        <div id='inputLabelLgBx'>Password</div>
+                        <input onChange={this.onPasswordChange} className='inputBox' type='password' required/>
+                        <button onClick={() => this.onClickSignIn()} id='loginButton' className='grow'>Login</button>
+                        <Link to={'/register'} id='registerInstead' className='grow'>Don't have an account?</Link>
+                     </div>
+                </div>
             </div>
         );
     }

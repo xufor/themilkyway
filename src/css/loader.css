@@ -1,9 +1,0 @@
-#loader {
-    display: none;
-    position: fixed;
-    top: calc(50% - 32px);
-    left: calc(50% - 30px);
-    z-index: 2;
-    animation: fadeEntry 0.5s ease-out 0.1s alternate 1 backwards running;
-    transform: scale(1.5,1.5);
-}

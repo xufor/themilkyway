@@ -5,17 +5,34 @@ import GreetBox from './greetBox';
 import FeedBox from './feedBox';
 import PageFooter from '../components/pageFooter';
 import BlackScreen from '../components/blackScreen';
-import Loader from '../components/loader';
+import LoaderAnimation from '../components/loaderAnimation';
 import '../css/homePage.css';
 
 // https://connoratherton.com/loaders
 
 class HomePage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          loaderFlag: 0,
+        };
+    }
+
+    displayLoader = (flag) => {
+        if(flag === 1) {
+            return (
+                <div>
+                    <LoaderAnimation/>
+                    <BlackScreen/>
+                </div>
+            );
+        }
+    };
+
     render() {
         return (
             <div>
-                <BlackScreen/>
-                <Loader/>
+                {this.displayLoader(this.state.loaderFlag)}
                 <div id={'homePageBackground'}>
                     <TopMostBar history={this.props.history}/>
                     <GreetBox/>
