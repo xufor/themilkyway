@@ -1,5 +1,6 @@
 #boxWrapper {
 	width: 100vw;
+	animation: fadeIn 0.5s 1 forwards;
 }
 
 #topBox {
