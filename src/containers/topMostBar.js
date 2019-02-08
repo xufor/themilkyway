@@ -4,10 +4,12 @@ import searchGlass from '../assets/searchGlass.png';
 import profilePic from '../assets/profilePic.png';
 import galaxyPic from '../assets/galaxyPic.png';
 import searchOpener from '../assets/searchOpener.png';
+import { updateBarState } from '../actions/barStateAction';
 import { updateSearchString } from '../actions/searchStringAction.js';
 import { connect } from 'react-redux';
 import { bindActionCreators} from "redux";
 import { Link } from 'react-router-dom';
+
 
 class TopMostBar extends Component {
     constructor(props) {
@@ -21,16 +23,16 @@ class TopMostBar extends Component {
         this.user = React.createRef();
         this.pic = React.createRef();
         this.opn = React.createRef();
-        this.input = React.createRef();
-    }
-
-    componentDidMount() {
-        this.bar.current.addEventListener('mouseleave', this.shrink);
-        this.bar.current.addEventListener('keypress', this.onEnter);
     }
 
     componentWillUnmount() {
         this.props.updateSearchString(this.state.searchString);
+    }
+
+    componentDidUpdate() {
+        if(this.props.topBarState === 'shrink-enabled') {
+            this.shrink();
+        }
     }
 
     shrink = () => {
@@ -56,6 +58,7 @@ class TopMostBar extends Component {
         this.pic.current.style.height= '100px';
         this.pic.current.style.width= '110px';
         this.opn.current.style.display = 'none';
+        this.props.updateBarState('expand-enabled');
     };
 
     onSearchChange = (event) => {
@@ -78,8 +81,8 @@ class TopMostBar extends Component {
                     <div id='logoText' ref={this.logo} className='white pointer'>The Milky Way</div>
                 </Link>
                 <div id='searchWrapper' ref={this.search} >
-                    <input id='searchBox' ref={this.input} onChange={this.onSearchChange} type='text' maxLength='30'
-                           placeholder='Searching for something?' aria-label='Search'/>
+                    <input id='searchBox' onChange={this.onSearchChange} type='text' maxLength='30'
+                           onKeyPress={this.onEnter} placeholder='Searching for something?' aria-label='Search'/>
                     <Link to={'/search'}>
                         <img id='searchGlassImage' className='pointer' alt='srhGls' src={searchGlass}/>
                     </Link>
@@ -95,7 +98,13 @@ class TopMostBar extends Component {
 }
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ updateSearchString }, dispatch);
+    return bindActionCreators({ updateSearchString, updateBarState }, dispatch);
 };
 
-export default connect(null, mapActionToProps)(TopMostBar);
+const mapStateToProps = (state) => {
+    return {
+        topBarState: state.barState
+    };
+};
+
+export default connect(mapStateToProps, mapActionToProps)(TopMostBar);

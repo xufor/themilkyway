@@ -8,8 +8,6 @@ import BlackScreen from '../components/blackScreen';
 import LoaderAnimation from '../components/loaderAnimation';
 import '../css/homePage.css';
 
-// https://connoratherton.com/loaders
-
 class HomePage extends Component {
     constructor(props) {
         super(props);
