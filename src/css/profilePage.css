@@ -1,6 +1,5 @@
 #boxWrapper {
-	width: 65vw;
-	margin: 0 auto;
+	width: 100vw;
 }
 
 #topBox {
@@ -11,48 +10,69 @@
 	color: white;
 	align-items: center;
 	font-family: 'Raleway', sans-serif;
-	font-size: 1.2rem;
+	font-size: 2rem;
+}
+
+#midBox {
+	height: 5vh;
+	background: white;
+	font-size: 1.5rem;
+	align-items: center;
+	font-family: 'Raleway', sans-serif;
 }
 
 #bottomBox {
 	background: #f9f9f9;	
 	width: 100%;
-	height: 60vh;
+	height: 65vh;
 }
 
 #pImg {
 	width: 25vh;
 	border-radius: 50%;
 	border: 7px solid white;
-	margin-left: 20px;
-}
-
-#detailWrapper {
 	margin-left: 30px;
 }
 
-#goToHome {
-
-}
-
-#midBox{
-   height: 10vh;
-   background: aliceblue;
-}
-
 #detailWrapper{
-	display:inline-flex;
-}
-
-#oName{
 	display:flex;
-	text-align: right;
+	padding: 3px;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
-#name {
-	text-align: right;
+#a {
+	display: flex;
+	margin-top: 5px;
 }
 
-#nameWrapper{
+#naWrapper{
 	margin-right: 50px;
+}
+
+#mFollower{
+	width: 30px;
+	height: 30px;
+	margin-right: 1%;
+}
+
+#mFollowing{
+	width: 30px;
+	height: 30px;
+	margin-right: 1%;
+	margin-left: 25%;
+}
+
+#mPraises{
+	width: 30px;
+	height: 30px;
+	margin-right: 1%;
+	margin-left: 25%;
+}
+
+#mViews{
+	width: 30px;
+	height: 30px;
+	margin-right: 1%;
+	margin-left: 25%;
 }

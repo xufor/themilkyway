@@ -18,44 +18,54 @@ class profilePage extends Component {
 			<div id={'topBox'}>
 				<img id={'pImg'} src={sPic} alt={'pic-1'}/>
 		        <div className={'emptySpace'}/>
-		        <div id={'nameWrapper'}>
-		        	<div id={'oName'}>
-		            	<div id={'fName'}>
-		            		{this.props.credentials.data.fname + ' '} 
-		            		{this.props.credentials.data.sname}
-		            	</div>
-		            </div>
-					<div id={'pMedal'}>
+		        <div id={'naWrapper'}>
+		        	<div id={'n'}>
+						{this.props.credentials.data.fname + ' '}
+						{this.props.credentials.data.sname}
+		        	</div>
+					<div id={'a'}>
+						<div className={'emptySpace'}/>
 						<img className={'mr2'}  id={'mRed'} src={mRed} alt={'pic-2'}/>
 						<img className={'mr2'}  id={'mGreen'} src={mGreen} alt={'pic-3'}/>
 						<img className={'mr2'}  id={'mBlue'} src={mBlue} alt={'pic-4'}/>
-						<img className={'mr2'} id={'mYellow'}  src={mYellow} alt={'pic-9'}/>
+						<img id={'mYellow'}  src={mYellow} alt={'pic-9'}/>
 		        	</div>
 		        </div>
-				<div id={'goToHome'}></div>
+				<div id={'goToHome'}/>
             </div>
 		);
-	}
+	};
+
+	midBoxGen = () => {
+		return(
+			<div id={'midBox'}>
+				<div id='detailWrapper'>
+					<img id={'mFollower'} src={mFollower} alt={'pic-5'}/>
+					<div>{this.props.credentials.data.followers}</div>
+					<img id={'mFollowing'} src={mFollowing} alt={'pic-6'}/>
+					<div>{this.props.credentials.data.following}</div>
+					<img id={'mPraises'}  src={mPraises} alt={'pic-7'}/>
+					<div>{this.props.credentials.data.praises}</div>
+					<img id={'mViews'} src={mViews} alt={'pic-8'}/>
+					<div>{this.props.credentials.data.views}</div>
+				</div>
+			</div>
+		);
+	};
+
+	bottomBoxGen = () => {
+		return (
+			<div id={'bottomBox'}/>
+		);
+	};
 
 	render() {
        return (
-              <div id={'boxWrapper'}>
-              	{this.topBoxGen()}	
-              		<div id={'midBox'}>
-              		   <div id='detailWrapper'>
-              		   		<img className='mFollower mr2' src={mFollower} alt={'pic-5'}/>
-							<div className= 'mt3 mr4'>{this.props.credentials.data.followers}</div>
-							<img className='mFollowing mr2' src={mFollowing} alt={'pic-6'}/>
-							<div className= 'mt3 mr4'>{this.props.credentials.data.following}</div>
-							<img className='mPraises mr2' src={mPraises} alt={'pic-7'}/>
-							<div className= 'mt3 mr4'>{this.props.credentials.data.praises}</div>
-							<img className='mViews mr2' src={mViews} alt={'pic-8'}/>
-							<div className= 'mt3 mr4'>{this.props.credentials.data.views}</div>
-						</div>
-              		</div>
-              		<div id={'bottomBox'}>
-              		</div>
-              </div>
+       	<div id={'boxWrapper'}>
+			{this.topBoxGen()}
+			{this.midBoxGen()}
+			{this.bottomBoxGen()}
+       	</div>
        	);
 	};
 }	
