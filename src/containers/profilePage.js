@@ -15,6 +15,7 @@ class profilePage extends Component {
 							<div className= 'mt3'>Praises: {this.props.credentials.data.praises}</div>
 							<div className= 'mt3'>Views: {this.props.credentials.data.views}</div>
 						</div>
+						<div id={'goToHome'}></div>
               		</div>
               		<div id={'bottomBox'}>
               		</div>

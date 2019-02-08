@@ -10,7 +10,8 @@
 	height: 30vh;
 	color: white;
 	align-items: center;
-	font-family: 'Caveat', monospace;
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.2rem;
 }
 
 #bottomBox {
@@ -24,4 +25,12 @@
 	border-radius: 50%;
 	border: 7px solid white;
 	margin-left: 20px;
+}
+
+#detailWrapper {
+	margin-left: 30px;
+}
+
+#goToHome {
+
 }
