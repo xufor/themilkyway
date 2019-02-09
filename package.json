@@ -5,6 +5,7 @@
   "dependencies": {
     "ajv": "^6.5.4",
     "axios": "^0.18.0",
+    "loaders.css": "^0.1.2",
     "lodash": "^4.17.11",
     "react": "^16.5.2",
     "react-bootstrap": "^0.32.4",

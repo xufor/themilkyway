@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import credentialReducer from './credsReducer.js';
+import credentialReducer from './credsReducer';
+import searchReducer from './searchReducer';
+import barReducer from './barReducer';
 
 const rootReducer = combineReducers({
-	credentials: credentialReducer
+	credentials: credentialReducer,
+	searchString: searchReducer,
+	barState: barReducer,
 });
 
 export default rootReducer;

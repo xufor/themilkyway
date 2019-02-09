@@ -9,20 +9,20 @@ import './App.css';
 
 
 class App extends Component {
-  render() {
-      return(
+    render() {
+        return(
           <BrowserRouter>
               <div>
-                  {/*<Route path= '/' exact component = { WelcomePage }/>*/}
-                  {/*<Route path= '/login' exact component = { LoginPage }/>*/}
-                  {/*<Route path= '/register' exact component = { RegisterPage }/>*/}
-                  <Route path= '/' exact component = { HomePage }/>
+                  <Route path= {'/welcome'} exact component = { WelcomePage }/>
+                  <Route path= {'/login'} exact component = { LoginPage }/>
+                  <Route path= {'/register'} exact component = { RegisterPage }/>
+                  <Route path= {'/'} exact component = { HomePage }/>
                   <Route path= '/profile' exact component = { ProfilePage }/> 
               </div>
           </BrowserRouter>
       );
   };
-};
+}
 
 
 export default App;

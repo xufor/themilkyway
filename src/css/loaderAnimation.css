@@ -1,0 +1,44 @@
+#animationWrapper {
+    border-radius: 2rem;
+    width: 55vw;
+    height: 20vh;
+    padding: 25px;
+    background: rgb(255,255,255);
+    position: fixed;
+    top: calc(50% - (0.5 * 20vh));
+    left: calc(50% - (0.5 * 55vw));
+    z-index: 2;
+    animation: fadeEntry 0.5s ease-out 0.1s alternate 1 backwards running;
+}
+
+#message {
+    text-align: center;
+    font-family: 'Raleway', monospace;
+    margin-bottom: 3vh;
+}
+
+#loader {
+    display: inline-block;
+    margin-left: calc((0.5 * 55vw) - 43px);
+    transform: scale(1.5,1.5);
+}
+
+#ldr1 {
+    background-color: #24292e;
+}
+
+#ldr2 {
+    background-color: blueviolet;
+}
+
+#ldr3 {
+    background-color: #24292e;
+}
+
+#ldr4 {
+    background-color: blueviolet;
+}
+
+#ldr5 {
+    background-color: #24292e;
+}
