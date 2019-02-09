@@ -55,7 +55,15 @@ class profilePage extends Component {
 
 	bottomBoxGen = () => {
 		return (
-			<div id={'bottomBox'}/>
+			<div id={'bottomBox'}>
+				<div id={'db'}>Date Of Birth: {this.props.credentials.data.dob}</div>
+				<div id={'cntry'}>Country: {this.props.credentials.data.country}</div>
+				<p id={'bio'}>Bio: {this.props.credentials.data.bio}</p>
+				<div id={'edacct'}>
+					<button id={'edit'} className='grow'>Edit</button>
+					<button className='ml6 grow' id={'dlt'}>Delete My Account</button>
+				</div>
+			</div>
 		);
 	};
 
