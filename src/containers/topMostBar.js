@@ -69,7 +69,7 @@ class TopMostBar extends Component {
 
     onEnter = (event) => {
         if(event.key === "Enter"){
-            this.props.history.push('/profile');
+            this.props.history.push('/search');
         }
     };
 

@@ -7,7 +7,7 @@
 #topBox {
 	background: #24292e;
 	display: flex;
-	width: 70vw;
+	width: 85vw;
 	margin: 0 auto;
 	height: 30vh;
 	color: white;
@@ -18,7 +18,7 @@
 
 #midBox {
 	background: white;
-	width: 70vw;
+    width: 85vw;
 	height: 5vh;
 	margin: 0 auto;
 	font-size: 1.1rem;
@@ -30,7 +30,7 @@
 #bottomBox {
 	background: #f9f9f9;
 	height: 500px;
-	width: 70vw;
+    width: 85vw;
 	margin: 0 auto;
 	padding: 20px;
 	font-family: 'Quicksand', sans-serif;
@@ -116,7 +116,7 @@
 #ed-acct{
 	display: flex;
 	justify-content: center;
-	margin-top: 50px;
+	margin-top: 100px;
 	font-family: 'Caveat', monospace;
 }
 
