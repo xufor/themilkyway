@@ -22,7 +22,7 @@ class FeedBox extends Component {
 
     render() {
         return (
-            <div onWheel={this.onWheelHandler} id={'boxWrapper'} className={'shadow-4'}>
+            <div onWheel={this.onWheelHandler} id={'feedBoxWrapper'} className={'shadow-4'}>
                     {this.viewGen(5)}
             </div>
         );

@@ -1,34 +1,42 @@
-#boxWrapper {
+#profileBoxWrapper {
 	width: 100vw;
 	animation: fadeIn 0.5s 1 forwards;
+	background: #D0D0D1;
 }
 
 #topBox {
 	background: #24292e;
 	display: flex;
-	width: 100%;
+	width: 70vw;
+	margin: 0 auto;
 	height: 30vh;
 	color: white;
 	align-items: center;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Caveat', sans-serif;
 	font-size: 2rem;
 }
 
 #midBox {
-	height: 5vh;
 	background: white;
-	font-size: 1.5rem;
+	width: 70vw;
+	height: 5vh;
+	margin: 0 auto;
+	font-size: 1.1rem;
 	align-items: center;
 	font-family: 'Raleway', sans-serif;
+	border: 1px lightgrey solid;
 }
 
 #bottomBox {
 	background: #f9f9f9;
-	height: -moz-available;
-	height: -webkit-fill-available;
-	width: 100vw;
+	height: 500px;
+	width: 70vw;
 	margin: 0 auto;
 	padding: 20px;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.3rem;
+	border-left: 1px lightgrey solid;
+	border-right: 1px lightgrey solid;
 }
 
 #pImg {
@@ -48,6 +56,10 @@
 #a {
 	display: flex;
 	margin-top: 5px;
+}
+
+#n {
+	text-align: right;
 }
 
 #naWrapper{
@@ -83,87 +95,42 @@
 
 #db{
 	margin-top: 30px;
-	font-size: 20px;
 	width: 100%;
-	font-family: 'Raleway', sans-serif;
 }
 
 #place{
 	margin-top: 30px;
 	width: 100%;
-	font-size: 20px;
-	font-family: 'Raleway', sans-serif;
 }
 
 #prof {
 	margin-top: 30px;
 	width: 100%;
-	font-size: 20px;
-	font-family: 'Raleway', sans-serif;
 }
 
 #bio{
 	margin-top: 20px;
-	font-family: 'Raleway',sans-serif;
-	height: 100%;
 	width: 100%;
-	font-size: 20px;
 }
 
 #ed-acct{
-	display:flex;
-	margin-top: 20px;
-	position: relative;
-	left: -5px;
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+	font-family: 'Caveat', monospace;
 }
 
 #edit{
 	padding: 15px;
-	font-size: 20px;
-	font-family: 'Raleway',sans-serif;
 	color: white;
-	width: 250px;
 	border-radius: 2rem;
+	font-size: 1.5rem;
 	background-color: #0064FFFF;
 	cursor: pointer;
 	border: none;
 }
 
-#dlt{
-	color: white;
-	padding: 15px;
-	width: 250px;
-	border-radius: 2rem;
-	background-color: #0064FFFF;
-	cursor: pointer;
-	font-size: 20px;
-	font-family: 'Raleway',sans-serif;
-	margin-left: 30px;
-	border: none;
-}
-
-#fav {
-	display:flex;
-	margin-top: 15px;
-	position: relative;
-	left: -5px;
-}
-
-#fav-head {
-	font-size: 20px;
-	font-family: 'Raleway',sans-serif;
-}
-
-.tags {
-	padding: 15px;
-	font-size: 20px;
-	font-family: 'Raleway',sans-serif;
-	color: white;
-	width: 200px;
-	text-align: center;
-	border-radius: 2rem;
-	background-color: #0064FFFF;
-	cursor: pointer;
-	border: none;
-	margin-right: 20px;
+.star {
+	width: 15px;
+	height: 15px;
 }

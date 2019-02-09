@@ -6,13 +6,13 @@
 }
 
 #composeLink {
-    font-family: 'Raleway', monospace;
+    font-family: 'Consolas', monospace;
     font-weight: normal;
     margin-right: 15px;
     align-self: center;
 }
 #greeting {
-    font-family: 'Raleway', monospace;
+    font-family: 'Consolas', monospace;
     font-weight: normal;
     margin-left: 15px;
     align-self: center;
