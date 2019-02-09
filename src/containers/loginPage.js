@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import LoaderAnimation from '../components/loaderAnimation';
 import { fetchUserCredentials } from '../actions/fetchCredsAction';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from  'react-router-dom';
+import { displayLoader } from '../common';
 import '../css/loginPage.css';
-import BlackScreen from "../components/blackScreen";
 
 class LoginPage extends Component {
     constructor(props) {
@@ -48,21 +47,10 @@ class LoginPage extends Component {
         }, 5000);
     };
 
-    displayLoader = (flag) => {
-        if(flag === 1) {
-            return (
-                <div>
-                    <LoaderAnimation/>
-                    <BlackScreen/>
-                </div>
-            );
-        }
-    };
-
     render() {
         return (
             <div>
-                {this.displayLoader(this.state.loaderFlag)}
+                {displayLoader(this.state.loaderFlag, 'Checking if its really you!')}
                 <div id='loginPageBackground'>
                     <div id='loginBox'>
                         <div className='boxHeading'>Login</div>
