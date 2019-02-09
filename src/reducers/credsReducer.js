@@ -12,7 +12,8 @@ let INITIAL_STATE = {
 		praises: '100',
 		views: '500',
 		bio: sampleBio,
-		country: 'New Zealand'
+		country: 'New Zealand',
+		profession: 'Software Engineer'
 	}
 };
 
