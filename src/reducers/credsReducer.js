@@ -1,11 +1,19 @@
 import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
+import { sampleBio } from '../strings.js';
 
 let INITIAL_STATE = {
 	verifiedFlag: null,
 	data: {
 		fname: 'John',
 		sname: 'Seed',
-		dob: '16, June 2000'
+		dob: '16, June 2000',
+		followers: '50',
+		following: '100',
+		praises: '100',
+		views: '500',
+		bio: sampleBio,
+		country: 'New Zealand',
+		profession: 'Software Engineer'
 	}
 };
 
