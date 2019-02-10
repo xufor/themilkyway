@@ -6,7 +6,7 @@ import { updateBarState } from '../actions/barStateAction';
 import { connect } from 'react-redux';
 
 class FeedBox extends Component {
-    onWheelHandler = () => {
+    handler = () => {
         if(this.props.topBarState === 'expand-enabled') {
           this.props.updateBarState('shrink-enabled');
         }
@@ -22,7 +22,7 @@ class FeedBox extends Component {
 
     render() {
         return (
-            <div onWheel={this.onWheelHandler} id={'feedBoxWrapper'} className={'shadow-4'}>
+            <div onMouseEnter={this.handler} id={'feedBoxWrapper'} className={'shadow-4'}>
                     {this.viewGen(5)}
             </div>
         );

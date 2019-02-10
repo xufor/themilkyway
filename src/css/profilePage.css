@@ -1,7 +1,7 @@
 #profileBoxWrapper {
-	width: 100vw;
+	width: 85vw;
+	margin: 0 auto;
 	animation: fadeIn 0.5s 1 forwards;
-	background: #D0D0D1;
 }
 
 #topBox {
@@ -37,6 +37,7 @@
 	font-size: 1.3rem;
 	border-left: 1px lightgrey solid;
 	border-right: 1px lightgrey solid;
+	border-bottom: 1px lightgrey solid;
 }
 
 #pImg {

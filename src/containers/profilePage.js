@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import PageFooter from '../components/pageFooter';
 import '../css/profilePage.css';
 import sPic from '../assets/sPic.jpg';
 import mPraises from '../assets/mPraises.png';
@@ -64,12 +65,15 @@ class profilePage extends Component {
 
 	render() {
        return (
-       	<div id={'profileBoxWrapper'}>
-			{this.topBoxGen()}
-			{this.midBoxGen()}
-			{this.bottomBoxGen()}
-       	</div>
-       	);
+       	<div>
+       		<div id={'profileBoxWrapper'} className={'shadow-5'}>
+				{this.topBoxGen()}
+				{this.midBoxGen()}
+				{this.bottomBoxGen()}
+			</div>
+			<PageFooter/>
+		</div>
+	   );
 	};
 }	
 
