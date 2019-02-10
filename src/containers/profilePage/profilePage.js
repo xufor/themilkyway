@@ -1,7 +1,5 @@
 import React,{ Component } from 'react';
 import PageFooter from '../../components/pageFooter/pageFooter';
-import TopMostBar from '../topMostBar/topMostBar';
-import GreetBox from '../greetBox/greetBox';
 import sPic from '../../assets/sPic.jpg';
 import mPraises from '../../assets/mPraises.png';
 import mFollower from '../../assets/mFollower.png';
@@ -68,9 +66,7 @@ class profilePage extends Component {
 	render() {
        return (
        	<div>
-       		<TopMostBar calledFrom ={'fromProfilePage'}/>
-			<GreetBox/>
-       		<div id={'profileBoxWrapper'} className={'shadow-5'}>
+       		<div id={'profileBoxWrapper'}>
 				{this.topBoxGen()}
 				{this.midBoxGen()}
 				{this.bottomBoxGen()}

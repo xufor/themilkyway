@@ -3,7 +3,6 @@ import searchGlass from '../../assets/searchGlass.png';
 import profilePic from '../../assets/profilePic.png';
 import galaxyPic from '../../assets/galaxyPic.png';
 import searchOpener from '../../assets/searchOpener.png';
-import goHome from '../../assets/goHome.png';
 import { updateBarState } from '../../actions/barStateAction';
 import { updateSearchString } from '../../actions/searchStringAction.js';
 import { connect } from 'react-redux';
@@ -25,19 +24,12 @@ class TopMostBar extends Component {
         this.opn = React.createRef();
     }
 
-    componentDidMount() {
-        if(this.props.calledFrom === 'fromProfilePage') {
-            this.accToProfilePage();
-        }
-    }
-
     componentWillUnmount() {
         this.props.updateSearchString(this.state.searchString);
         this.props.updateBarState('expand-enabled');
     }
 
     componentDidUpdate() {
-        console.log("Top bar is updating.");
         if(this.props.topBarState === 'shrink-enabled') {
             this.shrink();
         }
@@ -81,10 +73,6 @@ class TopMostBar extends Component {
         }
     };
 
-    accToProfilePage = () => {
-        this.props.updateBarState('shrink-enabled');
-    };
-
     render() {
         return (
             <div id="topMostBar" ref={this.bar} className='shadow-5'>
@@ -103,9 +91,6 @@ class TopMostBar extends Component {
                 <img src={searchOpener} ref={this.opn} onClick={this.expand} alt='srhOpn' id='searchOpenImage'/>
                 <Link to={'/profile'}>
                     <img id='profilePic' ref={this.user} src={profilePic} alt={'pPic'}/>
-                </Link>
-                <Link to={'/home'}>
-                    <img id={'goHomeBtn'} ref={this.go} src={goHome} alt={'hPic'}/>
                 </Link>
             </div>
         );

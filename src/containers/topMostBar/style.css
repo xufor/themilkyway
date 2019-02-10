@@ -70,4 +70,6 @@
 
 #goHomeBtn {
     display: none;
+    height: 35px;
+    width: 35px;
 }
