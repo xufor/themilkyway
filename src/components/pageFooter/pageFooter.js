@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
-import '../css/pageFooter.css';
-import {Link} from "react-router-dom";
+import './style.css';
+import { Link } from "react-router-dom";
 
 class PageFooter extends Component {
     render() {

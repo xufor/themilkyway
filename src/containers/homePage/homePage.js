@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TopMostBar from './topMostBar';
-import GreetBox from './greetBox';
-import FeedBox from './feedBox';
-import PageFooter from '../components/pageFooter';
-import BlackScreen from '../components/blackScreen';
-import LoaderAnimation from '../components/loaderAnimation';
-import '../css/homePage.css';
+import TopMostBar from '../topMostBar/topMostBar';
+import GreetBox from '../greetBox/greetBox';
+import FeedBox from '../feedBox/feedBox';
+import PageFooter from '../../components/pageFooter/pageFooter';
+import BlackScreen from '../../components/blackScreen/blackScreen';
+import LoaderAnimation from '../../components/loaderAnimation/loaderAnimation';
+import './style.css';
 
 class HomePage extends Component {
     constructor(props) {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import FeedView from './feedView';
-import '../css/feedBox.css';
 import { bindActionCreators } from 'redux';
-import { updateBarState } from '../actions/barStateAction';
+import { updateBarState } from '../../actions/barStateAction';
 import { connect } from 'react-redux';
+import FeedView from '../feedView/feedView';
+import './style.css';
 
 class FeedBox extends Component {
     handler = () => {

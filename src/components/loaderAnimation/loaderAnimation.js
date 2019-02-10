@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/loaderAnimation.css';
+import './style.css';
 
 class LoaderAnimation extends Component {
     componentDidMount() {

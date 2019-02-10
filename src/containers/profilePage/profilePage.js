@@ -1,13 +1,13 @@
 import React,{ Component } from 'react';
-import PageFooter from '../components/pageFooter';
-import '../css/profilePage.css';
-import sPic from '../assets/sPic.jpg';
-import mPraises from '../assets/mPraises.png';
-import mFollower from '../assets/mFollower.png';
-import mFollowing from '../assets/mFollowing.png';
-import mViews from '../assets/mViews.png';
-import star from '../assets/star.png';
+import PageFooter from '../../components/pageFooter/pageFooter';
+import sPic from '../../assets/sPic.jpg';
+import mPraises from '../../assets/mPraises.png';
+import mFollower from '../../assets/mFollower.png';
+import mFollowing from '../../assets/mFollowing.png';
+import mViews from '../../assets/mViews.png';
+import star from '../../assets/star.png';
 import { connect } from 'react-redux';
+import './style.css';
 
 class profilePage extends Component {
 	topBoxGen = () => {

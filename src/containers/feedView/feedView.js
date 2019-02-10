@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { summary } from '../strings';
-import pPic from '../assets/pPic.jpg';
-import '../css/feedView.css';
+import { summary } from '../../strings';
+import pPic from '../../assets/pPic.jpg';
+import './style.css';
 
 class FeedView extends Component {
     constructor(props) {

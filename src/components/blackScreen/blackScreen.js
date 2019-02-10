@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/blackScreen.css'
+import './style.css';
 
 class BlackScreen extends Component {
     render() {

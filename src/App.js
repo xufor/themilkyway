@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import WelcomePage from './components/welcomePage.js';
-import LoginPage from './containers/loginPage.js';
-import HomePage from './containers/homePage.js';
-import RegisterPage from './containers/registerPage.js';
-import ProfilePage from './containers/profilePage.js';
+import WelcomePage from './components/welcomePage/welcomePage';
+import LoginPage from './containers/loginPage/loginPage';
+import HomePage from './containers/homePage/homePage';
+import RegisterPage from './containers/registerPage/registerPage';
+import ProfilePage from './containers/profilePage/profilePage';
 import {BrowserRouter, Route} from "react-router-dom";
 import './App.css';
 

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { fetchUserCredentials } from '../actions/fetchCredsAction';
+import { fetchUserCredentials } from '../../actions/fetchCredsAction';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from  'react-router-dom';
-import { displayLoader } from '../common';
-import '../css/loginPage.css';
+import { displayLoader } from '../../common';
+import './style.css';
 
 class LoginPage extends Component {
     constructor(props) {

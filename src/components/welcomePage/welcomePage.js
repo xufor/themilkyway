@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { sampleQuote } from "../strings";
+import { sampleQuote } from '../../strings';
 import { Link } from 'react-router-dom';
-import '../css/welcomePage.css';
+import './style.css';
 
 class WelcomePage extends Component {
     render() {

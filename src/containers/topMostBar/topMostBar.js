@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import '../css/topMostBar.css';
-import searchGlass from '../assets/searchGlass.png';
-import profilePic from '../assets/profilePic.png';
-import galaxyPic from '../assets/galaxyPic.png';
-import searchOpener from '../assets/searchOpener.png';
-import { updateBarState } from '../actions/barStateAction';
-import { updateSearchString } from '../actions/searchStringAction.js';
+import searchGlass from '../../assets/searchGlass.png';
+import profilePic from '../../assets/profilePic.png';
+import galaxyPic from '../../assets/galaxyPic.png';
+import searchOpener from '../../assets/searchOpener.png';
+import { updateBarState } from '../../actions/barStateAction';
+import { updateSearchString } from '../../actions/searchStringAction.js';
 import { connect } from 'react-redux';
-import { bindActionCreators} from "redux";
+import { bindActionCreators} from 'redux';
 import { Link } from 'react-router-dom';
-
+import './style.css';
 
 class TopMostBar extends Component {
     constructor(props) {

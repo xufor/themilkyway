@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import '../css/greetBox.css';
+import './style.css';
 
 class GreetBox extends Component {
     constructor(props) {
