@@ -1,6 +1,6 @@
 #profileBoxWrapper {
 	width: 85vw;
-	margin: 0 auto;
+	margin: 20px auto 0 auto;
 	animation: fadeIn 0.5s 1 forwards;
 }
 
