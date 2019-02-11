@@ -1,5 +1,7 @@
 #topMostBar {
-    height: 250px;
+    height: 50px;
+    display: flex;
+    align-items: center;
     background-color: #24292e;
     width: calc(100vw);
     transition: height 0.5s ease-in-out;
@@ -7,14 +9,14 @@
 
 #galaxyPic {
     display: block;
-    margin-left: calc(50vw - 50px);
-    height: 100px;
-    width: 110px;
+    margin-left: 5px;
+    height: 40px;
+    width: 40px;
     animation: fadeEntry 1.5s ease-out 0.1s alternate 1 backwards running;
 }
 
 #logoText {
-    font-size: 4rem;
+    font-size: 2.3rem;
     font-family: 'Caveat', cursive;
     font-weight: normal;
     text-align: center;
@@ -22,7 +24,7 @@
 }
 
 #searchWrapper {
-    display: flex;
+    display: none;
     margin-top: 20px;
     margin-left: calc(50% - 240px);
     animation: fadeEntry 1.5s ease-out 0.5s alternate 1 backwards running;
@@ -35,17 +37,17 @@
 #searchBox {
     height: 30px;
     width: 450px;
+    display: block;
     font-family: 'Consolas', monospace;
     font-size: 1rem;
     font-weight: normal;
     padding: 0 10px 0 10px;
     outline: none;
     background-color: rgb(255,255,255);
-    display: block;
 }
 
 #profilePic {
-    display: none;
+    display: block;
     height: 35px;
     border-radius: 50%;
     margin-right: 15px;
@@ -53,7 +55,7 @@
 }
 
 #searchOpenImage {
-    display: none;
+    display: block;
     width: 35px;
     height: 35px;
     margin-right: 5px;

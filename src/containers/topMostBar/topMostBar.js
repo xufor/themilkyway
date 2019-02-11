@@ -26,7 +26,7 @@ class TopMostBar extends Component {
 
     componentWillUnmount() {
         this.props.updateSearchString(this.state.searchString);
-        this.props.updateBarState('expand-enabled');
+        this.props.updateBarState('shrink-enabled');
     }
 
     componentDidUpdate() {
@@ -88,7 +88,7 @@ class TopMostBar extends Component {
                     </Link>
                 </div>
                 <div className='emptySpace'/>
-                <img src={searchOpener} ref={this.opn} onClick={this.expand} alt='srhOpn' id='searchOpenImage'/>
+                <img src={searchOpener} ref={this.opn} onClick={this.expand} alt='srhOpn' id={'searchOpenImage'}/>
                 <Link to={'/profile'}>
                     <img id='profilePic' ref={this.user} src={profilePic} alt={'pPic'}/>
                 </Link>
