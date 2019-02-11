@@ -3,6 +3,7 @@ import searchGlass from '../../assets/searchGlass.png';
 import profilePic from '../../assets/profilePic.png';
 import galaxyPic from '../../assets/galaxyPic.png';
 import searchOpener from '../../assets/searchOpener.png';
+import goHome from '../../assets/goHome.png';
 import { updateBarState } from '../../actions/barStateAction';
 import { updateSearchString } from '../../actions/searchStringAction.js';
 import { connect } from 'react-redux';
@@ -11,6 +12,8 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 class TopMostBar extends Component {
+    calledFrom;
+
     constructor(props) {
         super(props);
         this.state = {
@@ -22,6 +25,13 @@ class TopMostBar extends Component {
         this.user = React.createRef();
         this.pic = React.createRef();
         this.opn = React.createRef();
+        this.go = React.createRef();
+    }
+
+    componentDidMount() {
+        if(this.props.calledFrom === 'profilePage') {
+            this.accToProfilePage();
+        }
     }
 
     componentWillUnmount() {
@@ -73,6 +83,12 @@ class TopMostBar extends Component {
         }
     };
 
+    accToProfilePage = () => {
+        this.user.current.style.display= 'none';
+        this.go.current.style.display= 'block';
+        this.opn.current.style.display= 'none';
+    };
+
     render() {
         return (
             <div id="topMostBar" ref={this.bar} className='shadow-5'>
@@ -91,6 +107,9 @@ class TopMostBar extends Component {
                 <img src={searchOpener} ref={this.opn} onClick={this.expand} alt='srhOpn' id={'searchOpenImage'}/>
                 <Link to={'/profile'}>
                     <img id='profilePic' ref={this.user} src={profilePic} alt={'pPic'}/>
+                </Link>
+                <Link to={'/home'}>
+                    <img id={'goHomeBtn'} ref={this.go} src={goHome} alt={'hm'}/>
                 </Link>
             </div>
         );
