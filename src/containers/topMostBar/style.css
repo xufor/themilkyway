@@ -12,7 +12,6 @@
     margin-left: 5px;
     height: 40px;
     width: 40px;
-    animation: fadeEntry 1.5s ease-out 0.1s alternate 1 backwards running;
 }
 
 #logoText {
@@ -20,7 +19,6 @@
     font-family: 'Caveat', cursive;
     font-weight: normal;
     text-align: center;
-    animation: fadeEntry 1.5s ease-out 0.3s alternate 1 backwards running;
 }
 
 #searchWrapper {
