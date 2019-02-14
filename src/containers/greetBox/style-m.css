@@ -1,0 +1,13 @@
+@media screen and (max-width: 480px){
+    #greetBox {
+        height: 20px;
+    }
+
+    #composeLink {
+        display: none;
+    }
+
+    #greeting {
+        display: none;
+    }
+}

@@ -1,0 +1,14 @@
+@media screen and (max-width: 480px){
+    #logoText {
+        font-size: 1.5rem;
+    }
+
+    #topMostBar {
+        height: 40px;
+    }
+
+    #galaxyPic {
+        height: 30px;
+        width: 30px;
+    }
+}
