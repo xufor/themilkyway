@@ -1,0 +1,36 @@
+@media screen and (max-width: 480px){
+    #mainWrapper {
+        height: 100%;
+        background-color: #24292e;
+        color: white;
+        font-family: 'Consolas', monospace;
+        text-align: center;
+        font-size: 0.7rem;
+        display: block;
+        padding: 10px;
+    }
+
+    #whiteBar {
+        display: block;
+    }
+
+    #logout {
+        display: inline;
+    }
+
+    #terms {
+        display: inline;
+    }
+
+    #copyright {
+        margin-top: 15px;
+    }
+
+    #whiteBar {
+        width: 100%;
+        background: white;
+        height: 10px;
+        border: lightgrey solid 1px;
+    }
+
+}

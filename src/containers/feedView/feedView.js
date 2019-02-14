@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { summary } from '../../strings';
 import pPic from '../../assets/pPic.jpg';
 import './style.css';
+import './style-m.css';
 
 class FeedView extends Component {
     constructor(props) {

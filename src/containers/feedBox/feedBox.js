@@ -4,6 +4,7 @@ import { updateBarState } from '../../actions/barStateAction';
 import { connect } from 'react-redux';
 import FeedView from '../feedView/feedView';
 import './style.css';
+import './style-m.css';
 
 class FeedBox extends Component {
     handler = () => {
