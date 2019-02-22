@@ -13,7 +13,11 @@ class UserRecBox extends Component {
         let setOfImgTags = [];
         if(this.props.links.length === 0) {
             return (
-                <div className={'line-scale-pulse-out'} id={'userRecBoxLoaderWrapper'}>
+                <div className={'ball-grid-pulse'} id={'userRecBoxLoaderWrapper'}>
+                    <div/>
+                    <div/>
+                    <div/>
+                    <div/>
                     <div/>
                     <div/>
                     <div/>
@@ -24,7 +28,7 @@ class UserRecBox extends Component {
         }
         else {
             for(let i = 0; i< this.props.links.length; i++) {
-                setOfImgTags[i] = <img id={'userImgInRecBox'} src={this.props.links[i]} alt={`picsOfUsers${i}`}/>;
+                setOfImgTags[i] = <div id={'recBoxUserImageWrapper'}><img id={'userImgInRecBox'} src={this.props.links[i]} alt={`picsOfUsers${i}`}/></div>;
             }
         }
         return setOfImgTags;
@@ -34,7 +38,9 @@ class UserRecBox extends Component {
 
     render() {
         return (
-            <div id={'recBoxWrapper'}>{this.userRecGen()}</div>
+            <div id={'recBoxWrapper'} className={'shadow-4'}>
+                {this.userRecGen()}
+            </div>
         )
     };
 }
