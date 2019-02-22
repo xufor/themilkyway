@@ -1,6 +1,7 @@
 #recBoxWrapper {
     margin-top: 10px;
     padding: 5px;
+    height: 83px;
     background: white;
     border: lightgrey 1px solid;
     display: flex;
@@ -20,6 +21,10 @@
 
 #userRecBoxLoaderWrapper {
     margin: 0 auto;
+}
+
+#userRecBoxLoaderWrapper > div {
+    background-color: dodgerblue;
 }
 
 @keyframes fadeEntry {
