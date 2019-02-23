@@ -7,6 +7,7 @@ import PageFooter from '../../components/pageFooter/pageFooter';
 import BlackScreen from '../../components/blackScreen/blackScreen';
 import LoaderAnimation from '../../components/loaderAnimation/loaderAnimation';
 import UserRecBox from '../../containers/userRecBox/userRecBox';
+import GenreBox from '../../containers/genreBox/genreBox';
 import './style.css';
 
 class HomePage extends Component {
@@ -35,6 +36,7 @@ class HomePage extends Component {
                 <div id={'homePageBackground'}>
                     <TopMostBar history={this.props.history} calledFrom={'homePage'}/>
                     <GreetBox/>
+                    <GenreBox/>
                     <UserRecBox/>
                     <FeedBox/>
                     <PageFooter/>

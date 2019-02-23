@@ -13,11 +13,7 @@ class UserRecBox extends Component {
         let setOfImgTags = [];
         if(this.props.links.length === 0) {
             return (
-                <div className={'ball-grid-pulse'} id={'userRecBoxLoaderWrapper'}>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
+                <div className={'line-scale-pulse-out-rapid'} id={'userRecBoxLoaderWrapper'}>
                     <div/>
                     <div/>
                     <div/>

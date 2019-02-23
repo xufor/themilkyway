@@ -1,0 +1,14 @@
+#genreWrapper {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    font-family: 'Consolas', monospace;
+    margin-top: 10px;
+}
+
+.genreBoxElement {
+    color: white;
+    padding: 0 10px 0 10px;
+    width: max-content;
+    text-align: center;
+}
