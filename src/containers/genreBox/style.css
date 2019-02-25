@@ -4,6 +4,7 @@
     align-items: center;
     font-family: 'Consolas', monospace;
     margin-top: 10px;
+    overflow-x: hidden;
 }
 
 .genreBoxElement {
