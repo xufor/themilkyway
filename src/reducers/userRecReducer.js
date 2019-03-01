@@ -1,4 +1,4 @@
-import { FETCH_USER_RECS } from '../actions/fetchUserRecs';
+import { FETCH_USER_RECS } from '../actions/fetchUserRecsAction';
 
 export default (state = [], action) => {
     switch(action.type) {

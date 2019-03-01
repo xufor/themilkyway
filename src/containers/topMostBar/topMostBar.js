@@ -36,7 +36,6 @@ class TopMostBar extends Component {
     }
 
     componentWillUnmount() {
-        this.props.updateSearchString(this.state.searchString);
         this.props.updateBarState('shrink-enabled');
     }
 
@@ -81,6 +80,7 @@ class TopMostBar extends Component {
     onEnter = (event) => {
         if(event.key === "Enter"){
             this.props.history.push('/search');
+            this.props.updateSearchString(this.state.searchString);
         }
     };
 
@@ -88,6 +88,10 @@ class TopMostBar extends Component {
         this.user.current.style.display= 'none';
         this.go.current.style.display= 'block';
         this.opn.current.style.display= 'none';
+    };
+
+    onSearchClickHandler = () => {
+        this.props.updateSearchString(this.state.searchString);
     };
 
     render() {
@@ -100,7 +104,7 @@ class TopMostBar extends Component {
                 <div id='searchWrapper' ref={this.search} >
                     <input id='searchBox' onChange={this.onSearchChange} type='text' maxLength='30'
                            onKeyPress={this.onEnter} placeholder='Searching for something?' aria-label='Search'/>
-                    <Link to={'/search'}>
+                    <Link to={'/search'} onClick={this.onSearchClickHandler}>
                         <img id='searchGlassImage' className='pointer' alt='srhGls' src={searchGlass}/>
                     </Link>
                 </div>

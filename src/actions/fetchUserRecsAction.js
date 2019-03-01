@@ -1,7 +1,7 @@
 import axLib from 'axios';
 export const FETCH_USER_RECS = 'FETCH_USER_RECS';
 
-export const fetchUserRecs = () => {
+export const fetchUserRecsAction = () => {
 
     const response = axLib.get('http://localhost:5000/user-recs');
 

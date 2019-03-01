@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchUserRecs } from '../../actions/fetchUserRecs';
+import { fetchUserRecsAction } from '../../actions/fetchUserRecsAction';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import './style.css';
@@ -48,7 +48,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ fetchUserRecs }, dispatch);
+    return bindActionCreators({ fetchUserRecs: fetchUserRecsAction }, dispatch);
 };
 
 export default connect(mapStateToProps, mapActionToProps)(UserRecBox);

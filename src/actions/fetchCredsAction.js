@@ -14,7 +14,7 @@ export const fetchUserCredentials = ({ email, password }) => {
 		}
 	});
 
-	/*Below is the standard format of redux thunk.
+	/*Below lies the standard format of redux thunk.
     You do not return an object  when using thunk.
     You return a function here with dispatch as parameter.
     Later on dispatch f/n is used to create an action.*/
