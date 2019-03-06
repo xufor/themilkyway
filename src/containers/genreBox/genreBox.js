@@ -4,7 +4,7 @@ import { tags } from '../../strings';
 import { colorGen } from '../../common';
 import { tagTopicAction } from '../../actions/tagTopicAction';
 import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 import './style.css';
 
 class genreBox extends Component {
