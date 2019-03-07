@@ -3,7 +3,7 @@ export const FETCH_USER_RECS = 'FETCH_USER_RECS';
 
 export const fetchUserRecsAction = () => {
 
-    const response = axLib.get('http://localhost:5000/user-recs');
+    const response = axLib.get('https://themilkyway-api.herokuapp.com/user-recs');
 
     return (dispatch) => {
         response.then((response) => dispatch({
