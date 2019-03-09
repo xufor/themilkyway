@@ -16,20 +16,11 @@ class profilePage extends Component {
 		return(
 			<div id={'topBox'}>
 				<img id={'pImg'} src={sPic} alt={'pic-1'}/>
-		        <div className={'emptySpace'}/>
-		        <div id={'naWrapper'}>
-		        	<div id={'n'}>
-						{this.props.credentials.data.fname + ' '}
-						{this.props.credentials.data.sname}
-		        	</div>
-					<div id={'a'}>
-						<div className={'emptySpace'}/>
-						<img className={'mr2 star'} src={star} alt={'pic-2'}/>
-						<img className={'mr2 star'} src={star} alt={'pic-3'}/>
-						<img className={'mr2 star'} src={star} alt={'pic-4'}/>
-						<img className={'star'} src={star} alt={'pic-9'}/>
-		        	</div>
-		        </div>
+		        		<div id={'n'}>
+							{this.props.credentials.data.fname + ' '}
+							{this.props.credentials.data.sname}
+		        		</div>
+		        	<div id={'line'}/>
             </div>
 		);
 	};

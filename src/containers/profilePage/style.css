@@ -5,7 +5,6 @@
 }
 
 #topBox {
-	background: #24292e;
 	display: flex;
 	margin: 0 auto;
 	height: 30vh;
@@ -15,6 +14,7 @@
 	font-family: 'Caveat', sans-serif;
 	font-size: 2rem;
 }
+
 
 #midBox {
 	background: white;
@@ -60,12 +60,12 @@
 }
 
 #n {
-	text-align: right;
+	color: #000;
+	display: inline;
+	margin-left: 10%;
+	margin-bottom: 15%;
 }
 
-#naWrapper{
-	margin-right: 50px;
-}
 
 #mFollower{
 	width: 30px;
@@ -134,4 +134,12 @@
 .star {
 	width: 15px;
 	height: 15px;
+}
+
+#line{
+	border: 1px solid black;
+    width: 100%;
+	margin: auto;
+	margin-top: 5%;
+	margin-bottom: 5%;
 }
