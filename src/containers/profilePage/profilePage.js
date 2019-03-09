@@ -2,20 +2,24 @@ import React,{ Component } from 'react';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
-import sPic from '../../assets/sPic.jpg';
+import sPic from '../../assets/samplePic.png';
 import { connect } from 'react-redux';
 import './style.css';
+
+//dont use vh in css anymore, use % instead, use of vh should be avoided by all means
 
 class profilePage extends Component {
 	topBoxGen = () => {
 		return(
 			<div id={'topBoxProfilePage'}>
-				<img id={'pImg'} src={sPic} alt={'pic-1'}/>
-		        		<div id={'n'}>
+				<img id={'profileImgOnProfilePage'} src={sPic} alt={'pic-1'}/>
+				<div id={'nameAndImgWrapperOnProfilePage'}>
+					<div id={'nameOnProfilePage'}>
 							{this.props.credentials.data.fname + ' '}
 							{this.props.credentials.data.sname}
-		        		</div>
-		        	<div id={'line'}/>
+					</div>
+					<div id={'lineOnProfilePage'}/>
+				</div>
             </div>
 		);
 	};
@@ -24,7 +28,7 @@ class profilePage extends Component {
        		<div>
        			<TopMostBar calledFrom={'profilePage'}/>
 				<GreetBox/>
-       			<div id={'profileBoxWrapper'}>
+       			<div id={'profilePageBoxWrapper'}>
 					{this.topBoxGen()}
 				</div>
 				<PageFooter/>

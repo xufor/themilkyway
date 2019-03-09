@@ -1,29 +1,44 @@
-#topBoxProfilePage{
-	display: flex;
+#profilePageBoxWrapper {
+	width: 70%;
 	margin: 0 auto;
-	height: 30vh;
+	height: 500px;
+}
+
+#topBoxProfilePage {
 	width: 100%;
+	height: 180px;
 	color: white;
-	align-items: center;
 	font-family: 'Caveat', sans-serif;
-	font-size: 2rem;
+	font-size: 1.5rem;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
 }
 
-#pImg {
-	width: 25vh;
-	border-radius: 50%;
-	border: 7px solid white;
-	margin-left: 25px;
+#profileImgOnProfilePage {
+	height: 150px;
+	width: 150px;
+	border-radius: 100%;
+	border: 5px solid #E0E0E0;
+	position: absolute;
 }
 
-#n{
- color: #000;
- height: 85%;
+#nameOnProfilePage {
+ 	color: black;
+	margin-left: 200px;
+	display: inline;
+	position: relative;
+	top: -15px;
+	font-weight: bold;
 }
 
-#line{
+#lineOnProfilePage {
+	width: 85%;
+	margin: 5px auto;
+	background-color: black;
 	border: 1px solid black;
-    width: 100%;
-	margin-top: 5%;
-	margin-bottom: 5%;
+}
+
+#nameAndImgWrapperOnProfilePage {
+	width: 100%;
 }
