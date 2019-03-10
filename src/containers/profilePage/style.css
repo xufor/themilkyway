@@ -1,7 +1,7 @@
 #profilePageBoxWrapper {
 	width: 70%;
 	margin: 0 auto;
-	height: 500px;
+	height: 700px;
 }
 
 #topBoxProfilePage {
@@ -41,4 +41,65 @@
 
 #nameAndImgWrapperOnProfilePage {
 	width: 100%;
+}
+
+#basicInfoProfilepage{
+	height: 80px;
+	border-style: solid; 
+	margin-left: 161px;
+	margin-right: 100px;
+}
+
+#dateEmailInfo{
+	margin: 10px;
+	font-family: 'Caveat', sans-serif;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+#achievementsInfoProfilepage{
+	height: 150px;
+	border-style: solid;
+	margin-left: 161px;
+	margin-right: 100px;
+	margin-top: 5px;
+}
+#folmillikeviewInfo{
+	margin : 10px;
+	font-family: 'Caveat',sans-serif;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+#advancedInfoProfilepage{
+	height: 210px;
+	border-style: solid;
+	margin-left: 161px;
+	margin-right: 100px;
+	margin-top: 5px;
+}
+
+#folBioPrivacy{
+	margin : 10px;
+	font-family: 'Caveat',sans-serif;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.ed-acct{
+	margin-left: 600px;
+	top: -50px;
+	position: relative;
+	padding-left: 10px;
+	padding-right: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: white;
+	border-radius: 1.5rem;
+	font-size: 1.5rem;
+	background-color: #0064FFFF;
+	cursor: pointer;
+	border: none;
+	font-weight: bold;
+	display: flex;
 }
