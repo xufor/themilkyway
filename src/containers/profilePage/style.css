@@ -47,39 +47,43 @@
 	height: 80px;
 	width: 70%;
 	margin: 0 auto;
-	border-style: solid;
+	border: 1px lightgrey solid;
 	border-radius: 1rem;
+	background-color: #FAFAFA;
 }
 
 #dateEmailInfo {
 	margin: 10px;
-	font-size: 1.3rem;
+	font-size: 1.1rem;
 }
 
 #achievementsInfoProfilePage {
 	height: 150px;
-	border-style: solid;
+	border: 1px lightgrey solid;
 	width: 70%;
 	margin: 15px auto;
 	border-radius: 1rem;
+	background-color: #FAFAFA;
 }
 
 #statsOnProfilePageWrapper {
 	margin : 10px;
-	font-size: 1.3rem;
+	font-size: 1.1rem;
 }
 
 #advancedInfoProfilePage {
 	height: 210px;
-	border-style: solid;
+	border: 1px lightgrey solid;
 	width: 70%;
 	margin: 0 auto;
 	border-radius: 1rem;
+	background-color: #FAFAFA;
+
 }
 
 #folBioPrivacy {
 	margin : 10px;
-	font-size: 1.3rem;
+	font-size: 1.1rem;
 }
 
 #editButtonOnProfilePage {
