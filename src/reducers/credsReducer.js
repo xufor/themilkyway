@@ -4,8 +4,8 @@ import { sampleBio } from '../strings.js';
 let INITIAL_STATE = {
 	verifiedFlag: null,
 	data: {
-		fname: 'John',
-		sname: 'Seed',
+		firstName: 'John',
+		lastName: 'Seed',
 		dob: '16, June 2000',
 		followers: '50',
 		following: '100',
@@ -14,9 +14,9 @@ let INITIAL_STATE = {
 		bio: sampleBio,
 		country: 'New Zealand',
 		profession: 'Software Engineer',
-		emailid: 'john@123',
-		milestones: '30000 views 5K likes after a period of 1 month',
-		privacy: 'Private',
+		emailId: 'john_seed@gmail.com',
+		milestones: '30K views 5K likes last month!',
+		privacy: 'Secret',
 	}
 };
 
