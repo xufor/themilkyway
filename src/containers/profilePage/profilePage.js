@@ -27,12 +27,8 @@ class profilePage extends Component {
     	return(
     		<div id={'basicInfoProfilePage'} className={'shadow-4'}>
     			<div id={'dateEmailInfo'}>
-    				<div id={'dob'}>
-    					{this.props.credentials.data.dob}
-    				</div>
-    				<div id={'email'}>
-    					{this.props.credentials.data.emailid}
-    				</div>
+    				<div id={'dob'}>Date Of Birth: {this.props.credentials.data.dob}</div>
+    				<div id={'email'}>Email Id: {this.props.credentials.data.emailid}</div>
     			</div>
     		</div>
     	);
@@ -57,6 +53,7 @@ class profilePage extends Component {
     			<div id={'folBioPrivacy'}>
     				<div id={'following'}>Following: {this.props.credentials.data.following}</div>
     				<div id={'bio'}>Bio: {this.props.credentials.data.bio}</div>
+    				<div id={'privacy'}>Privacy: {this.props.credentials.data.privacy}</div>
     			</div>
     		</div>
     		);

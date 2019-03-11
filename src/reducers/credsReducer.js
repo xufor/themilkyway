@@ -16,6 +16,7 @@ let INITIAL_STATE = {
 		profession: 'Software Engineer',
 		emailid: 'john@123',
 		milestones: '30000 views 5K likes after a period of 1 month',
+		privacy: 'Private',
 	}
 };
 
