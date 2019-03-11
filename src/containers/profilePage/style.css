@@ -1,137 +1,105 @@
-#profileBoxWrapper {
+#profilePageBoxWrapper {
 	width: 70%;
-	margin: 20px auto;
-	animation: fadeIn 0.5s 1 forwards;
+	margin: 0 auto;
+	font-family: 'Montserrat', sans-serif;
 }
 
-#topBox {
-	background: #24292e;
-	display: flex;
-	margin: 0 auto;
-	height: 30vh;
+#profileBoxUpperRegion {
 	width: 100%;
+	height: 180px;
 	color: white;
-	align-items: center;
-	font-family: 'Caveat', sans-serif;
-	font-size: 2rem;
-}
-
-#midBox {
-	background: white;
-	width: 100%;
-	height: 5vh;
-	margin: 0 auto;
-	font-size: 1.1rem;
-	align-items: center;
-	font-family: 'Raleway', sans-serif;
-	border: 1px lightgrey solid;
-}
-
-#bottomBox {
-	background: #f9f9f9;
-	height: 500px;
-	width: 100%;
-	margin: 0 auto;
-	padding: 20px;
-	font-family: 'Quicksand', sans-serif;
 	font-size: 1.3rem;
-	border-left: 1px lightgrey solid;
-	border-right: 1px lightgrey solid;
-	border-bottom: 1px lightgrey solid;
-}
-
-#pImg {
-	width: 25vh;
-	border-radius: 50%;
-	border: 7px solid white;
-	margin-left: 25px;
-}
-
-#detailWrapper{
-	display:flex;
-	padding: 3px;
-	margin-left: 5%;
-	margin-right: 5%;
-}
-
-#a {
+	margin-top: 10px;
 	display: flex;
-	margin-top: 5px;
+	align-items: center;
 }
 
-#n {
-	text-align: right;
+#profileImgOnProfilePage {
+	height: 150px;
+	width: 150px;
+	border-radius: 100%;
+	position: absolute;
 }
 
-#naWrapper{
-	margin-right: 50px;
-}
-
-#mFollower{
-	width: 30px;
-	height: 30px;
-	margin-right: 1%;
-}
-
-#mFollowing{
-	width: 30px;
-	height: 30px;
-	margin-right: 1%;
-	margin-left: 25%;
-}
-
-#mPraises{
-	width: 30px;
-	height: 30px;
-	margin-right: 1%;
-	margin-left: 25%;
-}
-
-#mViews{
-	width: 30px;
-	height: 30px;
-	margin-right: 1%;
-	margin-left: 25%;
-}
-
-#db{
-	margin-top: 30px;
-	width: 100%;
-}
-
-#place{
-	margin-top: 30px;
-	width: 100%;
-}
-
-#prof {
-	margin-top: 30px;
-	width: 100%;
-}
-
-#bio{
-	margin-top: 20px;
-	width: 100%;
-}
-
-#ed-acct{
-	display: flex;
-	justify-content: center;
-	margin-top: 100px;
+#nameOnProfilePage {
+ 	color: black;
+	margin-left: 200px;
+	display: inline;
+	position: relative;
 	font-family: 'Caveat', monospace;
+	font-size: 1.5rem;
+	top: -15px;
+	font-weight: bold;
 }
 
-#edit{
-	padding: 15px;
+#lineOnProfilePage {
+	width: 90%;
+	margin: 5px auto;
+	background-color: black;
+	border: 1px solid black;
+}
+
+#nameLineBtnWrapperOnProfilePage {
+	width: 100%;
+}
+
+#basicInfoProfilePage{
+	width: 70%;
+	margin: 0 auto;
+	border: 1px lightgrey solid;
+	border-radius: 1rem;
+	background-color: #FAFAFA;
+	height: max-content;
+	padding: 20px 10px;
+}
+
+#dateEmailInfo {
+	margin: 10px;
+	font-size: 1.1rem;
+}
+
+#achievementsInfoProfilePage {
+	border: 1px lightgrey solid;
+	width: 70%;
+	margin: 15px auto;
+	border-radius: 1rem;
+	background-color: #FAFAFA;
+	height: max-content;
+	padding: 20px 10px;
+}
+
+#statsOnProfilePageWrapper {
+	margin : 10px;
+	font-size: 1.1rem;
+}
+
+#advancedInfoProfilePage {
+	border: 1px lightgrey solid;
+	width: 70%;
+	margin: 0 auto 20px auto;
+	border-radius: 1rem;
+	background-color: #FAFAFA;
+	padding: 20px 10px;
+	height: max-content;
+}
+
+#folBioPrivacy {
+	margin : 10px;
+	font-size: 1.1rem;
+}
+
+#editButtonOnProfilePage {
+	margin-left: 57%;
+	position: relative;
+	display: inline;
+	top: -17px;
+	padding: 5px 15px;
 	color: white;
+	width: max-content;
 	border-radius: 2rem;
-	font-size: 1.5rem;
-	background-color: #0064FFFF;
+	font-size: 1.3rem;
+	background-color: #448AFF;
+	font-family: 'Caveat', monospace;
 	cursor: pointer;
 	border: none;
-}
-
-.star {
-	width: 15px;
-	height: 15px;
 }
