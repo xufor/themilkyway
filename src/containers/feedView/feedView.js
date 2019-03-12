@@ -30,9 +30,9 @@ class FeedView extends Component {
                         <div id={'intro'}>
                             {this.intro()}
                             {' '}
-                            {this.props.credentials.data.fname}
+                            {this.props.credentials.data.firstName}
                             {' '}
-                            {this.props.credentials.data.sname}
+                            {this.props.credentials.data.lastName}
                         </div>
                     </div>
                     <div className={'emptySpace'}/>
