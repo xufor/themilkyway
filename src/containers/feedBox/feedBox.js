@@ -16,7 +16,7 @@ class FeedBox extends Component {
     viewGen = (n) => {
         let i, arr = [];
         for(i=0; i<n; i++) {
-            arr[i] = <FeedView/>;
+            arr[i] = <FeedView key={`feedView${i}`}/>;
         }
         return arr;
     };

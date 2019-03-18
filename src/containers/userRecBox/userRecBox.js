@@ -5,12 +5,17 @@ import { connect } from 'react-redux';
 import './style.css';
 
 class UserRecBox extends Component {
+    constructor(props) {
+        super(props);
+        this.allImagesLoaded = false;
+    }
+
     componentDidMount() {
         this.props.fetchUserRecs();
     }
 
     userRecGen = () => {
-        let setOfImgTags = [];
+        let i = 0;
         if(this.props.links.length === 0) {
             return (
                 <div className={'line-scale-pulse-out-rapid'} id={'userRecBoxLoaderWrapper'}>
@@ -23,11 +28,10 @@ class UserRecBox extends Component {
             )
         }
         else {
-            for(let i = 0; i< this.props.links.length; i++) {
-                setOfImgTags[i] = <div id={'recBoxUserImageWrapper'}><img id={'userImgInRecBox'} src={this.props.links[i]} alt={`picsOfUsers${i}`}/></div>;
-            }
+            return this.props.links.map((listItem) => {
+                return <div id={'recBoxUserImageWrapper'}><img id={'userImgInRecBox'} src={listItem} alt={`picsOfUsers${i++}`}/></div>;
+            })
         }
-        return setOfImgTags;
     };
 
 
@@ -52,3 +56,5 @@ const mapActionToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapActionToProps)(UserRecBox);
+
+/**/

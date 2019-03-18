@@ -7,15 +7,5 @@
     overflow-x: hidden;
 }
 
-.genreBoxElement {
-    color: white;
-    padding: 0 10px 0 10px;
-    width: max-content;
-    text-align: center;
-    transition: background-color 0.3s ease-in-out;
-}
 
-.genreBoxElement:hover {
-    background-color: #f9f9f9 !important;
-    color: #24292e !important;
-}
+

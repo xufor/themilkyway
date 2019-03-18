@@ -13,8 +13,6 @@ import './style.css';
 import './style-m.css';
 
 class TopMostBar extends Component {
-    calledFrom;
-
     constructor(props) {
         super(props);
         this.state = {
@@ -30,7 +28,8 @@ class TopMostBar extends Component {
     }
 
     componentDidMount() {
-        if(this.props.calledFrom === 'profilePage') {
+        const { calledFrom } = this.props;
+        if(calledFrom === 'profilePage') {
             this.accToProfilePage();
         }
     }
@@ -79,8 +78,8 @@ class TopMostBar extends Component {
 
     onEnter = (event) => {
         if(event.key === "Enter"){
-            this.props.history.push('/search');
             this.props.updateSearchString(this.state.searchString);
+            this.props.history.push('/search');
         }
     };
 
