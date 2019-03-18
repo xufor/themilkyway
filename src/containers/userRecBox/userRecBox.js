@@ -10,9 +10,29 @@ class UserRecBox extends Component {
         this.props.fetchUserRecs();
     }
 
+    componentDidUpdate() {
+        let k = 0, listOfInstances = [], { links } = this.props;
+        let recBx = document.getElementsByClassName('userImgInRecBox');
+        for(let j=0; j<links.length; j++) {
+            listOfInstances[j] = new Image();
+        }
+        listOfInstances.map((listItem) => {
+            listItem.onload = function() {
+                recBx[k].src = this.src;
+                recBx[k].style.display = 'block';
+                k++;
+            };
+            return listItem;
+        });
+        for(let j=0; j<links.length; j++) {
+            listOfInstances[j].src = links[j];
+        }
+    }
+
     userRecGen = () => {
         let i = 0;
-        if(this.props.links.length === 0) {
+        let { links } = this.props;
+        if(links.length === 0) {
             return (
                 <div className={'line-scale-pulse-out-rapid'} id={'userRecBoxLoaderWrapper'}>
                     <div/>
@@ -24,8 +44,8 @@ class UserRecBox extends Component {
             )
         }
         else {
-            return this.props.links.map((listItem) => {
-                return <UserRecElement linkPassedToChildElement={listItem} key={`userRecElement${i++}`}/>
+            return links.map(() => {
+                return <UserRecElement key={`userRecElement${i++}`}/>
             })
         }
     };
