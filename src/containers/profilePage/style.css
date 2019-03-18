@@ -1,3 +1,7 @@
+#outerMostWrapperOfProfilePage {
+	background: #F5F5F5;
+}
+
 #profilePageBoxWrapper {
 	width: 70%;
 	margin: 0 auto;
@@ -17,6 +21,7 @@
 #profileImgOnProfilePage {
 	height: 150px;
 	width: 150px;
+	border: 5px solid #EEEEEE;
 	border-radius: 100%;
 	position: absolute;
 }
