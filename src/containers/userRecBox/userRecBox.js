@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
+import UserRecElement from '../userRecElement/userRecElement'
 import { fetchUserRecsAction } from '../../actions/fetchUserRecsAction';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import './style.css';
 
 class UserRecBox extends Component {
-    constructor(props) {
-        super(props);
-        this.allImagesLoaded = false;
-    }
-
     componentDidMount() {
         this.props.fetchUserRecs();
     }
@@ -29,12 +25,10 @@ class UserRecBox extends Component {
         }
         else {
             return this.props.links.map((listItem) => {
-                return <div id={'recBoxUserImageWrapper'}><img id={'userImgInRecBox'} src={listItem} alt={`picsOfUsers${i++}`}/></div>;
+                return <UserRecElement linkPassedToChildElement={listItem} key={`userRecElement${i++}`}/>
             })
         }
     };
-
-
 
     render() {
         return (
@@ -57,4 +51,3 @@ const mapActionToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapActionToProps)(UserRecBox);
 
-/**/

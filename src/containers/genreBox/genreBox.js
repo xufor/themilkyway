@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import './style.css';
 
-class genreBox extends Component {
+class GenreBox extends Component {
     genreGen = () => {
         let i =0;
          return tags.map((listItem) => {
@@ -27,5 +27,5 @@ const mapActionToProps = (dispatch) => {
     return bindActionCreators({ tagTopicAction }, dispatch);
 };
 
-export default connect(null, mapActionToProps)(genreBox);
+export default connect(null, mapActionToProps)(GenreBox);
 

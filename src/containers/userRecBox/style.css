@@ -12,11 +12,6 @@
     overflow-x: auto;
 }
 
-#userImgInRecBox {
-    border-radius: 50%;
-    animation: fadeEntry 0.5s ease-out alternate 1 backwards running;
-}
-
 #userRecBoxLoaderWrapper {
     margin: 0 auto;
     transform: scale(1.2,1.2);
@@ -26,11 +21,6 @@
     background-color: dodgerblue;
 }
 
-#recBoxUserImageWrapper {
-    height: 70px;
-    width: 70px;
-    margin-left: 5px;
-}
 
 @keyframes fadeEntry {
     0% {

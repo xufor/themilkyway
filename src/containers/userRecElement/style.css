@@ -1,0 +1,10 @@
+#userImgInRecBox {
+    border-radius: 50%;
+    animation: fadeEntry 0.5s ease-out alternate 1 backwards running;
+}
+
+#recBoxUserImageWrapper {
+    height: 70px;
+    width: 70px;
+    margin-left: 5px;
+}

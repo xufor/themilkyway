@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './style.css';
 
-class genreElement extends Component {
+class GenreElement extends Component {
     clickHandler = (event) => {
         this.props.tagTopicAction(event.currentTarget.title);
     };
@@ -33,4 +33,4 @@ const mapActionToProps = (dispatch) => {
     return bindActionCreators({ tagTopicAction }, dispatch);
 };
 
-export default connect(null, mapActionToProps)(genreElement);
+export default connect(null, mapActionToProps)(GenreElement);
