@@ -7,8 +7,8 @@ class PageFooter extends Component {
     render() {
         return(
             <div>
-                <div id={'whiteBar'}/>
-                <div id={'mainWrapper'}>
+                <div id={'whiteBarInFooter'}/>
+                <div id={'footerContentWrapper'}>
                     <Link to={'/login'} id={'logout'} className={'white'}>Logout{'   '}|{'   '}</Link>
                     <Link to={'/terms'} id={'terms'} className={'white'}>Terms</Link>
                     <div id={'copyright'}>All rights reserved.</div>

@@ -5,6 +5,7 @@ import GreetBox from '../greetBox/greetBox';
 import sPic from '../../assets/samplePic.png';
 import { connect } from 'react-redux';
 import './style.css';
+import './style-m.css';
 
 class profilePage extends Component {
 	topBoxGen = () => {
@@ -14,8 +15,7 @@ class profilePage extends Component {
 				<img id={'profileImgOnProfilePage'} className={'shadow-5'} src={sPic} alt={'pic-1'}/>
 				<div id={'nameLineBtnWrapperOnProfilePage'}>
 					<div id={'nameOnProfilePage'}>
-							{firstName + ' '}
-							{lastName}
+							{firstName + ' ' + lastName}
 					</div>
 					<div id={'editButtonOnProfilePage'} className={'grow'}>Edit</div>
 					<div id={'lineOnProfilePage'}/>

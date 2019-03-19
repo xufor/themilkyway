@@ -1,4 +1,4 @@
-#mainWrapper {
+#footerContentWrapper {
     height: 100%;
     background-color: #24292e;
     color: white;
@@ -8,8 +8,12 @@
     padding: 10px;
 }
 
-#whiteBar {
+#whiteBarInFooter {
+    width: 100%;
     display: block;
+    background: white;
+    height: 20px;
+    border: lightgrey solid 1px;
 }
 
 #logout {
@@ -24,9 +28,3 @@
     margin-top: 15px;
 }
 
-#whiteBar {
-    width: 100%;
-    background: white;
-    height: 20px;
-    border: lightgrey solid 1px;
-}
