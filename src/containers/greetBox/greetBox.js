@@ -31,9 +31,10 @@ class GreetBox extends Component {
     };
 
     render() {
+        let { firstName } = this.props.credentials.data;
         return (
                 <div id={'greetBox'} className={'shadow-5'}>
-                <div id={'greeting'}>Good {this.suffixGen()} {this.props.credentials.data.fname} !</div>
+                <div id={'greeting'}>Good {this.suffixGen()} {firstName} !</div>
                 <div className={'emptySpace'}/>
                 <Link id={'composeLink'} className={'link black'} to={'/compose'}>Want to write Something?</Link>
             </div>
