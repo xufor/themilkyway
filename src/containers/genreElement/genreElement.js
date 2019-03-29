@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { colorGen } from '../../common';
+import { matColorList } from '../../strings';
 import { tagTopicAction } from '../../actions/tagTopicAction';
-import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import './style.css';
 
 class GenreElement extends Component {
     clickHandler = (event) => {
         this.props.tagTopicAction(event.currentTarget.title);
+    };
+
+    colorGenerator = () => {
+        let result = Math.floor(Math.random() * (66));
+        return matColorList[result];
     };
 
     render() {
@@ -17,7 +22,7 @@ class GenreElement extends Component {
             <div>
                 <Link to={'/tagView'}>
                     <div
-                        style={{backgroundColor: `${colorGen()}`}}
+                        style={{backgroundColor: `${this.colorGenerator()}`}}
                         className={'genreBoxElement'}
                         title={contentToBeDisplayed}
                         onClick={this.clickHandler}>

@@ -16,8 +16,7 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "serve": "^10.1.2",
-    "tachyons": "^4.11.1",
-    "typescript": "^3.3.4000"
+    "tachyons": "^4.11.1"
   },
   "scripts": {
     "dev": "react-scripts start",
