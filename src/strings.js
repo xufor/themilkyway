@@ -36,17 +36,13 @@ export let tags =
 
 export const matColorList =
     [
-        "#e53935",
         "#d32f2f",
         "#c62828",
         "#b71c1c",
-        "#f44336",
         "#d50000",
-        "#d81b60",
         "#c2185b",
         "#ad1457",
         "#880e4f",
-        "#f50057",
         "#c51162",
         "#8e24aa",
         "#7b1fa2",
@@ -87,6 +83,10 @@ export const matColorList =
         "#33691e",
         "#9e9d24",
         "#827717",
+        '#388e3c',
+        '#43a047',
+        '#4caf50',
+        '#66bb6a',
         "#ff5722",
         "#f4511e",
         "#e64a19",

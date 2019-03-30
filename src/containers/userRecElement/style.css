@@ -1,6 +1,6 @@
 .userImgInRecBox {
     border-radius: 50%;
-    animation: fadeEntry 1s ease-out alternate 1 backwards running;
+    animation: fadeEntry 0.3s ease-out alternate 1 backwards running;
     display: none;
 }
 

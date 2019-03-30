@@ -29,7 +29,7 @@ class TopMostBar extends Component {
 
     componentDidMount() {
         const { calledFrom } = this.props;
-        if(calledFrom === 'profilePage') {
+        if(calledFrom === 'profilePage' || calledFrom === 'searchPage') {
             this.accToProfilePage();
         }
     }
@@ -77,7 +77,7 @@ class TopMostBar extends Component {
     };
 
     onEnter = (event) => {
-        if(event.key === "Enter"){
+        if(event.key === 'Enter' && this.state.searchString !== ''){
             this.props.updateSearchString(this.state.searchString);
             this.props.history.push('/search');
         }
@@ -90,7 +90,11 @@ class TopMostBar extends Component {
     };
 
     onSearchClickHandler = () => {
-        this.props.updateSearchString(this.state.searchString);
+        if(this.state.searchString !== '')
+        {
+            this.props.updateSearchString(this.state.searchString);
+            this.props.history.push('/search')
+        }
     };
 
     render() {
@@ -101,11 +105,8 @@ class TopMostBar extends Component {
                     <div id='logoText' ref={this.logo} className='white pointer'>The Milky Way</div>
                 </Link>
                 <div id='searchWrapper' ref={this.search} >
-                    <input id='searchBox' onChange={this.onSearchChange} type='text' maxLength='30'
-                           onKeyPress={this.onEnter} placeholder='Searching for something?' aria-label='Search'/>
-                    <Link to={'/search'} onClick={this.onSearchClickHandler}>
-                        <img id='searchGlassImage' className='pointer' alt='srhGls' src={searchGlass}/>
-                    </Link>
+                    <input id='searchBox' onChange={this.onSearchChange} type='text' maxLength='30' onKeyPress={this.onEnter} placeholder='Searching for someone?' aria-label='Search'/>
+                    <img id='searchGlassImage' onClick={this.onSearchClickHandler} className='pointer' alt='srhGls' src={searchGlass}/>
                 </div>
                 <div className='emptySpace'/>
                 <img src={searchOpener} ref={this.opn} onClick={this.expand} alt='srhOpn' id={'searchOpenImage'}/>

@@ -1,0 +1,10 @@
+#t-box-search-pg {
+    display: flex;
+    border-bottom: #24292e solid 1px;
+    width: 85%;
+    margin: 20px auto;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.3rem;
+    padding: 20px;
+    align-items: center;
+}
