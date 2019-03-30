@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
+import SearchElement from '../searchElement/searchElement';
+import { names } from '../../strings';
 import { connect } from 'react-redux';
 import './style.css';
 
@@ -28,7 +30,12 @@ class SearchPage extends Component {
     };
 
     resultBoxGen = () => {
-
+        let i = 0;
+        return (
+            names.map((listItem) => {
+                return <SearchElement name={listItem}/>
+            })
+        );
     };
 
     render() {
@@ -37,7 +44,7 @@ class SearchPage extends Component {
                 <TopMostBar calledFrom={'searchPage'}/>
                 <GreetBox/>
                 <div id={'t-box-search-pg'}>{this.topBoxGen()}</div>
-                <div id={'r-box-search-pg'}>{this.resultBoxGen()}></div>
+                <div id={'r-box-search-pg'}>{this.resultBoxGen()}</div>
                 <PageFooter/>
             </div>
         );

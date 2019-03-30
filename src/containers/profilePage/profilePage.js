@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import './style.css';
 import './style-m.css';
 
-class profilePage extends Component {
+class ProfilePage extends Component {
 	topBoxGen = () => {
 		let { firstName, lastName} = this.props.credentials.data;
 		return(
@@ -87,4 +87,4 @@ const mapStateToProps = (state) => {
 	}
 };
 
-export default connect(mapStateToProps)(profilePage);
+export default connect(mapStateToProps)(ProfilePage);

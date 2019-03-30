@@ -104,4 +104,12 @@ export const matColorList =
         "#263238",
     ];
 
+export const names =
+    [
+        'Gill Johnson',
+        'Mark Fin',
+        'Max Payne',
+        'Zack Yoshiro',
+        'Shin Nohara'
+    ];
 
