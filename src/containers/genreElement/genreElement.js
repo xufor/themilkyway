@@ -12,7 +12,7 @@ class GenreElement extends Component {
     };
 
     colorGenerator = () => {
-        let result = Math.floor(Math.random() * (66));
+        let result = Math.floor(Math.random() * (45));
         return matColorList[result];
     };
 

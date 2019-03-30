@@ -34,7 +34,7 @@ class SearchPage extends Component {
     render() {
         return (
             <div id={'o-box-search-pg'}>
-                <TopMostBar calledFrom={'profilePage'}/>
+                <TopMostBar calledFrom={'searchPage'}/>
                 <GreetBox/>
                 <div id={'t-box-search-pg'}>{this.topBoxGen()}</div>
                 <div id={'r-box-search-pg'}>{this.resultBoxGen()}</div>

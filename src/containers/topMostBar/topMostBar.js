@@ -16,7 +16,8 @@ class TopMostBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          searchString: ''
+          searchString: '',
+          format: 'original',
         };
         this.bar = React.createRef();
         this.logo = React.createRef();
@@ -84,9 +85,11 @@ class TopMostBar extends Component {
     };
 
     changeBarFormat  = () => {
-        this.user.current.style.display= 'none';
         this.go.current.style.display= 'block';
-        this.opn.current.style.display= 'none';
+        setTimeout(() => {
+            this.user.current.style.display= 'none';
+            this.opn.current.style.display= 'none';
+        }, 100)
     };
 
     onSearchClickHandler = () => {

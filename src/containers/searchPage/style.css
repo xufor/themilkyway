@@ -4,7 +4,7 @@
 
 #t-box-search-pg {
     display: flex;
-    border-bottom: #24292e solid 1px;
+    border-bottom: 1px solid black;
     width: 85%;
     margin: 20px auto;
     font-family: 'Comfortaa', cursive;
