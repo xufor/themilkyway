@@ -8,16 +8,9 @@ import { connect } from 'react-redux';
 import './style.css';
 
 class SearchPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            mode: 'stories'
-        }
-    }
-
     componentDidMount() {
-        if(this.props.string === undefined) {
-            this.props.history.push('/home')
+        if(this.props.string === '') {
+            this.props.history.push('/')
         }
     }
 
@@ -33,7 +26,7 @@ class SearchPage extends Component {
         let i = 0;
         return (
             names.map((listItem) => {
-                return <SearchElement name={listItem}/>
+                return <SearchElement name={listItem} key={`searchElement${i++}`}/>
             })
         );
     };
@@ -41,7 +34,7 @@ class SearchPage extends Component {
     render() {
         return (
             <div id={'o-box-search-pg'}>
-                <TopMostBar calledFrom={'searchPage'}/>
+                <TopMostBar calledFrom={'profilePage'}/>
                 <GreetBox/>
                 <div id={'t-box-search-pg'}>{this.topBoxGen()}</div>
                 <div id={'r-box-search-pg'}>{this.resultBoxGen()}</div>
