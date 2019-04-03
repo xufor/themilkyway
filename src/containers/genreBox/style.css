@@ -1,10 +1,16 @@
 #genreWrapper {
-    display: flex;
+    width: 100vw;
     margin-bottom: 20px;
-    align-items: center;
     font-family: 'Consolas', monospace;
+    background: lightgrey;
     margin-top: 10px;
     overflow-x: hidden;
+}
+
+#genreElementsWrapper{
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
 }
 
 #leftButtonGenreBox {
@@ -25,7 +31,7 @@
 #rightButtonGenreBox {
     height: 20px;
     width: 20px;
-    left: calc(100vw - 24px);
+    left: calc(100vw - 40px);
     background: white;
     opacity: 0;
     padding: 0 2px;

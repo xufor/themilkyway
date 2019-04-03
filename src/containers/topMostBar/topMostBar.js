@@ -105,19 +105,19 @@ class TopMostBar extends Component {
 
     render() {
         return (
-            <div id="topMostBar" ref={this.bar} className='shadow-5'>
-                <img id='galaxyPic' ref={this.pic} className='pointer' alt='galPic' src={galaxyPic}/>
+            <div id={'topMostBar'} ref={this.bar} className={'shadow-5'}>
+                <img id={'galaxyPic'} ref={this.pic} className={'pointer'} alt={'galPic'} src={galaxyPic}/>
                 <Link to={'/home'}>
-                    <div id='logoText' ref={this.logo} className='white pointer'>The Milky Way</div>
+                    <div id={'logoText'} ref={this.logo} className={'white pointer'}>The Milky Way</div>
                 </Link>
-                <div id='searchWrapper' ref={this.search} >
-                    <input id='searchBox' onChange={this.onSearchChange} type='text' maxLength='30' onKeyPress={this.onEnter} placeholder='Searching for someone?' aria-label='Search'/>
-                    <img id='searchGlassImage' onClick={this.onSearchClickHandler} className='pointer' alt='srhGls' src={searchGlass}/>
+                <div id={'searchWrapper'} ref={this.search} >
+                    <input id={'searchBox'} onChange={this.onSearchChange} type={'text'} maxLength={'30'} onKeyPress={this.onEnter} placeholder={'Searching for someone?'} aria-label={'Search'}/>
+                    <img id={'searchGlassImage'} onClick={this.onSearchClickHandler} className={'pointer'} alt={'srhGls'} src={searchGlass}/>
                 </div>
-                <div className='emptySpace'/>
-                <img src={searchOpener} ref={this.opn} onClick={this.expand} alt='srhOpn' id={'searchOpenImage'}/>
+                <div className={'emptySpace'}/>
+                <img src={searchOpener} ref={this.opn} onClick={this.expand} alt={'srhOpn'} id={'searchOpenImage'}/>
                 <Link to={'/profile'}>
-                    <img id='profilePic' ref={this.user} src={profilePic} alt={'pPic'}/>
+                    <img id={'profilePic'} ref={this.user} src={profilePic} alt={'pPic'}/>
                 </Link>
                 <Link to={'/home'}>
                     <img id={'goHomeBtn'} ref={this.go} src={goHome} alt={'hm'}/>

@@ -5,15 +5,9 @@
     width: max-content;
     text-align: center;
     transition: background-color 0.3s ease-in-out;
-    animation: marquee 5s linear 1 both paused;
 }
 
 .genreBoxElement:hover {
     background-color: #f9f9f9 !important;
     color: #24292e !important;
-}
-
-@keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-100vw); }
 }

@@ -9,6 +9,25 @@ import { connect } from 'react-redux';
 import './style.css';
 
 class GenreBox extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            ow: 0,
+            sw: 0,
+            dev: 0
+        }
+    }
+
+    componentDidMount() {
+        let x = document.getElementById('genreWrapper');
+        let ow = x.offsetWidth;
+        let sw = x.scrollWidth;
+        this.setState({ow: ow, sw: sw});
+        window.addEventListener('resize', ()=> {
+            this.setState({ow: x.offsetWidth, sw: x.scrollWidth});
+        });
+    }
+
     genreGen = () => {
         let i =0;
          return tags.map((listItem) => {
@@ -16,15 +35,35 @@ class GenreBox extends Component {
         });
     };
 
-    render() {
-        return (
-            <div id={'genreWrapper'} className={'shadow-4'}>
-                <img id={'leftButtonGenreBox'} src={left} alt={'lft'}/>
-                <img id={'rightButtonGenreBox'} src={right} alt={'rht'}/>
-                {this.genreGen()}
-            </div>
-        )
-    };
+    leftClickHandler = () => {
+        let {ow, sw, dev} = this.state;
+        let e =  document.getElementById('genreElementsWrapper');
+        if((-1 * dev) < (sw - ow)) {
+            dev -= 300;
+            this.setState({dev: dev});
+            e.style.transform = `translateX(${dev}px)`;
+        }
+   };
+
+   rightClickHandler = () => {
+       let {dev} = this.state;
+       let e =  document.getElementById('genreElementsWrapper');
+       if( dev < 0) {
+           dev += 300;
+           this.setState({dev: dev});
+           e.style.transform = `translateX(${dev}px)`;
+       }
+   };
+
+   render() {
+       return (
+           <div id={'genreWrapper'} className={'shadow-4'}>
+               <img id={'leftButtonGenreBox'}  onClick={this.leftClickHandler} src={left} alt={'lft'}/>
+               <img id={'rightButtonGenreBox'} onClick={this.rightClickHandler} src={right} alt={'rht'}/>
+               <div id={'genreElementsWrapper'}>{this.genreGen()}</div>
+           </div>
+       )
+   };
 }
 
 const mapActionToProps = (dispatch) => {
