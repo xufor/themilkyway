@@ -10,7 +10,7 @@ import './style.css';
 class SearchPage extends Component {
     componentDidMount() {
         if(this.props.string === '') {
-            this.props.history.push('/')
+            this.props.history.push('/home')
         }
     }
 
