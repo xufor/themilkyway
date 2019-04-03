@@ -87,9 +87,12 @@ class TopMostBar extends Component {
     changeBarFormat  = () => {
         this.go.current.style.display= 'block';
         setTimeout(() => {
-            this.user.current.style.display= 'none';
-            this.opn.current.style.display= 'none';
-        }, 100)
+            if(this.user.current !== null && this.opn.current !== null) {
+                this.user.current.style.display= 'none';
+                this.opn.current.style.display= 'none';
+            }
+        }, 100);
+
     };
 
     onSearchClickHandler = () => {
