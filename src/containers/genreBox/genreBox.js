@@ -3,6 +3,8 @@ import { tags } from '../../strings';
 import GenreElement from '../genreElement/genreElement';
 import { tagTopicAction } from '../../actions/tagTopicAction';
 import { bindActionCreators } from 'redux';
+import left from '../../assets/left.png';
+import right from '../../assets/right.png';
 import { connect } from 'react-redux';
 import './style.css';
 
@@ -17,6 +19,8 @@ class GenreBox extends Component {
     render() {
         return (
             <div id={'genreWrapper'} className={'shadow-4'}>
+                <img id={'leftButtonGenreBox'} src={left} alt={'lft'}/>
+                <img id={'rightButtonGenreBox'} src={right} alt={'rht'}/>
                 {this.genreGen()}
             </div>
         )
