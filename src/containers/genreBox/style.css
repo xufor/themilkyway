@@ -1,10 +1,10 @@
 #genreWrapper {
-    width: 100vw;
+    width: auto;
     margin-bottom: 20px;
     font-family: 'Consolas', monospace;
-    background: lightgrey;
+    background: white;
     margin-top: 10px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 #genreElementsWrapper{
