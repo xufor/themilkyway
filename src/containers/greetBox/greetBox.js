@@ -10,12 +10,28 @@ class GreetBox extends Component {
         this.state = {
             hours: ''
         };
+        this.write = React.createRef();
+        this.luck = React.createRef();
     };
 
     componentDidMount() {
         const currentTime = new Date();
         const hours = currentTime.getHours();
         this.setState({ hours });
+        const { calledFrom } = this.props;
+        if(calledFrom === 'composePage') {
+            this.changeBarFormat();
+        }
+    };
+
+    changeBarFormat  = () => {
+        setTimeout(() => {
+            if(this.write.current !== null && this.luck.current !== null) {
+                this.write.current.style.display= 'none';
+                this.luck.current.style.display= 'block';
+            }
+        }, 10);
+
     };
 
     suffixGen = () => {
@@ -33,10 +49,13 @@ class GreetBox extends Component {
     render() {
         let { firstName } = this.props.credentials.data;
         return (
-                <div id={'greetBox'} className={'shadow-5'}>
+            <div id={'greetBox'} className={'shadow-5'}>
                 <div id={'greeting'}>Good {this.suffixGen()} {firstName} !</div>
                 <div className={'emptySpace'}/>
-                <Link id={'composeLink'} className={'link black'} to={'/compose'}>Want to write Something?</Link>
+                <Link id={'composeLink'} className={'link black'} to={'/compose'}>
+                    <div ref={this.write}>Want to write Something?</div>
+                </Link>
+                <div id={'wishText'} ref={this.luck}>Best of luck with the story!</div>
             </div>
         );
     };

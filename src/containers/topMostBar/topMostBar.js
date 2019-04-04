@@ -30,7 +30,7 @@ class TopMostBar extends Component {
 
     componentDidMount() {
         const { calledFrom } = this.props;
-        if(calledFrom === 'profilePage' || calledFrom === 'searchPage') {
+        if(calledFrom === 'profilePage' || calledFrom === 'searchPage' || calledFrom === 'composePage') {
             this.changeBarFormat();
         }
     }
@@ -91,7 +91,7 @@ class TopMostBar extends Component {
                 this.user.current.style.display= 'none';
                 this.opn.current.style.display= 'none';
             }
-        }, 100);
+        }, 10);
 
     };
 
