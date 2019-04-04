@@ -20,11 +20,13 @@ class GenreBox extends Component {
 
     componentDidMount() {
         let x = document.getElementById('genreWrapper');
+        let e =  document.getElementById('genreElementsWrapper');
         let ow = x.offsetWidth;
         let sw = x.scrollWidth;
         this.setState({ow: ow, sw: sw});
         window.addEventListener('resize', ()=> {
-            this.setState({ow: x.offsetWidth, sw: x.scrollWidth});
+            this.setState({ow: x.offsetWidth, sw: x.scrollWidth, dev: 0});
+            e.style.transform = `translateX(0px)`;
         });
     }
 
