@@ -12,7 +12,17 @@ class ComposePage extends Component {
             <div id={'m-b-compose-pg'}>
                 <TopMostBar calledFrom={'composePage'}/>
                 <GreetBox calledFrom={'composePage'}/>
-                <TextEditor/>
+                <div id={'e-wrap-compose-pg'} className={'shadow-4'}>
+                    <div id={'t-e-compose-pg'}>
+                        <div>Title:</div>
+                        <input/>
+                    </div>
+                    <div id={'s-e-compose-pg'}>
+                        <div>Summary:</div>
+                        <input/>
+                    </div>
+                    <TextEditor/>
+                </div>
                 <PageFooter/>
             </div>
         )

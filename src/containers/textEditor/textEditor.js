@@ -30,8 +30,8 @@ class TextEditor extends Component {
 
     render() {
         return (
-            <div id={'m-txt-editor'}>
-                <div id={''} ref={this.editor}/>
+            <div id={'m-b-txt-editor'}>
+                <div id={'e-b-txt-editor'} ref={this.editor}/>
             </div>
         );
     }

@@ -1,7 +1,33 @@
-#e-compose-pg {
-    width: 75vw;
+#m-b-compose-pg {
+    background: #F5F5F5;
 }
 
-#m-b-compose-pg {
+#e-wrap-compose-pg {
+    width: 75%;
+    margin: 30px auto;
+    background: white;
+    padding: 50px;
+    border-radius: 1.5rem;
+}
 
+#t-e-compose-pg {
+    display: flex;
+    font-family: 'Comfortaa', cursive;
+    margin-bottom: 30px;
+}
+
+#t-e-compose-pg > input {
+    flex: 1;
+    margin-left: 10px;
+}
+
+#s-e-compose-pg {
+    display: flex;
+    font-family: 'Comfortaa', cursive;
+    margin-bottom: 30px;
+}
+
+#s-e-compose-pg > input {
+    flex: 1;
+    margin-left: 10px;
 }
