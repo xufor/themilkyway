@@ -5,7 +5,7 @@
   "dependencies": {
     "ajv": "^6.10.0",
     "axios": "^0.18.0",
-    "immutable": "^4.0.0-rc.12",
+    "draft-js": "^0.10.5",
     "loaders.css": "^0.1.2",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
@@ -17,9 +17,8 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "serve": "^10.1.2",
-    "slate": "^0.44.12",
-    "slate-react": "^0.21.18",
-    "tachyons": "^4.11.1"
+    "tachyons": "^4.11.1",
+    "typescript": "^3.4.1"
   },
   "scripts": {
     "dev": "react-scripts start",
