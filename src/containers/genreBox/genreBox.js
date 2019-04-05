@@ -12,22 +12,32 @@ class GenreBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ow: 0,
-            sw: 0,
-            dev: 0
-        }
+            ow: 0, //offSetWidth
+            sw: 0, //scrollWidth
+            dev: 0 //deviation
+        };
+        this.gw = React.createRef(); // Outer Wrapper
+        this.ew = React.createRef(); // Elements Wrapper
+
     }
 
     componentDidMount() {
-        let x = document.getElementById('genreWrapper');
-        let e =  document.getElementById('genreElementsWrapper');
-        let ow = x.offsetWidth;
-        let sw = x.scrollWidth;
+        let gw = this.gw.current;
+        let ow = gw.offsetWidth;
+        let sw = gw.scrollWidth;
         this.setState({ow: ow, sw: sw});
-        window.addEventListener('resize', ()=> {
-            this.setState({ow: x.offsetWidth, sw: x.scrollWidth, dev: 0});
-            e.style.transform = `translateX(0px)`;
-        });
+        window.addEventListener('resize', this.resizeListener);
+    }
+
+    resizeListener = () => {
+        let gw = this.gw.current;
+        let ew = this.ew.current;
+        this.setState({ow: gw.offsetWidth, sw: gw.scrollWidth, dev: 0});
+        ew.style.transform = `translateX(0px)`;
+    };
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.resizeListener);
     }
 
     genreGen = () => {
@@ -67,10 +77,10 @@ class GenreBox extends Component {
 
    render() {
        return (
-           <div id={'genreWrapper'} className={'shadow-4'}>
+           <div id={'genreWrapper'}  ref={this.gw} className={'shadow-4'}>
                <img id={'leftButtonGenreBox'}  onClick={this.leftClickHandler} src={left} alt={'lft'}/>
                <img id={'rightButtonGenreBox'} onClick={this.rightClickHandler} src={right} alt={'rht'}/>
-               <div id={'genreElementsWrapper'}>{this.genreGen()}</div>
+               <div id={'genreElementsWrapper'} ref={this.ew}>{this.genreGen()}</div>
            </div>
        )
    };
