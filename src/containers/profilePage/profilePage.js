@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
+import GenreBox from '../../containers/genreBox/genreBox';
+import RippleButton from '../../components/rippleButton/rippleButton';
 import sPic from '../../assets/samplePic.png';
 import { connect } from 'react-redux';
 import './style.css';
@@ -17,7 +19,9 @@ class ProfilePage extends Component {
 					<div id={'nameOnProfilePage'}>
 							{firstName + ' ' + lastName}
 					</div>
-					<div id={'editButtonOnProfilePage'} className={'grow'}>Edit</div>
+					<div id={'editButtonOnProfilePage'}>
+						<RippleButton name={'Edit'}/>
+					</div>
 					<div id={'lineOnProfilePage'}/>
 				</div>
             </div>
@@ -68,6 +72,7 @@ class ProfilePage extends Component {
        		<div id={'outerMostWrapperOfProfilePage'}>
        			<TopMostBar calledFrom={'profilePage'}/>
 				<GreetBox/>
+				<GenreBox/>
        			<div id={'profilePageBoxWrapper'}>
 					{this.topBoxGen()}
 					{this.basicInfo()}

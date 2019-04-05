@@ -97,14 +97,7 @@
 	position: relative;
 	display: inline;
 	top: -17px;
-	padding: 5px 15px;
+	padding: 5px 5px;
 	color: white;
-	width: max-content;
-	border-radius: 2rem;
-	font-size: 1.3rem;
-	background-color: #448AFF;
-	font-family: 'Caveat', monospace;
-	cursor: pointer;
-	border: none;
 }
 
