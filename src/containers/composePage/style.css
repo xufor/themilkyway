@@ -4,9 +4,9 @@
 
 #e-wrap-compose-pg {
     width: 65%;
-    margin: 30px auto;
+    margin: 20px auto;
     background: white;
-    padding: 50px;
+    padding: 60px 60px 20px 60px;
     border-radius: 1.1rem;
 }
 
@@ -30,4 +30,13 @@
 #s-e-compose-pg > input {
     flex: 1;
     margin-left: 10px;
+}
+
+#b-c-compose-pg {
+    margin-top: 20px;
+}
+
+#b-c-compose-pg > button{
+    margin: 10px auto;
+    display: block;
 }

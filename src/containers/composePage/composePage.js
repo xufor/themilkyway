@@ -3,7 +3,9 @@ import TextEditor from '../textEditor/textEditor';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
-
+import RippleButton from '../../components/rippleButton/rippleButton';
+import UserRecBox from '../../containers/userRecBox/userRecBox';
+import GenreBox from '../../containers/genreBox/genreBox';
 import './style.css';
 
 class ComposePage extends Component {
@@ -12,6 +14,8 @@ class ComposePage extends Component {
             <div id={'m-b-compose-pg'}>
                 <TopMostBar calledFrom={'composePage'}/>
                 <GreetBox calledFrom={'composePage'}/>
+                <GenreBox/>
+                <UserRecBox/>
                 <div id={'e-wrap-compose-pg'} className={'shadow-4'}>
                     <div id={'t-e-compose-pg'}>
                         <div>Title:</div>
@@ -22,6 +26,10 @@ class ComposePage extends Component {
                         <input/>
                     </div>
                     <TextEditor/>
+                    <div id={'b-c-compose-pg'}>
+                        <RippleButton name={'Save Draft'}/>
+                        <RippleButton name={'Submit'}/>
+                    </div>
                 </div>
                 <PageFooter/>
             </div>

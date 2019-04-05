@@ -1,0 +1,36 @@
+$black: #000;
+$white: #fff;
+$ripple-color: #B388FF;
+
+.rip-btn {
+  color: $black;
+  font-family: 'Comfortaa', cursive;
+  font-size: 1rem;
+  background-image: radial-gradient(circle at center, $ripple-color 0%, $white 0% 100%);
+  border: solid 2px $black;
+  border-radius: 2rem;
+  outline: none;
+  padding: 10px 15px;
+  &.rippling {
+    animation: pop-ripple 250ms ease-out forwards;
+  }
+  &.fade {
+    animation: pop-fade 300ms ease-in-out forwards;
+  }
+}
+
+@keyframes pop-ripple {
+  @for $i from 0 through 100 {
+    #{$i + 0%} { background-image: radial-gradient(circle at center, $ripple-color ($i + 0%), $white ($i + 0%)); }
+  }
+}
+
+@keyframes pop-fade {
+  @for $i from 0 through 100 {
+    #{$i + 0%} {
+      background-image:
+              radial-gradient(circle at center, rgba($ripple-color, ((100 - $i) / 100)) 0% 100%),
+              radial-gradient(circle at center, $white 0% 100%);
+    }
+  }
+}
