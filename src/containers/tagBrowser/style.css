@@ -1,0 +1,24 @@
+#m-b-tag-browser {
+    background: #f9f9f9;
+}
+
+#c-w-tag-browser {
+    margin: 20px auto;
+}
+
+#t-b-tag-browser {
+    display: flex;
+    border-bottom: 1px solid black;
+    width: 85%;
+    margin: 20px auto;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.5rem;
+    padding: 20px;
+    align-items: center;
+}
+
+#r-b-tag-browser {
+    width: 65%;
+    margin: 0 auto;
+    font-family: 'Comfortaa', cursive;
+}

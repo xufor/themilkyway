@@ -34,7 +34,7 @@ class HomePage extends Component {
             <div>
                 {this.displayLoader(this.state.loaderFlag)}
                 <div id={'homePageBackground'}>
-                    <TopMostBar history={this.props.history} formatType={'0'}/>
+                    <TopMostBar history={this.props.history}/>
                     <GreetBox/>
                     <GenreBox/>
                     <UserRecBox/>

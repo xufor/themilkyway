@@ -13,7 +13,7 @@ class ComposePage extends Component {
         return (
             <div id={'m-b-compose-pg'}>
                 <TopMostBar formatType={'1'}/>
-                <GreetBox calledFrom={'composePage'}/>
+                <GreetBox formatType={'1'}/>
                 <GenreBox/>
                 <UserRecBox/>
                 <div id={'e-wrap-compose-pg'} className={'shadow-4'}>

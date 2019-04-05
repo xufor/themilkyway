@@ -120,7 +120,7 @@ class TopMostBar extends Component {
                 <Link to={'/profile'}>
                     <img id={'profilePic'} ref={this.user} src={profilePic} alt={'pPic'}/>
                 </Link>
-                <Link to={'/home'}>
+                <Link to={'/'}>
                     <img id={'goHomeBtn'} ref={this.go} src={goHome} alt={'hm'}/>
                 </Link>
             </div>

@@ -1,0 +1,18 @@
+#m-b-st-element {
+    padding: 20px;
+    border-radius: 2rem;
+    background: white;
+    margin-bottom: 20px;
+    border: 1px solid lightgrey;
+}
+
+.t-st-element {
+    font-size: 1.5rem;
+    display: inline;
+}
+
+.n-st-element {
+    font-size: 1.1rem;
+    margin-left: 10px;
+    display: inline;
+}

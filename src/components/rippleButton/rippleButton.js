@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './style-inbuilt.scss';
-import './style.css';
 
 class RippleButton extends Component {
     componentDidMount() {

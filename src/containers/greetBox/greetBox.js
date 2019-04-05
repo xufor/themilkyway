@@ -18,20 +18,21 @@ class GreetBox extends Component {
         const currentTime = new Date();
         const hours = currentTime.getHours();
         this.setState({ hours });
-        const { calledFrom } = this.props;
-        if(calledFrom === 'composePage') {
-            this.changeBarFormat();
+        const { formatType } = this.props;
+        if(formatType === '1') {
+            this.changeBarFormat('1');
         }
     };
 
-    changeBarFormat  = () => {
-        setTimeout(() => {
-            if(this.write.current !== null && this.luck.current !== null) {
-                this.write.current.style.display= 'none';
-                this.luck.current.style.display= 'block';
-            }
-        }, 10);
-
+    changeBarFormat  = (type) => {
+        if(type === '1') {
+            setTimeout(() => {
+                if(this.write.current !== null && this.luck.current !== null) {
+                    this.write.current.style.display= 'none';
+                    this.luck.current.style.display= 'block';
+                }
+            }, 10);
+        }
     };
 
     suffixGen = () => {
