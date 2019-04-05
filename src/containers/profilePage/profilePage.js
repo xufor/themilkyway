@@ -3,7 +3,6 @@ import PageFooter from '../../components/pageFooter/pageFooter';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import GenreBox from '../../containers/genreBox/genreBox';
-import UserRecBox from '../../containers/userRecBox/userRecBox';
 import RippleButton from '../../components/rippleButton/rippleButton';
 import sPic from '../../assets/samplePic.png';
 import { connect } from 'react-redux';
@@ -62,7 +61,6 @@ class ProfilePage extends Component {
        			<TopMostBar formatType={'1'}/>
 				<GreetBox/>
 				<GenreBox/>
-				<UserRecBox/>
 				<div id={'c-w-profile-pg'} className={'shadow-4'}>
 					<div id={'l-r-profile-pg'}>{this.leftRegionGen()}</div>
 					<div id={'r-r-profile-pg'}>{this.rightRegionGen()}</div>
