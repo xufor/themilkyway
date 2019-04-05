@@ -73,7 +73,7 @@ class ProfilePage extends Component {
        			<TopMostBar calledFrom={'profilePage'}/>
 				<GreetBox/>
 				<GenreBox/>
-       			<div id={'profilePageBoxWrapper'}>
+       			<div id={'profilePageBoxWrapper'} className={'shadow-4'}>
 					{this.topBoxGen()}
 					{this.basicInfo()}
 					{this.achievementsInfo()}
