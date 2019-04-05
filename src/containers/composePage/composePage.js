@@ -12,7 +12,7 @@ class ComposePage extends Component {
     render() {
         return (
             <div id={'m-b-compose-pg'}>
-                <TopMostBar calledFrom={'composePage'}/>
+                <TopMostBar formatType={'1'}/>
                 <GreetBox calledFrom={'composePage'}/>
                 <GenreBox/>
                 <UserRecBox/>

@@ -29,9 +29,9 @@ class TopMostBar extends Component {
     }
 
     componentDidMount() {
-        const { calledFrom } = this.props;
-        if(calledFrom === 'profilePage' || calledFrom === 'searchPage' || calledFrom === 'composePage') {
-            this.changeBarFormat();
+        const { formatType } = this.props;
+        if(formatType !== '0') {
+            this.changeBarFormat(formatType);
         }
     }
 
@@ -84,15 +84,16 @@ class TopMostBar extends Component {
         }
     };
 
-    changeBarFormat  = () => {
-        this.go.current.style.display= 'block';
-        setTimeout(() => {
-            if(this.user.current !== null && this.opn.current !== null) {
-                this.user.current.style.display= 'none';
-                this.opn.current.style.display= 'none';
-            }
-        }, 10);
-
+    changeBarFormat  = (type) => {
+        if(type === '1') {
+            this.go.current.style.display = 'block';
+            setTimeout(() => {
+                if (this.user.current !== null && this.opn.current !== null) {
+                    this.user.current.style.display = 'none';
+                    this.opn.current.style.display = 'none';
+                }
+            }, 10);
+        }
     };
 
     onSearchClickHandler = () => {

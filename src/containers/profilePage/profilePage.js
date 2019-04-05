@@ -70,7 +70,7 @@ class ProfilePage extends Component {
 	render() {
        	return (
        		<div id={'outerMostWrapperOfProfilePage'}>
-       			<TopMostBar calledFrom={'profilePage'}/>
+       			<TopMostBar formatType={'1'}/>
 				<GreetBox/>
 				<GenreBox/>
        			<div id={'profilePageBoxWrapper'} className={'shadow-4'}>

@@ -3,6 +3,7 @@ import PageFooter from '../../components/pageFooter/pageFooter';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import SearchElement from '../searchElement/searchElement';
+import GenreBox from '../genreBox/genreBox';
 import { names } from '../../strings';
 import { connect } from 'react-redux';
 import './style.css';
@@ -10,7 +11,7 @@ import './style.css';
 class SearchPage extends Component {
     componentDidMount() {
         if(this.props.string === '') {
-            this.props.history.push('/home')
+            this.props.history.push('/')
         }
     }
 
@@ -34,8 +35,9 @@ class SearchPage extends Component {
     render() {
         return (
             <div id={'o-box-search-pg'}>
-                <TopMostBar calledFrom={'searchPage'}/>
+                <TopMostBar formatType={'1'}/>
                 <GreetBox/>
+                <GenreBox/>
                 <div id={'t-box-search-pg'}>{this.topBoxGen()}</div>
                 <div id={'r-box-search-pg'}>{this.resultBoxGen()}</div>
                 <PageFooter/>

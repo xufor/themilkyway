@@ -6,6 +6,7 @@ import RegisterPage from './containers/registerPage/registerPage';
 import ProfilePage from './containers/profilePage/profilePage';
 import SearchPage from './containers/searchPage/searchPage';
 import ComposePage from './containers/composePage/composePage';
+import TagBrowser from './containers/tagBrowser/tagBrowser';
 import {BrowserRouter, Route} from "react-router-dom";
 import './App.css';
 
@@ -21,6 +22,7 @@ class App extends Component {
                   <Route path= {'/profile'} exact component = { ProfilePage }/>
                   <Route path= {'/search'} exact component = { SearchPage }/>
                   <Route path= {'/compose'} exact component = { ComposePage }/>
+                  <Route path= {'/tagBrowser'} exact component = { TagBrowser }/>
                   <Route path= {'/'} exact component = { HomePage }/>
               </div>
           </BrowserRouter>
