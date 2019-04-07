@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import './style-inbuilt.scss';
 
 class RippleButton extends Component {
+    constructor(props) {
+        super(props);
+        this.btn = React.createRef();
+    }
+
     componentDidMount() {
         const rippleButtons = document.querySelectorAll('.ripple');
-
         rippleButtons.forEach(rippleBtn => {
             rippleBtn.addEventListener('click', e => {
                 if (!rippleBtn.classList.contains('rippling')) {
@@ -24,7 +28,7 @@ class RippleButton extends Component {
     render() {
         const { name } = this.props;
         return (
-            <button className={'rip-btn btn-pop ripple'}>{name}</button>
+            <button className={'rip-btn btn-pop ripple'} ref={this.btn}>{name}</button>
         );
     };
 }

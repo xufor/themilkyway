@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RippleButton from '../../components/rippleButton/rippleButton';
 import pPic from '../../assets/pPic.jpg';
 import './style.css';
 
@@ -11,7 +12,9 @@ class SearchElement extends Component {
                     <img className={'i-s-element'} src={pPic} alt={'NotYetDecided'}/>
                     <div className={'n-s-element'}>{name}</div>
                     <div className={'emptySpace'}/>
-                    <div className={'f-button-s-element'}>Follow</div>
+                    <div className={'f-button-s-element'}>
+                        <RippleButton name={'Follow'}/>
+                    </div>
                 </div>
             </div>
         );

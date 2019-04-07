@@ -48,7 +48,7 @@ class ProfilePage extends Component {
 					<div id={'pr-r-r-profile-pg'}>{`Views: ${views}`}</div>
 				</div>
 				<div id={'e-b-w-profile-pg'}>
-					<RippleButton name={'Edit'}/>
+					<RippleButton name={'Edit Profile'}/>
 				</div>
 			</div>
 		);

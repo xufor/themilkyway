@@ -1,16 +1,18 @@
 $text-color: black;
 $idle-state-color: white;
-$ripple-color: #B388FF;
+$ripple-color: #74b9ff;
+$border-color: #E0E0E0;
 
 .rip-btn {
   color: $text-color;
   font-family: 'Comfortaa', cursive;
   font-size: 1rem;
   background-image: radial-gradient(circle at center, $ripple-color 0%, $idle-state-color 0% 100%);
-  border: solid 2px $text-color;
+  border: solid 1px $border-color;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 2rem;
   outline: none;
-  padding: 10px 15px;
+  padding: 10px 13px;
   &.rippling {
     animation: pop-ripple 250ms ease-out forwards;
   }
