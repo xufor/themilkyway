@@ -49,29 +49,29 @@ class GenreBox extends Component {
 
     leftClickHandler = () => {
         let {ow, sw, dev} = this.state;
-        let e =  document.getElementById('genreElementsWrapper');
+        let ew = this.ew.current;
         if((-1 * dev) < (sw - ow) && (-1 * (dev-300)) < (sw - ow)) {
             dev -= 300;
             this.setState({dev: dev});
-            e.style.transform = `translateX(${dev}px)`;
+            ew.style.transform = `translateX(${dev}px)`;
         } else {
             dev -= (sw - ow + dev);
             this.setState({dev: dev});
-            e.style.transform = `translateX(${ow - sw}px)`;
+            ew.style.transform = `translateX(${ow - sw}px)`;
         }
    };
 
    rightClickHandler = () => {
        let {dev} = this.state;
-       let e =  document.getElementById('genreElementsWrapper');
+       let ew = this.ew.current;
        if( (dev < 0) && (dev + 300) < 0) {
            dev += 300;
            this.setState({dev: dev});
-           e.style.transform = `translateX(${dev}px)`;
+           ew.style.transform = `translateX(${dev}px)`;
        } else {
            dev += (-1 * dev);
            this.setState({dev: dev});
-           e.style.transform = `translateX(${dev}px)`;
+           ew.style.transform = `translateX(${dev}px)`;
        }
    };
 

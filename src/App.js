@@ -7,7 +7,7 @@ import ProfilePage from './containers/profilePage/profilePage';
 import SearchPage from './containers/searchPage/searchPage';
 import ComposePage from './containers/composePage/composePage';
 import TagBrowser from './containers/tagBrowser/tagBrowser';
-import {BrowserRouter, Route} from "react-router-dom";
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 
 
