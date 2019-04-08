@@ -34,7 +34,7 @@ class UserRecBox extends Component {
         let { links } = this.props;
         if(links.length === 0) {
             return (
-                <div className={'line-scale-pulse-out-rapid'} id={'userRecBoxLoaderWrapper'}>
+                <div className={'line-scale'} id={'userRecBoxLoaderWrapper'}>
                     <div/>
                     <div/>
                     <div/>

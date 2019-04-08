@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import './style.css';
 
 class LoaderAnimation extends Component {
-    componentDidMount() {
-        console.log(this.props.messages);
-    }
-
     render() {
         return (
             <div id={'animationWrapper'}>

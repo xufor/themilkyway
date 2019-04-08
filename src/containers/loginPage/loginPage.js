@@ -50,7 +50,7 @@ class LoginPage extends Component {
     render() {
         return (
             <div>
-                {displayLoader(this.state.loaderFlag, 'Checking if its really you!')}
+                { displayLoader(this.state.loaderFlag, 'Checking if its really you!') }
                 <div id='loginPageBackground'>
                     <div id='loginBox'>
                         <div className='boxHeading'>Login</div>
