@@ -108,7 +108,7 @@ class TopMostBar extends Component {
         return (
             <div id={'topMostBar'} ref={this.bar} className={'shadow-5'}>
                 <img id={'galaxyPic'} ref={this.pic} className={'pointer'} alt={'galPic'} src={galaxyPic}/>
-                <Link to={'/home'}>
+                <Link to={'/'}>
                     <div id={'logoText'} ref={this.logo} className={'white pointer'}>The Milky Way</div>
                 </Link>
                 <div id={'searchWrapper'} ref={this.search} >

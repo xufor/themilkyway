@@ -28,18 +28,18 @@ class UserRecBox extends Component {
             listOfInstances[j].src = links[j];
         }
     }
-
+    
     userRecGen = () => {
         let i = 0;
         let { links } = this.props;
         if(links.length === 0) {
             return (
                 <div className={'line-scale'} id={'userRecBoxLoaderWrapper'}>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
+                    <div className={'ldr1'}/>
+                    <div className={'ldr2'}/>
+                    <div className={'ldr3'}/>
+                    <div className={'ldr4'}/>
+                    <div className={'ldr5'}/>
                 </div>
             )
         }

@@ -23,22 +23,22 @@
     transform: scale(1.5,1.5);
 }
 
-#ldr1 {
-    background-color: #24292e;
+.ldr1 {
+    background-color: #24292e !important;
 }
 
-#ldr2 {
-    background-color: blueviolet;
+.ldr2 {
+    background-color: blueviolet !important;
 }
 
-#ldr3 {
-    background-color: #24292e;
+.ldr3 {
+    background-color: #24292e !important;
 }
 
-#ldr4 {
-    background-color: blueviolet;
+.ldr4 {
+    background-color: blueviolet !important;
 }
 
-#ldr5 {
-    background-color: #24292e;
+.ldr5 {
+    background-color: #24292e !important;
 }

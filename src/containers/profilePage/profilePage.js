@@ -12,7 +12,6 @@ import './style-m.css';
 class ProfilePage extends Component {
 	leftRegionGen = () => {
 		const { firstName , lastName, bio } = this.props.credentials.data;
-		console.log(this.props);
 		return(
 			<div id={'l-r-w-profile-pg'}>
 				<div id={'i-w-profile-pg'}>
@@ -31,7 +30,6 @@ class ProfilePage extends Component {
 
 	rightRegionGen = () => {
 		const { country, dob, emailId, followers, following, praises, privacy, profession, views } = this.props.credentials.data;
-		console.log(this.props);
 		return(
 			<div id={'r-r-w-profile-pg'}>
 				<div id={'r-r-u-w-profile-pg'}>

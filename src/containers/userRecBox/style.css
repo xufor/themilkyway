@@ -20,11 +20,6 @@
     transform: scale(1.2,1.2);
 }
 
-#userRecBoxLoaderWrapper > div {
-    background-color: dodgerblue;
-}
-
-
 @keyframes fadeEntry {
     0% {
         opacity: 0;
