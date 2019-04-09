@@ -47,6 +47,10 @@ class LoginPage extends Component {
         }, 5000);
     };
 
+    componentWillUnmount() {
+
+    }
+
     render() {
         return (
             <div>
@@ -68,7 +72,7 @@ class LoginPage extends Component {
 }
 
 const mapActionToProps = (dispatch) => {
-	return bindActionCreators({ fetchUserCredentials }, dispatch);
+    return bindActionCreators({ fetchUserCredentials }, dispatch);
 };
 
 const mapStateToProps = (state) => {
