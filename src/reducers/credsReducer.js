@@ -12,7 +12,7 @@ let INITIAL_STATE = {
 		praises: '100k',
 		views: '500m',
 		bio: sampleBio,
-		country: 'New Zealand',
+		country: 'New Orleans',
 		profession: 'Architect',
 		emailId: 'john_seed@gmail.com',
 		milestones: '30K views 5K likes last month!',
@@ -21,13 +21,12 @@ let INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-	switch(action.type) {
-		case FETCH_USER_CREDENTIALS:
-			return {
-				verifiedFlag: true,
-				data: action.payload.data
-			};
-		default:
-		  	return state;
+	if (action.type === FETCH_USER_CREDENTIALS) {
+		return {
+			verifiedFlag: true,
+			data: action.payload.data
+		};
+	} else {
+		return state;
 	}
 }
