@@ -16,9 +16,11 @@
 
 #logoText {
     font-size: 2.3rem;
-    font-family: 'Caveat', cursive;
+    font-family: 'Custom Font 1', cursive;
     font-weight: normal;
     text-align: center;
+    position: relative;
+    top: -10px;
 }
 
 #searchWrapper {
@@ -74,3 +76,8 @@
     margin-right: 5px;
 }
 
+@font-face {
+    font-family: 'Custom Font 1';
+    src: url('../../fonts/Certifies.woff') format('woff');
+
+}

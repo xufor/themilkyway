@@ -47,6 +47,7 @@ class TopMostBar extends Component {
 
     shrink = () => {
         this.logo.current.style.fontSize= '2.3rem';
+        this.logo.current.style.top= '-10px';
         this.bar.current.style.height= '50px';
         this.bar.current.style.display= 'flex';
         this.bar.current.style.alignItems= 'center';
@@ -60,6 +61,7 @@ class TopMostBar extends Component {
 
     expand = () => {
         this.logo.current.style.fontSize= '4rem';
+        this.logo.current.style.top= '-20px';
         this.bar.current.style.height= '250px';
         this.bar.current.style.display= 'block';
         this.search.current.style.display= 'flex';
