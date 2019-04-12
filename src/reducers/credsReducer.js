@@ -2,7 +2,6 @@ import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 import { sampleBio } from '../strings.js';
 
 let INITIAL_STATE = {
-	verifiedFlag: null,
 	data: {
 		firstName: 'John',
 		lastName: 'Seed',
@@ -16,14 +15,13 @@ let INITIAL_STATE = {
 		profession: 'Architect',
 		emailId: 'john_seed@gmail.com',
 		milestones: '30K views 5K likes last month!',
-		privacy: 'Secret',
+		privacy: 'Secret'
 	}
 };
 
 export default (state = INITIAL_STATE, action) => {
 	if (action.type === FETCH_USER_CREDENTIALS) {
 		return {
-			verifiedFlag: true,
 			data: action.payload.data
 		};
 	} else {

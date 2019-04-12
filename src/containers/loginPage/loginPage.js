@@ -17,8 +17,10 @@ class LoginPage extends Component {
     }
 
     componentDidUpdate() {
-        if (this.props.credentials.verifiedFlag === true) {
-          this.props.history.push('/');
+        if (this.props.credentials !== {}) {
+          setTimeout(()=> {
+              this.props.history.push('/');
+          }, 1000);
         }
     }
 
@@ -43,7 +45,7 @@ class LoginPage extends Component {
         this.props.fetchUserCredentials(actionPacket);
         this.setState({ loaderFlag: 1});
         setTimeout(() => {
-            if(this.props.credentials.verifiedFlag === null) //Solves the memory leak problem
+            if(this.props.credentials === {}) //Solves the memory leak problem
                 this.setState({ loaderFlag: 0});
         }, 5000);
     };
