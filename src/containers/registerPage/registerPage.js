@@ -31,7 +31,7 @@ class RegisterPage extends Component {
     };
 
     onClickRegister = () => {
-        if(this.state.email === '' || this.state.email === '' || this.state.email === '')
+        if(this.state.email === '' || this.state.password === '' || this.state.name === '')
         {
             alert("Please fill all the fields with a valid entry.")
         } else {
