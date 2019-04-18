@@ -1,5 +1,5 @@
 #topMostBar {
-    height: 50px;
+    height: 53px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -16,11 +16,9 @@
 
 #logoText {
     font-size: 2.3rem;
-    font-family: 'Custom Font 1', cursive;
-    font-weight: normal;
+    font-family: 'Caveat', cursive;
     text-align: center;
     position: relative;
-    top: -10px;
 }
 
 #searchWrapper {
@@ -74,10 +72,4 @@
     height: 27px;
     width: 27px;
     margin-right: 5px;
-}
-
-@font-face {
-    font-family: 'Custom Font 1';
-    src: url('../../fonts/Certifies.woff') format('woff');
-
 }
