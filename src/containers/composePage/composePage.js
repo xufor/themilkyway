@@ -4,7 +4,6 @@ import PageFooter from '../../components/pageFooter/pageFooter';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import RippleButton from '../../components/rippleButton/rippleButton';
-import UserRecBox from '../../containers/userRecBox/userRecBox';
 import GenreBox from '../../containers/genreBox/genreBox';
 import './style.css';
 
@@ -15,7 +14,6 @@ class ComposePage extends Component {
                 <TopMostBar formatType={'1'}/>
                 <GreetBox formatType={'1'}/>
                 <GenreBox/>
-                <UserRecBox/>
                 <div id={'e-wrap-compose-pg'} className={'shadow-4'}>
                     <div id={'t-e-compose-pg'}>
                         <div>Title:</div>
