@@ -51,9 +51,10 @@ class LoginPage extends Component {
     };
 
     render() {
+        const { loaderFlag } = this.state;
         return (
             <div>
-                { displayLoader(this.state.loaderFlag, 'Checking if its really you!') }
+                { displayLoader(loaderFlag, 'Checking if its really you!') }
                 <div id={'loginPageBackground'}>
                     <div id={'loginBox'}>
                         <div className={'boxHeading'}>Login</div>

@@ -33,13 +33,15 @@ class SearchPage extends Component {
     };
 
     render() {
+        const topBoxGen = this.topBoxGen;
+        const resultBoxGen = this.resultBoxGen;
         return (
             <div id={'o-box-search-pg'}>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
                 <GenreBox/>
-                <div id={'t-box-search-pg'}>{this.topBoxGen()}</div>
-                <div id={'r-box-search-pg'}>{this.resultBoxGen()}</div>
+                <div id={'t-box-search-pg'}>{topBoxGen()}</div>
+                <div id={'r-box-search-pg'}>{resultBoxGen()}</div>
                 <PageFooter/>
             </div>
         );

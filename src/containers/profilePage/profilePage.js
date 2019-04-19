@@ -54,14 +54,16 @@ class ProfilePage extends Component {
 	};
 
 	render() {
-       	return (
+       	const leftRegionGen = this.leftRegionGen;
+       	const rightRegionGen = this.rightRegionGen;
+		return (
        		<div id={'m-b-profile-pg'}>
        			<TopMostBar formatType={'1'}/>
 				<GreetBox/>
 				<GenreBox/>
 				<div id={'c-w-profile-pg'} className={'shadow-4'}>
-					<div id={'l-r-profile-pg'}>{this.leftRegionGen()}</div>
-					<div id={'r-r-profile-pg'}>{this.rightRegionGen()}</div>
+					<div id={'l-r-profile-pg'}>{leftRegionGen()}</div>
+					<div id={'r-r-profile-pg'}>{rightRegionGen()}</div>
 				</div>
 				<PageFooter/>
 			</div>

@@ -4,8 +4,7 @@ import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import FeedBox from '../feedBox/feedBox';
 import PageFooter from '../../components/pageFooter/pageFooter';
-import BlackScreen from '../../components/blackScreen/blackScreen';
-import LoaderAnimation from '../../components/loaderAnimation/loaderAnimation';
+import { displayLoader } from '../../common';
 import UserRecBox from '../../containers/userRecBox/userRecBox';
 import GenreBox from '../../containers/genreBox/genreBox';
 import './style.css';
@@ -18,21 +17,11 @@ class HomePage extends Component {
         };
     }
 
-    displayLoader = (flag) => {
-        if(flag === 1) {
-            return (
-                <div>
-                    <LoaderAnimation/>
-                    <BlackScreen/>
-                </div>
-            );
-        }
-    };
-
     render() {
+        const { loaderFlag } = this.state;
         return (
             <div>
-                {this.displayLoader(this.state.loaderFlag)}
+                {displayLoader(loaderFlag)}
                 <div id={'homePageBackground'}>
                     <TopMostBar history={this.props.history}/>
                     <GreetBox/>

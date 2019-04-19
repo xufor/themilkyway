@@ -51,9 +51,10 @@ class UserRecBox extends Component {
     };
 
     render() {
+        const userRecGen = this.userRecGen;
         return (
             <div id={'recBoxWrapper'} className={'shadow-4'}>
-                {this.userRecGen()}
+                {userRecGen()}
             </div>
         )
     };

@@ -22,9 +22,10 @@ class FeedBox extends Component {
     };
 
     render() {
+        const viewGen = this.viewGen;
         return (
             <div onMouseEnter={this.handler} id={'feedBoxWrapper'} className={'shadow-4'}>
-                    {this.viewGen(5)}
+                    {viewGen(5)}
             </div>
         );
     }

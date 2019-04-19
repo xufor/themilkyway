@@ -76,11 +76,12 @@ class GenreBox extends Component {
    };
 
    render() {
+       const genreGen = this.genreGen;
        return (
-           <div id={'genreWrapper'}  ref={this.gw} className={'shadow-4'}>
+           <div id={'genreWrapper'} ref={this.gw} className={'shadow-4'}>
                <img id={'leftButtonGenreBox'}  onClick={this.leftClickHandler} src={left} alt={'lft'}/>
                <img id={'rightButtonGenreBox'} onClick={this.rightClickHandler} src={right} alt={'rht'}/>
-               <div id={'genreElementsWrapper'} ref={this.ew}>{this.genreGen()}</div>
+               <div id={'genreElementsWrapper'} ref={this.ew}>{genreGen()}</div>
            </div>
        )
    };

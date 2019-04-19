@@ -22,17 +22,19 @@ class FeedView extends Component {
     };
 
     render() {
+        const intro = this.intro;
+        const { firstName, lastName } = this.props.credentials.data;
         return (
             <div id={'feedView'} className={'shadow-4'}>
                 <div id={'upper'}>
                     <div id={'headings'}>
                         <div id={'title'}>{this.title}</div>
                         <div id={'intro'}>
-                            {this.intro()}
+                            {intro()}
                             {' '}
-                            {this.props.credentials.data.firstName}
+                            {firstName}
                             {' '}
-                            {this.props.credentials.data.lastName}
+                            {lastName}
                         </div>
                     </div>
                     <div className={'emptySpace'}/>

@@ -34,14 +34,16 @@ class TagBrowser extends Component {
     };
 
     render() {
+        const topBoxGen = this.topBoxGen;
+        const resultBoxGen = this.resultBoxGen;
         return (
             <div id={'m-b-tag-browser'}>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
                 <GenreBox/>
                 <div id={'c-w-tag-browser'}>
-                    <div id={'t-b-tag-browser'}>{this.topBoxGen()}</div>
-                    <div id={'r-b-tag-browser'}>{this.resultBoxGen()}</div>
+                    <div id={'t-b-tag-browser'}>{topBoxGen()}</div>
+                    <div id={'r-b-tag-browser'}>{resultBoxGen()}</div>
                 </div>
                 <PageFooter/>
             </div>
