@@ -8,6 +8,22 @@ import GenreBox from '../../containers/genreBox/genreBox';
 import './style.css';
 
 class ComposePage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            summary: '',
+            title: ''
+        }
+    }
+
+    onTitleChange = (event) => {
+        this.setState({title: event.target.value})
+    };
+
+    onSummaryChange = (event) => {
+        this.setState({summary: event.target.value})
+    };
+
     render() {
         return (
             <div id={'m-b-compose-pg'}>
@@ -17,11 +33,11 @@ class ComposePage extends Component {
                 <div id={'e-wrap-compose-pg'} className={'shadow-4'}>
                     <div id={'t-e-compose-pg'}>
                         <div>Title:</div>
-                        <input/>
+                        <input onChange={this.onTitleChange}/>
                     </div>
                     <div id={'s-e-compose-pg'}>
                         <div>Summary:</div>
-                        <input/>
+                        <input onChange={this.onSummaryChange}/>
                     </div>
                     <TextEditor/>
                     <div id={'b-c-compose-pg'}>

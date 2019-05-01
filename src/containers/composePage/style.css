@@ -18,6 +18,7 @@
 #t-e-compose-pg > input {
     flex: 1;
     margin-left: 10px;
+    font-family: 'Vollkorn', serif;
 }
 
 #s-e-compose-pg {
@@ -29,6 +30,7 @@
 #s-e-compose-pg > input {
     flex: 1;
     margin-left: 10px;
+    font-family: 'Vollkorn', serif;
 }
 
 #b-c-compose-pg {

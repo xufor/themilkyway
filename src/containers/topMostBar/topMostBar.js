@@ -17,7 +17,6 @@ class TopMostBar extends Component {
         super(props);
         this.state = {
           searchString: '',
-          format: 'original',
         };
         this.bar = React.createRef();
         this.logo = React.createRef();
@@ -30,9 +29,7 @@ class TopMostBar extends Component {
 
     componentDidMount() {
         const { formatType } = this.props;
-        if(formatType !== '0') {
-            this.changeBarFormat(formatType);
-        }
+        this.changeBarFormat(formatType);
     }
 
     componentWillUnmount() {

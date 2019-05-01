@@ -13,7 +13,6 @@ class TextEditor extends Component {
         const toolbarOptions = [
             ['bold', 'italic'],
             [{'size': ['small', false, 'large', 'huge']}],
-            [{'font': []}],
             [{'align': []}],
         ];
         const options = {

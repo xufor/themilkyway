@@ -19,13 +19,13 @@ class GreetBox extends Component {
         const hours = currentTime.getHours();
         this.setState({ hours });
         const { formatType } = this.props;
-        if(formatType === '1') {
-            this.changeBarFormat('1');
-        }
+        this.changeBarFormat(formatType);
     };
 
     changeBarFormat  = (type) => {
         if(type === '1') {
+            //The if block below avoids unnecessary update of styles
+            //when the component is not event present on the page
             setTimeout(() => {
                 if(this.write.current !== null && this.luck.current !== null) {
                     this.write.current.style.display= 'none';
@@ -48,10 +48,11 @@ class GreetBox extends Component {
     };
 
     render() {
+        let suffixGen = this.suffixGen;
         let { firstName } = this.props.credentials.data;
         return (
             <div id={'greetBox'} className={'shadow-5'}>
-                <div id={'greeting'}>Good {this.suffixGen()} {firstName} !</div>
+                <div id={'greeting'}>Good {suffixGen()} {firstName} !</div>
                 <div className={'emptySpace'}/>
                 <Link id={'composeLink'} className={'link black'} to={'/compose'}>
                     <div ref={this.write}>Want to write Something?</div>
