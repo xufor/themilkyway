@@ -20,7 +20,7 @@ class TextEditor extends Component {
             modules: {
                 toolbar: toolbarOptions
             },
-            placeholder: 'Compose a story...',
+            placeholder: 'Begin...',
             readOnly: false,
             theme: 'snow'
         };

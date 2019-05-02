@@ -1,10 +1,10 @@
 #s-element-wrapper {
-    width: 65%;
+    width: 50%;
     border: 1px lightgrey solid;
     background: white;
     height: max-content;
-    border-radius: 1rem;
-    padding: 10px;
+    border-radius: 1.8rem;
+    padding: 10px 20px;
     margin: 0 auto 20px auto;
 }
 
@@ -15,6 +15,7 @@
 
 .i-s-element {
     height: 100px;
+    width: 100px;
     border-radius: 100%;
 }
 

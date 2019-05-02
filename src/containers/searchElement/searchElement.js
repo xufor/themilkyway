@@ -7,7 +7,7 @@ class SearchElement extends Component {
     render() {
         let { name } = this.props;
         return (
-            <div id={'s-element-wrapper'} className={'shadow-5'}>
+            <div id={'s-element-wrapper'} className={'shadow-4'}>
                 <div className={'n-i-s-element-wrapper'}>
                     <img className={'i-s-element'} src={pPic} alt={'NotYetDecided'}/>
                     <div className={'n-s-element'}>{name}</div>
