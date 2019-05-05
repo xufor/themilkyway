@@ -5,6 +5,7 @@
     width: max-content;
     text-align: center;
     transition: background-color 0.3s ease-in-out;
+    animation: fadeEntry 0.3s ease-out alternate 1 backwards running;
 }
 
 .genreBoxElement:hover {
