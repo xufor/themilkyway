@@ -1,16 +1,20 @@
 #m-b-tag-browser {
-    background: #f9f9f9;
+    background: #FAFAFA;
 }
 
 #c-w-tag-browser {
-    margin: 20px auto;
+    width: 1000px;
+    margin: 10px auto;
+    background: white;
+    border-radius: 3rem;
+    padding: 10px 0;
 }
 
 #t-b-tag-browser {
     display: flex;
     border-bottom: 1px solid black;
     width: 85%;
-    margin: 20px auto;
+    margin: 25px auto;
     font-family: 'Comfortaa', cursive;
     font-size: 1.5rem;
     padding: 20px;

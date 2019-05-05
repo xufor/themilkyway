@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TopMostBar from '../topMostBar/topMostBar';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import StoryElement from '../../containers/storyElement/storyElement';
+import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import GenreBox from '../genreBox/genreBox';
 import GreetBox from '../greetBox/greetBox';
 import { summary } from '../../strings';
@@ -28,7 +29,12 @@ class TagBrowser extends Component {
         let i = 0;
         return (
             names.map((listItem) => {
-                return <StoryElement name={listItem} title={'The Last Leaf'} summary={summary} key={`searchElement${i++}`}/>
+                return <StoryElement
+                    name={listItem}
+                    title={'The Last Leaf'}
+                    summary={summary}
+                    key={`searchElement${i++}`}
+                />
             })
         );
     };
@@ -40,8 +46,8 @@ class TagBrowser extends Component {
             <div id={'m-b-tag-browser'}>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
-                <GenreBox/>
-                <div id={'c-w-tag-browser'}>
+                <ButtonSlider targetComponent={GenreBox}/>
+                <div id={'c-w-tag-browser'} className={'shadow-4'}>
                     <div id={'t-b-tag-browser'}>{topBoxGen()}</div>
                     <div id={'r-b-tag-browser'}>{resultBoxGen()}</div>
                 </div>

@@ -1,7 +1,6 @@
 #s-element-wrapper {
-    width: 50%;
-    border: 1px lightgrey solid;
-    background: white;
+    width: 60%;
+    background: #FEFDFF;
     height: max-content;
     border-radius: 1.8rem;
     padding: 10px 20px;

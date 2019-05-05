@@ -1,9 +1,9 @@
 #m-b-st-element {
-    padding: 20px;
+    max-width: 900px;
+    padding: 20px 30px;
     border-radius: 2rem;
-    background: white;
-    margin-bottom: 20px;
-    border: 1px solid lightgrey;
+    background: aliceblue;
+    margin: 20px auto;
 }
 
 .t-st-element {

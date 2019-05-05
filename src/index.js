@@ -3,30 +3,42 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose} from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+import storage from 'redux-persist/lib/storage'
 import ReduxPromise from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
-import rootReducer from './reducers/essential.js';
+import rootReducer from './reducers/essential';
+import { displayLoader } from './common';
 import 'tachyons';
 import 'loaders.css';
 
-//This is a statement to enable redux dev tools
+const persistConfig = {
+    key: 'root',
+    storage,
+};
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-//This is not what we saw in the tutorial but its something I read in the doumentation of redux.
-const appStore = createStore(
-    rootReducer,
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+const store = createStore(
+    persistedReducer,
     composeEnhancers(
         applyMiddleware(ReduxPromise, ReduxThunk)
     )
 );
+let persistor = persistStore(store);
 
-//store is a prop passed to Provider
+
 ReactDOM.render(
-    <Provider store = { appStore }>
-        <App />
+    <Provider store = { store }>
+        <PersistGate loading={null} persistor={persistor}>
+            <App />
+        </PersistGate>
     </Provider>
-    , document.getElementById('root'));
+    , document.getElementById('root')
+);
 
 serviceWorker.unregister();
 
-export default appStore;

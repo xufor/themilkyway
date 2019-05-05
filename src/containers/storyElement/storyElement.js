@@ -5,7 +5,7 @@ class StoryElement extends Component {
     render() {
         let { name, summary, title } = this.props;
         return (
-            <div id={'m-b-st-element'} className={'shadow-5'}>
+            <div id={'m-b-st-element'} className={'shadow-4'}>
                 <div className={'t-st-element'}>{title}</div>
                 <div className={'n-st-element'}>{`by ${name}`}</div>
                 <p className={'sm-st-element'}>{summary}</p>

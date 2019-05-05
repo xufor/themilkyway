@@ -5,6 +5,7 @@ import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import RippleButton from '../../components/rippleButton/rippleButton';
 import GenreBox from '../../containers/genreBox/genreBox';
+import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import './style.css';
 
 class ComposePage extends Component {
@@ -29,7 +30,7 @@ class ComposePage extends Component {
             <div id={'m-b-compose-pg'}>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox formatType={'1'}/>
-                <GenreBox/>
+                <ButtonSlider targetComponent={GenreBox}/>
                 <div id={'e-wrap-compose-pg'} className={'shadow-4'}>
                     <div id={'t-e-compose-pg'}>
                         <div>Title:</div>

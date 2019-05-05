@@ -3,6 +3,7 @@ import PageFooter from '../../components/pageFooter/pageFooter';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import SearchElement from '../searchElement/searchElement';
+import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import GenreBox from '../genreBox/genreBox';
 import { names } from '../../strings';
 import { connect } from 'react-redux';
@@ -39,9 +40,11 @@ class SearchPage extends Component {
             <div id={'o-box-search-pg'}>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
-                <GenreBox/>
-                <div id={'t-box-search-pg'}>{topBoxGen()}</div>
-                <div id={'r-box-search-pg'}>{resultBoxGen()}</div>
+                <ButtonSlider targetComponent={GenreBox}/>
+                <div id={'m-box-search-pg'} className={'shadow-4'}>
+                    <div id={'t-box-search-pg'}>{topBoxGen()}</div>
+                    <div id={'r-box-search-pg'}>{resultBoxGen()}</div>
+                </div>
                 <PageFooter/>
             </div>
         );

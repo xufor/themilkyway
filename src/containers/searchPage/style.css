@@ -2,11 +2,19 @@
     background: #FAFAFA;
 }
 
+#m-box-search-pg {
+    width: 65%;
+    margin: 10px auto;
+    background: white;
+    border-radius: 3rem;
+    padding: 10px;
+}
+
 #t-box-search-pg {
     display: flex;
     border-bottom: 1px solid black;
-    width: 85%;
-    margin: 20px auto;
+    max-width: 75%;
+    margin: 20px auto 30px auto;
     font-family: 'Comfortaa', cursive;
     font-size: 1.3rem;
     padding: 20px;
@@ -14,7 +22,5 @@
 }
 
 #r-box-search-pg {
-    width: 85%;
-    margin: 0 auto;
     font-family: 'Comfortaa', cursive;
 }
