@@ -5,11 +5,13 @@ import LoaderAnimation from './components/loaderAnimation/loaderAnimation';
 export const displayLoader = (flag, message) => {
     if(flag === 1) {
         return (
-            <div>
+            <React.Fragment>
                 <LoaderAnimation message={message}/>
                 <BlackScreen/>
-            </div>
+            </React.Fragment>
         );
+    } else {
+        return null
     }
 };
 

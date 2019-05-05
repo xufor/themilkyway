@@ -17,7 +17,7 @@ class LoginPage extends Component {
     }
 
     componentDidUpdate() {
-        if (this.props.credentials !== {}) {
+        if (this.props.credentials.data !== undefined) {
           setTimeout(()=> {
               this.props.history.push('/');
           }, 1000);
@@ -43,11 +43,13 @@ class LoginPage extends Component {
             history: this.props.history
         };
         this.props.fetchUserCredentials(actionPacket);
+        //Handles the displaying of loader animation
         this.setState({ loaderFlag: 1});
         setTimeout(() => {
-            if(this.props.credentials === {}) //Solves the memory leak problem
+            if(this.props.credentials.data === undefined) //Solves the memory leak problem
                 this.setState({ loaderFlag: 0});
-        }, 5000);
+        }, 3000);
+        //Handles the displaying of loader animation
     };
 
     render() {

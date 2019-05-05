@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Slider extends Component {
+class ButtonSlider extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -23,7 +23,7 @@ class Slider extends Component {
     
     setTargetElementStyles = () => {
         this.ew.current.style.transition = 'all 1.5s ease-in-out';
-    }
+    };
     
     resizeListener = () => {
         let gw = this.gw.current;
@@ -64,12 +64,11 @@ class Slider extends Component {
        }
     };
     
-    
     render() {
         let Target = this.props.targetComponent;
         return(
             <div className={'sliderWrapper'} style={{overflow: 'hidden'}} ref={this.gw}>
-                <Target 
+                <Target
                     wrapperRef={this.ew} 
                     goLeft={this.leftClickHandler} 
                     goRight={this.rightClickHandler}
@@ -79,7 +78,7 @@ class Slider extends Component {
     }
 }
 
-export default Slider;
+export default ButtonSlider;
 
 
 
