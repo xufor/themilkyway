@@ -10,7 +10,6 @@ import storage from 'redux-persist/lib/storage'
 import ReduxPromise from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
 import rootReducer from './reducers/essential';
-import { displayLoader } from './common';
 import 'tachyons';
 import 'loaders.css';
 
