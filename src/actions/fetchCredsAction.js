@@ -5,7 +5,7 @@ export const fetchUserCredentials = ({ email, password }) => {
 
 	const responseFromServer = axLib.request({
 		url: '/login',
-		baseURL: 'https://themilkyway-api.herokuapp.com',
+		baseURL: 'https://cors-anywhere.herokuapp.com/https://themilkyway-api.herokuapp.com',
 		method: 'post',
 		headers: {'Content-Type': 'application/json'},
 		data: {
