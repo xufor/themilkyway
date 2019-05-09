@@ -8722,6 +8722,11 @@ react-app-polyfill@^0.2.2:
     raf "3.4.1"
     whatwg-fetch "3.0.0"
 
+react-button-slider@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/react-button-slider/-/react-button-slider-1.0.8.tgz#0ee9a54bea91f71515579bfda5300b2067d079fc"
+  integrity sha512-zPDFhMNjrjznPYyunHPSlXLMFbM6W0MvyPUMPazpNxBLJDdByy3blB/9JRISxDwAdekDda9vYJ3+YdG+2LhUKw==
+
 react-dev-utils@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-8.0.0.tgz#7c5b227a45a32ea8ff7fbc318f336cf9e2c6e34c"

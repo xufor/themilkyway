@@ -8,11 +8,13 @@
     border-radius: 2rem;
     display: flex;
     align-items: center;
-    overflow-x: auto;
 }
 
 #recBoxWrapper > div {
     animation: fadeEntry 0.1s ease-out alternate 1 backwards running;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
 }
 
 #userRecBoxLoaderWrapper {

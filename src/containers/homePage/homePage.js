@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { displayLoader } from '../../common';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import FeedBox from '../feedBox/feedBox';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
-import { displayLoader } from '../../common';
 import UserRecBox from '../../containers/userRecBox/userRecBox';
 import GenreBox from '../../containers/genreBox/genreBox';
 import './style.css';
