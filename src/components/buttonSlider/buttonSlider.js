@@ -22,7 +22,7 @@ class ButtonSlider extends Component {
     }
     
     setTargetElementStyles = () => {
-        this.ew.current.style.transition = 'all 1.5s ease-in-out';
+        this.ew.current.style.transition = `all ${this.props.dur}s ease-in-out`;
     };
     
     resizeListener = () => {
@@ -37,10 +37,11 @@ class ButtonSlider extends Component {
     }
     
     leftClickHandler = () => {
+        let { def } = this.props;
         let {ow, sw, dev} = this.state;
         let ew = this.ew.current;
-        if((-1 * dev) < (sw - ow) && (-1 * (dev-300)) < (sw - ow)) {
-            dev -= 300;
+        if((-1 * dev) < (sw - ow) && (-1 * (dev-def)) < (sw - ow)) {
+            dev -= def;
             this.setState({dev: dev});
             ew.style.transform = `translateX(${dev}px)`;
         } else {
@@ -51,17 +52,18 @@ class ButtonSlider extends Component {
     };
     
     rightClickHandler = () => {
-       let {dev} = this.state;
-       let ew = this.ew.current;
-       if( (dev < 0) && (dev + 300) < 0) {
-           dev += 300;
-           this.setState({dev: dev});
-           ew.style.transform = `translateX(${dev}px)`;
-       } else {
-           dev += (-1 * dev);
-           this.setState({dev: dev});
-           ew.style.transform = `translateX(${dev}px)`;
-       }
+        let { def } = this.props;
+        let {dev} = this.state;
+        let ew = this.ew.current;
+        if( (dev < 0) && (dev + def) < 0) {
+            dev += def;
+            this.setState({dev: dev});
+            ew.style.transform = `translateX(${dev}px)`;
+        } else {
+            dev += (-1 * dev);
+            this.setState({dev: dev});
+            ew.style.transform = `translateX(${dev}px)`;
+        }
     };
     
     render() {

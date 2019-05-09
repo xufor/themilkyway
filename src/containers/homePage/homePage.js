@@ -26,7 +26,11 @@ class HomePage extends Component {
                 <div id={'homePageBackground'}>
                     <TopMostBar history={this.props.history}/>
                     <GreetBox/>
-                    <ButtonSlider targetComponent={GenreBox}/>
+                    <ButtonSlider
+                        targetComponent={GenreBox}
+                        dur={1.5}
+                        def={500}
+                    />
                     <UserRecBox/>
                     <FeedBox/>
                     <PageFooter/>

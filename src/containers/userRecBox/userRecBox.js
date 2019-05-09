@@ -7,7 +7,11 @@ class UserRecBox extends Component {
     render() {
         return (
             <div id={'recBoxWrapper'} className={'shadow-4'}>
-                <ButtonSlider targetComponent={UserRecList}/>
+                <ButtonSlider
+                    targetComponent={UserRecList}
+                    def={250}
+                    dur={0.5}
+                />
             </div>
         )
     };
