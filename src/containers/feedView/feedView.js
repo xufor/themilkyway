@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { summary } from '../../strings';
+import Skeleton from 'react-loading-skeleton';
 import pPic from '../../assets/pPic.jpg';
 import './style.css';
 import './style-m.css';
@@ -28,20 +29,16 @@ class FeedView extends Component {
             <div id={'feedView'} className={'shadow-4'}>
                 <div id={'upper'}>
                     <div id={'headings'}>
-                        <div id={'title'}>{this.title}</div>
+                        <div id={'title'}>{this.title || <Skeleton/>}</div>
                         <div id={'intro'}>
-                            {intro()}
-                            {' '}
-                            {firstName}
-                            {' '}
-                            {lastName}
+                            {`${intro()} ${firstName} ${lastName}` || <Skeleton/>}
                         </div>
                     </div>
                     <div className={'emptySpace'}/>
                     <img id={'pPic'} src={pPic} alt={'iPic'}/>
                 </div>
-                <div id={'sumHeading'}>Summary:</div>
-                <p id={'summary'}>{ summary }</p>
+                <div id={'sumHeading'}>{'Summary:' || <Skeleton/>}</div>
+                <p id={'summary'}>{ summary || <Skeleton/> }</p>
             </div>
         );
     }
