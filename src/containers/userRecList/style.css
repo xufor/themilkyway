@@ -6,7 +6,7 @@
 
 #g-l-img{
     width: 30px;
-    position: fixed;
+    position: absolute;
     left: calc(17.5vw - 46px);
     opacity: 0;
     transition: all 0.3s ease-in;
