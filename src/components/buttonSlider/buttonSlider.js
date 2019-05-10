@@ -36,7 +36,7 @@ class ButtonSlider extends Component {
 
     updateStats = () => {
         let gw = this.gw.current;
-        this.setState({ow: gw.offsetWidth, sw: gw.scrollWidth, dev: 0});
+        this.setState({ow: gw.offsetWidth, sw: gw.scrollWidth});
     };
 
     componentWillUnmount() {
