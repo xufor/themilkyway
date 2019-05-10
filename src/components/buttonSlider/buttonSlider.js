@@ -18,7 +18,7 @@ class ButtonSlider extends Component {
         let ow = gw.offsetWidth;
         let sw = gw.scrollWidth;
         this.setState({ow: ow, sw: sw});
-        // window.addEventListener('resize', this.resizeListener);
+        window.addEventListener('resize', this.resizeListener);
         ew.addEventListener('resize', this.resizeListener);
         this.setTargetElementStyles();
     }
