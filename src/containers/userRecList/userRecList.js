@@ -43,14 +43,26 @@ class UserRecList extends Component {
 
     render() {
         const userRecGen = this.userRecGen;
-        let {wrapperRef, goLeft, goRight} = this.props;
+        let {wrapperRef, goLeft, goRight, updateStats} = this.props;
         return (
             <React.Fragment>
-                <img id={'g-l-img'} alt={'g-l'} src={goLeftImg} onClick={goLeft}/>
+                <img
+                    id={'g-l-img'}
+                    alt={'g-l'}
+                    src={goLeftImg}
+                    onClick={goLeft}
+                    onMouseEnter={updateStats}
+                />
                     <div ref={wrapperRef} id={'userListWrapper'}>
                         {userRecGen()}
                     </div>
-                <img id={'g-r-img'} alt={'g-r'} src={goRightImg} onClick={goRight}/>
+                <img
+                    id={'g-r-img'}
+                    alt={'g-r'}
+                    src={goRightImg}
+                    onClick={goRight}
+                    onMouseEnter={updateStats}
+                />
             </React.Fragment>
         )
     };
