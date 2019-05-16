@@ -1,7 +1,7 @@
 #feedBoxWrapper {
     width: 65%;
     margin: 10px auto;
-    background-color: rgb(255,255,255);
+    background-color: rgba(255,255,255,0.5);
     font-size: 1.2rem;
     font-family: 'Quicksand', sans-serif;
     padding: 50px;

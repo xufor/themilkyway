@@ -17,6 +17,5 @@ class UserRecBox extends Component {
     };
 }
 
-
 export default UserRecBox;
 

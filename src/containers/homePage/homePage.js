@@ -8,6 +8,7 @@ import PageFooter from '../../components/pageFooter/pageFooter';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import UserRecBox from '../../containers/userRecBox/userRecBox';
 import GenreBox from '../../containers/genreBox/genreBox';
+import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
 import './style.css';
 
 class HomePage extends Component {
@@ -24,6 +25,7 @@ class HomePage extends Component {
             <div>
                 {displayLoader(loaderFlag)}
                 <div id={'homePageBackground'}>
+                    <BackgroundLoader/>
                     <TopMostBar history={this.props.history}/>
                     <GreetBox/>
                     <ButtonSlider

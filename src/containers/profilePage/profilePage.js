@@ -4,6 +4,8 @@ import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import GenreBox from '../../containers/genreBox/genreBox';
 import RippleButton from '../../components/rippleButton/rippleButton';
+import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
+import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import sPic from '../../assets/samplePic.png';
 import { connect } from 'react-redux';
 import './style.css';
@@ -58,9 +60,14 @@ class ProfilePage extends Component {
        	const rightRegionGen = this.rightRegionGen;
 		return (
        		<div id={'m-b-profile-pg'}>
-       			<TopMostBar formatType={'1'}/>
+       			<BackgroundLoader/>
+				<TopMostBar formatType={'1'}/>
 				<GreetBox/>
-				<GenreBox/>
+				<ButtonSlider
+					targetComponent={GenreBox}
+					dur={1.5}
+					def={500}
+				/>
 				<div id={'c-w-profile-pg'} className={'shadow-4'}>
 					<div id={'l-r-profile-pg'}>{leftRegionGen()}</div>
 					<div id={'r-r-profile-pg'}>{rightRegionGen()}</div>

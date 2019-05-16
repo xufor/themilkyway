@@ -3,6 +3,7 @@ import TopMostBar from '../topMostBar/topMostBar';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import StoryElement from '../../containers/storyElement/storyElement';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
+import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
 import GenreBox from '../genreBox/genreBox';
 import GreetBox from '../greetBox/greetBox';
 import { summary } from '../../strings';
@@ -44,9 +45,14 @@ class TagBrowser extends Component {
         const resultBoxGen = this.resultBoxGen;
         return (
             <div id={'m-b-tag-browser'}>
+                <BackgroundLoader/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
-                <ButtonSlider targetComponent={GenreBox}/>
+                <ButtonSlider
+                    targetComponent={GenreBox}
+                    dur={1.5}
+                    def={500}
+                />
                 <div id={'c-w-tag-browser'} className={'shadow-4'}>
                     <div id={'t-b-tag-browser'}>{topBoxGen()}</div>
                     <div id={'r-b-tag-browser'}>{resultBoxGen()}</div>

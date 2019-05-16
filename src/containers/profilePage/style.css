@@ -1,12 +1,12 @@
 #m-b-profile-pg {
-	background: #f9f9f9;
+	background: transparent;
 }
 
 #c-w-profile-pg {
 	display: flex;
 	width: 65%;
 	margin: 20px auto;
-	background: white;
+	background: rgba(255,255,255,0.5);
 	height: 700px;
 	border-radius: 2rem;
 	padding: 5px;

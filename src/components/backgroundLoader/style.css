@@ -1,0 +1,12 @@
+#backgroundLoader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+#back-loader-img {
+    animation: fadeIn 1s 1 forwards;
+}

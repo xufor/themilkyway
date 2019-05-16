@@ -4,6 +4,7 @@ import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import SearchElement from '../searchElement/searchElement';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
+import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
 import GenreBox from '../genreBox/genreBox';
 import { names } from '../../strings';
 import { connect } from 'react-redux';
@@ -38,6 +39,7 @@ class SearchPage extends Component {
         const resultBoxGen = this.resultBoxGen;
         return (
             <div id={'o-box-search-pg'}>
+                <BackgroundLoader/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
                 <ButtonSlider targetComponent={GenreBox}/>

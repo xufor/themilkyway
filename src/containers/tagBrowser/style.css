@@ -1,11 +1,11 @@
 #m-b-tag-browser {
-    background: #FAFAFA;
+    background: transparent;
 }
 
 #c-w-tag-browser {
-    width: 1000px;
+    width: 75%;
     margin: 10px auto;
-    background: white;
+    background: rgba(255,255,255,0.5);
     border-radius: 3rem;
     padding: 10px 0;
 }

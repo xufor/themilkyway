@@ -3,8 +3,7 @@
     height: 83px;
     width: 65%;
     margin: 10px auto;
-    background: white;
-    border: lightgrey 1px solid;
+    background: rgba(255,255,255,0.5);
     border-radius: 2rem;
     display: flex;
     align-items: center;
