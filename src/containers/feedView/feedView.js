@@ -35,7 +35,9 @@ class FeedView extends Component {
                     <img id={'pPic'} src={pPic} alt={'iPic'}/>
                 </div>
                 <div id={'sumHeading'}>{'Summary:'}</div>
-                <p id={'summary'}>{ summary || <Skeleton/> }</p>
+                <div id={'summaryContainer'}>
+                    <p id={'summary'}>{ summary || <Skeleton/> }</p>
+                </div>
             </div>
         );
     }

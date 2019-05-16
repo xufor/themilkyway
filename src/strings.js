@@ -4,7 +4,8 @@ export var sampleBio = 'I am a tech enthusiast from Germany, love to code, make 
 
 export var summary = "A story of a boy who met a wolf on the journey to his hometown and how they became best friends. " +
     " Discover how Magi helps the boy to overcome his fears when he needed a friend the most." +
-    " Join Magi and his new friend on their eventful journey. ";
+    " Join Magi and his new friend on their eventful journey." +
+    " Find whether their friendship will last forever or not.";
 
 export let tags =
     [
