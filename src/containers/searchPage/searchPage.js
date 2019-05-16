@@ -42,7 +42,11 @@ class SearchPage extends Component {
                 <BackgroundLoader/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
-                <ButtonSlider targetComponent={GenreBox}/>
+                <ButtonSlider
+                    targetComponent={GenreBox}
+                    dur={1.5}
+                    def={500}
+                />
                 <div id={'m-box-search-pg'} className={'shadow-4'}>
                     <div id={'t-box-search-pg'}>{topBoxGen()}</div>
                     <div id={'r-box-search-pg'}>{resultBoxGen()}</div>
