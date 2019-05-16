@@ -39,7 +39,7 @@ class SearchPage extends Component {
         const resultBoxGen = this.resultBoxGen;
         return (
             <div id={'o-box-search-pg'}>
-                <BackgroundLoader/>
+                <BackgroundLoader bno={1}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
                 <ButtonSlider

@@ -5,17 +5,14 @@ import './style.css';
 
 class BackgroundLoader extends Component {
     componentDidMount() {
+        let { bno } = this.props;
         let x = document.getElementById('back-loader-img');
         let y = new Image();
         y.onload = function () {
             x.src = this.src;
         };
-        y.src = this.linkSelector();
+        y.src = backgroundLinks[bno];
     }
-
-    linkSelector = () => {
-        return backgroundLinks[Math.floor(Math.random()*5)]
-    };
 
     render() {
         return (

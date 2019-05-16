@@ -29,7 +29,7 @@ class ComposePage extends Component {
     render() {
         return (
             <div id={'m-b-compose-pg'}>
-                <BackgroundLoader/>
+                <BackgroundLoader bno={1}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox formatType={'1'}/>
                 <ButtonSlider

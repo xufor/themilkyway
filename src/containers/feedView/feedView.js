@@ -9,17 +9,11 @@ import './style-m.css';
 class FeedView extends Component {
     constructor(props) {
         super(props);
-        this.story = '';
-        this.type = 'story';
         this.title = 'The Gift of Magi';
     }
 
     intro = () => {
-      if(this.type === 'story') {
-          return 'A story by';
-      }
-      else
-          return 'A poem by';
+        return 'A story by';
     };
 
     render() {
@@ -33,11 +27,14 @@ class FeedView extends Component {
                         <div id={'intro'}>
                             {`${intro()} ${firstName} ${lastName}` || <Skeleton/>}
                         </div>
+                        <div id={'timestamp'}>
+                            {`submitted on ${'March 6 2019'}  at ${'5:45 pm'}` || <Skeleton/>}
+                        </div>
                     </div>
                     <div className={'emptySpace'}/>
                     <img id={'pPic'} src={pPic} alt={'iPic'}/>
                 </div>
-                <div id={'sumHeading'}>{'Summary:' || <Skeleton/>}</div>
+                <div id={'sumHeading'}>{'Summary:'}</div>
                 <p id={'summary'}>{ summary || <Skeleton/> }</p>
             </div>
         );

@@ -25,8 +25,10 @@ class HomePage extends Component {
             <div>
                 {displayLoader(loaderFlag)}
                 <div id={'homePageBackground'}>
-                    <BackgroundLoader/>
-                    <TopMostBar history={this.props.history}/>
+                    <BackgroundLoader bno={0}/>
+                    <TopMostBar
+                        history={this.props.history}
+                    />
                     <GreetBox/>
                     <ButtonSlider
                         targetComponent={GenreBox}

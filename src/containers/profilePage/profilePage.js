@@ -60,7 +60,7 @@ class ProfilePage extends Component {
        	const rightRegionGen = this.rightRegionGen;
 		return (
        		<div id={'m-b-profile-pg'}>
-       			<BackgroundLoader/>
+       			<BackgroundLoader bno={3}/>
 				<TopMostBar formatType={'1'}/>
 				<GreetBox/>
 				<ButtonSlider
