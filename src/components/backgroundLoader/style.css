@@ -6,9 +6,3 @@
     right: 0;
     z-index: -9;
 }
-
-#back-loader-img {
-    animation: fadeIn 1s 1 forwards;
-    min-width: 100%;
-    min-height: 100%;
-}

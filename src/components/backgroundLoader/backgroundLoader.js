@@ -1,28 +1,26 @@
 import React, { Component } from 'react';
 import { backgroundLinks } from '../../strings';
-import dummy from '../../assets/dummy.png';
 import './style.css';
+
 
 class BackgroundLoader extends Component {
     componentDidMount() {
         let { bno } = this.props;
-        let x = document.getElementById('back-loader-img');
+        let x = document.getElementById('backgroundLoader');
         let y = new Image();
         y.onload = function () {
-            x.src = this.src;
+            x.style.background = `url("${this.src}")`;
+            x.style.backgroundSize = `cover`;
+            x.style.animation = `fadeIn 1s 1 forwards`;
+            x.style.backgroundRepeat = 'no-repeat';
+            x.style.backgroundAttachment = 'fixed';
         };
         y.src = backgroundLinks[bno];
     }
 
     render() {
         return (
-            <div id={'backgroundLoader'}>
-                <img
-                    alt={'uni-ldr'}
-                    src={dummy}
-                    id={'back-loader-img'}
-                />
-            </div>
+            <div id={'backgroundLoader'}/>
         );
     };
 }
