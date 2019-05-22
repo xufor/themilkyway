@@ -3,7 +3,7 @@
 }
 
 #e-wrap-compose-pg {
-    width: 65%;
+    width: 70%;
     margin: 20px auto;
     background: rgba(255,255,255,0.9);
     padding: 60px 60px 20px 60px;
@@ -13,12 +13,13 @@
     display: flex;
     font-family: 'Comfortaa', cursive;
     margin-bottom: 30px;
+    font-weight: normal;
 }
 
 #t-e-compose-pg > input {
     flex: 1;
     margin-left: 10px;
-    font-family: 'Vollkorn', serif;
+    font-family: 'Comfortaa', cursive;
 }
 
 #s-e-compose-pg {
@@ -30,7 +31,7 @@
 #s-e-compose-pg > input {
     flex: 1;
     margin-left: 10px;
-    font-family: 'Vollkorn', serif;
+    font-family: 'Comfortaa', cursive;
 }
 
 #b-c-compose-pg {
