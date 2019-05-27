@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import goLeftImg from '../../assets/goLeft.png';
 import goRightImg from '../../assets/goRight.png';
-import UserRecElement from '../userRecElement/userRecElement'
+import UserRecElement from '../userRecElement/userRecElement';
 import './style.css';
 
 class UserRecList extends Component {
@@ -22,6 +22,7 @@ class UserRecList extends Component {
             listItem.onload = function() {
                 recBx[k].src = this.src;
                 recBx[k].style.display = 'block';
+                recBx[k].style.animation = 'fadeEntry 0.5s ease-in-out alternate 1 backwards running';
                 k++;
             };
             return listItem;
@@ -34,10 +35,23 @@ class UserRecList extends Component {
     userRecGen = () => {
         let i = 0;
         let { links } = this.props;
+        console.log(links.length);
         if(links.length !== 0) {
             return links.map(() => {
-                return <UserRecElement key={`userRecElement${i++}`}/>
+                return <UserRecElement
+                    mode={'links-arrived'}
+                    key={`userRecElement${i++}`}
+                />
             })
+        } else {
+            let x = [];
+            for(i=0; i<=20; i++) {
+                x[i] = <UserRecElement
+                    mode={'links-not-arrived'}
+                    key={`sk-ldg-urb${i}`}
+                />;
+            }
+            return x;
         }
     };
 
