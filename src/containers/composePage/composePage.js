@@ -48,7 +48,6 @@ class ComposePage extends Component {
                     </div>
                     <TextEditor/>
                     <div id={'b-c-compose-pg'}>
-                        <RippleButton name={'Save Draft'}/>
                         <RippleButton name={'Submit'}/>
                     </div>
                 </div>
