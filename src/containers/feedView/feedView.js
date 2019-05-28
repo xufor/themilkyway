@@ -14,7 +14,6 @@ class FeedView extends Component {
 
     render() {
         const { uid, firstName, lastName } = this.props.credentials.data;
-        console.log(uid);
         return (
             <div id={'feedView'} className={'shadow-4'}>
                 <div id={'upper'}>

@@ -2,12 +2,12 @@ export var sampleQuote = "Literature is the art of discovering something extraor
 
 export var sampleBio = 'I am a tech enthusiast from Germany, love to code, make friends and have fun. I love playing football, reading books and travelling. I came to The Milky Way to share poems and stories that i write in my free time.';
 
-// export var summary = "A story of a boy who met a wolf on the journey to his hometown and how they became best friends. " +
-//     " Discover how Magi helps the boy to overcome his fears when he needed a friend the most." +
-//     " Join Magi and his new friend on their eventful journey." +
-//     " Find whether their friendship will last forever or not.";
+export var summary = "A story of a boy who met a wolf on the journey to his hometown and how they became best friends. " +
+    " Discover how Magi helps the boy to overcome his fears when he needed a friend the most." +
+    " Join Magi and his new friend on their eventful journey." +
+    " Find whether their friendship will last forever or not.";
 
-export var summary = "";
+// export var summary = "";
 
 export let tags =
     [

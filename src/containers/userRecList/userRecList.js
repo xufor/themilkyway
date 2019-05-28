@@ -22,7 +22,8 @@ class UserRecList extends Component {
             listItem.onload = function() {
                 recBx[k].src = this.src;
                 recBx[k].style.display = 'block';
-                recBx[k].style.animation = 'fadeEntry 0.5s ease-in-out alternate 1 backwards running';
+                recBx[k].style.animation =
+                    'fadeEntry 0.5s ease-in-out alternate 1 backwards running';
                 k++;
             };
             return listItem;
@@ -35,7 +36,6 @@ class UserRecList extends Component {
     userRecGen = () => {
         let i = 0;
         let { links } = this.props;
-        console.log(links.length);
         if(links.length !== 0) {
             return links.map(() => {
                 return <UserRecElement
