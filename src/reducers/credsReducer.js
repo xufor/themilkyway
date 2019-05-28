@@ -3,6 +3,7 @@ import { sampleBio } from '../strings.js';
 
 let INITIAL_STATE = {
 	data: {
+		uid: 'd76wef78',
 		firstName: 'John',
 		lastName: 'Seed',
 		dob: '16, June 2000',

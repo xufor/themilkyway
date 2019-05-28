@@ -12,7 +12,11 @@
 
 #timestamp {
     font-size: 1.1rem;
-    margin-top: 7px;
+    margin-top: 8px;
+}
+
+#headings {
+    min-width: 350px;
 }
 
 #feedView {
@@ -30,6 +34,14 @@
     border: 10px #EEEEEE solid;
     position: relative;
     top: -15px;
+}
+
+#p-pic-sk-ldg {
+    display: inline-block;
+    width: 150px;
+    height : 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
 }
 
 #summary {

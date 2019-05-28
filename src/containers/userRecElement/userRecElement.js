@@ -6,14 +6,14 @@ import './style.css';
 class UserRecElement extends Component {
     render() {
         let { mode } = this.props;
-        if(mode === 'links-arrived') {
+        if(mode === 'content') {
             return (
                 <div className={'recBoxUserImageWrapper'}>
                     <img className={'userImgInRecBox'} src={dummy} alt={`altYetNotDecided`}/>
                 </div>
             );
         }
-        else if (mode === 'links-not-arrived') {
+        else if (mode === 'skeleton') {
             return (
                 <div className={'recBoxUserImageWrapper'}>
                     <Skeleton circle={true} height={70} width={70} />

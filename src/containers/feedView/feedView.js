@@ -12,31 +12,57 @@ class FeedView extends Component {
         this.title = 'The Gift of Magi';
     }
 
-    intro = () => {
-        return 'A story by';
-    };
-
     render() {
-        const intro = this.intro;
-        const { firstName, lastName } = this.props.credentials.data;
+        const { uid, firstName, lastName } = this.props.credentials.data;
+        console.log(uid);
         return (
             <div id={'feedView'} className={'shadow-4'}>
                 <div id={'upper'}>
                     <div id={'headings'}>
-                        <div id={'title'}>{this.title || <Skeleton/>}</div>
+                        <div id={'title'}>
+                            {
+                                (uid !== '')
+                                    ? this.title
+                                    : <Skeleton/>
+                            }
+                        </div>
                         <div id={'intro'}>
-                            {`${intro()} ${firstName} ${lastName}` || <Skeleton/>}
+                            {
+                                (uid !== '')
+                                    ? `A story by ${firstName} ${lastName}`
+                                    : <Skeleton/>
+                            }
                         </div>
                         <div id={'timestamp'}>
-                            {`submitted on ${'March 6 2019'}  at ${'5:45 pm'}` || <Skeleton/>}
+                            {
+                                (uid !== '')
+                                    ? `submitted on ${'March 6 2019'}  at ${'5:45 pm'}`
+                                    : <Skeleton/>
+                            }
                         </div>
                     </div>
                     <div className={'emptySpace'}/>
-                    <img id={'pPic'} src={pPic} alt={'iPic'}/>
+                    {
+                        (uid !== '')
+                            ? <img id={'pPic'} src={pPic} alt={'iPic'}/>
+                            : <div id={'p-pic-sk-ldg'}><Skeleton circle={true} width={150} height={150}/></div>
+                    }
                 </div>
-                <div id={'sumHeading'}>{'Summary:'}</div>
+                <div id={'sumHeading'}>
+                    {
+                        (uid !== '')
+                            ? 'Summary:'
+                            : <Skeleton/>
+                    }
+                </div>
                 <div id={'summaryContainer'}>
-                    <p id={'summary'}>{ summary || <Skeleton/> }</p>
+                    <p id={'summary'}>
+                        {
+                            (uid !== '')
+                                ? summary
+                                : <Skeleton height={35}/>
+                        }
+                    </p>
                 </div>
             </div>
         );

@@ -39,7 +39,7 @@ class UserRecList extends Component {
         if(links.length !== 0) {
             return links.map(() => {
                 return <UserRecElement
-                    mode={'links-arrived'}
+                    mode={'content'}
                     key={`userRecElement${i++}`}
                 />
             })
@@ -47,7 +47,7 @@ class UserRecList extends Component {
             let x = [];
             for(i=0; i<=20; i++) {
                 x[i] = <UserRecElement
-                    mode={'links-not-arrived'}
+                    mode={'skeleton'}
                     key={`sk-ldg-urb${i}`}
                 />;
             }
