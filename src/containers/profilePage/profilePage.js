@@ -12,53 +12,49 @@ import './style.css';
 import './style-m.css';
 
 class ProfilePage extends Component {
-	leftRegionGen = () => {
-		const { firstName , lastName, bio } = this.props.credentials.data;
-		return(
-			<div id={'l-r-w-profile-pg'}>
-				<div id={'i-w-profile-pg'}>
-					<img src={sPic} id={'i-l-r-profile-pg'} className={'shadow-4'} alt={'i1'}/>
-				</div>
-				<div id={'n-w-profile-pg'}>
-					<div id={'n-l-r-profile-pg'}>{`${firstName} ${lastName}`}</div>
-				</div>
-				<div id={'b-w-profile-pg'}>
-					<p id={'b-l-r-profile-pg'}>{bio}</p>
-				</div>
+    constructor(props) {
+    	super(props);
+    	this.state = {
+    		lowerRegionMode: 'Basic'
+		}
+	}
 
-			</div>
-		);
+	upperRegionGen = () => {
+      const {firstName, lastName} = this.props.credentials.data;
+    	return(
+          <div id={'n-p-profile-pg'}>
+				<img id={'p-p-profile-pg'} alt={'p89ef'} src={sPic}/>
+				<div id={'n-u-profile-pg'}>{`${firstName} ${lastName}`}</div>
+          </div>
+      )
+    };
+
+	middleRegionGen = () => {
+		return(
+			<React.Fragment>
+				<div className={'l-n-profile-pg'}>Basic</div>
+				<div>|</div>
+				<div className={'l-n-profile-pg'}>Stories</div>
+				<div>|</div>
+				<div className={'l-n-profile-pg'}>Achievements</div>
+				<div>|</div>
+				<div className={'l-n-profile-pg'}>Following</div>
+				<div>|</div>
+				<div className={'l-n-profile-pg'}>Followers</div>
+			</React.Fragment>
+		)
 	};
 
-	rightRegionGen = () => {
-		const { country, dob, emailId, followers, following, praises, privacy, profession, views } = this.props.credentials.data;
+	lowerRegionGen = () => {
 		return(
-			<div id={'r-r-w-profile-pg'}>
-				<div id={'r-r-u-w-profile-pg'}>
-					<div id={'db-r-r-profile-pg'}>{`Date of Birth: ${dob}`}</div>
-					<div id={'em-r-r-profile-pg'}>{`Email: ${emailId}`}</div>
-					<div id={'ct-r-r-profile-pg'}>{`Nationality: ${country}`}</div>
-					<div id={'pr-r-r-profile-pg'}>{`Profession: ${profession}`}</div>
-					<div id={'py-r-r-profile-pg'}>{`Privacy Settings: ${privacy}`}</div>
-				</div>
-				<div id={'r-r-b-w-profile-pg'}>
-					<div id={'fw-r-r-profile-pg'}>{`Following: ${following}`}</div>
-					<div id={'fl-r-r-profile-pg'}>{`Followers: ${followers}`}</div>
-					<div id={'ps-r-r-profile-pg'}>{`Praises: ${praises}`}</div>
-					<div id={'pr-r-r-profile-pg'}>{`Views: ${views}`}</div>
-				</div>
-				<div id={'e-b-w-profile-pg'}>
-					<RippleButton name={'Edit Profile'}/>
-				</div>
-			</div>
-		);
+			<React.Fragment>
 
+			</React.Fragment>
+		)
 	};
 
-	render() {
-       	const leftRegionGen = this.leftRegionGen;
-       	const rightRegionGen = this.rightRegionGen;
-		return (
+    render() {
+    	return (
        		<div id={'m-b-profile-pg'}>
        			<BackgroundLoader bno={3}/>
 				<TopMostBar formatType={'1'}/>
@@ -68,9 +64,10 @@ class ProfilePage extends Component {
 					dur={1.5}
 					def={500}
 				/>
-				<div id={'c-w-profile-pg'} className={'shadow-4'}>
-					<div id={'l-r-profile-pg'}>{leftRegionGen()}</div>
-					<div id={'r-r-profile-pg'}>{rightRegionGen()}</div>
+				<div id={'c-b-profile-pg'} className={'shadow-4'}>
+					<div id={'u-r-profile-pg'}>{this.upperRegionGen()}</div>
+					<div id={'m-r-profile-pg'}>{this.middleRegionGen()}</div>
+					<div id={'l-r-profile-pg'}>{this.lowerRegionGen()}</div>
 				</div>
 				<PageFooter/>
 			</div>

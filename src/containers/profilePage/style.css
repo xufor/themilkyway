@@ -1,94 +1,58 @@
-#m-b-profile-pg {
-	background: transparent;
+#c-b-profile-pg {
+    width: 65%;
+    min-height: 800px;
+    margin: 0 auto 20px auto;
+    background: transparent;
+    border-radius: 0.5rem;
 }
 
-#c-w-profile-pg {
-	display: flex;
-	width: 65%;
-	margin: 20px auto;
-	background: rgba(255,255,255,0.5);
-	height: 700px;
-	border-radius: 2rem;
-	padding: 5px;
+#u-r-profile-pg {
+    width: 100%;
+    height: 225px;
+    display: flex;
+    background: rgba(255,255,255,0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+#p-p-profile-pg {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+#n-u-profile-pg {
+    text-align: center;
+    font-family: 'Caveat', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    min-width: 150px;
+}
+
+#m-r-profile-pg {
+    display: flex;
+    background: #FAFAFA;
+    height: max-content;
+    justify-content: space-around;
+    font-weight: 700;
+}
+
+
+.l-n-profile-pg {
+    transition: all 0.2s linear;
+    cursor: pointer;
+    font-family: 'Caveat', sans-serif;
+    font-size: 1.3rem;
+    text-align: center;
+    flex: 1;
+}
+
+.l-n-profile-pg:hover {
+    color: #3D5AFE;
 }
 
 #l-r-profile-pg {
-	flex: 1;
-	border-right: 1px solid black;
-	padding: 15px;
+    width: 100%;
+    min-height: 600px;
+    background: rgba(255,255,255);
 }
-
-#r-r-profile-pg {
-	flex: 1;
-	border-left: 1px solid black;
-	padding: 15px;
-}
-
-#i-l-r-profile-pg {
-	height: 200px;
-	width: 200px;
-	border-radius: 100%;
-	border: 5px white solid;
-}
-
-#l-r-w-profile-pg {
-	height: 100%;
-}
-
-#i-w-profile-pg {
-	display: flex;
-	justify-content: center;
-}
-
-#n-w-profile-pg {
-	display: flex;
-	justify-content: center;
-	margin-top: 50px;
-	font-size: 2rem;
-	font-family: 'Comfortaa', cursive;
-}
-
-#b-w-profile-pg {
-	display: flex;
-	justify-content: center;
-	background: aliceblue;
-	margin-top: 20px;
-	font-size: 1.1rem;
-	border-radius: 2rem;
-	font-family: 'Comfortaa', cursive;
-	padding: 20px;
-}
-
-#r-r-u-w-profile-pg {
-	background: aliceblue;
-	margin-top: 30px;
-	font-size: 1.1rem;
-	font-family: 'Comfortaa', cursive;
-	border-radius: 2rem;
-	padding: 20px;
-}
-
-#r-r-b-w-profile-pg {
-	background: aliceblue;
-	margin-top: 20px;
-	font-size: 1.1rem;
-	border-radius: 2rem;
-	font-family: 'Comfortaa', cursive;
-	padding: 20px;
-}
-
-#r-r-u-w-profile-pg > div{
-	margin-top: 10px;
-}
-
-#r-r-b-w-profile-pg > div{
-	margin-top: 10px;
-}
-
-#e-b-w-profile-pg {
-	 display: flex;
-	 justify-content: center;
-	 margin-top: 30px;
-}
-
-
