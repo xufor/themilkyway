@@ -7,6 +7,7 @@
 #g-l-img{
     width: 30px;
     position: absolute;
+    cursor: pointer;
     left: calc(17.5vw - 46px);
     opacity: 0;
     transition: all 0.3s ease-in;
@@ -15,6 +16,7 @@
 #g-r-img{
     width: 30px;
     position: absolute;
+    cursor: pointer;
     right: calc(17.5vw - 46px);
     opacity: 0;
     transition: all 0.3s ease-in;

@@ -5,9 +5,9 @@
 #e-wrap-compose-pg {
     width: 70%;
     margin: 20px auto;
-    background: rgba(255,255,255);
+    background: rgba(255,255,255,1);
     padding: 60px 60px 20px 60px;
-    border-radius: 0.5rem;
+    border-radius: 0;
 }
 
 #t-e-compose-pg {
