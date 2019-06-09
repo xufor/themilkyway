@@ -2,7 +2,6 @@ import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 import { sampleBio } from '../strings.js';
 
 let INITIAL_STATE = {
-	data: {
 		uid: 'd76wef78',
 		firstName: 'John',
 		lastName: 'Seed',
@@ -17,14 +16,11 @@ let INITIAL_STATE = {
 		emailId: 'john_seed@gmail.com',
 		milestones: '30K views 5K likes last month!',
 		privacy: 'Secret'
-	}
 };
 
 export default (state = INITIAL_STATE, action) => {
 	if (action.type === FETCH_USER_CREDENTIALS) {
-		return {
-			data: action.payload.data
-		};
+		return action.payload.data
 	} else {
 		return state;
 	}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchUserCredentials } from '../../actions/fetchCredsAction';
+import { messageBoxViewAction } from '../../actions/messageBoxViewAction';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from  'react-router-dom';
@@ -12,7 +13,6 @@ class LoginPage extends Component {
         this.state = {
             email: '',
             password: '',
-            loaderFlag: 0,
         };
     }
 
@@ -43,20 +43,21 @@ class LoginPage extends Component {
             history: this.props.history
         };
         this.props.fetchUserCredentials(actionPacket);
-        //Handles the displaying of loader animation
-        this.setState({ loaderFlag: 1});
+        this.props.messageBoxViewAction('enabled');
         setTimeout(() => {
-            if(this.props.credentials.data === undefined) //Solves the memory leak problem
-                this.setState({ loaderFlag: 0});
-        }, 3000);
-        //Handles the displaying of loader animation
+            this.props.messageBoxViewAction('disabled')
+        }, 5000)
     };
 
     render() {
-        const { loaderFlag } = this.state;
+        const { boxState } = this.props;
         return (
             <div>
-                { displayLoader(loaderFlag, 'Checking if its really you!') }
+                {
+                    (boxState !== 'disabled')
+                        ? displayLoader('Contacting International Space Station!', 'wait-and-leave')
+                        : undefined
+                }
                 <div id={'loginPageBackground'}>
                     <div id={'loginBox'}>
                         <div className={'boxHeading'}>Login</div>
@@ -74,12 +75,13 @@ class LoginPage extends Component {
 }
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ fetchUserCredentials }, dispatch);
+    return bindActionCreators({ fetchUserCredentials, messageBoxViewAction }, dispatch);
 };
 
 const mapStateToProps = (state) => {
     return {
-        credentials: state.credentials
+        credentials: state.credentials,
+        boxState: state.messageBoxState
     }
 };
 

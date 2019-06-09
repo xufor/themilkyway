@@ -49,7 +49,7 @@ class GreetBox extends Component {
 
     render() {
         let suffixGen = this.suffixGen;
-        let { firstName } = this.props.credentials.data;
+        let { firstName } = this.props.credentials;
         return (
             <div id={'greetBox'} className={'shadow-5'}>
                 <div id={'greeting'}>Good {suffixGen()} {firstName} !</div>

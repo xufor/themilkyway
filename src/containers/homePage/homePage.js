@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { displayLoader } from '../../common';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import FeedBox from '../feedBox/feedBox';
@@ -12,18 +10,9 @@ import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader'
 import './style.css';
 
 class HomePage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          loaderFlag: 0,
-        };
-    }
-
     render() {
-        const { loaderFlag } = this.state;
         return (
             <div>
-                {displayLoader(loaderFlag)}
                 <div id={'homePageBackground'}>
                     <BackgroundLoader bno={0}/>
                     <TopMostBar
@@ -44,10 +33,4 @@ class HomePage extends Component {
     }
 }
 
-const MapStateToProps = (state) => {
-    return {
-        credentials: state.credentials
-    }
-};
-
-export default connect(MapStateToProps)(HomePage);
+export default HomePage;

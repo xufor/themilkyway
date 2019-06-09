@@ -27,8 +27,15 @@ class RippleButton extends Component {
 
     render() {
         const { name } = this.props;
+        const { listener } = this.props;
         return (
-            <button className={'rip-btn btn-pop ripple'} ref={this.btn}>{name}</button>
+            <button
+                className={'rip-btn btn-pop ripple'}
+                ref={this.btn}
+                onClick={listener}
+            >
+                {name}
+            </button>
         );
     };
 }

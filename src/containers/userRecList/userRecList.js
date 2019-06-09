@@ -20,11 +20,13 @@ class UserRecList extends Component {
         }
         listOfInstances.map((listItem) => {
             listItem.onload = function() {
-                recBx[k].src = this.src;
-                recBx[k].style.display = 'block';
-                recBx[k].style.animation =
-                    'fadeEntry 0.5s ease-in-out alternate 1 backwards running';
-                k++;
+                if(recBx[k] !== undefined) {
+                    recBx[k].src = this.src;
+                    recBx[k].style.display = 'block';
+                    recBx[k].style.animation =
+                        'fadeEntry 0.5s ease-in-out alternate 1 backwards running';
+                    k++;
+                }
             };
             return listItem;
         });

@@ -1,10 +1,9 @@
 import { UPDATE_SEARCH_STRING } from "../actions/searchStringAction";
 
-export default (state = { data: ''}, action) => {
+export default (state = '', action) => {
     if (action.type === UPDATE_SEARCH_STRING) {
-        return {
-            data: action.payload
-        };
+        return action.payload
+
     } else {
         return state;
     }
