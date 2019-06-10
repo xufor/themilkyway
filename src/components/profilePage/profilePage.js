@@ -21,7 +21,7 @@ class ProfilePage extends Component {
     constructor(props) {
     	super(props);
     	this.state = {
-    		lowerRegionMode: 'Editing',
+    		lowerRegionMode: 'Basic',
 			bio: '',
 			country: '',
 			dob: '',
