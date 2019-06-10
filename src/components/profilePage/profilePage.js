@@ -5,12 +5,15 @@ import GenreBox from '../../components/genreBox/genreBox';
 import { connect } from 'react-redux';
 
 import PageFooter from '../../components/pageFooter/pageFooter';
-import RippleButton from '../../components/rippleButton/rippleButton';
 import StoryElement from '../storyElement/storyElement';
-import { summary } from '../../strings';
+import SearchElement from '../searchElement/searchElement';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
+import RippleButton from '../../components/rippleButton/rippleButton'
+import editProfile from '../../assets/editProfile.png';
 import sPic from '../../assets/samplePic.png';
+import { summary } from '../../strings';
+import { names } from '../../strings';
 import './style.css';
 import './style-m.css';
 
@@ -18,7 +21,11 @@ class ProfilePage extends Component {
     constructor(props) {
     	super(props);
     	this.state = {
-    		lowerRegionMode: 'Basic',
+    		lowerRegionMode: 'Editing',
+			bio: '',
+			country: '',
+			dob: '',
+			profession: ''
 		};
 		this.mode1 = React.createRef();
 		this.mode2 = React.createRef();
@@ -32,11 +39,11 @@ class ProfilePage extends Component {
 	}
 
 	upperRegionGen = () => {
-      const {firstName, lastName} = this.props.credentials;
+      const {name} = this.props.credentials;
     	return(
           <div id={'n-p-profile-pg'}>
 				<img id={'p-p-profile-pg'} alt={'p89ef'} src={sPic}/>
-				<div id={'n-u-profile-pg'}>{`${firstName} ${lastName}`}</div>
+				<div id={'n-u-profile-pg'}>{`${name}`}</div>
           </div>
       )
     };
@@ -93,26 +100,107 @@ class ProfilePage extends Component {
 		}
 	};
 
+	onclickEditButton = () => {
+		this.setState({lowerRegionMode: 'Editing'});
+	};
+
 	basicContentGen = () => {
-		return "Some Basic Content"
+		let {
+			dob,
+			bio,
+			country,
+			profession,
+			emailId,
+		} = this.props.credentials;
+		return (
+			<div id={'b-c-profile-pg'}>
+				<p>{`Bio: ${bio}`}</p>
+				<div>{`Birthday: ${dob}`}</div>
+				<div>{`Country: ${country}`}</div>
+				<div>{`Profession: ${profession}`}</div>
+				<div>{`Email: ${emailId}`}</div>
+				<img
+					id={'e-pic-profile-pg'}
+					alt={'e-pic-p-pg'}
+					onClick={this.onclickEditButton}
+					src={editProfile}
+				/>
+			</div>
+		)
 	};
 
 	storiesContentGen = () => {
+		let i = 0;
 		return (
-			''
+			names.map((listItem) => {
+				return <StoryElement
+					name={listItem}
+					title={'The Last Leaf'}
+					summary={summary}
+					key={`searchElement${i++}`}
+				/>
+			})
 		);
 	};
 
 	achievementsContentGen = () => {
-		return "Some Achievements Content"
+		let {
+			followers,
+			points,
+			views,
+			milestones,
+		} = this.props.credentials;
+		return (
+			<div id={'a-c-profile-pg'}>
+				<div>{`Followers: ${followers}`}</div>
+				<div>{`Views : ${views}`}</div>
+				<div>{`Milestones: ${milestones}`}</div>
+				<div>{`Points: ${points}`}</div>
+			</div>
+		)
 	};
 
 	followersContentGen = () => {
-		return "Some Followers Content"
+		let i = 0;
+		return (
+			names.map((listItem) => {
+				return <SearchElement
+					name={listItem}
+					key={`searchElement${i++}`}
+					mode={'follow'}
+				/>
+			})
+		);
 	};
 
 	followingContentGen = () => {
-		return "Some Following Content"
+		let i = 0;
+		return (
+			names.map((listItem) => {
+				return <SearchElement
+					name={listItem}
+					key={`searchElement${i++}`}
+					mode={'unfollow'}
+				/>
+			})
+		);
+	};
+
+	editingContentGen = () => {
+		return (
+			<div id={'e-d-profile-pg'}>
+				<div>Bio:</div>
+				<textarea id={'t-a-profile-pg'}/>
+				<div>Country:</div>
+				<input id={'i-a-profile-pg'}/>
+				<div>Birthday:</div>
+				<input type={'date'} id={'i-a-profile-pg'}/>
+				<div>Profession:</div>
+				<input id={'i-a-profile-pg'}/>
+				<RippleButton name={'Save'}
+				/>
+			</div>
+		);
 	};
 
 	lowerRegionGen = () => {
@@ -127,6 +215,10 @@ class ProfilePage extends Component {
 			return  this.followingContentGen()
 		} else if (mode === 'Followers') {
 			return  this.followersContentGen()
+		} else if (mode === 'Editing') {
+			return  this.editingContentGen()
+		} else {
+			return undefined;
 		}
 	};
 

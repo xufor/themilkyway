@@ -1,9 +1,28 @@
 import React, { Component } from 'react';
+
 import RippleButton from '../../components/rippleButton/rippleButton';
 import pPic from '../../assets/pPic.jpg';
 import './style.css';
 
 class SearchElement extends Component {
+    buttonRenderer = () => {
+        let { mode } = this.props;
+        if(mode === 'follow') {
+            return (
+                <div className={'f-button-s-element'}>
+                    <RippleButton name={'Follow'}/>
+                </div>
+            );
+        } else if(mode === 'unfollow') {
+            return (
+                <div className={'f-button-s-element'}>
+                    <RippleButton name={'Unfollow'}/>
+                </div>
+            );
+        }
+    };
+
+
     render() {
         let { name } = this.props;
         return (
@@ -12,9 +31,7 @@ class SearchElement extends Component {
                     <img className={'i-s-element'} src={pPic} alt={'NotYetDecided'}/>
                     <div className={'n-s-element'}>{name}</div>
                     <div className={'emptySpace'}/>
-                    <div className={'f-button-s-element'}>
-                        <RippleButton name={'Follow'}/>
-                    </div>
+                    {this.buttonRenderer()}
                 </div>
             </div>
         );

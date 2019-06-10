@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import TopMostBar from '../topMostBar/topMostBar';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import StoryElement from '../../components/storyElement/storyElement';
@@ -7,7 +9,6 @@ import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader'
 import GenreBox from '../genreBox/genreBox';
 import GreetBox from '../greetBox/greetBox';
 import { summary } from '../../strings';
-import { connect } from 'react-redux';
 import { names } from '../../strings';
 import './style.css';
 

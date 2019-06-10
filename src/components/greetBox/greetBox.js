@@ -49,7 +49,8 @@ class GreetBox extends Component {
 
     render() {
         let suffixGen = this.suffixGen;
-        let { firstName } = this.props.credentials;
+        let { name } = this.props.credentials;
+        let firstName = name.split(" ")[0];
         return (
             <div id={'greetBox'} className={'shadow-5'}>
                 <div id={'greeting'}>Good {suffixGen()} {firstName} !</div>

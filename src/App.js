@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import WelcomePage from './components/welcomePage/welcomePage';
 import LoginPage from './components/loginPage/loginPage';
 import HomePage from './components/homePage/homePage';
@@ -7,7 +9,6 @@ import ProfilePage from './components/profilePage/profilePage';
 import SearchPage from './components/searchPage/searchPage';
 import ComposePage from './components/composePage/composePage';
 import TagBrowser from './components/tagBrowser/tagBrowser';
-import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 
 

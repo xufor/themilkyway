@@ -30,7 +30,11 @@ class SearchPage extends Component {
         let i = 0;
         return (
             names.map((listItem) => {
-                return <SearchElement name={listItem} key={`searchElement${i++}`}/>
+                return <SearchElement
+                    name={listItem}
+                    key={`searchElement${i++}`}
+                    mode={'follow'}
+                />
             })
         );
     };

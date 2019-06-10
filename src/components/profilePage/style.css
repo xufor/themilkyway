@@ -35,6 +35,7 @@
     height: max-content;
     justify-content: space-around;
     font-weight: 700;
+    border: 1px solid #ECEFf1;
 }
 
 
@@ -54,5 +55,82 @@
 #l-r-profile-pg {
     width: 100%;
     min-height: 600px;
-    background: rgba(255,255,255);
+    background: rgba(255,255,255,0.9);
+    padding: 30px;
+}
+
+#l-r-profile-pg > #m-b-st-element {
+    width: 75%;
+    margin-top: 0;
+    height: 170px;
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#l-r-profile-pg > #s-element-wrapper {
+    width: 50%;
+    margin-top: 0;
+    height: 120px;
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#b-c-profile-pg {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}
+
+#b-c-profile-pg > div {
+    text-align: center;
+    padding: 20px;
+    margin: 10px auto;
+    width: 100%;
+    background: #ECEFF1;
+    border-radius: 2rem;
+}
+
+#b-c-profile-pg > p {
+    text-align: center;
+    padding: 20px;
+    margin: 10px auto;
+    background: #ECEFF1;
+    border-radius: 2rem;
+}
+
+#a-c-profile-pg > div {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    padding: 20px;
+    margin: 0 auto 30px 0;
+    border-radius: 2rem;
+    background: #ECEFF1;
+}
+
+#e-pic-profile-pg {
+    width: 35px;
+    margin: 30px auto 0 auto;
+}
+
+#e-d-profile-pg {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}
+
+#t-a-profile-pg {
+    width: 100%;
+    margin-top: 5px;
+    min-height: 100px;
+    margin-bottom: 5px;
+}
+
+#i-a-profile-pg {
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+#e-d-profile-pg > button {
+    display: block;
 }
