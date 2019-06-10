@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import TopMostBar from '../topMostBar/topMostBar';
+import { names } from '../../strings';
+import { connect } from 'react-redux';
+
+import GreetBox from '../greetBox/greetBox';
+import GenreBox from '../genreBox/genreBox';
 import PageFooter from '../../components/pageFooter/pageFooter';
-import StoryElement from '../../containers/storyElement/storyElement';
+import SearchElement from '../searchElement/searchElement';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
-import GenreBox from '../genreBox/genreBox';
-import GreetBox from '../greetBox/greetBox';
-import { summary } from '../../strings';
-import { connect } from 'react-redux';
-import { names } from '../../strings';
 import './style.css';
 
-class TagBrowser extends Component {
+class SearchPage extends Component {
     componentDidMount() {
         if(this.props.string === '') {
             this.props.history.push('/')
@@ -20,9 +20,9 @@ class TagBrowser extends Component {
 
     topBoxGen = () => {
         let { string } = this.props, statement;
-        statement = `Recent posts in: "${string}"`;
+        statement = `Showing results for: "${string}"`;
         return (
-            <div id={'stat-tag-browser'}>{`${statement}`}</div>
+            <div id={'stat-search-pg'}>{`${statement}`}</div>
         );
     };
 
@@ -30,12 +30,7 @@ class TagBrowser extends Component {
         let i = 0;
         return (
             names.map((listItem) => {
-                return <StoryElement
-                    name={listItem}
-                    title={'The Last Leaf'}
-                    summary={summary}
-                    key={`searchElement${i++}`}
-                />
+                return <SearchElement name={listItem} key={`searchElement${i++}`}/>
             })
         );
     };
@@ -44,7 +39,7 @@ class TagBrowser extends Component {
         const topBoxGen = this.topBoxGen;
         const resultBoxGen = this.resultBoxGen;
         return (
-            <div id={'m-b-tag-browser'}>
+            <div id={'o-box-search-pg'}>
                 <BackgroundLoader bno={1}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
@@ -53,9 +48,9 @@ class TagBrowser extends Component {
                     dur={1.5}
                     def={500}
                 />
-                <div id={'c-w-tag-browser'} className={'shadow-4'}>
-                    <div id={'t-b-tag-browser'}>{topBoxGen()}</div>
-                    <div id={'r-b-tag-browser'}>{resultBoxGen()}</div>
+                <div id={'m-box-search-pg'} className={'shadow-4'}>
+                    <div id={'t-box-search-pg'}>{topBoxGen()}</div>
+                    <div id={'r-box-search-pg'}>{resultBoxGen()}</div>
                 </div>
                 <PageFooter/>
             </div>
@@ -66,8 +61,8 @@ class TagBrowser extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        string: state.tagTopic
+        string: state.searchString
     }
 };
 
-export default connect(mapStateToProps)(TagBrowser);
+export default connect(mapStateToProps)(SearchPage);

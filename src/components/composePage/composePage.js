@@ -4,7 +4,7 @@ import PageFooter from '../../components/pageFooter/pageFooter';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import RippleButton from '../../components/rippleButton/rippleButton';
-import GenreBox from '../../containers/genreBox/genreBox';
+import GenreBox from '../../components/genreBox/genreBox';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
 import './style.css';

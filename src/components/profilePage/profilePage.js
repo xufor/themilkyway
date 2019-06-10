@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import PageFooter from '../../components/pageFooter/pageFooter';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
-import GenreBox from '../../containers/genreBox/genreBox';
+import GenreBox from '../../components/genreBox/genreBox';
+import { connect } from 'react-redux';
+
+import PageFooter from '../../components/pageFooter/pageFooter';
 import RippleButton from '../../components/rippleButton/rippleButton';
+import StoryElement from '../storyElement/storyElement';
+import { summary } from '../../strings';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import sPic from '../../assets/samplePic.png';
-import { connect } from 'react-redux';
 import './style.css';
 import './style-m.css';
 
@@ -29,7 +32,7 @@ class ProfilePage extends Component {
 	}
 
 	upperRegionGen = () => {
-      const {firstName, lastName} = this.props.credentials.data;
+      const {firstName, lastName} = this.props.credentials;
     	return(
           <div id={'n-p-profile-pg'}>
 				<img id={'p-p-profile-pg'} alt={'p89ef'} src={sPic}/>
@@ -95,7 +98,9 @@ class ProfilePage extends Component {
 	};
 
 	storiesContentGen = () => {
-		return "Some Story Content"
+		return (
+			''
+		);
 	};
 
 	achievementsContentGen = () => {

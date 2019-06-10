@@ -4,8 +4,8 @@ import GreetBox from '../greetBox/greetBox';
 import FeedBox from '../feedBox/feedBox';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
-import UserRecBox from '../../containers/userRecBox/userRecBox';
-import GenreBox from '../../containers/genreBox/genreBox';
+import UserRecBox from '../../components/userRecBox/userRecBox';
+import GenreBox from '../../components/genreBox/genreBox';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
 import './style.css';
 

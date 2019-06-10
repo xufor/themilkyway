@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import WelcomePage from './components/welcomePage/welcomePage';
-import LoginPage from './containers/loginPage/loginPage';
-import HomePage from './containers/homePage/homePage';
-import RegisterPage from './containers/registerPage/registerPage';
-import ProfilePage from './containers/profilePage/profilePage';
-import SearchPage from './containers/searchPage/searchPage';
-import ComposePage from './containers/composePage/composePage';
-import TagBrowser from './containers/tagBrowser/tagBrowser';
+import LoginPage from './components/loginPage/loginPage';
+import HomePage from './components/homePage/homePage';
+import RegisterPage from './components/registerPage/registerPage';
+import ProfilePage from './components/profilePage/profilePage';
+import SearchPage from './components/searchPage/searchPage';
+import ComposePage from './components/composePage/composePage';
+import TagBrowser from './components/tagBrowser/tagBrowser';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 
