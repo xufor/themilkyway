@@ -13,7 +13,7 @@ class FeedView extends Component {
     }
 
     render() {
-        const { uid, firstName, lastName } = this.props.credentials;
+        const { uid, name } = this.props.credentials;
         return (
             <div id={'feedView'} className={'shadow-4'}>
                 <div id={'upper'}>
@@ -28,7 +28,7 @@ class FeedView extends Component {
                         <div id={'intro'}>
                             {
                                 (uid !== '')
-                                    ? `A story by ${firstName} ${lastName}`
+                                    ? `A story by ${name}`
                                     : <Skeleton/>
                             }
                         </div>
