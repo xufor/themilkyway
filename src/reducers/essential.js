@@ -5,6 +5,7 @@ import barReducer from './barReducer';
 import userRecReducer from './userRecReducer';
 import tagTopicReducer from './tagTopicReducer';
 import messageBoxReducer from './messageBoxReducer';
+import storyReducer from './storyReducer';
 
 const rootReducer = combineReducers({
 	credentials: credentialReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
 	barState: barReducer,
 	userRecLinks: userRecReducer,
 	tagTopic: tagTopicReducer,
-	messageBoxState: messageBoxReducer
+	messageBoxState: messageBoxReducer,
+	fetchedStory: storyReducer
 });
 
 export default rootReducer;

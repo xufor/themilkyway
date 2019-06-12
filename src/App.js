@@ -9,6 +9,7 @@ import ProfilePage from './components/profilePage/profilePage';
 import SearchPage from './components/searchPage/searchPage';
 import ComposePage from './components/composePage/composePage';
 import TagBrowser from './components/tagBrowser/tagBrowser';
+import StoryBrowser from './components/storyBrowser/storyBrowser'
 import './App.css';
 
 
@@ -24,7 +25,8 @@ class App extends Component {
                   <Route path= {'/search'} exact component = { SearchPage }/>
                   <Route path= {'/compose'} exact component = { ComposePage }/>
                   <Route path= {'/tagBrowser'} exact component = { TagBrowser }/>
-                  <Route path= {'/'} exact component = { HomePage }/>
+                  <Route path= {'/'} exact component = {StoryBrowser}/>
+                  <Route path= {'/temp'} exact component = { HomePage }/>
               </div>
           </BrowserRouter>
       );

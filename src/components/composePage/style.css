@@ -3,7 +3,7 @@
 }
 
 #e-wrap-compose-pg {
-    width: 70%;
+    width: 85%;
     margin: 20px auto;
     background: rgba(255,255,255,1);
     padding: 60px 60px 20px 60px;
@@ -20,7 +20,7 @@
 #t-e-compose-pg > input {
     flex: 1;
     margin-left: 10px;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #s-e-compose-pg {
@@ -32,7 +32,7 @@
 #s-e-compose-pg > input {
     flex: 1;
     margin-left: 10px;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #b-c-compose-pg {
@@ -42,4 +42,11 @@
 #b-c-compose-pg > button{
     margin: 10px auto;
     display: block;
+}
+
+.ql-editor {
+    padding: 10px 30px;
+    font-family: 'Quicksand', sans-serif;
+    line-height: 30px;
+    font-size: 1.2rem;
 }

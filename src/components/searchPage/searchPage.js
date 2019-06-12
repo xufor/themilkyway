@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import TopMostBar from '../topMostBar/topMostBar';
-import { names } from '../../strings';
 import { connect } from 'react-redux';
 
+import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import GenreBox from '../genreBox/genreBox';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import SearchElement from '../searchElement/searchElement';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
+import { names } from '../../strings';
 import './style.css';
 
 class SearchPage extends Component {

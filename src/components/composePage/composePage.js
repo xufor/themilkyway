@@ -26,6 +26,21 @@ class ComposePage extends Component {
         this.setState({summary: event.target.value})
     };
 
+    onClickSubmit = () => {
+        let tagList = document.getElementsByClassName('ql-editor');
+        let modifiedStory = '';
+        for(let i=0; i<tagList[0].children.length; i++) {
+            if(tagList[0].children[i].innerHTML !== '<br>') {
+                modifiedStory += tagList[0].children[i].innerText;
+                modifiedStory += '*//*';
+            }
+            else
+                modifiedStory += '*//*';
+        }
+        console.log(modifiedStory);
+    };
+
+
     render() {
         return (
             <div id={'m-b-compose-pg'}>
@@ -48,7 +63,7 @@ class ComposePage extends Component {
                     </div>
                     <TextEditor/>
                     <div id={'b-c-compose-pg'}>
-                        <RippleButton name={'Submit'}/>
+                        <RippleButton name={'Submit'} listener={this.onClickSubmit}/>
                     </div>
                 </div>
                 <PageFooter/>
