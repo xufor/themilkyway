@@ -32,10 +32,10 @@ class ComposePage extends Component {
         for(let i=0; i<tagList[0].children.length; i++) {
             if(tagList[0].children[i].innerHTML !== '<br>') {
                 modifiedStory += tagList[0].children[i].innerText;
-                modifiedStory += '*//*';
+                modifiedStory += '*/para/*';
             }
             else
-                modifiedStory += '*//*';
+                modifiedStory += '*/newline/*';
         }
         console.log(modifiedStory);
     };

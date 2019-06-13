@@ -13,33 +13,44 @@ import './style.css';
 
 class StoryBrowser extends Component {
     topBoxGen = () => {
+        let { story } = this.props;
+        let intro = `A story by ${story.author}`;
+        let submitInfo = `submitted on ${story.date} at ${story.time}`;
         return (
-            <React.Fragment>
-
-            </React.Fragment>
+            <div id={'h-t-b-browser-pg'}>
+                <div id={'t-t-b-browser-pg'}>{story.title}</div>
+                <div id={'i-t-b-browser-pg'}>{intro}</div>
+                <div id={'s-t-b-browser-pg'}>{submitInfo}</div>
+            </div>
         );
     };
 
     bottomBoxGen = () => {
-        let { story } = this.props, splitStory, finalList = [];
-        splitStory = story.split('*//*');
-
-        for(let i=0; i<splitStory.length; i++) {
-            if(splitStory[i] !== '') {
-                finalList.push(
-                    <StoryParagraph
-                        text={splitStory[i]}
-                        key={`StoryParagraph${i}`}
-                    />
-                );
-            } else if (splitStory[i] === '') {
-                finalList.push(
-                    <StoryBreaks
-                        key={`StoryBreaks${i}`}
-                    />
-                );
+        let { story } = this.props, finalList = [];
+        let paragraphSplit = story.text.split('*/para/*');
+        let newlineSplit = paragraphSplit.map(
+            (listItem) => listItem.split('*/newline/*')
+        );
+        // This is the story parser loop
+        for(let i=0; i<newlineSplit.length; i++) {
+            for(let j=0; j<newlineSplit[i].length; j++) {
+                if(newlineSplit[i][j] === '') {
+                    finalList.push(
+                        <StoryBreaks
+                            key={`StoryBreaks${(i*17)+(19*j)}`}
+                        />
+                    );
+                } else {
+                    finalList.push(
+                        <StoryParagraph
+                            text={newlineSplit[i][j]}
+                            key={`StoryParagraphs${(i*47)+(15*j)}`}
+                        />
+                    );
+                }
             }
         }
+        // This is the story parser loop
         return finalList;
     };
 

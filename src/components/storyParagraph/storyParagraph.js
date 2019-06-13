@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import './style.css';
-
 class StoryParagraph extends Component {
     render() {
         let { text } = this.props;
