@@ -22,7 +22,7 @@ class GenreElement extends Component {
         let { contentToBeDisplayed } = this.props;
         return (
             <div>
-                <Link to={'/tagBrowser'}>
+                <Link to={'/tag'}>
                     <div
                         style={{backgroundColor: `${this.colorGenerator()}`}}
                         className={'genreBoxElement'}

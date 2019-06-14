@@ -17,7 +17,7 @@
     border-bottom: 1px solid black;
     width: 100%;
     min-height: 20vh;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Allura', cursive;
     padding: 20px 50px;
     background: rgba(255,255,255,0.7);
 }
@@ -36,16 +36,58 @@
 }
 
 #t-t-b-browser-pg {
-    font-size: 3rem;
-    line-height: 80px;
+    font-size: 5rem;
+    line-height: 70px;
 }
 
 #i-t-b-browser-pg {
-    font-size: 1.2rem;
-    line-height: 25px;
+    font-size: 2.5rem;
+    line-height: 40px;
 }
 
 #s-t-b-browser-pg {
-    font-size: 1.2rem;
-    line-height: 25px;
+    font-size: 1.7rem;
+    line-height: 40px;
 }
+
+#l-t-b-browser-pg {
+    width: 35px;
+    background: white;
+    padding: 3px;
+    border-radius: 47%;
+    margin-right: 10px;
+}
+
+#x-t-b-browser-pg {
+    width: 35px;
+    background: white;
+    padding: 3px;
+    border-radius: 47%;
+}
+
+#j-t-b-browser-pg {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+#z-t-b-browser-pg {
+    width: 25px;
+    height: 25px;
+    background: white;
+    padding: 3px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#y-t-b-browser-pg {
+    width: 25px;
+    height: 25px;
+    background: white;
+    padding: 3px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+

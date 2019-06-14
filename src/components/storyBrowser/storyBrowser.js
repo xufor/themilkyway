@@ -9,19 +9,79 @@ import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
 import StoryParagraph from '../../components/storyParagraph/storyParagraph';
 import StoryBreaks from '../storyBreaks/storyBreaks';
+import bigLike from '../../assets/bigLike.png';
+import bigTick from '../../assets/bigTick.png';
+import bigShare from '../../assets/bigShare.png';
+import smallLike from '../../assets/smallLike.png';
+import smallEye from '../../assets/smallEye.png';
+
 import './style.css';
 
 class StoryBrowser extends Component {
+    constructor(props) {
+        super(props);
+        this.like = React.createRef();
+    }
+
+
+    onClickLike = () => {
+        if(this.like.current.src === bigTick)
+            this.like.current.src = bigLike;
+        else
+            this.like.current.src = bigTick;
+    };
+
     topBoxGen = () => {
         let { story } = this.props;
         let intro = `A story by ${story.author}`;
-        let submitInfo = `submitted on ${story.date} at ${story.time}`;
         return (
-            <div id={'h-t-b-browser-pg'}>
-                <div id={'t-t-b-browser-pg'}>{story.title}</div>
-                <div id={'i-t-b-browser-pg'}>{intro}</div>
-                <div id={'s-t-b-browser-pg'}>{submitInfo}</div>
-            </div>
+            <React.Fragment>
+                <div id={'h-t-b-browser-pg'}>
+                    <div id={'t-t-b-browser-pg'}>{story.title}</div>
+                    <div id={'i-t-b-browser-pg'}>{intro}</div>
+                    <div id={'s-t-b-browser-pg'}>
+                        submitted on
+                        <span>
+                            {` ${story.date} `}
+                        </span>
+                        at
+                        <span>
+                            {` ${story.time} `}
+                        </span>
+                    </div>
+                    <div id={'j-t-b-browser-pg'}>
+                        <img
+                            id={'z-t-b-browser-pg'}
+                            alt={'likes'}
+                            src={smallLike}
+                            className={'shadow-1'}
+                        />
+                        {story.likes}
+                        <img
+                            id={'y-t-b-browser-pg'}
+                            alt={'views'}
+                            src={smallEye}
+                            className={'shadow-1'}
+                        />
+                        {story.views}
+                    </div>
+                </div>
+                <div className={'emptySpace'}/>
+                <img
+                    id={'l-t-b-browser-pg'}
+                    alt={'like'}
+                    onClick={this.onClickLike}
+                    src={bigLike}
+                    ref={this.like}
+                    className={'grow shadow-1'}
+                />
+                <img
+                    id={'x-t-b-browser-pg'}
+                    alt={'share'}
+                    src={bigShare}
+                    className={'grow shadow-1'}
+                />
+            </React.Fragment>
         );
     };
 
