@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import GenreBox from '../../components/genreBox/genreBox';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import PageFooter from '../../components/pageFooter/pageFooter';
@@ -12,34 +13,38 @@ import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import RippleButton from '../../components/rippleButton/rippleButton'
 import editProfile from '../../assets/editProfile.png';
 import sPic from '../../assets/samplePic.png';
+import { messageBoxViewAction } from '../../actions/messageBoxViewAction';
+import { displayLoader } from '../../common';
 import { summary } from '../../strings';
 import { names } from '../../strings';
 import './style.css';
 import './style-m.css';
 
 class ProfilePage extends Component {
-    constructor(props) {
+	constructor(props) {
     	super(props);
     	this.state = {
-    		lowerRegionMode: 'Basic',
-			bio: '',
-			country: '',
-			dob: '',
-			profession: ''
+    		lowerRegionMode: 'Basic', // stores the mode of lower region
+			bio: '', 				  // stores the bio when editing mode is on
+			country: '', 			  // stores the country when editing mode is on
+			dob: '',				  // stores the birthday when editing mode is on
+			profession: ''			  // stores the profession when editing mode is on
 		};
-		this.mode1 = React.createRef();
-		this.mode2 = React.createRef();
-		this.mode3 = React.createRef();
-		this.mode4 = React.createRef();
-		this.mode5 = React.createRef();
+		this.mode1 = React.createRef(); // ref to the 'Basic' div in middle region
+		this.mode2 = React.createRef(); // ref to the 'Stories' div in middle region
+		this.mode3 = React.createRef(); // ref to the 'Achievements' div in middle region
+		this.mode4 = React.createRef(); // ref to the 'Following' div in middle region
+		this.mode5 = React.createRef(); // ref to the 'Followers' div in middle region
 	}
 
+	// will set the color of 'Basic' div initially
 	componentDidMount() {
     	this.mode1.current.style.color = '#3D5AFE';
 	}
 
+	// will generate the upper region of profile page
 	upperRegionGen = () => {
-      const {name} = this.props.credentials;
+      const { name } = this.props.credentials;
     	return(
           <div id={'n-p-profile-pg'}>
 				<img id={'p-p-profile-pg'} alt={'p89ef'} src={sPic}/>
@@ -48,6 +53,9 @@ class ProfilePage extends Component {
       )
     };
 
+	/* => will generate the middle region of profile page
+	   => each div with a mode name, when clicked , will call changeViewMode() with mode and
+	      ref to the div tobe colored as parameters */
 	middleRegionGen = () => {
 		return(
 			<React.Fragment>
@@ -89,10 +97,12 @@ class ProfilePage extends Component {
 		)
 	};
 
+	/* will set the mode of lower region and set the color of target div while
+	   setting all other divs to be black color*/
 	changeViewMode = (mode, targetElement) => {
 		this.setState({lowerRegionMode: mode});
 		targetElement.current.style.color = '#3D5AFE';
-		let listOfModes = [this.mode1, this.mode2, this.mode3, this.mode4, this.mode5]
+		let listOfModes = [this.mode1, this.mode2, this.mode3, this.mode4, this.mode5];
 		for(let i=0; i<listOfModes.length; i++) {
 			if(listOfModes[i].current !== targetElement.current) {
 				listOfModes[i].current.style.color = 'black';
@@ -100,10 +110,12 @@ class ProfilePage extends Component {
 		}
 	};
 
-	onclickEditButton = () => {
+	// will change the mode to 'Editing' when the edit profile button is clicked
+	onClickEditButton = () => {
 		this.setState({lowerRegionMode: 'Editing'});
 	};
 
+	// will generate the content for 'Basic' mode of lower region of profile page
 	basicContentGen = () => {
 		let {
 			dob,
@@ -122,13 +134,17 @@ class ProfilePage extends Component {
 				<img
 					id={'e-pic-profile-pg'}
 					alt={'e-pic-p-pg'}
-					onClick={this.onclickEditButton}
+					onClick={this.onClickEditButton}
 					src={editProfile}
 				/>
 			</div>
 		)
 	};
 
+	/* => will generate the content for 'Stories' mode of lower region of profile page
+	   => passes two functions to storyElement as props which get triggered when the respective
+	   	  buttons are clicked
+	   => the storyElement will further pass these buttons to the edit and delete buttons*/
 	storiesContentGen = () => {
 		let i = 0;
 		return (
@@ -138,9 +154,27 @@ class ProfilePage extends Component {
 					title={'The Last Leaf'}
 					summary={summary}
 					key={`searchElement${i++}`}
+					mode={'with-buttons'}
+					editListener={this.onClickStoryEdit}
+					deleteListener={this.onClickStoryDelete}
 				/>
 			})
 		);
+	};
+
+	// gets called when delete button for some story is clicked
+	onClickStoryDelete = () => {
+		this.props.messageBoxViewAction('enabled');
+	};
+
+	// gets called when edit button for some story is clicked
+	onClickStoryEdit = () => {
+		console.log('Story Editing should be performed.')
+	};
+
+	// gets called when delete button on confirmation box is clicked
+	onDeleteConfirm = () => {
+		console.log('Deletion to be performed.')
 	};
 
 	achievementsContentGen = () => {
@@ -223,9 +257,18 @@ class ProfilePage extends Component {
 	};
 
     render() {
+    	let { boxState } = this.props;
     	return (
        		<div id={'m-b-profile-pg'}>
-       			<BackgroundLoader bno={1}/>
+				{
+					(boxState !== 'disabled')
+						? displayLoader('Do you really want to delete this story?',
+										'decide-and-leave',
+										this.onDeleteConfirm
+										)
+						: undefined
+				}
+				<BackgroundLoader bno={1}/>
 				<TopMostBar formatType={'1'}/>
 				<GreetBox/>
 				<ButtonSlider
@@ -245,10 +288,15 @@ class ProfilePage extends Component {
 }
 
 
+const mapActionToProps = (dispatch) => {
+	return bindActionCreators({ messageBoxViewAction }, dispatch);
+};
+
 const mapStateToProps = (state) => {
 	return {
-		credentials: state.credentials
+		credentials: state.credentials,
+		boxState: state.messageBoxState
 	}
 };
 
-export default connect(mapStateToProps)(ProfilePage);
+export default connect(mapStateToProps, mapActionToProps)(ProfilePage);

@@ -36,6 +36,7 @@ class TagBrowser extends Component {
                     title={'The Last Leaf'}
                     summary={summary}
                     key={`searchElement${i++}`}
+                    mode={'no-buttons'}
                 />
             })
         );

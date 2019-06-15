@@ -62,7 +62,6 @@
 #l-r-profile-pg > #m-b-st-element {
     width: 75%;
     margin-top: 0;
-    height: 170px;
     overflow: hidden;
     font-family: 'Quicksand', sans-serif;
 }
@@ -70,7 +69,7 @@
 #l-r-profile-pg > #s-element-wrapper {
     width: 50%;
     margin-top: 0;
-    height: 120px;
+    min-height: 120px;
     overflow: hidden;
     font-family: 'Quicksand', sans-serif;
 }
@@ -83,17 +82,18 @@
 }
 
 #b-c-profile-pg > div {
+    width: 65%;
     text-align: center;
-    padding: 20px;
+    padding: 20px 30px;
     margin: 10px auto;
-    width: 100%;
     background: #ECEFF1;
     border-radius: 2rem;
 }
 
 #b-c-profile-pg > p {
+    width: 65%;
     text-align: center;
-    padding: 20px;
+    padding: 20px 30px;
     margin: 10px auto;
     background: #ECEFF1;
     border-radius: 2rem;
@@ -101,10 +101,11 @@
 
 #a-c-profile-pg > div {
     text-align: center;
+    width: 30%;
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
-    padding: 20px;
-    margin: 0 auto 30px 0;
+    padding: 20px 30px;
+    margin: 50px auto 30px auto;
     border-radius: 2rem;
     background: #ECEFF1;
 }

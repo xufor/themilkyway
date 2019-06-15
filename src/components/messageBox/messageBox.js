@@ -23,7 +23,7 @@ class MessageBox extends Component {
                 <div id={'d-b-m-box'}>
                     <RippleButton
                         name={'Confirm'}
-                        listener={this.onClickConfirmationEvents()}
+                        listener={this.onClickConfirmationEvents}
                     />
                 </div>
                 <div id={'l-b-m-box'}>
