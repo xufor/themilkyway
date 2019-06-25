@@ -220,17 +220,34 @@ class ProfilePage extends Component {
 		);
 	};
 
+	onChangeBasicDetails = (event) => {
+		this.setState({dob: event.target.value})
+	};
+
 	editingContentGen = () => {
 		return (
 			<div id={'e-d-profile-pg'}>
 				<div>Bio:</div>
-				<textarea id={'t-a-profile-pg'}/>
+				<textarea
+					id={'t-a-profile-pg'}
+					onChange={this.onChangeBasicDetails}
+				/>
 				<div>Country:</div>
-				<input id={'i-a-profile-pg'}/>
+				<input
+					id={'i-a-profile-pg'}
+					onChange={this.onChangeBasicDetails}
+				/>
 				<div>Birthday:</div>
-				<input type={'date'} id={'i-a-profile-pg'}/>
+				<input
+					type={'date'}
+					id={'i-a-profile-pg'}
+					onChange={this.onChangeBasicDetails}
+				/>
 				<div>Profession:</div>
-				<input id={'i-a-profile-pg'}/>
+				<input
+					id={'i-a-profile-pg'}
+					onChange={this.onChangeBasicDetails}
+				/>
 				<RippleButton name={'Save'}
 				/>
 			</div>
