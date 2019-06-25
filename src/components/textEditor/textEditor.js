@@ -23,7 +23,21 @@ class TextEditor extends Component {
             readOnly: false,
             theme: 'snow'
         };
-        new Quill(this.editor.current, options);
+        let quill = new Quill(this.editor.current, options);
+
+        // this will restrict the copyable content to be only plain text
+        quill.clipboard.addMatcher(Node.ELEMENT_NODE, (node, delta) => {
+            let ops = [];
+            delta.ops.forEach(op => {
+                if (op.insert && typeof op.insert === 'string') {
+                    ops.push({
+                        insert: op.insert
+                    })
+                }
+            });
+            delta.ops = ops;
+            return delta
+        })
     }
 
     render() {

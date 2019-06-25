@@ -16,15 +16,16 @@
     align-items: center;
     border-bottom: 1px solid black;
     width: 100%;
-    min-height: 20vh;
-    font-family: 'Damion', cursive;
-    padding: 20px 50px;
+    min-height: 25vh;
+    font-family: 'Quicksand', sans-serif;
+    padding: 30px 50px;
     background: rgba(255,255,255,0.7);
 }
 
 #b-box-browser-pg {
     font-family: 'Quicksand', sans-serif;
     line-height: 27px;
+    min-height: 100vh;
     font-size: 1.2rem;
     padding: 20px 50px;
     background: white;
@@ -41,12 +42,12 @@
 }
 
 #i-t-b-browser-pg {
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     line-height: 40px;
 }
 
 #s-t-b-browser-pg {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     line-height: 40px;
 }
 
@@ -68,12 +69,12 @@
 #j-t-b-browser-pg {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 #z-t-b-browser-pg {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background: white;
     padding: 3px;
     border-radius: 50%;
@@ -81,8 +82,8 @@
 }
 
 #y-t-b-browser-pg {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background: white;
     padding: 3px;
     border-radius: 50%;
