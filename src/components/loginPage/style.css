@@ -4,8 +4,12 @@
 	right: 0;
 	left: 0;
 	bottom: 0;
-	background: url(../../assets/image_2.jpg) no-repeat;
+	background: url('../../assets/image_2.jpg') no-repeat;
 	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 @keyframes fadeIn {
@@ -19,13 +23,8 @@
 
 
 #loginBox {
-	position: absolute;
 	width: 350px;
   	height: 450px;
-	top: 50%;
-	left: 50%;
-	margin-left: -175px;
-	margin-top: -225px;
 	border: solid 1px white ;
 	border-radius: 1rem;
 	background: rgba(0,0,0,0.1);

@@ -7,6 +7,8 @@ import { Link } from  'react-router-dom';
 import { displayLoader } from '../../common';
 import './style.css';
 
+const ACCEPTABLE_RESPONSE_MESSAGE = 'Signed in successfully.';
+
 class LoginPage extends Component {
     constructor(props) {
         super(props);
@@ -16,12 +18,23 @@ class LoginPage extends Component {
         };
     }
 
-    componentDidUpdate() {
-        if (this.props.credentials.data !== undefined) {
-          setTimeout(()=> {
-              this.props.history.push('/');
-          }, 1000);
+    checkResponseMessage = () => {
+        let message = this.props.credentials.message;
+        if (message !== undefined && message === ACCEPTABLE_RESPONSE_MESSAGE) {
+            setTimeout(() => {
+                this.props.history.push('/home');
+            }, 1000);
         }
+    };
+
+    componentDidMount() {
+        //this will send user to homepage if he is already signed in
+        this.checkResponseMessage()
+    }
+
+    componentDidUpdate() {
+        //this will send user to homepage if he is signed in just now
+        this.checkResponseMessage()
     }
 
     onEmailChange = (event) => {
@@ -40,13 +53,12 @@ class LoginPage extends Component {
         let actionPacket = {
             email: this.state.email,
             password: this.state.password,
-            history: this.props.history
         };
         this.props.fetchUserCredentials(actionPacket);
         this.props.messageBoxViewAction('enabled');
         setTimeout(() => {
             this.props.messageBoxViewAction('disabled')
-        }, 5000)
+        }, 30000)
     };
 
     render() {
@@ -55,7 +67,7 @@ class LoginPage extends Component {
             <div>
                 {
                     (boxState !== 'disabled')
-                        ? displayLoader('Contacting International Space Station!', 'wait-and-leave')
+                        ? displayLoader('Checking if we know you! This can take time.', 'wait-and-leave')
                         : undefined
                 }
                 <div id={'loginPageBackground'}>

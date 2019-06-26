@@ -1,11 +1,12 @@
-import axLib from 'axios';
+import ax from 'axios';
+import { baseUrl } from '../strings';
+
 export const FETCH_USER_CREDENTIALS = 'FETCH_USER_CREDENTIALS';
 
 export const fetchUserCredentials = ({ email, password }) => {
-
-	const responseFromServer = axLib.request({
-		url: '/login',
-		baseURL: 'https://cors-anywhere.herokuapp.com/https://themilkyway-api.herokuapp.com',
+	const responseFromServer = ax.request({
+		url: '/signin',
+		baseURL: baseUrl,
 		method: 'post',
 		headers: {'Content-Type': 'application/json'},
 		data: {

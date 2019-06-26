@@ -14,7 +14,6 @@ import bigTick from '../../assets/bigTick.png';
 import bigShare from '../../assets/bigShare.png';
 import smallLike from '../../assets/smallLike.png';
 import smallEye from '../../assets/smallEye.png';
-
 import './style.css';
 
 class StoryBrowser extends Component {

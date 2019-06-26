@@ -16,6 +16,7 @@ import 'loaders.css';
 const persistConfig = {
     key: 'root',
     storage,
+    blacklist: ['messageBoxState', 'barState', 'tagTopic', 'searchString']
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

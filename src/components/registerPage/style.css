@@ -6,6 +6,10 @@
     bottom: 0;
     background: url(../../assets/image_2.jpg) no-repeat;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 @keyframes fadeIn {
@@ -22,10 +26,6 @@
     position: absolute;
     width: 350px;
     height: 520px;
-    top: 50%;
-    left: 50%;
-    margin-left: -175px;
-    margin-top: -260px;
     border: solid 1px white ;
     border-radius: 1rem;
     background: rgba(0,0,0,0.1);

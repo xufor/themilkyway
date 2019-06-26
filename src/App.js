@@ -19,14 +19,14 @@ class App extends Component {
           <BrowserRouter>
               <div>
                   <Route path= {'/welcome'} exact component = { WelcomePage }/>
-                  <Route path= {'/login'} exact component = { LoginPage }/>
+                  <Route path= {'/'} exact component = { LoginPage }/>
                   <Route path= {'/register'} exact component = { RegisterPage }/>
                   <Route path= {'/profile'} exact component = { ProfilePage }/>
                   <Route path= {'/search'} exact component = { SearchPage }/>
                   <Route path= {'/compose'} exact component = { ComposePage }/>
                   <Route path= {'/tag'} exact component = { TagBrowser }/>
                   <Route path= {'/story'} exact component = {StoryBrowser}/>
-                  <Route path= {'/'} exact component = { HomePage }/>
+                  <Route path= {'/home'} exact component = { HomePage }/>
               </div>
           </BrowserRouter>
       );
