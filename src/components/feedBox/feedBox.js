@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import { updateBarState } from '../../actions/barStateAction';
 import { connect } from 'react-redux';
+
 import FeedView from '../feedView/feedView';
+import { updateBarState } from '../../actions/barStateAction';
 import './style.css';
 import './style-m.css';
 

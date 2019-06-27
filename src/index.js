@@ -7,25 +7,35 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import storage from 'redux-persist/lib/storage'
-import ReduxPromise from 'redux-promise';
+import promise from 'redux-promise-middleware';
 import ReduxThunk from 'redux-thunk';
-import rootReducer from './reducers/essential';
+import ReduxToastr from 'react-redux-toastr';
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 import 'tachyons';
 import 'loaders.css';
+
+import rootReducer from './reducers/essential';
 
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['messageBoxState', 'barState', 'tagTopic', 'searchString']
+    blacklist:
+        [
+            'messageBoxState',
+            'barState',
+            'tagTopic',
+            'searchString',
+            'showToast'
+        ]
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-const store = createStore(
+export const store = createStore(
     persistedReducer,
     composeEnhancers(
-        applyMiddleware(ReduxPromise, ReduxThunk)
+        applyMiddleware(promise, ReduxThunk)
     )
 );
 let persistor = persistStore(store);
@@ -36,6 +46,16 @@ ReactDOM.render(
         <PersistGate loading={null} persistor={persistor}>
             <App />
         </PersistGate>
+        <ReduxToastr
+            timeOut={5000}
+            newestOnTop={true}
+            preventDuplicates
+            position='top-right'
+            transitionIn='fadeIn'
+            transitionOut='fadeOut'
+            progressBar
+            closeOnToastrClick/>
+        />
     </Provider>
     , document.getElementById('root')
 );

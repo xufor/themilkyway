@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { summary } from '../../strings';
 import Skeleton from 'react-loading-skeleton';
+
+import { summary } from '../../strings';
 import pPic from '../../assets/pPic.jpg';
 import './style.css';
 import './style-m.css';

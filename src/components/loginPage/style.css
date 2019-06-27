@@ -68,12 +68,11 @@
 	color: white;
 }
 
-#loginButton {
+#loginBox > button {
 	margin: 30px 0 20px 0;
 	height: 40px;
 	width: 100px;
 	border: none;
-	color: white;
 	border-radius: 1rem;
 	font-size: 1rem;
 	font-weight: bolder;

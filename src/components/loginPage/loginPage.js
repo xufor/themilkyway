@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import { fetchUserCredentials } from '../../actions/fetchCredsAction';
-import { messageBoxViewAction } from '../../actions/messageBoxViewAction';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from  'react-router-dom';
+import { toastr } from 'react-redux-toastr';
+
+import { fetchUserCredentials } from '../../actions/fetchCredsAction';
+import { disableToast } from '../../actions/disableToastAction';
+import RippleButton from '../rippleButton/rippleButton'
 import { displayLoader } from '../../common';
+import { INCORRECT_PASSWORD } from '../../reducers/showToastReducer';
+import { NO_ACCOUNT } from '../../reducers/showToastReducer';
 import './style.css';
 
 const ACCEPTABLE_RESPONSE_MESSAGE = 'Signed in successfully.';
+const WHILE_SIGNING_IN_MESSAGE = 'Checking if we know you! This can take time.';
 
 class LoginPage extends Component {
     constructor(props) {
@@ -29,12 +35,21 @@ class LoginPage extends Component {
 
     componentDidMount() {
         //this will send user to homepage if he is already signed in
-        this.checkResponseMessage()
+        this.checkResponseMessage();
     }
 
     componentDidUpdate() {
         //this will send user to homepage if he is signed in just now
-        this.checkResponseMessage()
+        this.checkResponseMessage();
+        //this will check if toast has to be loaded or not
+        this.checkForToastLoading();
+        //this set toast back to disabled if it is not already disabled
+        if(this.props.showToast !== 'disabled')
+            this.props.disableToast()
+    }
+
+    componentWillUnmount() {
+        this.props.disableToast();
     }
 
     onEmailChange = (event) => {
@@ -48,37 +63,64 @@ class LoginPage extends Component {
             password: event.target.value
         });
     };
-
     onClickSignIn = () => {
         let actionPacket = {
             email: this.state.email,
             password: this.state.password,
         };
         this.props.fetchUserCredentials(actionPacket);
-        this.props.messageBoxViewAction('enabled');
-        setTimeout(() => {
-            this.props.messageBoxViewAction('disabled')
-        }, 30000)
+    };
+
+    checkForMessageBoxLoading = () => {
+        const { msgBoxState } = this.props;
+        if(msgBoxState === 'enabled')
+            return displayLoader( WHILE_SIGNING_IN_MESSAGE, 'wait-and-leave')
+    };
+
+    checkForToastLoading = () => {
+        const { showToast } = this.props;
+        if(showToast === 'invalid-email')
+            toastr.info('Invalid Email', 'The provided email doesn\'t seem to be an email!');
+        else if(showToast === 'network-error')
+            toastr.error('Network Error', 'Please check your internet connection.');
+        else if(showToast === 'incorrect-password')
+            toastr.info('Incorrect Password', INCORRECT_PASSWORD);
+        else if(showToast === 'no-account')
+            toastr.info('No Account found', NO_ACCOUNT);
     };
 
     render() {
-        const { boxState } = this.props;
         return (
             <div>
-                {
-                    (boxState !== 'disabled')
-                        ? displayLoader('Checking if we know you! This can take time.', 'wait-and-leave')
-                        : undefined
-                }
+                {this.checkForMessageBoxLoading()}
                 <div id={'loginPageBackground'}>
                     <div id={'loginBox'}>
                         <div className={'boxHeading'}>Login</div>
                         <div id={'inputLabelLgBx'}>Email</div>
-                        <input onChange={this.onEmailChange} className={'inputBox'} type={'email'} required/>
+                        <input
+                            onChange={this.onEmailChange}
+                            className={'inputBox'}
+                            type={'email'}
+                            required
+                        />
                         <div id={'inputLabelLgBx'}>Password</div>
-                        <input onChange={this.onPasswordChange} className={'inputBox'} type={'password'} required/>
-                        <button onClick={this.onClickSignIn} id={'loginButton'} className={'grow'}>Login</button>
-                        <Link to={'/register'} id={'registerInstead'} className={'grow'}>Don't have an account?</Link>
+                        <input
+                            onChange={this.onPasswordChange}
+                            className={'inputBox'}
+                            type={'password'}
+                            required
+                        />
+                        <RippleButton
+                            name={'Login'}
+                            listener={this.onClickSignIn}
+                        />
+                        <Link
+                            to={'/register'}
+                            id={'registerInstead'}
+                            className={'grow'}
+                        >
+                            Don't have an account?
+                        </Link>
                      </div>
                 </div>
             </div>
@@ -87,13 +129,14 @@ class LoginPage extends Component {
 }
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ fetchUserCredentials, messageBoxViewAction }, dispatch);
+    return bindActionCreators({ fetchUserCredentials, disableToast }, dispatch);
 };
 
 const mapStateToProps = (state) => {
     return {
         credentials: state.credentials,
-        boxState: state.messageBoxState
+        msgBoxState: state.messageBoxState,
+        showToast: state.showToast
     }
 };
 

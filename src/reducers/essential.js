@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux';
+import { reducer as toastrReducer} from 'react-redux-toastr';
+
 import credentialReducer from './credsReducer';
 import searchReducer from './searchReducer';
 import barReducer from './barReducer';
 import userRecReducer from './userRecReducer';
 import tagTopicReducer from './tagTopicReducer';
-import messageBoxReducer from './messageBoxReducer';
 import storyReducer from './storyReducer';
+import messageBoxReducer from './messageBoxReducer';
+import showToastReducer from './showToastReducer';
 
 const rootReducer = combineReducers({
 	credentials: credentialReducer,
@@ -13,8 +16,11 @@ const rootReducer = combineReducers({
 	barState: barReducer,
 	userRecLinks: userRecReducer,
 	tagTopic: tagTopicReducer,
+	fetchedStory: storyReducer,
 	messageBoxState: messageBoxReducer,
-	fetchedStory: storyReducer
+	toastr: toastrReducer,
+	showToast: showToastReducer
+
 });
 
 export default rootReducer;

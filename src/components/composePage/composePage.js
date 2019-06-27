@@ -64,7 +64,10 @@ class ComposePage extends Component {
                     </div>
                     <TextEditor/>
                     <div id={'b-c-compose-pg'}>
-                        <RippleButton name={'Submit'} listener={this.onClickSubmit}/>
+                        <RippleButton
+                            name={'Submit'}
+                            listener={this.onClickSubmit}
+                        />
                     </div>
                 </div>
                 <PageFooter/>

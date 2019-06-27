@@ -1,5 +1,6 @@
-import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 import { sampleBio } from '../strings.js';
+import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
+import { vars } from '../strings';
 
 let INITIAL_STATE = {
 		uid: 'd76wef78',
@@ -17,9 +18,8 @@ let INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-	if (action.type === FETCH_USER_CREDENTIALS) {
+	if (action.type === FETCH_USER_CREDENTIALS + vars.f) {
 		return action.payload.data
-	} else {
-		return state;
 	}
+	return state;
 }
