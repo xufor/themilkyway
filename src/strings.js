@@ -2,8 +2,6 @@ export const baseUrl = 'http://localhost:5000';
 
 export const vars = {f:'_FULFILLED', p:'_PENDING', r:'_REJECTED'};
 
-export var sampleQuote = "Literature is the art of discovering something extraordinary about ordinary people, and saying with ordinary words something extraordinary.";
-
 export var sampleBio = 'I am a tech enthusiast from Germany, love to code, make friends and have fun. I love playing football, reading books and travelling. I came to The Milky Way to share poems and stories that i write in my free time.';
 
 export var summary = "A story of a boy who met a wolf on the journey to his hometown and how they became best friends. " +
@@ -109,6 +107,7 @@ export const names =
 export const backgroundLinks = [
     'https://images.unsplash.com/photo-1496737018672-b1a6be2e949c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1191&q=80',
     'https://images.unsplash.com/photo-1414005863983-df16bf95bc2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80',
+    'https://images.unsplash.com/photo-1502139214982-d0ad755818d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
 ];
 
 export const sampleStory = {

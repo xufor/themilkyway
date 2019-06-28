@@ -18,8 +18,8 @@ class App extends Component {
         return(
           <BrowserRouter>
               <div>
-                  <Route path= {'/welcome'} exact component = { WelcomePage }/>
-                  <Route path= {'/'} exact component = { LoginPage }/>
+                  <Route path= {'/'} exact component = { WelcomePage }/>
+                  <Route path= {'/login'} exact component = { LoginPage }/>
                   <Route path= {'/register'} exact component = { RegisterPage }/>
                   <Route path= {'/profile'} exact component = { ProfilePage }/>
                   <Route path= {'/search'} exact component = { SearchPage }/>

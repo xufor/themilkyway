@@ -1,23 +1,33 @@
 import React, { Component } from 'react';
-import { sampleQuote } from '../../strings';
-import { Link } from 'react-router-dom';
+
+import BackgroundLoader from '../backgroundLoader/backgroundLoader';
+import RippleButton from '../rippleButton/rippleButton';
 import './style.css';
 
 class WelcomePage extends Component {
+    onClick = (choice) => {
+        if(choice === 'l')
+            this.props.history.push('/login');
+        else if(choice === 'r')
+            this.props.history.push('/register');
+    };
+
     render() {
         return(
-            <div id='welcomePageBackground'>
-                <div id='welcomeText'>
-                    <div id='logo' className='white tc'>The Milky Way</div>
-                        <div id='quote' className='white tc'>{ sampleQuote }</div>
-                        <div id='author' className='tr'>- Boris Pasternak</div>
-                        <div id='buttons'>
-                            <button className='routeButton grow'>
-                                <Link to={'/login'} className='linkProps link'>Login</Link>
-                            </button>
-                            <button className='routeButton grow'>
-                                <Link to={'/register'} className='linkProps link'>Register</Link>
-                            </button>
+            <div id='m-b-welcome-pg'>
+                <BackgroundLoader bno={2}/>
+                <div id='w-t-welcome-pg'>
+                    <div id='l-welcome-pg' className='tc'>The Milky Way</div>
+                    <div id={'s-welcome-pg'}>A Community where words matter! </div>
+                        <div id='b-welcome-pg'>
+                            <RippleButton
+                                name={'Login'}
+                                listener={() => this.onClick('l')}
+                            />
+                            <RippleButton
+                                name={'Register'}
+                                listener={() => this.onClick('r')}
+                            />
                         </div>
                     </div>
             </div>

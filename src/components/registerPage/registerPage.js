@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+import BackgroundLoader from '../backgroundLoader/backgroundLoader';
 import './style.css';
 
 class RegisterPage extends Component {
@@ -41,7 +43,8 @@ class RegisterPage extends Component {
 
     render() {
         return (
-            <div id='registerPageBackground'>
+            <div id='m-b-register-pg'>
+                <BackgroundLoader bno={0}/>
                 <div id='registerBox'>
                     <div className='boxHeading'>Register</div>
                     <div id='inputLabelRgBx'>Name</div>

@@ -10,6 +10,7 @@ import storage from 'redux-persist/lib/storage'
 import promise from 'redux-promise-middleware';
 import ReduxThunk from 'redux-thunk';
 import ReduxToastr from 'react-redux-toastr';
+import { loadingBarMiddleware } from 'react-redux-loading-bar'
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 import 'tachyons';
 import 'loaders.css';
@@ -21,11 +22,13 @@ const persistConfig = {
     storage,
     blacklist:
         [
-            'messageBoxState',
             'barState',
             'tagTopic',
             'searchString',
-            'showToast'
+            'showToast',
+            'loadingBar',
+            'toastr',
+            'isPending'
         ]
 };
 
@@ -35,7 +38,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = createStore(
     persistedReducer,
     composeEnhancers(
-        applyMiddleware(promise, ReduxThunk)
+        applyMiddleware(promise, ReduxThunk, loadingBarMiddleware())
     )
 );
 let persistor = persistStore(store);
@@ -44,17 +47,16 @@ let persistor = persistStore(store);
 ReactDOM.render(
     <Provider store = { store }>
         <PersistGate loading={null} persistor={persistor}>
-            <App />
+            <App/>
         </PersistGate>
         <ReduxToastr
-            timeOut={5000}
+            timeOut={3000}
             newestOnTop={true}
             preventDuplicates
             position='top-right'
-            transitionIn='fadeIn'
-            transitionOut='fadeOut'
-            progressBar
-            closeOnToastrClick/>
+            transitionIn='bounceInDown'
+            transitionOut='bounceOutUp'
+            closeOnToastrClick
         />
     </Provider>
     , document.getElementById('root')

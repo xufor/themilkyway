@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
+import LoadingBar from 'react-redux-loading-bar'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from  'react-router-dom';
 import { toastr } from 'react-redux-toastr';
+import { validate } from 'email-validator';
 
+import BackgroundLoader from '../backgroundLoader/backgroundLoader';
+import RippleButton from '../rippleButton/rippleButton';
 import { fetchUserCredentials } from '../../actions/fetchCredsAction';
 import { disableToast } from '../../actions/disableToastAction';
-import RippleButton from '../rippleButton/rippleButton'
-import { displayLoader } from '../../common';
 import { INCORRECT_PASSWORD } from '../../reducers/showToastReducer';
 import { NO_ACCOUNT } from '../../reducers/showToastReducer';
 import './style.css';
 
 const ACCEPTABLE_RESPONSE_MESSAGE = 'Signed in successfully.';
-const WHILE_SIGNING_IN_MESSAGE = 'Checking if we know you! This can take time.';
+const NOT_AN_EMAIL = 'The email address is invalid.';
+const CHECK_INTERNET = 'Cannot connect to the server.';
+const CANNOT_BE_EMPTY = 'Both password and email are required to login.';
+
+/*
+> When component mounts a check for already logged in is made.
+> When the component mounts isPending and showToast are initially false and disabled
+> If someone violates the necessary conditions to sign in, no requests are made to server
+> If there is a pending request then no new checks or requests will be made
+> If someone signs in with correct credentials he/she logs in
+> If not then toasts are shown with appropriate message.
+> If request is pending the isPending state is set to true
+> If request gets rejected the responses will set the showToast reducer with some identifier
+> Since the state updates the componentDidUpdate method is fired
+> If the identifier in showToast state matches a particular toast is shown
+> Simultaneously the showToast is disabled to get ready for next toast
+*/
 
 class LoginPage extends Component {
     constructor(props) {
@@ -25,7 +43,7 @@ class LoginPage extends Component {
     }
 
     checkResponseMessage = () => {
-        let message = this.props.credentials.message;
+        let { message } = this.props.credentials;
         if (message !== undefined && message === ACCEPTABLE_RESPONSE_MESSAGE) {
             setTimeout(() => {
                 this.props.history.push('/home');
@@ -34,16 +52,16 @@ class LoginPage extends Component {
     };
 
     componentDidMount() {
-        //this will send user to homepage if he is already signed in
+        // this will send user to homepage if he is already signed in
         this.checkResponseMessage();
     }
 
     componentDidUpdate() {
-        //this will send user to homepage if he is signed in just now
+        // this will send user to homepage if he is signed in just now
         this.checkResponseMessage();
-        //this will check if toast has to be loaded or not
+        // this will check if toast has to be loaded or not
         this.checkForToastLoading();
-        //this set toast back to disabled if it is not already disabled
+        // this sets toast back to disabled if it is not already disabled
         if(this.props.showToast !== 'disabled')
             this.props.disableToast()
     }
@@ -63,37 +81,43 @@ class LoginPage extends Component {
             password: event.target.value
         });
     };
-    onClickSignIn = () => {
-        let actionPacket = {
-            email: this.state.email,
-            password: this.state.password,
-        };
-        this.props.fetchUserCredentials(actionPacket);
-    };
 
-    checkForMessageBoxLoading = () => {
-        const { msgBoxState } = this.props;
-        if(msgBoxState === 'enabled')
-            return displayLoader( WHILE_SIGNING_IN_MESSAGE, 'wait-and-leave')
+    onClickSignIn = () => {
+        if(!this.props.isPending) {
+            if(this.state.email === '' || this.state.password === '')
+                toastr.info('Cannot be empty', CANNOT_BE_EMPTY);
+            if(!validate(this.state.email)) {
+                toastr.info('Invalid Email', NOT_AN_EMAIL);
+            }
+            else {
+                let actionPacket = {
+                    email: this.state.email,
+                    password: this.state.password,
+                };
+                this.props.fetchUserCredentials(actionPacket);
+            }
+        }
     };
 
     checkForToastLoading = () => {
         const { showToast } = this.props;
-        if(showToast === 'invalid-email')
-            toastr.info('Invalid Email', 'The provided email doesn\'t seem to be an email!');
-        else if(showToast === 'network-error')
-            toastr.error('Network Error', 'Please check your internet connection.');
-        else if(showToast === 'incorrect-password')
+        if(showToast === 'nt-er')
+            toastr.error('Network Error', CHECK_INTERNET);
+        else if(showToast === 'in-pw')
             toastr.info('Incorrect Password', INCORRECT_PASSWORD);
-        else if(showToast === 'no-account')
-            toastr.info('No Account found', NO_ACCOUNT);
+        else if(showToast === 'no-ac')
+            toastr.info('No Such Account', NO_ACCOUNT);
     };
 
     render() {
         return (
-            <div>
-                {this.checkForMessageBoxLoading()}
-                <div id={'loginPageBackground'}>
+            <React.Fragment>
+                <BackgroundLoader bno={0}/>
+                <LoadingBar
+                    showFastActions
+                    style={{ backgroundColor: '#536DFE', height: '2px', zIndex: 1000 }}
+                />
+                <div id={'m-b-login-pg'}>
                     <div id={'loginBox'}>
                         <div className={'boxHeading'}>Login</div>
                         <div id={'inputLabelLgBx'}>Email</div>
@@ -123,20 +147,20 @@ class LoginPage extends Component {
                         </Link>
                      </div>
                 </div>
-            </div>
+            </React.Fragment>
         );
     }
 }
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ fetchUserCredentials, disableToast }, dispatch);
+    return bindActionCreators({fetchUserCredentials, disableToast}, dispatch);
 };
 
 const mapStateToProps = (state) => {
     return {
         credentials: state.credentials,
-        msgBoxState: state.messageBoxState,
-        showToast: state.showToast
+        showToast: state.showToast,
+        isPending: state.isPending
     }
 };
 

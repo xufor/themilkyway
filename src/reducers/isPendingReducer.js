@@ -1,13 +1,13 @@
 import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 import { vars } from '../strings';
 
-export default (state = 'disabled', action) => {
+export default (state = false, action) => {
     if (action.type === FETCH_USER_CREDENTIALS + vars.p)
-        return 'enabled';
+        return true;
     else if (action.type === FETCH_USER_CREDENTIALS + vars.f)
-        return 'disabled';
+        return false;
     else if(action.type === FETCH_USER_CREDENTIALS + vars.r)
-        return 'disabled';
+        return false;
     return state
 }
 

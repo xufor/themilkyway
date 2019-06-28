@@ -1,11 +1,9 @@
-#registerPageBackground {
+#m-b-register-pg {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    background: url(../../assets/image_2.jpg) no-repeat;
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;

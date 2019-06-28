@@ -1,11 +1,12 @@
-#welcomePageBackground {
+#m-b-welcome-pg {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    background: url(../../assets/image_1.jpg) no-repeat;
-    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: fadeIn 1s 1 forwards;
 }
 
@@ -18,54 +19,37 @@
     }
 }
 
-#welcomeText {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 900px;
-    height: 700px;
-    margin-left: -450px;
-    margin-top: -300px;
-    color: white;
+#w-t-welcome-pg {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Pacifico', cursive;
+    color: #FAFAFA;
 }
 
-#logo {
-    font-size: 10rem;
-    font-family: 'Dancing Script', cursive;
-    margin: 50px 0 15px 0;
+#l-welcome-pg {
+    font-size: 7rem;
+    margin-bottom: 30px;
 }
 
-#quote {
+#s-welcome-pg {
     font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Quicksand', sans-serif;
 }
 
-#author {
-    font-size: 2rem;
-}
-
-#buttons {
+#b-welcome-pg {
     text-align: center;
 }
 
-.routeButton {
-    display: inline;
-    margin: 20px 20px;
-    height: 40px;
+#b-welcome-pg > button {
+    margin: 10px;
     width: 100px;
-    border: none;
-    border-radius: 1rem;
-    padding: 10px;
-    outline: none;
-    cursor: pointer;
-    background-color: #0064FFFF;
-
-}
-
-.linkProps {
-    font-size: 1rem;
-    font-weight: bolder;
-    text-underline: none;
+    background: #3D5AFE;
     color: white;
+    border: none;
     font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
+    padding: 11px 20px;
+    cursor: pointer;
 }
