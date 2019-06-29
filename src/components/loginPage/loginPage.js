@@ -8,16 +8,19 @@ import { validate } from 'email-validator';
 
 import BackgroundLoader from '../backgroundLoader/backgroundLoader';
 import RippleButton from '../rippleButton/rippleButton';
+import HeadingBar from '../headingBar/headingBar';
 import { fetchUserCredentials } from '../../actions/fetchCredsAction';
 import { disableToast } from '../../actions/disableToastAction';
 import { INCORRECT_PASSWORD } from '../../reducers/showToastReducer';
 import { NO_ACCOUNT } from '../../reducers/showToastReducer';
 import './style.css';
 
-const ACCEPTABLE_RESPONSE_MESSAGE = 'Signed in successfully.';
-const NOT_AN_EMAIL = 'The email address is invalid.';
-const CHECK_INTERNET = 'Cannot connect to the server.';
-const CANNOT_BE_EMPTY = 'Both password and email are required to login.';
+export const ACCEPTABLE_RESPONSE_MESSAGE = 'Signed in successfully.';
+export const NOT_AN_EMAIL = 'The email address is invalid.';
+export const CANNOT_REACH_SERVER = 'Cannot connect to the server.';
+export const CANNOT_BE_EMPTY = 'All the fields are required.';
+export const PASS_TOO_LONG = 'The length of password cannot be greater than 72 characters.';
+export const EMAIL_TOO_LONG = 'The length of email cannot be greater than 100 characters.';
 
 /*
 > When component mounts a check for already logged in is made.
@@ -47,7 +50,7 @@ class LoginPage extends Component {
         if (message !== undefined && message === ACCEPTABLE_RESPONSE_MESSAGE) {
             setTimeout(() => {
                 this.props.history.push('/home');
-            }, 1000);
+            }, 300);
         }
     };
 
@@ -86,10 +89,13 @@ class LoginPage extends Component {
         if(!this.props.isPending) {
             if(this.state.email === '' || this.state.password === '')
                 toastr.info('Cannot be empty', CANNOT_BE_EMPTY);
-            if(!validate(this.state.email)) {
+            else if(!validate(this.state.email)) {
                 toastr.info('Invalid Email', NOT_AN_EMAIL);
-            }
-            else {
+            } else if(this.state.password.length > 72) {
+                toastr.info('Too Long', PASS_TOO_LONG)
+            } else if(this.state.email.length > 100) {
+                toastr.info('Too Long', EMAIL_TOO_LONG)
+            } else {
                 let actionPacket = {
                     email: this.state.email,
                     password: this.state.password,
@@ -102,7 +108,7 @@ class LoginPage extends Component {
     checkForToastLoading = () => {
         const { showToast } = this.props;
         if(showToast === 'nt-er')
-            toastr.error('Network Error', CHECK_INTERNET);
+            toastr.error('Network Error', CANNOT_REACH_SERVER);
         else if(showToast === 'in-pw')
             toastr.info('Incorrect Password', INCORRECT_PASSWORD);
         else if(showToast === 'no-ac')
@@ -112,12 +118,13 @@ class LoginPage extends Component {
     render() {
         return (
             <React.Fragment>
-                <BackgroundLoader bno={0}/>
+                <BackgroundLoader bno={3}/>
                 <LoadingBar
                     showFastActions
-                    style={{ backgroundColor: '#536DFE', height: '2px', zIndex: 1000 }}
+                    style={{ backgroundColor: '#448AFF', height: '3px', zIndex: 1000 }}
                 />
                 <div id={'m-b-login-pg'}>
+                    <HeadingBar mode={'register'}/>
                     <div id={'loginBox'}>
                         <div className={'boxHeading'}>Login</div>
                         <div id={'inputLabelLgBx'}>Email</div>

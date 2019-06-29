@@ -1,0 +1,30 @@
+#m-b-hd-bar {
+    top: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #0E0D0D;
+    height: 50px;
+    color: #e9e9e9;
+    font-family: 'Caveat', cursive;
+    padding: 5px 10px;
+    z-index: 5000;
+    border-bottom: 1px #e9e9e9 solid;
+}
+
+#m-b-hd-bar > a {
+    color: #FEFDFF;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
+
+}
+
+#l-hd-bar {
+    font-size: 33px;
+}
+
+#i-hd-bar {
+    height: 35px;
+    width: 35px;
+}

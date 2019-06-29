@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators} from 'redux';
+import { Link } from 'react-router-dom';
+
 import searchGlass from '../../assets/searchGlass.png';
 import profilePic from '../../assets/profilePic.png';
 import galaxyPic from '../../assets/galaxyPic.png';
@@ -6,9 +10,6 @@ import searchOpener from '../../assets/searchOpener.png';
 import goHome from '../../assets/goHome.png';
 import { updateBarState } from '../../actions/barStateAction';
 import { updateSearchString } from '../../actions/searchStringAction.js';
-import { connect } from 'react-redux';
-import { bindActionCreators} from 'redux';
-import { Link } from 'react-router-dom';
 import './style.css';
 import './style-m.css';
 

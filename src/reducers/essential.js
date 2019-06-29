@@ -10,6 +10,7 @@ import tagTopicReducer from './tagTopicReducer';
 import storyReducer from './storyReducer';
 import showToastReducer from './showToastReducer';
 import isPendingReducer from './isPendingReducer';
+import registerReducer from './registerReducer';
 
 const rootReducer = combineReducers({
 	credentials: credentialReducer,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
 	fetchedStory: storyReducer,
 	showToast: showToastReducer,
 	isPending: isPendingReducer,
+	registration: registerReducer,
 	toastr: toastrReducer,
 	loadingBar: loadingBarReducer,
 });
