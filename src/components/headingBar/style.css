@@ -5,12 +5,12 @@
     align-items: center;
     width: 100%;
     background: #0E0D0D;
-    height: 50px;
+    height: 57px;
     color: white;
     font-family: 'Caveat', cursive;
     padding: 5px 10px;
     z-index: 5000;
-    border-bottom: 5px white solid;
+    border-bottom: 7px white solid;
 }
 
 #m-b-hd-bar > a {
