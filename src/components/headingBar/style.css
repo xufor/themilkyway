@@ -5,7 +5,7 @@
     align-items: center;
     width: 100%;
     background: #0E0D0D;
-    height: 57px;
+    height: 60px;
     color: white;
     font-family: 'Caveat', cursive;
     padding: 5px 10px;
@@ -21,10 +21,10 @@
 }
 
 #l-hd-bar {
-    font-size: 33px;
+    font-size: 37px;
 }
 
 #i-hd-bar {
-    height: 35px;
-    width: 35px;
+    height: 37px;
+    width: 37px;
 }
