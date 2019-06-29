@@ -121,7 +121,7 @@ class LoginPage extends Component {
                 <BackgroundLoader bno={3}/>
                 <LoadingBar
                     showFastActions
-                    style={{ backgroundColor: '#448AFF', height: '3px', zIndex: 1000 }}
+                    style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
                 />
                 <div id={'m-b-login-pg'}>
                     <HeadingBar mode={'register'}/>
