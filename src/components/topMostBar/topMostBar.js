@@ -135,7 +135,7 @@ class TopMostBar extends Component {
                         type={'text'}
                         maxLength={'30'}
                         onKeyPress={this.onEnter}
-                        placeholder={'Searching for someone?'}
+                        placeholder={'Searching for something?'}
                         aria-label={'Search'}
                     />
                     <img
