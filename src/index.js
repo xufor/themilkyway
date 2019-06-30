@@ -20,28 +20,25 @@ import rootReducer from './reducers/essential';
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist:
+    whitelist:
         [
-            'barState',
-            'tagTopic',
-            'searchString',
-            'showToast',
-            'loadingBar',
-            'toastr',
-            'isPending'
+            'credentials',
+            'userRecInfo'
         ]
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export const store = createStore(
     persistedReducer,
     composeEnhancers(
         applyMiddleware(promise, ReduxThunk, loadingBarMiddleware())
     )
 );
-let persistor = persistStore(store);
+
+export let persistor = persistStore(store);
 
 
 ReactDOM.render(

@@ -1,21 +1,19 @@
 import ax from 'axios';
-
 import { remote } from '../strings';
 
-export const FETCH_USER_RECS = 'FETCH_USER_RECS';
+export const REFRESH_TOKEN = 'REFRESH_TOKEN';
 
-export const fetchUserRecs = (access_token) => {
 
+export const refreshToken = (refresh_token) => {
     const responseFromServer = ax.request({
-        url: '/elite',
+        url: '/refresh',
         baseURL: remote,
         method: 'get',
-        headers: {'Authorization': access_token}
+        headers: {'Authorization': refresh_token}
     });
 
     return {
-        type: FETCH_USER_RECS,
+        type: REFRESH_TOKEN,
         payload: responseFromServer,
-    };
+    }
 };
-

@@ -46,7 +46,7 @@ class RegisterPage extends Component {
         if (message !== undefined && message === OP_SCC) {
             setTimeout(() => {
                 this.props.history.push('/login');
-            }, 300);
+            }, 3000);
         }
     };
 

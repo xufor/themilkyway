@@ -1,11 +1,6 @@
-.userImgInRecBox {
-    border-radius: 50%;
-    border: 3px solid rgba(255,255,255,0.3);
-    display: none;
-}
-
-.recBoxUserImageWrapper {
-    min-height: 70px;
-    min-width: 70px;
+.i-u-r-element {
+    height: 70px;
+    width: 70px;
     margin-right: 8px;
 }
+

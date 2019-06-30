@@ -11,17 +11,19 @@ import storyReducer from './storyReducer';
 import showToastReducer from './showToastReducer';
 import isPendingReducer from './isPendingReducer';
 import registerReducer from './registerReducer';
+import tokenStatusReducer from './tokenStatusReducer';
 
 const rootReducer = combineReducers({
-	credentials: credentialReducer,
-	searchString: searchReducer,
-	barState: barReducer,
-	userRecLinks: userRecReducer,
-	tagTopic: tagTopicReducer,
-	fetchedStory: storyReducer,
-	showToast: showToastReducer,
-	isPending: isPendingReducer,
-	registration: registerReducer,
+	credentials: credentialReducer, 	// stores tokens, status and name
+	searchString: searchReducer,		// stores search query string
+	barState: barReducer,				// stores bar state
+	userRecInfo: userRecReducer,		// search responses of elite endpoint
+	tagTopic: tagTopicReducer,			// stores selected tag topic
+	fetchedStory: storyReducer,			// stores recently fetched story
+	showToast: showToastReducer,		// stores which type of toast to show
+	isPending: isPendingReducer,		// a flag which is set when some crucial request is made
+	registration: registerReducer,		// stores response of registration
+	tokenStatus: tokenStatusReducer,	// stores the status of tokens i.e. expired or revoked
 	toastr: toastrReducer,
 	loadingBar: loadingBarReducer,
 });

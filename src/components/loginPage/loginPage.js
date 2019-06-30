@@ -50,7 +50,7 @@ class LoginPage extends Component {
         if (message !== undefined && message === ACCEPTABLE_RESPONSE_MESSAGE) {
             setTimeout(() => {
                 this.props.history.push('/home');
-            }, 300);
+            }, 1000);
         }
     };
 

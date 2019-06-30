@@ -1,5 +1,5 @@
 import ax from 'axios';
-import { baseUrl } from '../strings';
+import { remote } from '../strings';
 
 export const INIT_REGISTRATION = 'INIT_REGISTRATION';
 
@@ -7,7 +7,7 @@ export const INIT_REGISTRATION = 'INIT_REGISTRATION';
 export const initiateRegistration = ({ email, password, name }) => {
     const responseFromServer = ax.request({
         url: '/signup',
-        baseURL: baseUrl,
+        baseURL: remote,
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         data: {

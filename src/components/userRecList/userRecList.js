@@ -1,55 +1,34 @@
 import React, { Component } from 'react';
-import { fetchUserRecsAction } from '../../actions/fetchUserRecsAction';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchUserRecs } from '../../actions/fetchUserRecsAction';
+
+import UserRecElement from '../userRecElement/userRecElement';
 import goLeftImg from '../../assets/goLeft.png';
 import goRightImg from '../../assets/goRight.png';
-import UserRecElement from '../userRecElement/userRecElement';
 import './style.css';
 
 class UserRecList extends Component {
     componentDidMount() {
-        this.props.fetchUserRecs();
-    }
-
-    componentDidUpdate() {
-        let k = 0, listOfInstances = [], { links } = this.props;
-        let recBx = document.getElementsByClassName('userImgInRecBox');
-        for(let j=0; j<links.length; j++) {
-            listOfInstances[j] = new Image();
-        }
-        listOfInstances.map((listItem) => {
-            listItem.onload = function() {
-                if(recBx[k] !== undefined) {
-                    recBx[k].src = this.src;
-                    recBx[k].style.display = 'block';
-                    recBx[k].style.animation =
-                        'fadeEntry 0.5s ease-in-out alternate 1 backwards running';
-                    k++;
-                }
-            };
-            return listItem;
-        });
-        for(let j=0; j<links.length; j++) {
-            listOfInstances[j].src = links[j];
-        }
+        let { access_token } = this.props.credentials;
+        // if tokens are expired the page reloads will take care of mounting again
+        this.props.fetchUserRecs(access_token);
     }
 
     userRecGen = () => {
-        let i = 0;
-        let { links } = this.props;
-        if(links.length !== 0) {
-            return links.map(() => {
+        let i = 0, { info } = this.props;
+        if(Object.values(info).length !== 0) {
+            let { users } = info;
+            return users.map((listItem) => {
                 return <UserRecElement
-                    mode={'content'}
                     key={`userRecElement${i++}`}
+                    data={listItem}
                 />
             })
         } else {
             let x = [];
             for(i=0; i<=20; i++) {
                 x[i] = <UserRecElement
-                    mode={'skeleton'}
                     key={`sk-ldg-urb${i}`}
                 />;
             }
@@ -86,12 +65,13 @@ class UserRecList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        links: state.userRecLinks
+        info: state.userRecInfo,
+        credentials: state.credentials
     }
 };
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ fetchUserRecs: fetchUserRecsAction }, dispatch);
+    return bindActionCreators({ fetchUserRecs }, dispatch);
 };
 
 export default connect(mapStateToProps, mapActionToProps)(UserRecList);

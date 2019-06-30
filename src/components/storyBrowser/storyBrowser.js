@@ -22,7 +22,6 @@ class StoryBrowser extends Component {
         this.like = React.createRef();
     }
 
-
     onClickLike = () => {
         if(this.like.current.src === bigTick)
             this.like.current.src = bigLike;

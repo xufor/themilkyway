@@ -1,4 +1,4 @@
-export const baseUrl = 'http://localhost:5000';
+export const remote = 'http://localhost:5000';
 
 export const vars = {f:'_FULFILLED', p:'_PENDING', r:'_REJECTED'};
 

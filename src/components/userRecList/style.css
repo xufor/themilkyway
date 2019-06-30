@@ -1,7 +1,10 @@
 #userListWrapper{
     display: flex;
     align-items: center;
-    border-radius: 0rem;
+}
+
+#userListWrapper > span {
+    margin-left: 7px;
 }
 
 #g-l-img{
