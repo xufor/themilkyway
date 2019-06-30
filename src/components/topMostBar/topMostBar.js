@@ -44,8 +44,8 @@ class TopMostBar extends Component {
     }
 
     shrink = () => {
-        this.logo.current.style.fontSize= '2.3rem';
-        this.bar.current.style.height= '53px';
+        this.logo.current.style.fontSize= '37px';
+        this.bar.current.style.height= '60px';
         this.bar.current.style.display= 'flex';
         this.bar.current.style.alignItems= 'center';
         this.search.current.style.display= 'none';
