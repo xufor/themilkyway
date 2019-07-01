@@ -1,6 +1,7 @@
 import { DISABLE_TOAST } from '../actions/disableToastAction';
 import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 import { INIT_REGISTRATION } from '../actions/registerAction';
+import { FETCH_USER_FEED } from '../actions/fetchUserFeedAction';
 import { vars } from '../strings';
 
 export const NET_ERR = 'Network Error';
@@ -33,6 +34,10 @@ export default (state = 'disabled', action) => {
         case INIT_REGISTRATION + vars.f:
             if (action.payload.data.message === OP_SCC)
                 return 'rg-sc';
+            break;
+        case FETCH_USER_FEED + vars.r:
+            if (action.payload.message === NET_ERR)
+                return 'nt-er';
             break;
         default:
             return state;

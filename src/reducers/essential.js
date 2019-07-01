@@ -12,6 +12,8 @@ import showToastReducer from './showToastReducer';
 import isPendingReducer from './isPendingReducer';
 import registerReducer from './registerReducer';
 import tokenStatusReducer from './tokenStatusReducer';
+import feedReducer from './feedReducer';
+import targetUidReducer from './targetUidReducer';
 
 const rootReducer = combineReducers({
 	credentials: credentialReducer, 	// stores tokens, status and name
@@ -24,6 +26,8 @@ const rootReducer = combineReducers({
 	isPending: isPendingReducer,		// a flag which is set when some crucial request is made
 	registration: registerReducer,		// stores response of registration
 	tokenStatus: tokenStatusReducer,	// stores the status of tokens i.e. expired or revoked
+	feed: feedReducer,					// stores the feed for homepage
+	targetUid: targetUidReducer,		// stores the uid of which the profile is to be viewed
 	toastr: toastrReducer,
 	loadingBar: loadingBarReducer,
 });

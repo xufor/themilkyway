@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import Skeleton from 'react-loading-skeleton';
 
 import { summary } from '../../strings';
@@ -8,49 +7,48 @@ import './style.css';
 import './style-m.css';
 
 class FeedView extends Component {
-    constructor(props) {
-        super(props);
-        this.title = 'The Gift of Magi';
-    }
-
     render() {
-        const { uid, name } = this.props.credentials;
+        const { data } = this.props;
         return (
             <div id={'feedView'} className={'shadow-4'}>
                 <div id={'upper'}>
                     <div id={'headings'}>
                         <div id={'title'}>
                             {
-                                (uid !== '')
-                                    ? this.title
+                                (data)
+                                    ? data.title
                                     : <Skeleton/>
                             }
                         </div>
                         <div id={'intro'}>
                             {
-                                (uid !== '')
-                                    ? `A story by ${name}`
+                                (data)
+                                    ? `A story by ${data.name}`
                                     : <Skeleton/>
                             }
                         </div>
                         <div id={'timestamp'}>
                             {
-                                (uid !== '')
-                                    ? `submitted on ${'March 6 2019'}  at ${'5:45 pm'}`
+                                (data)
+                                    ? `submitted on ${data.time.split(' ')[0]}  at ${data.time.split(' ')[1]}`
                                     : <Skeleton/>
                             }
                         </div>
                     </div>
                     <div className={'emptySpace'}/>
                     {
-                        (uid !== '')
-                            ? <img id={'pPic'} src={pPic} alt={'iPic'}/>
+                        (data)
+                            ? <img
+                                id={'pPic'}
+                                src={`https://res.cloudinary.com/xufor/image/upload/c_fill,f_auto,g_faces,h_150,q_auto,r_100,w_150/${data.image}`}
+                                alt={'iPic'}
+                            />
                             : <div id={'p-pic-sk-ldg'}><Skeleton circle={true} width={150} height={150}/></div>
                     }
                 </div>
                 <div id={'sumHeading'}>
                     {
-                        (uid !== '')
+                        (data)
                             ? 'Summary:'
                             : <Skeleton/>
                     }
@@ -58,8 +56,8 @@ class FeedView extends Component {
                 <div id={'summaryContainer'}>
                     <p id={'summary'}>
                         {
-                            (uid !== '')
-                                ? summary
+                            (data)
+                                ? data.summary
                                 : <Skeleton height={35}/>
                         }
                     </p>
@@ -69,10 +67,5 @@ class FeedView extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        credentials: state.credentials
-    };
-};
 
-export default connect(mapStateToProps)(FeedView);
+export default FeedView;

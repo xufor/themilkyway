@@ -3,18 +3,21 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { persistor } from './index';
+import { toastr } from 'react-redux-toastr';
 
 import WelcomePage from './components/welcomePage/welcomePage';
 import HomePage from './components/homePage/homePage';
 import ComposePage from './components/composePage/composePage';
-import LoginPage from './components/loginPage/loginPage';
-import RegisterPage from './components/registerPage/registerPage';
+import LoginPage, {CANNOT_REACH_SERVER} from './components/loginPage/loginPage';
+import RegisterPage, {SUCCESSFULLY_REGISTERED} from './components/registerPage/registerPage';
 import ProfilePage from './components/profilePage/profilePage';
 import SearchPage from './components/searchPage/searchPage';
 import TagBrowser from './components/tagBrowser/tagBrowser';
 import StoryBrowser from './components/storyBrowser/storyBrowser';
+import {ALREADY_REGISTERED, INCORRECT_PASSWORD, NO_ACCOUNT, NOT_CONFIRMED} from './reducers/showToastReducer';
 import { refreshToken } from './actions/refreshAction';
 import { resetTokenStatus } from './actions/resetTokenStatusAction';
+import { disableToast } from './actions/disableToastAction';
 import { onRevoke } from './actions/onRevokeAction';
 import './App.css';
 
@@ -47,7 +50,30 @@ class App extends Component {
             this.props.resetTokenStatus(); // prevents looping
             persistor.purge().then(() => {this.props.onRevoke();})
         }
+
+        // logic for toasts
+        // this will check if toast has to be loaded or not
+        this.checkForToastLoading();
+        // this sets toast back to disabled if it is not already disabled
+        if(this.props.showToast !== 'disabled')
+            this.props.disableToast()
     }
+
+    checkForToastLoading = () => {
+        const { showToast } = this.props;
+        if(showToast === 'nt-er')
+            toastr.error('Network Error', CANNOT_REACH_SERVER);
+        else if(showToast === 'in-pw')
+            toastr.info('Incorrect Password', INCORRECT_PASSWORD);
+        else if(showToast === 'no-ac')
+            toastr.info('No Such Account', NO_ACCOUNT);
+        else if(showToast === 'nt-co')
+            toastr.info('Inactive User Present', NOT_CONFIRMED);
+        else if(showToast === 'ac-pr')
+            toastr.info('Active User Present', ALREADY_REGISTERED);
+        else if(showToast === 'rg-sc')
+            toastr.success('Registration Successful', SUCCESSFULLY_REGISTERED);
+    };
 
     render() {
         return(
@@ -72,11 +98,12 @@ const mapStateToProps = (state) => {
     return {
         credentials: state.credentials,
         tokenStatus: state.tokenStatus,
+        showToast: state.showToast
     }
 };
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ refreshToken, resetTokenStatus, onRevoke }, dispatch);
+    return bindActionCreators({ refreshToken, resetTokenStatus, onRevoke, disableToast }, dispatch);
 };
 
 export default connect(mapStateToProps, mapActionToProps)(App);

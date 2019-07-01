@@ -10,6 +10,7 @@ import FeedBox from '../feedBox/feedBox';
 import GenreBox from '../../components/genreBox/genreBox';
 import { isNotLoggedIn } from '../../common';
 import './style.css';
+import LoadingBar from "react-redux-loading-bar";
 
 class HomePage extends Component {
     componentDidMount() {
@@ -21,7 +22,11 @@ class HomePage extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
+                <LoadingBar
+                    showFastActions
+                    style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
+                />
                 <div id={'homePageBackground'}>
                     <BackgroundLoader bno={0}/>
                     <TopMostBar
@@ -37,7 +42,7 @@ class HomePage extends Component {
                     <FeedBox/>
                     <PageFooter/>
                 </div>
-            </div>
+            </React.Fragment>
         )
     }
 }

@@ -1,6 +1,9 @@
 .i-u-r-element {
     height: 70px;
     width: 70px;
-    margin-right: 8px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px rgba(255,255,255,0.7) solid;
 }
 

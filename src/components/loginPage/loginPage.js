@@ -10,9 +10,6 @@ import BackgroundLoader from '../backgroundLoader/backgroundLoader';
 import RippleButton from '../rippleButton/rippleButton';
 import HeadingBar from '../headingBar/headingBar';
 import { fetchUserCredentials } from '../../actions/fetchCredsAction';
-import { disableToast } from '../../actions/disableToastAction';
-import { INCORRECT_PASSWORD } from '../../reducers/showToastReducer';
-import { NO_ACCOUNT } from '../../reducers/showToastReducer';
 import './style.css';
 
 export const ACCEPTABLE_RESPONSE_MESSAGE = 'Signed in successfully.';
@@ -62,15 +59,6 @@ class LoginPage extends Component {
     componentDidUpdate() {
         // this will send user to homepage if he is signed in just now
         this.checkResponseMessage();
-        // this will check if toast has to be loaded or not
-        this.checkForToastLoading();
-        // this sets toast back to disabled if it is not already disabled
-        if(this.props.showToast !== 'disabled')
-            this.props.disableToast()
-    }
-
-    componentWillUnmount() {
-        this.props.disableToast();
     }
 
     onEmailChange = (event) => {
@@ -103,16 +91,6 @@ class LoginPage extends Component {
                 this.props.fetchUserCredentials(actionPacket);
             }
         }
-    };
-
-    checkForToastLoading = () => {
-        const { showToast } = this.props;
-        if(showToast === 'nt-er')
-            toastr.error('Network Error', CANNOT_REACH_SERVER);
-        else if(showToast === 'in-pw')
-            toastr.info('Incorrect Password', INCORRECT_PASSWORD);
-        else if(showToast === 'no-ac')
-            toastr.info('No Such Account', NO_ACCOUNT);
     };
 
     render() {
@@ -160,13 +138,12 @@ class LoginPage extends Component {
 }
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({fetchUserCredentials, disableToast}, dispatch);
+    return bindActionCreators({ fetchUserCredentials }, dispatch);
 };
 
 const mapStateToProps = (state) => {
     return {
         credentials: state.credentials,
-        showToast: state.showToast,
         isPending: state.isPending
     }
 };

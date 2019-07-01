@@ -4,41 +4,68 @@ import { connect } from 'react-redux';
 
 import FeedView from '../feedView/feedView';
 import { updateBarState } from '../../actions/barStateAction';
+import { fetchUserFeed } from '../../actions/fetchUserFeedAction';
 import './style.css';
 import './style-m.css';
 
 class FeedBox extends Component {
-    handler = () => {
+    constructor(props) {
+        super(props);
+        this.state = {
+          version: 1
+        };
+    }
+
+    componentDidMount() {
+        let { access_token } = this.props.credentials;
+        this.props.fetchUserFeed(access_token, this.state.version);
+    }
+
+    onEnterHandler = () => {
         if(this.props.topBarState === 'expand-enabled') {
           this.props.updateBarState('shrink-enabled');
         }
     };
 
-    viewGen = (n) => {
-        let i, arr = [];
-        for(i=0; i<n; i++) {
-            arr[i] = <FeedView key={`feedView${i}`}/>;
+    viewGen = () => {
+        let i=0, arr = [];
+        if(!this.props.feed.results) { // will go to else if this expression is not undefined
+            for(i=0; i<15; i++) {
+                arr[i] = <FeedView key={`feedView${i}`}/>;
+            }
+            return arr;
+        } else {
+            return this.props.feed.results.map((listItem) => {
+                i++;
+                return <FeedView
+                    key={`feedView${i}`}
+                    data={listItem}
+                />
+            });
         }
-        return arr;
     };
 
     render() {
-        const viewGen = this.viewGen;
         return (
-            <div onMouseEnter={this.handler} id={'feedBoxWrapper'} className={'shadow-4'}>
-                    {viewGen(5)}
+            <div
+                onMouseEnter={this.onEnterHandler}
+                id={'feedBoxWrapper'}
+                className={'shadow-4'}
+            > {this.viewGen()}
             </div>
         );
     }
 }
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ updateBarState }, dispatch);
+    return bindActionCreators({ updateBarState, fetchUserFeed }, dispatch);
 };
 
 const mapStateToProps = (state) => {
     return {
-        topBarState: state.barState
+        topBarState: state.barState,
+        credentials: state.credentials,
+        feed: state.feed
     };
 };
 

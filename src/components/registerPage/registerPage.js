@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { toastr } from 'react-redux-toastr';
 import LoadingBar from 'react-redux-loading-bar';
 
-import { disableToast } from '../../actions/disableToastAction';
 import { initiateRegistration } from '../../actions/registerAction';
 import RippleButton from '../rippleButton/rippleButton';
 import BackgroundLoader from '../backgroundLoader/backgroundLoader';
@@ -18,14 +17,9 @@ import {
     NOT_AN_EMAIL,
     PASS_TOO_LONG,
     EMAIL_TOO_LONG,
-    CANNOT_REACH_SERVER
 } from '../loginPage/loginPage';
 
-import {
-    NOT_CONFIRMED,
-    ALREADY_REGISTERED,
-    OP_SCC
-} from '../../reducers/showToastReducer';
+import { OP_SCC } from '../../reducers/showToastReducer';
 
 export const NAME_TOO_LONG = 'The length of name cannot be greater than 80 characters.';
 export const SUCCESSFULLY_REGISTERED = 'Please check your inbox to confirm your account.';
@@ -76,22 +70,6 @@ class RegisterPage extends Component {
         this.setState({
             name: event.target.value
         });
-    };
-
-    componentWillUnmount() {
-        this.props.disableToast();
-    }
-
-    checkForToastLoading = () => {
-        const { showToast } = this.props;
-        if(showToast === 'nt-er')
-            toastr.error('Network Error', CANNOT_REACH_SERVER);
-        else if(showToast === 'nt-co')
-            toastr.info('Inactive User Present', NOT_CONFIRMED);
-        else if(showToast === 'ac-pr')
-            toastr.info('Active User Present', ALREADY_REGISTERED);
-        else if(showToast === 'rg-sc')
-            toastr.success('Registration Successful', SUCCESSFULLY_REGISTERED);
     };
 
     onClickRegister = () => {
@@ -161,13 +139,12 @@ class RegisterPage extends Component {
 }
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({initiateRegistration, disableToast}, dispatch);
+    return bindActionCreators({ initiateRegistration }, dispatch);
 };
 
 const mapStateToProps = (state) => {
     return {
         registration: state.registration,
-        showToast: state.showToast,
         isPending: state.isPending
     }
 };
