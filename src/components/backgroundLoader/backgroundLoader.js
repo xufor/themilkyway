@@ -11,7 +11,7 @@ class BackgroundLoader extends Component {
         y.onload = function () {
             x.style.background = `url("${this.src}")`;
             x.style.backgroundSize = `cover`;
-            x.style.animation = `fadeIn 1.3s 1 forwards`;
+            x.style.animation = `fadeIn 0.5s 1 forwards`;
             x.style.backgroundRepeat = 'no-repeat';
             x.style.backgroundAttachment = 'fixed';
         };
