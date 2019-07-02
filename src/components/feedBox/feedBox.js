@@ -12,7 +12,7 @@ class FeedBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          version: 1
+          version: 2
         };
     }
 

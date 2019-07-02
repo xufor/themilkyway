@@ -1,13 +1,15 @@
-#intro {
-    font-size: 1.5rem;
+#upper {
+    display: flex;
 }
 
 #title {
-    font-size: 2.5rem;
+    font-size: 35px;
+    line-height: 45px;
 }
 
-#upper {
-    display: flex;
+#intro {
+    font-size: 25px;
+    line-height: 35px;
 }
 
 #timestamp {
@@ -24,6 +26,7 @@
     border-radius: 2rem;
     background-color: white;
     margin-bottom: 40px;
+    min-height: 320px;
 }
 
 #pPic {

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import { summary } from '../../strings';
-import pPic from '../../assets/pPic.jpg';
 import './style.css';
 import './style-m.css';
 
@@ -40,7 +38,7 @@ class FeedView extends Component {
                         (data)
                             ? <img
                                 id={'pPic'}
-                                src={`https://res.cloudinary.com/xufor/image/upload/c_fill,f_auto,g_faces,h_150,q_auto,r_100,w_150/${data.image}`}
+                                src={`https://res.cloudinary.com/xufor/image/upload/c_fill,f_auto,g_faces,h_200,q_auto,r_100,w_200/${data.image}`}
                                 alt={'iPic'}
                             />
                             : <div id={'p-pic-sk-ldg'}><Skeleton circle={true} width={150} height={150}/></div>
