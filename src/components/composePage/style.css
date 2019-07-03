@@ -12,6 +12,7 @@
 
 #t-e-compose-pg {
     display: flex;
+    align-items: center;
     font-family: 'Comfortaa', cursive;
     margin-bottom: 30px;
     font-weight: normal;
@@ -20,11 +21,24 @@
 #t-e-compose-pg > input {
     flex: 1;
     margin-left: 10px;
+    height: 25px;
     font-family: 'Quicksand', sans-serif;
+}
+
+#x-e-compose-pg {
+    display: flex;
+    align-items: center;
+    font-family: 'Comfortaa', sans-serif;
+    margin-bottom: 30px;
+}
+
+#x-e-compose-pg > span {
+    margin-right: 10px;
 }
 
 #s-e-compose-pg {
     display: flex;
+    align-items: center;
     font-family: 'Comfortaa', cursive;
     margin-bottom: 30px;
 }
@@ -32,6 +46,7 @@
 #s-e-compose-pg > input {
     flex: 1;
     margin-left: 10px;
+    height: 25px;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -49,4 +64,8 @@
     font-family: 'Quicksand', sans-serif;
     line-height: 30px;
     font-size: 1.2rem;
+}
+
+.basic-multi-select {
+    flex: 1;
 }

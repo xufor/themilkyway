@@ -92,7 +92,7 @@ class App extends Component {
                   <Route path= {'/profile/:target/:uid'} exact component = { ProfilePage }/>
                   <Route path= {'/search'} exact component = { SearchPage }/>
                   <Route path= {'/compose'} exact component = { ComposePage }/>
-                  <Route path= {'/tag'} exact component = { TagBrowser }/>
+                  <Route path= {'/tag/:genre'} exact component = { TagBrowser }/>
                   <Route path= {'/story/:sid'} exact component = {StoryBrowser}/>
                   <Route path= {'/home'} exact component = { HomePage }/>
                   <Route exact component={NotFound}/>

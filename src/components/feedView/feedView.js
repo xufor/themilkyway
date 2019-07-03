@@ -19,7 +19,6 @@ class FeedView extends Component {
                 return <GenreElement
                     text={listItem}
                     byPassGen={true}
-                    explicitColor={'#536DFE'}
                     key={i++}
                 />
             });

@@ -99,6 +99,12 @@
     margin: 10px 0 20px;
 }
 
-#s-t-fd-view > div {
+#s-t-fd-view > div > a > div {
     margin-right: 10px;
+    background-color: white;
+    border: #448AFF 1px solid;
+    font-size: 1rem;
+    align-items: center;
+    color: black;
+    display: flex;
 }

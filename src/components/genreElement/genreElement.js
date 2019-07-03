@@ -11,30 +11,28 @@ class GenreElement extends Component {
         this.props.tagTopicAction(event.currentTarget.title);
     };
 
-    colorGenerator = () => {
+    styleGenerator = () => {
         // byPassGen props helps to specify that color is explicitly provided
         let { byPassGen } = this.props;
         if(!byPassGen) {
             let { colorSelector } = this.props;
             let c1 = colorSelector % 4;
             let c2 = Math.floor(Math.random() * matColorList[c1].length);
-            return matColorList[c1][c2];
-        } else {
-            let { explicitColor } = this.props;
-            return explicitColor;
+            return {backgroundColor: matColorList[c1][c2]};
         }
     };
 
     render() {
-        let { text} = this.props;
+        let { text } = this.props;
         return (
             <div>
-                <Link to={'/tag'}>
+                <Link to={`/tag/${text}`}>
                     <div
-                        style={{backgroundColor: `${this.colorGenerator()}`}}
+                        style={this.styleGenerator()}
                         className={'genreBoxElement'}
                         title={text}
-                        onClick={this.clickHandler}>
+                        onClick={this.clickHandler}
+                    >
                         {text}
                     </div>
                 </Link>
