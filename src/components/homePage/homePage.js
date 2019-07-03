@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import LoadingBar from 'react-redux-loading-bar';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import UserRecBox from '../../components/userRecBox/userRecBox';
@@ -8,26 +9,19 @@ import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import FeedBox from '../feedBox/feedBox';
 import GenreBox from '../../components/genreBox/genreBox';
-import { isNotLoggedIn } from '../../common';
+import { returnRedirect } from '../../common';
 import './style.css';
-import LoadingBar from "react-redux-loading-bar";
 
 class HomePage extends Component {
-    componentDidMount() {
-        // user is not logged in or tokes are revoked then send to login
-        // if the tokens are revoked the reloads will take care of sending to login
-        if(isNotLoggedIn())
-            this.props.history.push('/login');
-    }
-
     render() {
         return (
             <React.Fragment>
+                {returnRedirect()}
                 <LoadingBar
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
                 />
-                <div id={'homePageBackground'}>
+                <div id={'m-b-home-pg'}>
                     <BackgroundLoader bno={0}/>
                     <TopMostBar
                         history={this.props.history}

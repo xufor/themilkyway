@@ -1,0 +1,10 @@
+#n-f-pg {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Pacifico', cursive;
+    font-size: 5rem;
+}

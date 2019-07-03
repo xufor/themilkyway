@@ -4,21 +4,40 @@
 
 #title {
     font-size: 35px;
-    line-height: 45px;
+    line-height: 40px;
+}
+
+#title > a {
+    color: black;
+}
+
+#title > a:hover {
+    color: #448AFF;
 }
 
 #intro {
     font-size: 25px;
-    line-height: 35px;
+    line-height: 40px;
+}
+
+#intro > a {
+    display: inline;
+    color: black;
+}
+
+#intro > a:hover {
+    color: #448AFF;
 }
 
 #timestamp {
-    font-size: 1.1rem;
-    margin-top: 8px;
+    font-size: 20px;
+    line-height: 40px;
 }
 
 #headings {
+    display: flex;
     min-width: 350px;
+    flex-direction: column;
 }
 
 #feedView {
@@ -73,4 +92,13 @@
     width: 100%;
     height: 65px;
     margin: 0 auto;
+}
+
+#s-t-fd-view  {
+    display: flex;
+    margin: 10px 0 20px;
+}
+
+#s-t-fd-view > div {
+    margin-right: 10px;
 }

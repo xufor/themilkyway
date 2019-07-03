@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { persistor } from './index';
@@ -8,18 +8,25 @@ import { toastr } from 'react-redux-toastr';
 import WelcomePage from './components/welcomePage/welcomePage';
 import HomePage from './components/homePage/homePage';
 import ComposePage from './components/composePage/composePage';
+import NotFound from './components/notFound/notFound';
 import LoginPage, {CANNOT_REACH_SERVER} from './components/loginPage/loginPage';
 import RegisterPage, {SUCCESSFULLY_REGISTERED} from './components/registerPage/registerPage';
 import ProfilePage from './components/profilePage/profilePage';
 import SearchPage from './components/searchPage/searchPage';
 import TagBrowser from './components/tagBrowser/tagBrowser';
 import StoryBrowser from './components/storyBrowser/storyBrowser';
-import {ALREADY_REGISTERED, INCORRECT_PASSWORD, NO_ACCOUNT, NOT_CONFIRMED} from './reducers/showToastReducer';
 import { refreshToken } from './actions/refreshAction';
 import { resetTokenStatus } from './actions/resetTokenStatusAction';
 import { disableToast } from './actions/disableToastAction';
 import { onRevoke } from './actions/onRevokeAction';
 import './App.css';
+import {
+    ALREADY_REGISTERED,
+    INCORRECT_PASSWORD,
+    NO_ACCOUNT,
+    NOT_CONFIRMED
+} from './reducers/showToastReducer';
+
 
 
 class App extends Component {
@@ -78,17 +85,18 @@ class App extends Component {
     render() {
         return(
           <BrowserRouter>
-              <div>
+              <Switch>
                   <Route path= {'/'} exact component = { WelcomePage }/>
                   <Route path= {'/login'} exact component = { LoginPage }/>
                   <Route path= {'/register'} exact component = { RegisterPage }/>
-                  <Route path= {'/profile'} exact component = { ProfilePage }/>
+                  <Route path= {'/profile/:target/:uid'} exact component = { ProfilePage }/>
                   <Route path= {'/search'} exact component = { SearchPage }/>
                   <Route path= {'/compose'} exact component = { ComposePage }/>
                   <Route path= {'/tag'} exact component = { TagBrowser }/>
-                  <Route path= {'/story'} exact component = {StoryBrowser}/>
+                  <Route path= {'/story/:sid'} exact component = {StoryBrowser}/>
                   <Route path= {'/home'} exact component = { HomePage }/>
-              </div>
+                  <Route exact component={NotFound}/>
+              </Switch>
           </BrowserRouter>
       );
   };

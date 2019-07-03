@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
 import Skeleton from 'react-loading-skeleton';
+import { Link } from 'react-router-dom';
 
+import GenreElement from '../genreElement/genreElement';
+import smallLike from '../../assets/smallLike.png';
+import smallEye from '../../assets/smallEye.png';
 import './style.css';
 import './style-m.css';
 
+
 class FeedView extends Component {
+    genreElementsGen = (data) => {
+        if(!data)
+            return <Skeleton/>;
+        else {
+            let { genre } = data, i=0;
+            return genre.split(',').map((listItem) => {
+                return <GenreElement
+                    text={listItem}
+                    byPassGen={true}
+                    explicitColor={'#536DFE'}
+                    key={i++}
+                />
+            });
+        }
+    };
+
     render() {
         const { data } = this.props;
         return (
@@ -14,14 +35,14 @@ class FeedView extends Component {
                         <div id={'title'}>
                             {
                                 (data)
-                                    ? data.title
+                                    ? <Link to={`/story/${data.sid}`}>{data.title}</Link>
                                     : <Skeleton/>
                             }
                         </div>
                         <div id={'intro'}>
                             {
                                 (data)
-                                    ? `A story by ${data.name}`
+                                    ? <React.Fragment>A story by<Link to={`/profile/other/${data.uid}`}>{` ${data.name}`}</Link></React.Fragment>
                                     : <Skeleton/>
                             }
                         </div>
@@ -32,6 +53,31 @@ class FeedView extends Component {
                                     : <Skeleton/>
                             }
                         </div>
+                        <div id={'j-t-b-browser-pg'}>
+                            {
+                                (data)
+                                ?<React.Fragment>
+                                    <img
+                                        id={'z-t-b-browser-pg'}
+                                        alt={'likes'}
+                                        src={smallLike}
+                                        className={'shadow-1'}
+                                    />
+                                    {data.likes}
+                                    <img
+                                        id={'y-t-b-browser-pg'}
+                                        alt={'views'}
+                                        src={smallEye}
+                                        className={'shadow-1'}
+                                    />
+                                    {data.views}
+                                </React.Fragment>
+                                : <Skeleton/>
+                            }
+                        </div>
+                        <div id={'s-t-fd-view'}>
+                            {this.genreElementsGen(data)}
+                        </div>
                     </div>
                     <div className={'emptySpace'}/>
                     {
@@ -40,6 +86,7 @@ class FeedView extends Component {
                                 id={'pPic'}
                                 src={`https://res.cloudinary.com/xufor/image/upload/c_fill,f_auto,g_faces,h_200,q_auto,r_100,w_200/${data.image}`}
                                 alt={'iPic'}
+                                title={data.name}
                             />
                             : <div id={'p-pic-sk-ldg'}><Skeleton circle={true} width={150} height={150}/></div>
                     }

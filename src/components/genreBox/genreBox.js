@@ -13,9 +13,10 @@ class GenreBox extends Component {
         let i =0;
          return tags.map((listItem) => {
             return <GenreElement
-                contentToBeDisplayed={listItem}
+                text={listItem}
                 colorSelector={i}
                 key={`genreElement${i++}`}
+                byPassGen={false}
             />
         });
     };

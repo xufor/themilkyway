@@ -1,4 +1,4 @@
-#feedBoxWrapper {
+#f-bx-wrapper {
     width: 65%;
     margin: 10px auto;
     background-color: rgba(255,255,255,0.5);
@@ -7,4 +7,15 @@
     padding: 50px 50px 10px 50px;
     border-radius: 3rem;
 }
+
+#f-bx-wrapper > span {
+    display: flex;
+    justify-content: center;
+}
+
+#f-bx-wrapper > span > button {
+    padding: 10px 25px;
+}
+
+
 
