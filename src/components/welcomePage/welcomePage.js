@@ -16,6 +16,7 @@ class WelcomePage extends Component {
         return(
             <div id='m-b-welcome-pg'>
                 <BackgroundLoader bno={3}/>
+                <div id={'t-h-welcome-pg'}/>
                 <div id='w-t-welcome-pg'>
                     <div id='l-welcome-pg' className='tc'>The Milky Way</div>
                     <div id={'s-welcome-pg'}>A Community where words matter! </div>
@@ -30,6 +31,7 @@ class WelcomePage extends Component {
                             />
                         </div>
                     </div>
+                <div id={'b-h-welcome-pg'}/>
             </div>
         );
     }

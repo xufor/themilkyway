@@ -116,7 +116,7 @@ class TopMostBar extends Component {
                     alt={'galPic'}
                     src={galaxyPic}
                 />
-                <Link to={'/'}>
+                <Link to={'/home'}>
                     <div
                         id={'logoText'}
                         ref={this.logo}

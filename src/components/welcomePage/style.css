@@ -53,3 +53,23 @@
     padding: 11px 20px;
     cursor: pointer;
 }
+
+#t-h-welcome-pg {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background: black;
+    border-bottom: 10px white solid;
+}
+
+#b-h-welcome-pg {
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background: black;
+    border-top: 10px white solid;
+}
