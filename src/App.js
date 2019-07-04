@@ -21,10 +21,10 @@ import { disableToast } from './actions/disableToastAction';
 import { onRevoke } from './actions/onRevokeAction';
 import './App.css';
 import {
-    ALREADY_REGISTERED,
-    INCORRECT_PASSWORD,
-    NO_ACCOUNT,
-    NOT_CONFIRMED
+    ALREADY_REGISTERED, STORY_TOO_LONG, SUMMARY_TOO_LONG,
+    INCORRECT_PASSWORD,  TITLE_TOO_LONG,
+    NO_ACCOUNT, NOT_BEFORE_A_DAY,
+    NOT_CONFIRMED, STORY_SUBMITTED
 } from './reducers/showToastReducer';
 
 const NO_MORE_FEED = 'No more feed available. Please try again later.';
@@ -82,7 +82,17 @@ class App extends Component {
         else if(showToast === 'rg-sc')
             toastr.success('Registration Successful', SUCCESSFULLY_REGISTERED);
         else if(showToast === 'no-fd')
-            toastr.success('No more feed', NO_MORE_FEED)
+            toastr.success('No more feed', NO_MORE_FEED);
+        else if(showToast === 'nt-da')
+            toastr.error('Cannot submit', NOT_BEFORE_A_DAY);
+        else if(showToast === 'ti-lg')
+            toastr.info('Title too long', TITLE_TOO_LONG);
+        else if(showToast === 'su-lg')
+            toastr.info('Summary too long', SUMMARY_TOO_LONG);
+        else if(showToast === 'st-lg')
+            toastr.info('Story too long', STORY_TOO_LONG);
+        else if(showToast === 'st-sc')
+            toastr.success('Successfully submitted', STORY_SUBMITTED);
     };
 
     render() {

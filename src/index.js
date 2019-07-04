@@ -36,6 +36,10 @@ export const store = createStore(
 
 export let persistor = persistStore(store);
 
+const options = {
+    okText: 'Proceed',
+    cancelText: 'Cancel'
+};
 
 ReactDOM.render(
     <Provider store = { store }>
@@ -50,6 +54,7 @@ ReactDOM.render(
             transitionIn='bounceInDown'
             transitionOut='bounceOutUp'
             closeOnToastrClick
+            confirmOptions={options}
         />
     </Provider>
     , document.getElementById('root')

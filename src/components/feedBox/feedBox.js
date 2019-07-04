@@ -32,7 +32,7 @@ class FeedBox extends Component {
 
     loadFeed = () => {
         if(!this.props.isPending && this.state.version < 6)
-            this.props.fetchUserFeed(this.props.credentials.access_token, this.state.version)
+            this.props.fetchUserFeed(this.state.version)
                 .then(() => this.setState({version: this.state.version + 1}));
     };
 
@@ -92,7 +92,6 @@ const mapActionToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         topBarState: state.barState,
-        credentials: state.credentials,
         feed: state.feed,
         isPending: state.isPending,
         anomaly: state.anomaly,

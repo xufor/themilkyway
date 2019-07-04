@@ -2,6 +2,7 @@ import { DISABLE_TOAST } from '../actions/disableToastAction';
 import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 import { INIT_REGISTRATION } from '../actions/registerAction';
 import { APPEND_USER_FEED, FETCH_USER_FEED } from '../actions/fetchUserFeedAction';
+import { INIT_SUBMISSION } from '../actions/submitStoryAction';
 import { vars } from '../strings';
 
 export const NET_ERR = 'Network Error';
@@ -10,7 +11,12 @@ export const INCORRECT_PASSWORD = 'The provided password is incorrect.';
 export const NO_ACCOUNT = 'Please create an account first.';
 export const NOT_CONFIRMED = 'There is an inactive user already registered with this email.';
 export const ALREADY_REGISTERED = 'There is an active user already registered with this email.';
+export const NOT_BEFORE_A_DAY = 'Cannot submit next story before 24 hours.';
+export const TITLE_TOO_LONG = 'Title of and below 7 words is allowed.';
+export const SUMMARY_TOO_LONG = 'Summary of and below 80 words is allowed.';
+export const STORY_TOO_LONG = 'Story of and below 10000 words is allowed.';
 export const NO_MORE_FEED = 'Cannot generate more feed.';
+export const STORY_SUBMITTED = 'Story successfully submitted.';
 
 export default (state = 'disabled', action) => {
     switch(action.type) {
@@ -43,6 +49,22 @@ export default (state = 'disabled', action) => {
         case APPEND_USER_FEED + vars.r:
             if (action.payload.response.data.message === NO_MORE_FEED)
                 return 'no-fd';
+            break;
+        case INIT_SUBMISSION + vars.r:
+            if (action.payload.message === NET_ERR)
+                return 'nt-er';
+            else if (action.payload.response.data.message === NOT_BEFORE_A_DAY)
+                return 'nt-da';
+            else if (action.payload.response.data.message === TITLE_TOO_LONG)
+                return 'ti-lg';
+            else if (action.payload.response.data.message === SUMMARY_TOO_LONG)
+                return 'su-lg';
+            else if (action.payload.response.data.message === STORY_TOO_LONG)
+                return 'st-lg';
+            break;
+        case INIT_SUBMISSION + vars.f:
+            if (action.payload.data.message === STORY_SUBMITTED)
+                return 'st-sc';
             break;
         default:
             return state;

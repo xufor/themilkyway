@@ -10,9 +10,8 @@ import './style.css';
 
 class UserRecList extends Component {
     componentDidMount() {
-        let { access_token } = this.props.credentials;
         // if tokens are expired the page reloads will take care of mounting again
-        this.props.fetchUserRecs(access_token);
+        this.props.fetchUserRecs();
     }
 
     userRecGen = () => {
@@ -66,7 +65,6 @@ class UserRecList extends Component {
 const mapStateToProps = (state) => {
     return {
         info: state.userRecInfo,
-        credentials: state.credentials
     }
 };
 

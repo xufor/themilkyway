@@ -58,7 +58,7 @@
     position: fixed;
     z-index: 999;
     top: 0;
-    height: 50px;
+    height: 40px;
     width: 100%;
     background: black;
     border-bottom: 10px white solid;
@@ -68,7 +68,7 @@
     position: fixed;
     z-index: 999;
     bottom: 0;
-    height: 50px;
+    height: 40px;
     width: 100%;
     background: black;
     border-top: 10px white solid;

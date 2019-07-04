@@ -9,6 +9,7 @@ export default (state = '', action) => {
         case FETCH_USER_FEED + vars.r:
             if (action.payload.response.data.message === NO_MORE_FEED)
                 return NO_FEED_DATA_FIRST_ATTEMPT;
+            break;
         default:
             return state;
     }

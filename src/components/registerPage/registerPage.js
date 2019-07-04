@@ -47,11 +47,6 @@ class RegisterPage extends Component {
     componentDidUpdate() {
         // this will send user to login if he is registered just now
         this.checkResponseMessage();
-        // this will check if toast has to be loaded or not
-        this.checkForToastLoading();
-        // this sets toast back to disabled if it is not already disabled
-        if(this.props.showToast !== 'disabled')
-            this.props.disableToast()
     }
 
     onEmailChange = (event) => {

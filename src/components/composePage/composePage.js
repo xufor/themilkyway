@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { toastr } from 'react-redux-toastr';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import LoadingBar from 'react-redux-loading-bar';
 import Select from 'react-select';
 
 import TextEditor from '../textEditor/textEditor';
@@ -10,12 +13,14 @@ import RippleButton from '../../components/rippleButton/rippleButton';
 import GenreBox from '../../components/genreBox/genreBox';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
+import { initiateSubmission } from '../../actions/submitStoryAction';
 import { CANNOT_BE_EMPTY } from '../loginPage/loginPage';
 import { tags } from '../../strings';
 import './style.css';
 
 const TOO_MANY_GENRES = 'The number of genres cannot be greater than 3.';
 const STORY_CANNOT_BE_EMPTY = 'You cannot submit a story with no words.';
+const ARE_YOU_SURE = 'Are you sure?';
 
 let listForSelection = tags.map((listItem) => {
     return {value: listItem, label: listItem}
@@ -28,7 +33,7 @@ class ComposePage extends Component {
             summary: '',
             title: '',
             genre: []
-        }
+        };
     }
 
     onTitleChange = (event) => {
@@ -43,8 +48,17 @@ class ComposePage extends Component {
         this.setState({genre: event})
     };
 
+    initSubmission = (genre, story, title, summary) => {
+        this.props.initiateSubmission({
+            genre,
+            story,
+            title,
+            summary
+        });
+    };
+
     onClickSubmit = () => {
-        let { title, summary, genre} = this.state, modifiedStory = '', genreString = '';
+        let { title, summary, genre} = this.state, modifiedStory = '';
         if(summary === '' || title === ''|| genre.length === 0)
             toastr.info('Cannot be empty', CANNOT_BE_EMPTY);
         else if (genre.length > 3)
@@ -61,13 +75,14 @@ class ComposePage extends Component {
             if(modifiedStory === '*/newline/*')
                 toastr.info('Story has no words', STORY_CANNOT_BE_EMPTY);
             else {
+                let genreString = '';
                 for(let i=0;i<this.state.genre.length;i++) {
                     genreString += this.state.genre[i].value;
                     if(!(i===this.state.genre.length-1)) {
                         genreString += ',';
                     }
                 }
-                toastr.confirm('Are you sure?')
+                toastr.confirm(ARE_YOU_SURE, {onOk: () => this.initSubmission(genreString, modifiedStory, title, summary)});
             }
         }
     };
@@ -76,6 +91,10 @@ class ComposePage extends Component {
     render() {
         return (
             <div id={'m-b-compose-pg'}>
+                <LoadingBar
+                    showFastActions
+                    style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
+                />
                 <BackgroundLoader bno={0}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox formatType={'1'}/>
@@ -119,6 +138,9 @@ class ComposePage extends Component {
     };
 }
 
+const mapActionToProps = (dispatch) => {
+    return bindActionCreators({ initiateSubmission }, dispatch);
+};
 
-export default ComposePage;
+export default connect(null, mapActionToProps)(ComposePage);
 

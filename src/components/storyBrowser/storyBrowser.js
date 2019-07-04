@@ -115,7 +115,7 @@ class StoryBrowser extends Component {
     render() {
         return (
             <div id={'o-box-search-pg'}>
-                <BackgroundLoader bno={1}/>
+                <BackgroundLoader bno={0}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
                 <ButtonSlider
