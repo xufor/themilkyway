@@ -5,9 +5,9 @@
 #e-wrap-compose-pg {
     width: 70%;
     margin: 20px auto;
-    background: rgba(255,255,255,1);
+    background: white;
     padding: 60px 60px 20px 60px;
-    border-radius: 1rem;
+    border-radius: 1.1rem;
 }
 
 #t-e-compose-pg {
@@ -18,10 +18,14 @@
     font-weight: normal;
 }
 
+#t-e-compose-pg > span {
+    width: 100px;
+}
+
 #t-e-compose-pg > input {
     flex: 1;
     margin-left: 10px;
-    height: 25px;
+    height: 30px;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -34,6 +38,7 @@
 
 #x-e-compose-pg > span {
     margin-right: 10px;
+    width: 100px;
 }
 
 #s-e-compose-pg {
@@ -46,9 +51,14 @@
 #s-e-compose-pg > input {
     flex: 1;
     margin-left: 10px;
-    height: 25px;
+    height: 30px;
     font-family: 'Quicksand', sans-serif;
 }
+
+#s-e-compose-pg > span {
+    width: 100px;
+}
+
 
 #b-c-compose-pg {
     margin-top: 20px;

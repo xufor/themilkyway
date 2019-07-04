@@ -154,7 +154,7 @@ class TopMostBar extends Component {
                     alt={'srhOpn'}
                     id={'searchOpenImage'}
                 />
-                <Link to={'/profile'}>
+                <Link to={`/profile/${this.props.credentials.uid}`}>
                     <img
                         id={'profilePic'}
                         ref={this.user}
@@ -162,7 +162,7 @@ class TopMostBar extends Component {
                         alt={'pPic'}
                     />
                 </Link>
-                <Link to={'/'}>
+                <Link to={'/home'}>
                     <img
                         id={'goHomeBtn'}
                         ref={this.go}
@@ -181,7 +181,8 @@ const mapActionToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        topBarState: state.barState
+        topBarState: state.barState,
+        credentials: state.credentials
     };
 };
 

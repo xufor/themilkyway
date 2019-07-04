@@ -13,6 +13,7 @@ import isPendingReducer from './isPendingReducer';
 import registerReducer from './registerReducer';
 import tokenStatusReducer from './tokenStatusReducer';
 import feedReducer from './feedReducer';
+import anomalyReducer from './anomalyReducer';
 
 const rootReducer = combineReducers({
 	credentials: credentialReducer, 	// stores tokens, status and name
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
 	registration: registerReducer,		// stores response of registration
 	tokenStatus: tokenStatusReducer,	// stores the status of tokens i.e. expired or revoked
 	feed: feedReducer,					// stores the feed for homepage
+	anomaly: anomalyReducer,			// stores any anomalies
 	toastr: toastrReducer,
 	loadingBar: loadingBarReducer,
 });

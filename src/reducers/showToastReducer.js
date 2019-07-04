@@ -1,7 +1,7 @@
 import { DISABLE_TOAST } from '../actions/disableToastAction';
 import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 import { INIT_REGISTRATION } from '../actions/registerAction';
-import { FETCH_USER_FEED } from '../actions/fetchUserFeedAction';
+import { APPEND_USER_FEED, FETCH_USER_FEED } from '../actions/fetchUserFeedAction';
 import { vars } from '../strings';
 
 export const NET_ERR = 'Network Error';
@@ -10,13 +10,14 @@ export const INCORRECT_PASSWORD = 'The provided password is incorrect.';
 export const NO_ACCOUNT = 'Please create an account first.';
 export const NOT_CONFIRMED = 'There is an inactive user already registered with this email.';
 export const ALREADY_REGISTERED = 'There is an active user already registered with this email.';
+export const NO_MORE_FEED = 'Cannot generate more feed.';
 
 export default (state = 'disabled', action) => {
     switch(action.type) {
         case DISABLE_TOAST:
             return 'disabled';
         case FETCH_USER_CREDENTIALS + vars.r:
-            if (action.payload.message === NET_ERR)
+            if(action.payload.message === NET_ERR)
                 return 'nt-er';
             else if (action.payload.response.data.message === INCORRECT_PASSWORD)
                 return 'in-pw';
@@ -38,6 +39,10 @@ export default (state = 'disabled', action) => {
         case FETCH_USER_FEED + vars.r:
             if (action.payload.message === NET_ERR)
                 return 'nt-er';
+            break;
+        case APPEND_USER_FEED + vars.r:
+            if (action.payload.response.data.message === NO_MORE_FEED)
+                return 'no-fd';
             break;
         default:
             return state;

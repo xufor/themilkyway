@@ -14,7 +14,7 @@ import { CANNOT_BE_EMPTY } from '../loginPage/loginPage';
 import { tags } from '../../strings';
 import './style.css';
 
-const TOO_MANY_GENRES = 'The number of genres cannot be greater than 3';
+const TOO_MANY_GENRES = 'The number of genres cannot be greater than 3.';
 const STORY_CANNOT_BE_EMPTY = 'You cannot submit a story with no words.';
 
 let listForSelection = tags.map((listItem) => {
@@ -58,17 +58,17 @@ class ComposePage extends Component {
                 } else
                     modifiedStory += '*/newline/*';
             }
-        }
-        if(modifiedStory === '*/newline/*')
-            toastr.info('Story has no words', STORY_CANNOT_BE_EMPTY);
-        else {
-            for(let i=0;i<this.state.genre.length;i++) {
-                genreString += this.state.genre[i].value;
-                if(!(i===this.state.genre.length-1)) {
-                    genreString += ',';
+            if(modifiedStory === '*/newline/*')
+                toastr.info('Story has no words', STORY_CANNOT_BE_EMPTY);
+            else {
+                for(let i=0;i<this.state.genre.length;i++) {
+                    genreString += this.state.genre[i].value;
+                    if(!(i===this.state.genre.length-1)) {
+                        genreString += ',';
+                    }
                 }
+                toastr.confirm('Are you sure?')
             }
-            console.log(genreString);
         }
     };
 
@@ -76,7 +76,7 @@ class ComposePage extends Component {
     render() {
         return (
             <div id={'m-b-compose-pg'}>
-                <BackgroundLoader bno={1}/>
+                <BackgroundLoader bno={0}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox formatType={'1'}/>
                 <ButtonSlider
@@ -86,11 +86,11 @@ class ComposePage extends Component {
                 />
                 <div id={'e-wrap-compose-pg'} className={'shadow-4'}>
                     <div id={'t-e-compose-pg'}>
-                        <div>Title:</div>
+                        <span>Title:</span>
                         <input onChange={this.onTitleChange}/>
                     </div>
                     <div id={'s-e-compose-pg'}>
-                        <div>Summary:</div>
+                        <span>Summary:</span>
                         <input onChange={this.onSummaryChange}/>
                     </div>
                     <div id={'x-e-compose-pg'}>

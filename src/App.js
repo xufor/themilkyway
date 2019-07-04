@@ -27,6 +27,7 @@ import {
     NOT_CONFIRMED
 } from './reducers/showToastReducer';
 
+const NO_MORE_FEED = 'No more feed available. Please try again later.';
 
 
 class App extends Component {
@@ -80,6 +81,8 @@ class App extends Component {
             toastr.info('Active User Present', ALREADY_REGISTERED);
         else if(showToast === 'rg-sc')
             toastr.success('Registration Successful', SUCCESSFULLY_REGISTERED);
+        else if(showToast === 'no-fd')
+            toastr.success('No more feed', NO_MORE_FEED)
     };
 
     render() {
@@ -89,10 +92,10 @@ class App extends Component {
                   <Route path= {'/'} exact component = { WelcomePage }/>
                   <Route path= {'/login'} exact component = { LoginPage }/>
                   <Route path= {'/register'} exact component = { RegisterPage }/>
-                  <Route path= {'/profile/:target/:uid'} exact component = { ProfilePage }/>
+                  <Route path= {'/profile/:uid'} exact component = { ProfilePage }/>
                   <Route path= {'/search'} exact component = { SearchPage }/>
                   <Route path= {'/compose'} exact component = { ComposePage }/>
-                  <Route path= {'/tag/:genre'} exact component = { TagBrowser }/>
+                  <Route path= {'/genre/:genre'} exact component = { TagBrowser }/>
                   <Route path= {'/story/:sid'} exact component = {StoryBrowser}/>
                   <Route path= {'/home'} exact component = { HomePage }/>
                   <Route exact component={NotFound}/>

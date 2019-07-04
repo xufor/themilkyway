@@ -1,5 +1,6 @@
 #f-bx-wrapper {
     width: 65%;
+    min-height: 70vh;
     margin: 10px auto;
     background-color: rgba(255,255,255,0.5);
     font-size: 1.2rem;
@@ -17,5 +18,24 @@
     padding: 10px 25px;
 }
 
+#wse-fd-bx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pacifico', cursive;
+    flex-direction: column;
+    background: white;
+    padding: 50px;
+    border-radius: 2rem;
+}
 
+#wse-fd-bx > span {
+    font-size: 5rem;
+    color: #24292e;
+}
 
+#wse-fd-bx > div {
+    font-size: 1.5rem;
+    margin-top: 50px;
+    color: #24292e;
+}

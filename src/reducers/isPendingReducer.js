@@ -1,5 +1,6 @@
 import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 import { INIT_REGISTRATION } from '../actions/registerAction';
+import { FETCH_USER_FEED } from '../actions/fetchUserFeedAction';
 import { vars } from '../strings';
 
 export default (state = false, action) => {
@@ -15,6 +16,12 @@ export default (state = false, action) => {
         case INIT_REGISTRATION + vars.f:
             return false;
         case INIT_REGISTRATION + vars.r:
+            return false;
+        case FETCH_USER_FEED + vars.p:
+            return true;
+        case FETCH_USER_FEED + vars.f:
+            return false;
+        case FETCH_USER_FEED + vars.r:
             return false;
         default:
             return state

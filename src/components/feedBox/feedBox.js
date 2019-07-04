@@ -1,46 +1,40 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { toastr } from 'react-redux-toastr';
 
 import FeedView from '../feedView/feedView';
 import RippleButton from '../rippleButton/rippleButton';
+import suchEmpty from '../../assets/suchEmpty.png';
 import { updateBarState } from '../../actions/barStateAction';
 import { fetchUserFeed } from '../../actions/fetchUserFeedAction';
+import { NO_FEED_DATA_FIRST_ATTEMPT } from "../../reducers/anomalyReducer";
 import './style.css';
 import './style-m.css';
-
-const NO_MORE_FEEDS = 'This is all for now.Please try again later!';
 
 class FeedBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          version: 1
+            version: 1
         };
+        this.btn = React.createRef();
     }
 
     componentDidMount() {
-        this.loadFeed()
+        this.loadFeed();
     }
 
+    componentDidUpdate() {
+        // this will remove the button when upper limit is reached
+        if(this.state.version > 5)
+            this.btn.current.style.display = 'none';
+    }
+
+
     loadFeed = () => {
-        if(this.state.version !== 5) {
-            let currentVersion = this.props.feed;
-            let {access_token} = this.props.credentials;
-            this.props.fetchUserFeed(access_token, this.state.version)
-                .then(() => {
-                    if(_.isEqual(currentVersion, this.props.feed)) {
-                        this.setState({version: 5});
-                        toastr.success('No more stories', NO_MORE_FEEDS);
-                        return;
-                    }
-                    this.setState({version: this.state.version + 1})
-                });
-        } else {
-            toastr.success('No more stories', NO_MORE_FEEDS);
-        }
+        if(!this.props.isPending && this.state.version < 6)
+            this.props.fetchUserFeed(this.props.credentials.access_token, this.state.version)
+                .then(() => this.setState({version: this.state.version + 1}));
     };
 
     onEnterHandler = () => {
@@ -50,6 +44,16 @@ class FeedBox extends Component {
     };
 
     viewGen = () => {
+        // Checks for the condition when user has followed no one and has no preferences
+        if(this.props.anomaly === NO_FEED_DATA_FIRST_ATTEMPT) {
+            this.btn.current.style.display = 'none';
+            return (
+                <div id={'wse-fd-bx'}>
+                    <span>Wow such empty!</span>
+                    <div>Edit your preferences in the profile or follow some author to update feed.</div>
+                </div>
+            );
+        }
         let i=0, arr = [];
         if(!this.props.feed.results) { // will go to else if this expression is not undefined
             for(i=0; i<15; i++) {
@@ -71,7 +75,7 @@ class FeedBox extends Component {
         return (
             <div onMouseEnter={this.onEnterHandler} id={'f-bx-wrapper'} className={'shadow-4'}>
                 {this.viewGen()}
-                <span>
+                <span ref={this.btn}>
                     <RippleButton
                         name={'Load More Results'}
                         listener={this.loadFeed}
@@ -90,7 +94,9 @@ const mapStateToProps = (state) => {
     return {
         topBarState: state.barState,
         credentials: state.credentials,
-        feed: state.feed
+        feed: state.feed,
+        isPending: state.isPending,
+        anomaly: state.anomaly,
     };
 };
 

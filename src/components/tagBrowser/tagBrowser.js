@@ -47,7 +47,7 @@ class TagBrowser extends Component {
         const resultBoxGen = this.resultBoxGen;
         return (
             <div id={'m-b-tag-browser'}>
-                <BackgroundLoader bno={1}/>
+                <BackgroundLoader bno={0}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
                 <ButtonSlider

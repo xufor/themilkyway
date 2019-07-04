@@ -41,7 +41,7 @@ class FeedView extends Component {
                         <div id={'intro'}>
                             {
                                 (data)
-                                    ? <React.Fragment>A story by<Link to={`/profile/other/${data.uid}`}>{` ${data.name}`}</Link></React.Fragment>
+                                    ? <React.Fragment>A story by<Link to={`/profile/${data.uid}`}>{` ${data.name}`}</Link></React.Fragment>
                                     : <Skeleton/>
                             }
                         </div>

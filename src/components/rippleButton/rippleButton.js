@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import './style-inbuilt.scss';
 
 class RippleButton extends Component {
-    constructor(props) {
-        super(props);
-        this.btn = React.createRef();
-    }
-
     componentDidMount() {
         const rippleButtons = document.querySelectorAll('.ripple');
         rippleButtons.forEach(rippleBtn => {
@@ -26,12 +21,11 @@ class RippleButton extends Component {
     }
 
     render() {
-        const { name } = this.props;
-        const { listener } = this.props;
+        const { name, listener, ref } = this.props;
         return (
             <button
                 className={'rip-btn btn-pop ripple'}
-                ref={this.btn}
+                ref={ref}
                 onClick={listener}
             >
                 {name}

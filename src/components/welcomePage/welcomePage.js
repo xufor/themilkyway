@@ -15,7 +15,7 @@ class WelcomePage extends Component {
     render() {
         return(
             <div id='m-b-welcome-pg'>
-                <BackgroundLoader bno={2}/>
+                <BackgroundLoader bno={3}/>
                 <div id='w-t-welcome-pg'>
                     <div id='l-welcome-pg' className='tc'>The Milky Way</div>
                     <div id={'s-welcome-pg'}>A Community where words matter! </div>

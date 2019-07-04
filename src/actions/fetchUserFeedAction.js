@@ -3,6 +3,7 @@ import ax from 'axios';
 import { remote } from '../strings';
 
 export const FETCH_USER_FEED = 'FETCH_USER_FEED';
+export const APPEND_USER_FEED = 'APPEND_USER_FEED';
 
 export const fetchUserFeed = (access_token, version) => {
 
@@ -14,8 +15,14 @@ export const fetchUserFeed = (access_token, version) => {
         data: { version }
     });
 
-    return {
-        type: FETCH_USER_FEED,
-        payload: responseFromServer,
-    };
+    if(version === 1)
+        return {
+            type: FETCH_USER_FEED,
+            payload: responseFromServer,
+        };
+    else
+        return {
+            type: APPEND_USER_FEED,
+            payload: responseFromServer,
+        };
 };

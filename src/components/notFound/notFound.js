@@ -1,12 +1,14 @@
 import React from 'react';
+import HeadingBar from '../headingBar/headingBar';
 import BackgroundLoader from '../backgroundLoader/backgroundLoader';
 import './style.css';
 
 const NotFound = () => {
     return(
         <div id={'n-f-pg'}>
-            <BackgroundLoader bno={1}/>
-            <div>Error Not Found!</div>
+            <HeadingBar mode={'home'}/>
+            <BackgroundLoader bno={3}/>
+            <div>Not Found!</div>
         </div>
     );
 };

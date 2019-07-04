@@ -7,7 +7,7 @@ import './style.css';
 class UserRecElement extends Component {
     sendToProfileBrowser = () => {
         let { data } = this.props;
-        this.props.history.push(`/profile/other/${data.uid}`);
+        this.props.history.push(`/profile/${data.uid}`);
     };
 
     render() {

@@ -26,7 +26,7 @@ class GenreElement extends Component {
         let { text } = this.props;
         return (
             <div>
-                <Link to={`/tag/${text}`}>
+                <Link to={`/genre/${text}`}>
                     <div
                         style={this.styleGenerator()}
                         className={'genreBoxElement'}
