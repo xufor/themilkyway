@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import FeedView from '../feedView/feedView';
 import RippleButton from '../rippleButton/rippleButton';
-import suchEmpty from '../../assets/suchEmpty.png';
 import { updateBarState } from '../../actions/barStateAction';
 import { fetchUserFeed } from '../../actions/fetchUserFeedAction';
 import { NO_FEED_DATA_FIRST_ATTEMPT } from "../../reducers/anomalyReducer";
