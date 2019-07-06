@@ -9,14 +9,14 @@ import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import FeedBox from '../feedBox/feedBox';
 import GenreBox from '../../components/genreBox/genreBox';
-import { returnRedirect } from '../../common';
+import { throwOut } from '../../common';
 import './style.css';
 
 class HomePage extends Component {
     render() {
         return (
             <React.Fragment>
-                {returnRedirect()}
+                {throwOut()}
                 <LoadingBar
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}

@@ -3,6 +3,8 @@ import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 import { INIT_REGISTRATION } from '../actions/registerAction';
 import { APPEND_USER_FEED, FETCH_USER_FEED } from '../actions/fetchUserFeedAction';
 import { INIT_SUBMISSION } from '../actions/submitStoryAction';
+import { LIKE_STORY } from '../actions/likeStoryAction';
+import { UNLIKE_STORY } from '../actions/unlikeStoryAction';
 import { vars } from '../strings';
 
 export const NET_ERR = 'Network Error';
@@ -17,6 +19,8 @@ export const SUMMARY_TOO_LONG = 'Summary of and below 80 words is allowed.';
 export const STORY_TOO_LONG = 'Story of and below 10000 words is allowed.';
 export const NO_MORE_FEED = 'Cannot generate more feed.';
 export const STORY_SUBMITTED = 'Story successfully submitted.';
+export const CANNOT_LIKE_OWN = 'You cannot like your own story.';
+export const CANNOT_UNLIKE_OWN = 'You cannot remove like from your own story.';
 
 export default (state = 'disabled', action) => {
     switch(action.type) {
@@ -65,6 +69,14 @@ export default (state = 'disabled', action) => {
         case INIT_SUBMISSION + vars.f:
             if (action.payload.data.message === STORY_SUBMITTED)
                 return 'st-sc';
+            break;
+        case LIKE_STORY + vars.r:
+            if(action.payload.response.data.message === CANNOT_LIKE_OWN)
+                return 'cn-li';
+            break;
+        case UNLIKE_STORY + vars.r:
+            if(action.payload.response.data.message === CANNOT_UNLIKE_OWN)
+                return 'cn-ul';
             break;
         default:
             return state;

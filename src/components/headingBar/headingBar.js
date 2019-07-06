@@ -19,7 +19,7 @@ class HeadingBar extends Component {
                     The Milky Way
                 </div>
                 <div className={'emptySpace'}/>
-                <Link to={`/${this.props.mode}`}>
+                <Link to={(this.props.mode === 'login')?'/':'register'}>
                         {this.props.mode.slice(0,1).toUpperCase() + this.props.mode.slice(1)}
                 </Link>
             </div>

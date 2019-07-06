@@ -24,11 +24,11 @@
     position: absolute;
     width: 350px;
     height: 520px;
-    border: solid 1px white ;
+    border: solid 1px white;
     border-radius: 1rem;
     background: rgba(0,0,0,0.1);
     text-align: center;
-    animation: fadeIn 2s 1 forwards;
+    animation: fadeIn 0.5s 1 forwards;
 }
 
 #registerBox > button {

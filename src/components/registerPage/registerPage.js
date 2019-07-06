@@ -125,7 +125,7 @@ class RegisterPage extends Component {
                             name={'Register'}
                             listener={this.onClickRegister}
                         />
-                        <Link to={'/login'} id='loginInstead' className='grow'>Already have an account?</Link>
+                        <Link to={'/'} id='loginInstead' className='grow'>Already have an account?</Link>
                      </div>
                 </div>
             </React.Fragment>

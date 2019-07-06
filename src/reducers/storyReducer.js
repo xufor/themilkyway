@@ -1,10 +1,13 @@
-import { FETCH_REQUIRED_STORY } from '../actions/fetchStoryAction';
-import { sampleStory } from '../strings';
+import { vars } from '../strings';
+import { FETCH_STORY } from '../actions/fetchStoryAction';
 
-export default (state = sampleStory, action) => {
-    if (action.type === FETCH_REQUIRED_STORY) {
-        return action.payload;
-    } else {
-        return state;
+export const INVERT_ALREADY_LIKED = 'INVERT_ALREADY_LIKED';
+
+export default (state = null, action) => {
+    switch(action.type) {
+        case FETCH_STORY + vars.f:
+            return action.payload.data;
+        default:
+            return state;
     }
 }

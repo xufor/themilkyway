@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import FeedView from '../feedView/feedView';
 import RippleButton from '../rippleButton/rippleButton';
+import { resetAnomaly } from '../../common';
 import { updateBarState } from '../../actions/barStateAction';
 import { fetchUserFeed } from '../../actions/fetchUserFeedAction';
 import { NO_FEED_DATA_FIRST_ATTEMPT } from "../../reducers/anomalyReducer";
@@ -29,6 +30,10 @@ class FeedBox extends Component {
             this.btn.current.style.display = 'none';
     }
 
+    componentWillUnmount() {
+        // The anomaly can be safely reset on unmount
+        resetAnomaly();
+    }
 
     loadFeed = () => {
         if(!this.props.isPending && this.state.version < 6)

@@ -14,6 +14,7 @@ import GenreBox from '../../components/genreBox/genreBox';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
 import { initiateSubmission } from '../../actions/submitStoryAction';
+import { throwOut } from '../../common';
 import { CANNOT_BE_EMPTY } from '../loginPage/loginPage';
 import { tags } from '../../strings';
 import './style.css';
@@ -91,6 +92,7 @@ class ComposePage extends Component {
     render() {
         return (
             <div id={'m-b-compose-pg'}>
+                {throwOut()}
                 <LoadingBar
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
