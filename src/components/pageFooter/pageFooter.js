@@ -9,7 +9,7 @@ class PageFooter extends Component {
             <div>
                 <div id={'whiteBarInFooter'}/>
                 <div id={'footerContentWrapper'}>
-                    <Link to={'/login'} id={'logout'} className={'white'}>Logout{'   '}|{'   '}</Link>
+                    <Link to={'/'} id={'logout'} className={'white'}>Logout{'   '}|{'   '}</Link>
                     <Link to={'/terms'} id={'terms'} className={'white'}>Terms</Link>
                     <div id={'copyright'}>All rights reserved.</div>
                     <div id={'company'}>The Milky Way © 2019</div>

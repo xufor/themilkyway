@@ -5,6 +5,7 @@ import { APPEND_USER_FEED, FETCH_USER_FEED } from '../actions/fetchUserFeedActio
 import { INIT_SUBMISSION } from '../actions/submitStoryAction';
 import { LIKE_STORY } from '../actions/likeStoryAction';
 import { UNLIKE_STORY } from '../actions/unlikeStoryAction';
+import { APPEND_SEARCH_DATA } from '../actions/fetchSearchDataAction';
 import { vars } from '../strings';
 
 export const NET_ERR = 'Network Error';
@@ -18,6 +19,7 @@ export const TITLE_TOO_LONG = 'Title of and below 7 words is allowed.';
 export const SUMMARY_TOO_LONG = 'Summary of and below 80 words is allowed.';
 export const STORY_TOO_LONG = 'Story of and below 10000 words is allowed.';
 export const NO_MORE_FEED = 'Cannot generate more feed.';
+export const NO_MORE_SEARCH_DATA = 'No more search data available.';
 export const STORY_SUBMITTED = 'Story successfully submitted.';
 export const CANNOT_LIKE_OWN = 'You cannot like your own story.';
 export const CANNOT_UNLIKE_OWN = 'You cannot remove like from your own story.';
@@ -77,6 +79,10 @@ export default (state = 'disabled', action) => {
         case UNLIKE_STORY + vars.r:
             if(action.payload.response.data.message === CANNOT_UNLIKE_OWN)
                 return 'cn-ul';
+            break;
+        case APPEND_SEARCH_DATA + vars.r:
+            if (action.payload.response.data.message === NO_MORE_SEARCH_DATA)
+                return 'no-sr';
             break;
         default:
             return state;

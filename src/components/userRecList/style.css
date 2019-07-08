@@ -11,7 +11,7 @@
     width: 30px;
     position: absolute;
     cursor: pointer;
-    left: calc(17.5vw - 46px);
+    left: calc(19.5vw - 46px);
     opacity: 0;
     transition: all 0.3s ease-in;
 }
@@ -20,7 +20,7 @@
     width: 30px;
     position: absolute;
     cursor: pointer;
-    right: calc(17.5vw - 46px);
+    right: calc(19.5vw - 46px);
     opacity: 0;
     transition: all 0.3s ease-in;
 }

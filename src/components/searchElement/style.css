@@ -22,6 +22,14 @@
     margin-left: 10px;
 }
 
+.n-s-element > a {
+    color: black;
+}
+
+.n-s-element > a:hover {
+    color: #3d5afe;
+}
+
 .f-button-s-element > button{
     margin-right: 20px;
     padding: 7px 15px;

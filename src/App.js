@@ -23,7 +23,7 @@ import {
     ALREADY_REGISTERED, STORY_TOO_LONG, SUMMARY_TOO_LONG,
     INCORRECT_PASSWORD, TITLE_TOO_LONG,
     NO_ACCOUNT, NOT_BEFORE_A_DAY,
-    NOT_CONFIRMED, STORY_SUBMITTED, CANNOT_LIKE_OWN, CANNOT_UNLIKE_OWN
+    NOT_CONFIRMED, STORY_SUBMITTED, CANNOT_LIKE_OWN, CANNOT_UNLIKE_OWN, NO_MORE_SEARCH_DATA
 } from './reducers/showToastReducer';
 
 const NO_MORE_FEED = 'No more feed available. Please try again later.';
@@ -96,6 +96,8 @@ class App extends Component {
             toastr.error('Cannot Like', CANNOT_LIKE_OWN);
         else if(showToast === 'cn-ul')
             toastr.error('Cannot Remove Like', CANNOT_UNLIKE_OWN);
+        else if(showToast === 'no-sr')
+            toastr.success('No more results', NO_MORE_SEARCH_DATA);
     };
 
     render() {
@@ -105,7 +107,7 @@ class App extends Component {
                   <Route path= {'/'} exact component = { LoginPage }/>
                   <Route path= {'/register'} exact component = { RegisterPage }/>
                   <Route path= {'/profile/:uid'} exact component = { ProfilePage }/>
-                  <Route path= {'/search'} exact component = { SearchPage }/>
+                  <Route path= {'/search/:query'} exact component = { SearchPage }/>
                   <Route path= {'/compose'} exact component = { ComposePage }/>
                   <Route path= {'/genre/:genre'} exact component = { TagBrowser }/>
                   <Route path= {'/story/:sid'} exact component = {StoryBrowser}/>

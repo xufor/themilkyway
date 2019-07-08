@@ -1,10 +1,18 @@
-import { UPDATE_SEARCH_STRING } from "../actions/searchStringAction";
+import { FETCH_SEARCH_DATA } from '../actions/fetchSearchDataAction';
+import { APPEND_USER_FEED } from '../actions/fetchUserFeedAction';
+import { vars } from '../strings';
 
-export default (state = '', action) => {
-    if (action.type === UPDATE_SEARCH_STRING) {
-        return action.payload
+export const RESET_SEARCH_CONTENT = 'RESET_SEARCH_CONTENT';
 
-    } else {
-        return state;
+export default (state = {}, action) => {
+    switch (action.type) {
+        case RESET_SEARCH_CONTENT:
+            return {};
+        case FETCH_SEARCH_DATA + vars.f:
+            return action.payload.data;
+        case APPEND_USER_FEED + vars.f:
+            return {results: [...state.results].concat(action.payload.data.results)};
+        default:
+            return state;
     }
 }

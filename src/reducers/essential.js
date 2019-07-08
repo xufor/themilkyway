@@ -6,7 +6,6 @@ import credentialReducer from './credsReducer';
 import searchReducer from './searchReducer';
 import barReducer from './barReducer';
 import userRecReducer from './userRecReducer';
-import tagTopicReducer from './tagTopicReducer';
 import storyReducer from './storyReducer';
 import showToastReducer from './showToastReducer';
 import isPendingReducer from './isPendingReducer';
@@ -17,10 +16,9 @@ import anomalyReducer from './anomalyReducer';
 
 const rootReducer = combineReducers({
 	credentials: credentialReducer, 	// stores tokens, status and name
-	searchString: searchReducer,		// stores search query string
+	searchData: searchReducer,		// stores search query string
 	barState: barReducer,				// stores bar state
 	userRecInfo: userRecReducer,		// search responses of elite endpoint
-	tagTopic: tagTopicReducer,			// stores selected tag topic
 	fetchedStory: storyReducer,			// stores recently fetched story
 	showToast: showToastReducer,		// stores which type of toast to show
 	isPending: isPendingReducer,		// a flag which is set when some crucial request is made

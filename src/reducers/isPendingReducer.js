@@ -1,6 +1,7 @@
 import { FETCH_USER_CREDENTIALS } from '../actions/fetchCredsAction';
 import { INIT_REGISTRATION } from '../actions/registerAction';
 import { FETCH_USER_FEED } from '../actions/fetchUserFeedAction';
+import { FETCH_SEARCH_DATA } from '../actions/fetchSearchDataAction';
 import { UNLIKE_STORY } from '../actions/unlikeStoryAction';
 import { LIKE_STORY } from '../actions/likeStoryAction';
 import { vars } from '../strings';
@@ -36,6 +37,12 @@ export default (state = false, action) => {
         case UNLIKE_STORY + vars.f:
             return false;
         case UNLIKE_STORY + vars.r:
+            return false;
+        case FETCH_SEARCH_DATA + vars.p:
+            return true;
+        case FETCH_SEARCH_DATA + vars.f:
+            return false;
+        case FETCH_SEARCH_DATA + vars.r:
             return false;
         default:
             return state

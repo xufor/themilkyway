@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators} from 'redux';
+import { toastr } from 'react-redux-toastr';
 import { Link } from 'react-router-dom';
 
 import searchGlass from '../../assets/searchGlass.png';
@@ -9,9 +10,11 @@ import galaxyPic from '../../assets/galaxyPic.png';
 import searchOpener from '../../assets/searchOpener.png';
 import goHome from '../../assets/goHome.png';
 import { updateBarState } from '../../actions/barStateAction';
-import { updateSearchString } from '../../actions/searchStringAction.js';
 import './style.css';
 import './style-m.css';
+
+const SEARCH_STRING_EMPTY = 'Search field cannot be empty.';
+const LESS_OR_GREATER_STRING = 'The length of search string should be between 5 and 100 characters.';
 
 class TopMostBar extends Component {
     constructor(props) {
@@ -76,9 +79,8 @@ class TopMostBar extends Component {
     };
 
     onEnter = (event) => {
-        if(event.key === 'Enter' && this.state.searchString !== ''){
-            this.props.updateSearchString(this.state.searchString);
-            this.props.history.push('/search');
+        if(event.key === 'Enter'){
+            this.onSearchClickHandler();
         }
     };
 
@@ -95,11 +97,12 @@ class TopMostBar extends Component {
     };
 
     onSearchClickHandler = () => {
-        if(this.state.searchString !== '')
-        {
-            this.props.updateSearchString(this.state.searchString);
-            this.props.history.push('/search')
-        }
+        if(this.state.searchString === '')
+            toastr.error('Cannot be empty', SEARCH_STRING_EMPTY);
+        if(this.state.searchString.length < 5 || this.state.searchString.length > 100)
+            toastr.error('Invalid search request', LESS_OR_GREATER_STRING);
+        else
+            this.props.history.push(`/search/${this.state.searchString}`);
     };
 
     render() {
@@ -176,7 +179,7 @@ class TopMostBar extends Component {
 }
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ updateSearchString, updateBarState }, dispatch);
+    return bindActionCreators({ updateBarState }, dispatch);
 };
 
 const mapStateToProps = (state) => {

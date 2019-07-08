@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 import RippleButton from '../rippleButton/rippleButton';
 import './style.css';
 
 class StoryElement extends Component {
     deleteAndEditButtonsGen = () => {
-        let {mode, editListener, deleteListener} = this.props;
+        let { mode, editListener, deleteListener } = this.props;
         if(mode === 'with-buttons') {
             return (
                 <React.Fragment>
@@ -25,12 +26,21 @@ class StoryElement extends Component {
     };
 
     render() {
-        let { name, summary, title} = this.props;
+        let { data } = this.props;
         return (
             <div id={'m-b-st-element'} className={'shadow-4'}>
-                <div className={'t-st-element'}>{title}</div>
-                <div className={'n-st-element'}>{`by ${name}`}</div>
-                <p className={'sm-st-element'}>{summary}</p>
+                {   (data)?
+                    <div className={'t-st-element'}>{data.title}</div>
+                    : <Skeleton/>
+                }
+                {   (data)?
+                    <div className={'n-st-element'}>{`by ${data.name}`}</div>
+                    : <Skeleton/>
+                }
+                {   (data)?
+                    <p className={'sm-st-element'}>{data.summary}</p>
+                    : <Skeleton/>
+                }
                 {this.deleteAndEditButtonsGen()}
             </div>
         );

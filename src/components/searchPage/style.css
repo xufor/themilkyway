@@ -4,10 +4,16 @@
 
 #m-box-search-pg {
     width: 50%;
+    min-height: 80vh;
     margin: 10px auto;
     background: rgba(255,255,255,0.9);
     border-radius: 0.7rem;
     padding: 10px;
+}
+
+#m-box-search-pg > span {
+    display: flex;
+    justify-content: center;
 }
 
 #t-box-search-pg {
@@ -23,4 +29,18 @@
 
 #r-box-search-pg {
     font-family: 'Comfortaa', cursive;
+}
+
+#r-box-search-pg > #m-b-st-element {
+    width: 80%;
+}
+
+#nrf-se-pg {
+    background: white;
+    text-align: center;
+    width: 70%;
+    margin: 30px auto;
+    font-size: 1.2rem;
+    padding: 50px;
+    border-radius: 2rem;
 }

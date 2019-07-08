@@ -21,11 +21,11 @@ class RippleButton extends Component {
     }
 
     render() {
-        const { name, listener, ref } = this.props;
+        const { name, listener, cRef } = this.props;
         return (
             <button
                 className={'rip-btn btn-pop ripple'}
-                ref={ref}
+                ref={cRef}
                 onClick={listener}
             >
                 {name}

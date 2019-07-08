@@ -22,7 +22,7 @@ class HomePage extends Component {
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
                 />
                 <div id={'m-b-home-pg'}>
-                    <BackgroundLoader bno={0}/>
+                    <BackgroundLoader bno={1}/>
                     <TopMostBar
                         history={this.props.history}
                     />
