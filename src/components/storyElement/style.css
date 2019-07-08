@@ -12,10 +12,26 @@
     display: inline;
 }
 
+.t-st-element > a {
+    display: inline;
+}
+
+.t-st-element > a:hover {
+    color: #3d5afe;
+}
+
 .n-st-element {
     font-size: 1.1rem;
     margin-left: 10px;
     display: inline;
+}
+
+.n-st-element > a {
+    display: inline;
+}
+
+.n-st-element > a:hover {
+    color: #3d5afe;
 }
 
 #m-b-st-element > button {
