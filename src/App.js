@@ -20,10 +20,20 @@ import { disableToast } from './actions/disableToastAction';
 import { onRevoke } from './actions/onRevokeAction';
 import './App.css';
 import {
-    ALREADY_REGISTERED, STORY_TOO_LONG, SUMMARY_TOO_LONG,
-    INCORRECT_PASSWORD, TITLE_TOO_LONG,
-    NO_ACCOUNT, NOT_BEFORE_A_DAY,
-    NOT_CONFIRMED, STORY_SUBMITTED, CANNOT_LIKE_OWN, CANNOT_UNLIKE_OWN, NO_MORE_SEARCH_DATA
+    ALREADY_REGISTERED,
+    STORY_TOO_LONG,
+    SUMMARY_TOO_LONG,
+    INCORRECT_PASSWORD,
+    TITLE_TOO_LONG,
+    NO_ACCOUNT,
+    NOT_BEFORE_A_DAY,
+    NOT_CONFIRMED,
+    STORY_SUBMITTED,
+    CANNOT_LIKE_OWN,
+    CANNOT_UNLIKE_OWN,
+    NO_MORE_SEARCH_DATA,
+    FOLLOW_SUCCESSFUL,
+    UNFOLLOW_SUCCESSFUL
 } from './reducers/showToastReducer';
 
 const NO_MORE_FEED = 'No more feed available. Please try again later.';
@@ -98,6 +108,10 @@ class App extends Component {
             toastr.error('Cannot Remove Like', CANNOT_UNLIKE_OWN);
         else if(showToast === 'no-sr')
             toastr.success('No more results', NO_MORE_SEARCH_DATA);
+        else if(showToast === 'uf-su')
+            toastr.success('Success', UNFOLLOW_SUCCESSFUL);
+        else if(showToast === 'fl-su')
+            toastr.success('Success', FOLLOW_SUCCESSFUL);
     };
 
     render() {

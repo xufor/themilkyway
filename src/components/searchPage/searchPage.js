@@ -133,7 +133,6 @@ class SearchPage extends Component {
                         return <SearchElement
                             data={listItem}
                             key={`searchElement${i++}`}
-                            mode={'follow'}
                         />
                     })
                 );

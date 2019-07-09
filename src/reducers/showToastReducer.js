@@ -6,6 +6,8 @@ import { INIT_SUBMISSION } from '../actions/submitStoryAction';
 import { LIKE_STORY } from '../actions/likeStoryAction';
 import { UNLIKE_STORY } from '../actions/unlikeStoryAction';
 import { APPEND_SEARCH_DATA } from '../actions/fetchSearchDataAction';
+import { FOLLOW_USER } from '../actions/followAction';
+import { UNFOLLOW_USER } from '../actions/unfollowAction';
 import { vars } from '../strings';
 
 export const NET_ERR = 'Network Error';
@@ -23,6 +25,8 @@ export const NO_MORE_SEARCH_DATA = 'No more search data available.';
 export const STORY_SUBMITTED = 'Story successfully submitted.';
 export const CANNOT_LIKE_OWN = 'You cannot like your own story.';
 export const CANNOT_UNLIKE_OWN = 'You cannot remove like from your own story.';
+export const UNFOLLOW_SUCCESSFUL = 'Unfollow Successful.';
+export const FOLLOW_SUCCESSFUL = 'Follow Successful.';
 
 export default (state = 'disabled', action) => {
     switch(action.type) {
@@ -31,45 +35,45 @@ export default (state = 'disabled', action) => {
         case FETCH_USER_CREDENTIALS + vars.r:
             if(action.payload.message === NET_ERR)
                 return 'nt-er';
-            else if (action.payload.response.data.message === INCORRECT_PASSWORD)
+            else if(action.payload.response.data.message === INCORRECT_PASSWORD)
                 return 'in-pw';
-            else if (action.payload.response.data.message === NO_ACCOUNT)
+            else if(action.payload.response.data.message === NO_ACCOUNT)
                 return 'no-ac';
             break;
         case INIT_REGISTRATION + vars.r:
-            if (action.payload.message === NET_ERR)
+            if(action.payload.message === NET_ERR)
                 return 'nt-er';
-            else if (action.payload.response.data.message === NOT_CONFIRMED)
+            else if(action.payload.response.data.message === NOT_CONFIRMED)
                 return 'nt-co';
-            else if (action.payload.response.data.message === ALREADY_REGISTERED)
+            else if(action.payload.response.data.message === ALREADY_REGISTERED)
                 return 'ac-pr';
             break;
         case INIT_REGISTRATION + vars.f:
-            if (action.payload.data.message === OP_SCC)
+            if(action.payload.data.message === OP_SCC)
                 return 'rg-sc';
             break;
         case FETCH_USER_FEED + vars.r:
-            if (action.payload.message === NET_ERR)
+            if(action.payload.message === NET_ERR)
                 return 'nt-er';
             break;
         case APPEND_USER_FEED + vars.r:
-            if (action.payload.response.data.message === NO_MORE_FEED)
+            if(action.payload.response.data.message === NO_MORE_FEED)
                 return 'no-fd';
             break;
         case INIT_SUBMISSION + vars.r:
-            if (action.payload.message === NET_ERR)
+            if(action.payload.message === NET_ERR)
                 return 'nt-er';
-            else if (action.payload.response.data.message === NOT_BEFORE_A_DAY)
+            else if(action.payload.response.data.message === NOT_BEFORE_A_DAY)
                 return 'nt-da';
-            else if (action.payload.response.data.message === TITLE_TOO_LONG)
+            else if(action.payload.response.data.message === TITLE_TOO_LONG)
                 return 'ti-lg';
-            else if (action.payload.response.data.message === SUMMARY_TOO_LONG)
+            else if(action.payload.response.data.message === SUMMARY_TOO_LONG)
                 return 'su-lg';
-            else if (action.payload.response.data.message === STORY_TOO_LONG)
+            else if(action.payload.response.data.message === STORY_TOO_LONG)
                 return 'st-lg';
             break;
         case INIT_SUBMISSION + vars.f:
-            if (action.payload.data.message === STORY_SUBMITTED)
+            if(action.payload.data.message === STORY_SUBMITTED)
                 return 'st-sc';
             break;
         case LIKE_STORY + vars.r:
@@ -81,8 +85,16 @@ export default (state = 'disabled', action) => {
                 return 'cn-ul';
             break;
         case APPEND_SEARCH_DATA + vars.r:
-            if (action.payload.response.data.message === NO_MORE_SEARCH_DATA)
+            if(action.payload.response.data.message === NO_MORE_SEARCH_DATA)
                 return 'no-sr';
+            break;
+        case UNFOLLOW_USER + vars.f:
+            if(action.payload.data.message === UNFOLLOW_SUCCESSFUL)
+                return 'uf-su';
+            break;
+        case FOLLOW_USER + vars.f:
+            if(action.payload.data.message === FOLLOW_SUCCESSFUL)
+                return 'fl-su';
             break;
         default:
             return state;

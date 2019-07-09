@@ -1,26 +1,46 @@
 import React, { Component } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { followTarget } from '../../actions/followAction';
+import { unfollowTarget } from '../../actions/unfollowAction';
 import RippleButton from '../../components/rippleButton/rippleButton';
 import './style.css';
 
 class SearchElement extends Component {
-    buttonRenderer = () => {
-        let { mode } = this.props;
-        if(mode === 'follow') {
-            return (
-                <div className={'f-button-s-element'}>
-                    <RippleButton name={'Follow'}/>
-                </div>
-            );
-        } else if(mode === 'unfollow') {
-            return (
-                <div className={'f-button-s-element'}>
-                    <RippleButton name={'Unfollow'}/>
-                </div>
-            );
+    constructor(props) {
+        super(props);
+        this.btn = React.createRef();
+    }
+
+    onClick = () => {
+        const { isPending } = this.props;
+        if(!isPending) {
+            const {uid} = this.props.data;
+            const {innerText} = this.btn.current;
+            if (innerText === 'Unfollow') {
+                this.btn.current.innerText = 'Follow';
+                this.props.unfollowTarget(uid);
+            } else {
+                this.btn.current.innerText = 'Unfollow';
+                this.props.followTarget(uid);
+            }
         }
+    };
+
+    buttonRenderer = () => {
+        let { already_following } = this.props.data;
+        return (
+            <div className={'f-button-s-element'}>
+                <RippleButton
+                    name={(already_following) ? ('Unfollow') : ('Follow')}
+                    listener={this.onClick}
+                    cRef={this.btn}
+                />
+            </div>
+        );
     };
 
 
@@ -57,6 +77,15 @@ class SearchElement extends Component {
     };
 }
 
+const mapStateToProps = (state) => {
+    return {
+        isPending: state.isPending
+    }
+};
 
-export default SearchElement;
+const mapActionToProps = (dispatch) => {
+    return bindActionCreators({ unfollowTarget, followTarget }, dispatch);
+};
+
+export default connect(mapStateToProps, mapActionToProps)(SearchElement);
 
