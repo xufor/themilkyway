@@ -33,7 +33,7 @@ import {
     CANNOT_UNLIKE_OWN,
     NO_MORE_SEARCH_DATA,
     FOLLOW_SUCCESSFUL,
-    UNFOLLOW_SUCCESSFUL
+    UNFOLLOW_SUCCESSFUL, NO_MORE_GENRE_DATA
 } from './reducers/showToastReducer';
 
 const NO_MORE_FEED = 'No more feed available. Please try again later.';
@@ -112,6 +112,8 @@ class App extends Component {
             toastr.success('Success', UNFOLLOW_SUCCESSFUL);
         else if(showToast === 'fl-su')
             toastr.success('Success', FOLLOW_SUCCESSFUL);
+        else if(showToast === 'no-gr')
+            toastr.success('No more results', NO_MORE_GENRE_DATA);
     };
 
     render() {

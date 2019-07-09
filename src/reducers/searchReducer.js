@@ -1,5 +1,5 @@
 import { FETCH_SEARCH_DATA } from '../actions/fetchSearchDataAction';
-import { APPEND_USER_FEED } from '../actions/fetchUserFeedAction';
+import { APPEND_SEARCH_DATA } from '../actions/fetchSearchDataAction';
 import { vars } from '../strings';
 
 export const RESET_SEARCH_CONTENT = 'RESET_SEARCH_CONTENT';
@@ -10,7 +10,7 @@ export default (state = {}, action) => {
             return {};
         case FETCH_SEARCH_DATA + vars.f:
             return action.payload.data;
-        case APPEND_USER_FEED + vars.f:
+        case APPEND_SEARCH_DATA + vars.f:
             return {results: [...state.results].concat(action.payload.data.results)};
         default:
             return state;

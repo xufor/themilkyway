@@ -6,6 +6,7 @@ import { UNLIKE_STORY } from '../actions/unlikeStoryAction';
 import { UNFOLLOW_USER } from '../actions/unfollowAction';
 import { FOLLOW_USER } from '../actions/followAction';
 import { LIKE_STORY } from '../actions/likeStoryAction';
+import { FETCH_GENRE_DATA } from '../actions/fetchGenreDataAction';
 import { vars } from '../strings';
 
 export default (state = false, action) => {
@@ -57,6 +58,12 @@ export default (state = false, action) => {
         case FOLLOW_USER + vars.f:
             return false;
         case FOLLOW_USER + vars.r:
+            return false;
+        case FETCH_GENRE_DATA + vars.p:
+            return true;
+        case FETCH_GENRE_DATA + vars.f:
+            return false;
+        case FETCH_GENRE_DATA + vars.r:
             return false;
         default:
             return state

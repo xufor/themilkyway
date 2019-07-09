@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { tags } from '../../strings';
 import GenreElement from '../genreElement/genreElement';
-import { tagTopicAction } from '../../actions/tagTopicAction';
-import { bindActionCreators } from 'redux';
+
 import left from '../../assets/left.png';
 import right from '../../assets/right.png';
-import { connect } from 'react-redux';
 import './style.css';
 
 class GenreBox extends Component {
@@ -34,9 +32,5 @@ class GenreBox extends Component {
     };
 }
 
-const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ tagTopicAction }, dispatch);
-};
-
-export default connect(null, mapActionToProps)(GenreBox);
+export default GenreBox;
 

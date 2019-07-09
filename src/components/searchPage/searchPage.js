@@ -16,7 +16,7 @@ import RippleButton from '../rippleButton/rippleButton';
 import { fetchSearchData } from '../../actions/fetchSearchDataAction';
 import { RESET_SEARCH_CONTENT } from '../../reducers/searchReducer';
 import { NO_SEARCH_DATA_FIRST_ATTEMPT } from '../../reducers/anomalyReducer';
-import { resetAnomaly } from '../../common';
+import { resetAnomaly, throwOut } from '../../common';
 import './style.css';
 
 class SearchPage extends Component {
@@ -165,6 +165,7 @@ class SearchPage extends Component {
         const resultBoxGen = this.resultBoxGen;
         return (
             <div id={'o-box-search-pg'}>
+                {throwOut()}
                 <BackgroundLoader bno={1}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>

@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { matColorList } from '../../strings';
-import { tagTopicAction } from '../../actions/tagTopicAction';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import './style.css';
 
 class GenreElement extends Component {
-    clickHandler = (event) => {
-        this.props.tagTopicAction(event.currentTarget.title);
-    };
-
     styleGenerator = () => {
         // byPassGen props helps to specify that color is explicitly provided
         let { byPassGen } = this.props;
@@ -31,7 +24,6 @@ class GenreElement extends Component {
                         style={this.styleGenerator()}
                         className={'genreBoxElement'}
                         title={text}
-                        onClick={this.clickHandler}
                     >
                         {text}
                     </div>
@@ -41,8 +33,4 @@ class GenreElement extends Component {
     };
 }
 
-const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ tagTopicAction }, dispatch);
-};
-
-export default connect(null, mapActionToProps)(GenreElement);
+export default GenreElement;
