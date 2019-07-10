@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import Skeleton from 'react-loading-skeleton';
+
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import GenreBox from '../../components/genreBox/genreBox';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-
 import PageFooter from '../../components/pageFooter/pageFooter';
 import StoryElement from '../storyElement/storyElement';
 import SearchElement from '../searchElement/searchElement';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
-import RippleButton from '../../components/rippleButton/rippleButton'
+import RippleButton from '../../components/rippleButton/rippleButton';
+import { fetchProfile } from '../../actions/fetchProfileAction';
+import { throwOut, resetAnomaly, retImg } from "../../common";
 import editProfile from '../../assets/editProfile.png';
-import sPic from '../../assets/samplePic.png';
-import { messageBoxViewAction } from '../../actions/messageBoxViewAction';
-import { displayLoader } from '../../common';
-import { summary } from '../../strings';
 import { names } from '../../strings';
 import './style.css';
 import './style-m.css';
@@ -35,22 +34,42 @@ class ProfilePage extends Component {
 		this.mode3 = React.createRef(); // ref to the 'Achievements' div in middle region
 		this.mode4 = React.createRef(); // ref to the 'Following' div in middle region
 		this.mode5 = React.createRef(); // ref to the 'Followers' div in middle region
+		this.editBtn = React.createRef(); // ref to the edit button in basic content
 	}
 
 	// will set the color of 'Basic' div initially
 	componentDidMount() {
-    	this.mode1.current.style.color = '#3D5AFE';
+    	const { uid } = this.props.match.params;
+		// setting the color of first mode
+		this.mode1.current.style.color = '#3D5AFE';
+		// removing edit button based on user type
+		if(uid !== this.props.credentials.uid && this.editBtn.current)
+			this.editBtn.current.style.display = 'none';
+		// fetching user data
+		this.props.fetchProfile(uid);
 	}
 
 	// will generate the upper region of profile page
 	upperRegionGen = () => {
-      const { name } = this.props.credentials;
-    	return(
-          <div id={'n-p-profile-pg'}>
-				<img id={'p-p-profile-pg'} alt={'p89ef'} src={sPic}/>
-				<div id={'n-u-profile-pg'}>{`${name}`}</div>
-          </div>
-      )
+		let { basic } = this.props.profile;
+		return(
+			<div id={'n-p-profile-pg'}>
+				{
+					(basic)
+						? <img
+							id={'p-p-profile-pg'}
+							alt={'p89ef'}
+							src={retImg(basic.image, 200, 200)}
+						/> : <Skeleton circle={true} width={150} height={150}/>
+				}
+
+				{
+					(basic)
+						? <div id={'n-u-profile-pg'}>{`${basic.name}`}</div>
+						: <div id={'n-u-profile-pg'}><Skeleton/></div>
+				}
+          	</div>
+      	)
     };
 
 	/* => will generate the middle region of profile page
@@ -75,9 +94,9 @@ class ProfilePage extends Component {
 				<div>|</div>
 				<div
 					className={'l-n-profile-pg'}
-					onClick={() => this.changeViewMode('Achievements', this.mode3)}
+					onClick={() => this.changeViewMode('Favourites', this.mode3)}
 					ref={this.mode3}>
-					Achievements
+					Favourites
 				</div>
 				<div>|</div>
 				<div
@@ -117,25 +136,59 @@ class ProfilePage extends Component {
 
 	// will generate the content for 'Basic' mode of lower region of profile page
 	basicContentGen = () => {
-		let {
-			dob,
-			bio,
-			country,
-			profession,
-			emailId,
-		} = this.props.credentials;
+		let { basic } = this.props.profile;
+		// return early when no data is found
+		if( basic && basic.message && basic.message === 'No data')
+			return (
+				<div id={'n-b-dt-yt-wrapper'}>
+					<div id={'n-b-dt-yt'} className={'shadow-5'}>
+						No basic data yet!
+					</div>
+					<img
+						id={'e-pic-profile-pg'}
+						alt={'e-pic-p-pg'}
+						onClick={this.onClickEditButton}
+						src={editProfile}
+						className={'grow'}
+						ref={this.editBtn}
+					/>
+				</div>
+			);
+		// if data is available show normal response
 		return (
 			<div id={'b-c-profile-pg'}>
-				<p>{`Bio: ${bio}`}</p>
-				<div>{`Birthday: ${dob}`}</div>
-				<div>{`Country: ${country}`}</div>
-				<div>{`Profession: ${profession}`}</div>
-				<div>{`Email: ${emailId}`}</div>
+				{
+					(basic)
+						? <p>{`Bio: ${basic.bio}`}</p>
+						: <p><Skeleton/></p>
+				}
+				{
+					(basic)
+						? <div>{`Birthday: ${basic.dob}`}</div>
+						: <div><Skeleton/></div>
+				}
+				{
+					(basic)
+						? <div>{`Country: ${basic.country}`}</div>
+						: <div><Skeleton/></div>
+				}
+				{
+					(basic)
+						? <div>{`Profession: ${basic.profession}`}</div>
+						: <div><Skeleton/></div>
+				}
+				{
+					(basic)
+						? <div>{`Email: ${basic.email}`}</div>
+						: <div><Skeleton/></div>
+				}
 				<img
 					id={'e-pic-profile-pg'}
 					alt={'e-pic-p-pg'}
 					onClick={this.onClickEditButton}
 					src={editProfile}
+					className={'grow'}
+					ref={this.editBtn}
 				/>
 			</div>
 		)
@@ -146,52 +199,67 @@ class ProfilePage extends Component {
 	   	  buttons are clicked
 	   => the storyElement will further pass these buttons to the edit and delete buttons*/
 	storiesContentGen = () => {
-		let i = 0;
-		return (
-			names.map((listItem) => {
-				return <StoryElement
-					name={listItem}
-					title={'The Last Leaf'}
-					summary={summary}
-					key={`searchElement${i++}`}
-					mode={'with-buttons'}
-					editListener={this.onClickStoryEdit}
-					deleteListener={this.onClickStoryDelete}
-				/>
-			})
-		);
+		let i = 0, { stories } = this.props.profile;
+		if(stories && stories.length > 0)
+			return (
+				stories.map((listItem) => {
+					return <StoryElement
+						data={listItem}
+						key={`storyElement${i++}`}
+						mode={'with-buttons'}
+					/>
+				})
+			);
+		else if(stories && stories.length === 0) {
+			return(
+				<div id={'n-b-dt-yt-wrapper'}>
+					<div id={'n-b-dt-yt'} className={'shadow-5'}>
+						No stories yet!
+					</div>
+				</div>
+			);
+		}
+		else {
+			let x = [];
+			for (i = 0; i < 7; i++)
+				x[i] = <StoryElement
+					key={`storyElement${i}`}
+					mode={'no-buttons'}
+				/>;
+			return x;
+		}
 	};
 
-	// gets called when delete button for some story is clicked
-	onClickStoryDelete = () => {
-		this.props.messageBoxViewAction('enabled');
-	};
-
-	// gets called when edit button for some story is clicked
-	onClickStoryEdit = () => {
-		console.log('Story Editing should be performed.')
-	};
-
-	// gets called when delete button on confirmation box is clicked
-	onDeleteConfirm = () => {
-		console.log('Deletion to be performed.')
-	};
-
-	achievementsContentGen = () => {
-		let {
-			followers,
-			points,
-			views,
-			milestones,
-		} = this.props.credentials;
-		return (
-			<div id={'a-c-profile-pg'}>
-				<div>{`Followers: ${followers}`}</div>
-				<div>{`Views : ${views}`}</div>
-				<div>{`Milestones: ${milestones}`}</div>
-				<div>{`Points: ${points}`}</div>
-			</div>
-		)
+	favouritesContentGen = () => {
+		let i = 0, { favourites } = this.props.profile;
+		if(favourites && favourites.length > 0)
+			return (
+				favourites.map((listItem) => {
+					return <StoryElement
+						data={listItem}
+						key={`storyElement${i++}`}
+						mode={'no-buttons'}
+					/>
+				})
+			);
+		else if(favourites && favourites.length === 0) {
+			return(
+				<div id={'n-b-dt-yt-wrapper'}>
+					<div id={'n-b-dt-yt'} className={'shadow-5'}>
+						No favourites yet!
+					</div>
+				</div>
+			);
+		}
+		else {
+			let x = [];
+			for (i = 0; i < 7; i++)
+				x[i] = <StoryElement
+					key={`storyElement${i}`}
+					mode={'no-buttons'}
+				/>;
+			return x;
+		}
 	};
 
 	followersContentGen = () => {
@@ -207,17 +275,38 @@ class ProfilePage extends Component {
 		);
 	};
 
+	// appends an already_following with true as value
+	appendAlreadyFollowing = (object) => {
+		object.already_following = true;
+		return object;
+	};
+
 	followingContentGen = () => {
-		let i = 0;
-		return (
-			names.map((listItem) => {
-				return <SearchElement
-					name={listItem}
-					key={`searchElement${i++}`}
-					mode={'unfollow'}
-				/>
-			})
-		);
+		let i = 0, { following } = this.props.profile;
+		if(following && following.length > 0)
+			return (
+				following.map((listItem) => {
+					return <SearchElement
+						data={this.appendAlreadyFollowing(listItem)}
+						key={`searchElement${i++}`}
+					/>
+				})
+			);
+		else if(following && following.length === 0) {
+			return(
+				<div id={'n-b-dt-yt-wrapper'}>
+					<div id={'n-b-dt-yt'} className={'shadow-5'}>
+						Not following anyone yet!
+					</div>
+				</div>
+			);
+		}
+		else {
+			let x = [];
+			for (i = 0; i < 7; i++)
+				x[i] = <SearchElement key={`searchElement${i++}`}/>;
+			return x;
+		}
 	};
 
 	onChangeBasicDetails = (event) => {
@@ -260,8 +349,8 @@ class ProfilePage extends Component {
 			return this.basicContentGen()
 		} else if (mode === 'Stories') {
 			return this.storiesContentGen()
-		}  else if (mode === 'Achievements') {
-			return  this.achievementsContentGen()
+		}  else if (mode === 'Favourites') {
+			return  this.favouritesContentGen()
 		} else if (mode === 'Following') {
 			return  this.followingContentGen()
 		} else if (mode === 'Followers') {
@@ -274,17 +363,9 @@ class ProfilePage extends Component {
 	};
 
     render() {
-    	let { boxState } = this.props;
     	return (
        		<div id={'m-b-profile-pg'}>
-				{
-					(boxState !== 'disabled')
-						? displayLoader('Do you really want to delete this story?',
-										'decide-and-leave',
-										this.onDeleteConfirm
-										)
-						: undefined
-				}
+				{throwOut()}
 				<BackgroundLoader bno={1}/>
 				<TopMostBar formatType={'1'}/>
 				<GreetBox/>
@@ -306,13 +387,13 @@ class ProfilePage extends Component {
 
 
 const mapActionToProps = (dispatch) => {
-	return bindActionCreators({ messageBoxViewAction }, dispatch);
+	return bindActionCreators({ fetchProfile }, dispatch);
 };
 
 const mapStateToProps = (state) => {
 	return {
 		credentials: state.credentials,
-		boxState: state.messageBoxState
+		profile: state.profile
 	}
 };
 

@@ -8,7 +8,7 @@ export const INIT_SUBMISSION = 'INIT_SUBMISSION';
 export const initiateSubmission = ({ title, summary, story, genre }) => {
 
     const responseFromServer = ax.request({
-        url: '/submit',
+        url: '/story',
         baseURL: remote,
         method: 'post',
         headers: {

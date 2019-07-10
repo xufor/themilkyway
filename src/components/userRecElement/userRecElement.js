@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import { withRouter } from  'react-router-dom';
 
+import { retImg } from '../../common';
 import './style.css';
 
 class UserRecElement extends Component {
@@ -16,7 +17,7 @@ class UserRecElement extends Component {
             <React.Fragment>
                 {
                     (data) ?
-                    <img src={`https://res.cloudinary.com/xufor/image/upload/c_fill,f_auto,g_faces,h_100,q_auto,r_100,w_100/${data.image}`}
+                    <img src={retImg(data.image,100,100)}
                          title={data.name}
                          alt={'elite'}
                          onClick={this.sendToProfileBrowser}

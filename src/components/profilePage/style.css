@@ -60,7 +60,7 @@
 }
 
 #l-r-profile-pg > #m-b-st-element {
-    width: 75%;
+    width: 60%;
     margin-top: 0;
     overflow: hidden;
     font-family: 'Quicksand', sans-serif;
@@ -111,8 +111,9 @@
 }
 
 #e-pic-profile-pg {
-    width: 35px;
+    width: 39px;
     margin: 30px auto 0 auto;
+    cursor: pointer;
 }
 
 #e-d-profile-pg {
@@ -134,4 +135,22 @@
 
 #e-d-profile-pg > button {
     display: block;
+}
+
+#n-b-dt-yt-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#n-b-dt-yt {
+    font-size: 1.2rem;
+    font-family: 'Quicksand', sans-serif;
+    background: white;
+    width: 50%;
+    text-align: center;
+    padding: 30px;
+    border-radius: 2rem;
 }

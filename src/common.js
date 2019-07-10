@@ -3,21 +3,7 @@ import { store } from './index';
 import { Redirect } from 'react-router-dom';
 import { ACCEPTABLE_RESPONSE_MESSAGE } from './components/loginPage/loginPage';
 import { RESET_ANOMALY } from './reducers/anomalyReducer';
-import BlackScreen from './components/blackScreen/blackScreen';
-import MessageBox from './components/messageBox/messageBox';
-
-export const displayLoader = (message, mode, confirmListener) => {
-    return (
-        <React.Fragment>
-            <MessageBox
-                message={message}
-                mode={mode}
-                confirmListener={confirmListener}
-            />
-            <BlackScreen/>
-        </React.Fragment>
-    )
-};
+import defaultImage from './assets/dPic.png';
 
 export const throwOut = () => {
     if(store.getState().credentials.message !== ACCEPTABLE_RESPONSE_MESSAGE)
@@ -26,4 +12,12 @@ export const throwOut = () => {
 
 export const resetAnomaly = () => {
     store.dispatch({type: RESET_ANOMALY});
+};
+
+// return a sample image or valid url based on the image field in response
+export const retImg = (field, height, width) => {
+    if(field === 'No Image available.')
+        return defaultImage;
+    else
+        return `https://res.cloudinary.com/xufor/image/upload/c_fill,f_auto,g_faces,h_${height},q_auto,r_100,w_${width}/${field}`;
 };

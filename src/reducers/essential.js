@@ -14,6 +14,7 @@ import tokenStatusReducer from './tokenStatusReducer';
 import genreReducer from './genreReducer';
 import feedReducer from './feedReducer';
 import anomalyReducer from './anomalyReducer';
+import profileReducer from './profileReducer';
 
 const rootReducer = combineReducers({
 	credentials: credentialReducer, 	// stores tokens, status and name
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
 	tokenStatus: tokenStatusReducer,	// stores the status of tokens i.e. expired or revoked
 	feed: feedReducer,					// stores the feed for homepage
 	genre: genreReducer,				// stores the results on a genre based search
+	profile: profileReducer,				// stores recently fetched profile data
 	anomaly: anomalyReducer,			// stores any anomalies
 	toastr: toastrReducer,
 	loadingBar: loadingBarReducer,

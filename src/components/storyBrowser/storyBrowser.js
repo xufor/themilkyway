@@ -193,7 +193,7 @@ class StoryBrowser extends Component {
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
                 />
-                <BackgroundLoader bno={0}/>
+                <BackgroundLoader bno={1}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
                 <ButtonSlider
