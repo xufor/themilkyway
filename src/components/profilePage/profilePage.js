@@ -437,7 +437,13 @@ class ProfilePage extends Component {
 	// what happens when save button is clicked
 	onClickSave = () => {
 		let { bio, dob, profession, genre, country, image, checked } = this.state;
-		if(bio === '' || dob === ''|| genre.length === 0 || country === ''|| profession === '')
+		if(bio === undefined
+			|| dob === undefined
+			|| genre === null
+			|| country === undefined
+			|| profession === undefined
+			|| genre.length === 0
+		)
 			toastr.info('Cannot be empty', CANNOT_BE_EMPTY);
 		else if (genre.length > 3)
 			toastr.info('Too many genres', TOO_MANY_GENRES);
