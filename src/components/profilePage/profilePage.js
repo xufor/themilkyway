@@ -209,7 +209,9 @@ class ProfilePage extends Component {
 			profession: basic.profession,
 			dob: basic.dob,
 			country: basic.country,
-			genre: generateDefaultPreferences(basic),
+			genre: (generateDefaultPreferences(basic) !== undefined)
+				? generateDefaultPreferences(basic)
+				: [],
 			image: basic.image,
 			bio: basic.bio
 		});
