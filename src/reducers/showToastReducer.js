@@ -9,6 +9,7 @@ import { APPEND_SEARCH_DATA } from '../actions/fetchSearchDataAction';
 import { FOLLOW_USER } from '../actions/followAction';
 import { UNFOLLOW_USER } from '../actions/unfollowAction';
 import { APPEND_GENRE_DATA } from '../actions/fetchGenreDataAction';
+import { UPDATE_PROFILE } from '../actions/updateProfileAction';
 import { vars } from '../strings';
 
 
@@ -29,6 +30,7 @@ export const CANNOT_LIKE_OWN = 'You cannot like your own story.';
 export const CANNOT_UNLIKE_OWN = 'You cannot remove like from your own story.';
 export const UNFOLLOW_SUCCESSFUL = 'Unfollow Successful.';
 export const FOLLOW_SUCCESSFUL = 'Follow Successful.';
+export const UPDATE_SUCCESSFUL = 'Update successful.';
 export const NO_MORE_GENRE_DATA = 'No more genre data available.';
 
 export default (state = 'disabled', action) => {
@@ -102,6 +104,10 @@ export default (state = 'disabled', action) => {
         case APPEND_GENRE_DATA + vars.r:
             if(action.payload.response.data.message === NO_MORE_GENRE_DATA)
                 return 'no-gr';
+            break;
+        case UPDATE_PROFILE + vars.f:
+            if(action.payload.data.message === UPDATE_SUCCESSFUL)
+                return 'up-su';
             break;
         default:
             return state;

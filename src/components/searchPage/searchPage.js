@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Switch from 'react-switch';
+import { bindActionCreators } from 'redux';
 
 import { store } from '../../index';
 import TopMostBar from '../topMostBar/topMostBar';

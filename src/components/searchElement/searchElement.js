@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import { followTarget } from '../../actions/followAction';
 import { unfollowTarget } from '../../actions/unfollowAction';
+import { retImg } from '../../common';
 import RippleButton from '../../components/rippleButton/rippleButton';
 import './style.css';
 
@@ -31,18 +32,20 @@ class SearchElement extends Component {
     };
 
     buttonRenderer = () => {
-        let { already_following } = this.props.data;
-        return (
-            <div className={'f-button-s-element'}>
-                <RippleButton
-                    name={(already_following) ? ('Unfollow') : ('Follow')}
-                    listener={this.onClick}
-                    cRef={this.btn}
-                />
-            </div>
-        );
+        let { already_following } = this.props.data, dilemma = this.props;
+        if(dilemma)
+            return null;
+        else
+            return (
+                <div className={'f-button-s-element'}>
+                    <RippleButton
+                        name={(already_following) ? ('Unfollow') : ('Follow')}
+                        listener={this.onClick}
+                        cRef={this.btn}
+                    />
+                </div>
+            );
     };
-
 
     render() {
         let { data } = this.props;
@@ -53,17 +56,20 @@ class SearchElement extends Component {
                         (data)?
                         <img
                             className={'i-s-element'}
-                            src={`https://res.cloudinary.com/xufor/image/upload/c_fill,f_auto,g_faces,h_150,q_auto,r_100,w_150/${data.image}`}
+                            src={retImg(data.image,150,150)}
                             alt={'s-d-img'}
                         />: <Skeleton circle={true} height={100} width={100}/>
                     }
                     {
                         (data)?
                         <div className={'n-s-element'}>
-                            <Link to={`/profile/${data.uid}`}>
+                            <Link to={`/profile/${data.uid}`} onClick={this.switchProfile}>
                                 {data.name}
                             </Link>
-                        </div>: <span className={'n-s-element'}><Skeleton count={1} height={20} width={300}/></span>
+                        </div> :
+                            <span className={'n-s-element'}>
+                                <Skeleton count={1} height={20} width={300}/>
+                            </span>
                     }
                     <div className={'emptySpace'}/>
                     {

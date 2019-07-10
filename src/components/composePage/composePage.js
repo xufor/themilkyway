@@ -19,9 +19,9 @@ import { CANNOT_BE_EMPTY } from '../loginPage/loginPage';
 import { tags } from '../../strings';
 import './style.css';
 
-const TOO_MANY_GENRES = 'The number of genres cannot be greater than 3.';
+export const TOO_MANY_GENRES = 'The number of genres cannot be greater than 3.';
+export const ARE_YOU_SURE = 'Are you sure?';
 const STORY_CANNOT_BE_EMPTY = 'You cannot submit a story with no words.';
-const ARE_YOU_SURE = 'Are you sure?';
 
 let listForSelection = tags.map((listItem) => {
     return {value: listItem, label: listItem}

@@ -121,6 +121,10 @@
     font-weight: bold;
 }
 
+#e-d-profile-pg > div {
+   margin-bottom: 10px;
+}
+
 #t-a-profile-pg {
     width: 100%;
     margin-top: 5px;
@@ -130,11 +134,17 @@
 
 #i-a-profile-pg {
     width: 50%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-#e-d-profile-pg > button {
-    display: block;
+#btn-i-profile-pg {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#btn-i-profile-pg > button{
+    margin-bottom: 10px;
 }
 
 #n-b-dt-yt-wrapper {

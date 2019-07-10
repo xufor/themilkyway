@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import GenreElement from '../genreElement/genreElement';
 import smallLike from '../../assets/smallLike.png';
 import smallEye from '../../assets/smallEye.png';
+import { retImg } from '../../common';
 import './style.css';
 import './style-m.css';
 
@@ -83,7 +84,7 @@ class FeedView extends Component {
                         (data)
                             ? <img
                                 id={'pPic'}
-                                src={`https://res.cloudinary.com/xufor/image/upload/c_fill,f_auto,g_faces,h_200,q_auto,r_100,w_200/${data.image}`}
+                                src={retImg(data.image,200,200)}
                                 alt={'iPic'}
                                 title={data.name}
                             />
