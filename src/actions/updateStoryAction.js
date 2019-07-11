@@ -3,19 +3,20 @@ import ax from 'axios';
 import { remote } from '../strings';
 import { store } from '../index';
 
-export const INIT_SUBMISSION = 'INIT_SUBMISSION';
+export const UPDATE_STORY = 'UPDATE_STORY';
 
-export const submitStory = (title, summary, story, genre) => {
+export const updateStory = (sid, title, summary, story, genre) => {
 
     const responseFromServer = ax.request({
         url: '/story',
         baseURL: remote,
-        method: 'post',
+        method: 'put',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': store.getState().credentials.access_token
         },
         data: {
+            sid,
             title,
             summary,
             story,
@@ -24,7 +25,7 @@ export const submitStory = (title, summary, story, genre) => {
     });
 
     return {
-        type: INIT_SUBMISSION,
+        type: UPDATE_STORY,
         payload: responseFromServer,
     }
 };

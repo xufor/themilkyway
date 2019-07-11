@@ -10,6 +10,9 @@ import { FOLLOW_USER } from '../actions/followAction';
 import { UNFOLLOW_USER } from '../actions/unfollowAction';
 import { APPEND_GENRE_DATA } from '../actions/fetchGenreDataAction';
 import { UPDATE_PROFILE } from '../actions/updateProfileAction';
+import { UPDATE_STORY } from '../actions/updateStoryAction';
+import { DELETE_STORY } from '../actions/deleteStoryAction';
+import { reloader } from '../common';
 import { vars } from '../strings';
 
 
@@ -29,6 +32,7 @@ export const STORY_SUBMITTED = 'Story successfully submitted.';
 export const CANNOT_LIKE_OWN = 'You cannot like your own story.';
 export const CANNOT_UNLIKE_OWN = 'You cannot remove like from your own story.';
 export const UNFOLLOW_SUCCESSFUL = 'Unfollow Successful.';
+export const STORY_EDIT_SUCCESSFUL = 'Story successfully updated.';
 export const FOLLOW_SUCCESSFUL = 'Follow Successful.';
 export const UPDATE_SUCCESSFUL = 'Update successful.';
 export const NO_MORE_GENRE_DATA = 'No more genre data available.';
@@ -106,8 +110,22 @@ export default (state = 'disabled', action) => {
                 return 'no-gr';
             break;
         case UPDATE_PROFILE + vars.f:
-            if(action.payload.data.message === UPDATE_SUCCESSFUL)
+            if(action.payload.data.message === UPDATE_SUCCESSFUL) {
+                reloader(1000);
                 return 'up-su';
+            }
+            break;
+        case DELETE_STORY + vars.f:
+            if(action.payload.data.message === OP_SCC) {
+                reloader(1000);
+                return 'de-su';
+            }
+            break;
+        case UPDATE_STORY + vars.f:
+            if(action.payload.data.message === STORY_EDIT_SUCCESSFUL) {
+                reloader(1000);
+                return 'se-su';
+            }
             break;
         default:
             return state;

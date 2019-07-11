@@ -166,7 +166,7 @@ class SearchPage extends Component {
         return (
             <div id={'o-box-search-pg'}>
                 {throwOut()}
-                <BackgroundLoader bno={1}/>
+                <BackgroundLoader bno={0}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
                 <ButtonSlider

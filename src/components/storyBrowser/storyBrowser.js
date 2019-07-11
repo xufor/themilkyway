@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import LoadingBar from 'react-redux-loading-bar';
 
+import { store } from '../../index';
 import TopMostBar from '../topMostBar/topMostBar';
 import GreetBox from '../greetBox/greetBox';
 import GenreBox from '../genreBox/genreBox';
@@ -15,6 +16,7 @@ import StoryParagraph from '../../components/storyParagraph/storyParagraph';
 import StoryBreaks from '../storyBreaks/storyBreaks';
 import { resetAnomaly, throwOut } from '../../common';
 import { INVALID_REQ, INVALID_SID } from '../../reducers/anomalyReducer';
+import { RESET_STORY_DATA } from '../../reducers/storyReducer';
 import { fetchStory } from '../../actions/fetchStoryAction';
 import { likeStory } from '../../actions/likeStoryAction';
 import { unlikeStory } from '../../actions/unlikeStoryAction';
@@ -48,6 +50,7 @@ class StoryBrowser extends Component {
 
     componentDidMount() {
         const { sid } = this.props.match.params;
+        store.dispatch({type: RESET_STORY_DATA});
         this.props.fetchStory(sid);
     }
 
@@ -71,21 +74,21 @@ class StoryBrowser extends Component {
                 <div id={'h-t-b-browser-pg'}>
                     <div id={'t-t-b-browser-pg'}>
                         {
-                            (story)
+                            (story.title)
                                 ?story.title
                                 :<Skeleton height={30} width={500}/>
                         }
                     </div>
                     <div id={'i-t-b-browser-pg'}>
                         {
-                            (story)
+                            (story.name)
                                 ?`A story by ${story.name}`
                                 :<Skeleton height={30} width={500}/>
                         }
                     </div>
 
                     {
-                        (story)?
+                        (story.time)?
                             <div id={'s-t-b-browser-pg'}>
                                 submitted on
                                 <span>
@@ -99,7 +102,7 @@ class StoryBrowser extends Component {
                             :<Skeleton height={20} width={500}/>
                     }
                     {
-                        (story)?
+                        (story.time)?
                             <div id={'j-t-b-browser-pg'}>
                                 <img
                                     id={'z-t-b-browser-pg'}
@@ -121,7 +124,7 @@ class StoryBrowser extends Component {
                 </div>
                 <div className={'emptySpace'}/>
                 {
-                    (story)?
+                    (story.time)?
                     <img
                         id={'l-t-b-browser-pg'}
                         alt={'like'}
@@ -133,7 +136,7 @@ class StoryBrowser extends Component {
                     :undefined
                 }
                 {
-                    (story)?
+                    (story.time)?
                     <img
                         id={'x-t-b-browser-pg'}
                         alt={'share'}
@@ -156,7 +159,7 @@ class StoryBrowser extends Component {
 
     bottomBoxGen = () => {
         let { story } = this.props, finalList = [];
-        if(story) {
+        if(story.story) {
             let paragraphSplit = story.story.split('*/para/*');
             let newlineSplit = paragraphSplit.map(
                 (listItem) => listItem.split('*/newline/*')
@@ -193,7 +196,7 @@ class StoryBrowser extends Component {
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
                 />
-                <BackgroundLoader bno={1}/>
+                <BackgroundLoader bno={0}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
                 <ButtonSlider

@@ -29,6 +29,9 @@ import './style-m.css';
 
 const PLEASE_CLICK_SAVE = 'Please click the save button in order to save changes.';
 const IS_PRIVATE = 'The author has decided not to show his private details.';
+const TOO_LONG_BIO = 'Bio can have a maximum of 500 characters.';
+const TOO_LONG_PROFESSION = 'Profession can have a maximum of 20 characters.';
+const TOO_LONG_COUNTRY = 'Country can have a maximum of 20 characters.';
 
 let listForSelection = tags.map((listItem) => {
 	return {value: listItem, label: listItem}
@@ -447,6 +450,12 @@ class ProfilePage extends Component {
 			toastr.info('Cannot be empty', CANNOT_BE_EMPTY);
 		else if (genre.length > 3)
 			toastr.info('Too many genres', TOO_MANY_GENRES);
+		else if(profession.length > 20)
+			toastr.info('Too long', TOO_LONG_PROFESSION);
+		else if(bio.length > 500)
+			toastr.info('Too long', TOO_LONG_BIO);
+		else if(country.length > 20)
+			toastr.info('Too long', TOO_LONG_COUNTRY);
 		else {
 			let prefString = '';
 			for(let i=0;i<genre.length;i++) {
@@ -480,7 +489,7 @@ class ProfilePage extends Component {
 				<div>Preferences:</div>
 				<Select
 					isMulti
-					value={generateDefaultPreferences(basic)}
+					value={this.state.genre}
 					options={listForSelection}
 					name={'colors'}
 					className={'basic-multi-select'}
@@ -564,7 +573,7 @@ class ProfilePage extends Component {
     	return (
        		<div id={'m-b-profile-pg'}>
 				{throwOut()}
-				<BackgroundLoader bno={1}/>
+				<BackgroundLoader bno={0}/>
 				<TopMostBar formatType={'1'}/>
 				<GreetBox/>
 				<ButtonSlider

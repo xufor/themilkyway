@@ -33,10 +33,11 @@ import {
     CANNOT_UNLIKE_OWN,
     NO_MORE_SEARCH_DATA,
     FOLLOW_SUCCESSFUL,
-    UNFOLLOW_SUCCESSFUL, NO_MORE_GENRE_DATA, UPDATE_SUCCESSFUL
+    UNFOLLOW_SUCCESSFUL, NO_MORE_GENRE_DATA, UPDATE_SUCCESSFUL, STORY_EDIT_SUCCESSFUL
 } from './reducers/showToastReducer';
 
 const NO_MORE_FEED = 'No more feed available. Please try again later.';
+const DELETE_SUCCESSFUL = 'Successfully deleted the story.';
 
 
 class App extends Component {
@@ -115,7 +116,11 @@ class App extends Component {
         else if(showToast === 'no-gr')
             toastr.success('No more results', NO_MORE_GENRE_DATA);
         else if(showToast === 'up-su')
-            toastr.success('Successful', UPDATE_SUCCESSFUL)
+            toastr.success('Successful', UPDATE_SUCCESSFUL);
+        else if(showToast === 'de-su')
+            toastr.success('Deletion Successful', DELETE_SUCCESSFUL);
+        else if(showToast === 'se-su')
+            toastr.success('Edit Successful', STORY_EDIT_SUCCESSFUL);
     };
 
     render() {
@@ -127,6 +132,7 @@ class App extends Component {
                   <Route path= {'/profile/:uid'} exact component = { ProfilePage }/>
                   <Route path= {'/search/:query'} exact component = { SearchPage }/>
                   <Route path= {'/compose'} exact component = { ComposePage }/>
+                  <Route path= {'/edit/:sid'} exact component = { ComposePage }/>
                   <Route path= {'/genre/:genre'} exact component = { TagBrowser }/>
                   <Route path= {'/story/:sid'} exact component = {StoryBrowser}/>
                   <Route path= {'/home'} exact component = { HomePage }/>

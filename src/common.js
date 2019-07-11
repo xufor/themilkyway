@@ -21,3 +21,9 @@ export const retImg = (field, height, width) => {
     else
         return `https://res.cloudinary.com/xufor/image/upload/c_fill,f_auto,g_faces,h_${height},q_auto,r_100,w_${width}/${field}`;
 };
+
+export const reloader = (delay) => {
+    setTimeout(() => {
+        window.location.reload();
+    }, delay);
+};

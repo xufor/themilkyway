@@ -96,7 +96,7 @@ class LoginPage extends Component {
     render() {
         return (
             <React.Fragment>
-                <BackgroundLoader bno={1}/>
+                <BackgroundLoader bno={0}/>
                 <LoadingBar
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}

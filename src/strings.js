@@ -106,6 +106,5 @@ export const names =
     ];
 
 export const backgroundLinks = [
-    'https://images.unsplash.com/photo-1496737018672-b1a6be2e949c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1191&q=80',
-    'https://images.unsplash.com/photo-1466790062852-cc10fa71eb40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=1080&q=100'
+    'https://images.unsplash.com/photo-1496737018672-b1a6be2e949c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1191&q=80'
 ];

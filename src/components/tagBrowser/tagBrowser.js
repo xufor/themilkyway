@@ -113,7 +113,7 @@ class TagBrowser extends Component {
         return (
             <div id={'m-b-tag-browser'}>
                 {throwOut()}
-                <BackgroundLoader bno={1}/>
+                <BackgroundLoader bno={0}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>
                 <ButtonSlider

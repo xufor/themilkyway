@@ -3,28 +3,23 @@ import ax from 'axios';
 import { remote } from '../strings';
 import { store } from '../index';
 
-export const INIT_SUBMISSION = 'INIT_SUBMISSION';
+export const DELETE_STORY = 'DELETE_STORY';
 
-export const submitStory = (title, summary, story, genre) => {
+export const deleteStory = (sid) => {
 
     const responseFromServer = ax.request({
         url: '/story',
         baseURL: remote,
-        method: 'post',
+        method: 'delete',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': store.getState().credentials.access_token
         },
-        data: {
-            title,
-            summary,
-            story,
-            genre
-        }
+        data: { sid }
     });
 
     return {
-        type: INIT_SUBMISSION,
+        type: DELETE_STORY,
         payload: responseFromServer,
     }
 };

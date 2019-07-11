@@ -1,23 +1,41 @@
 import React, { Component } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import { Link } from 'react-router-dom';
+import { toastr } from 'react-redux-toastr';
+import { connect } from 'react-redux';
+import {  bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 
+import { ARE_YOU_SURE } from '../composePage/composePage';
+import { deleteStory } from '../../actions/deleteStoryAction';
 import RippleButton from '../rippleButton/rippleButton';
 import './style.css';
 
 class StoryElement extends Component {
+    onClickEdit = () => {
+        let { data } = this.props;
+        toastr.confirm(ARE_YOU_SURE, {onOk: () => {
+            this.props.history.push(`/edit/${data.sid}`);
+        }});
+    };
+
+    onClickDelete = () => {
+        let { data } = this.props;
+        toastr.confirm(ARE_YOU_SURE, {onOk: () => this.props.deleteStory(data.sid)});
+    };
+
     deleteAndEditButtonsGen = () => {
-        let { mode, editListener, deleteListener } = this.props;
+        let { mode } = this.props;
         if(mode === 'with-buttons') {
             return (
                 <React.Fragment>
                     <RippleButton
                         name={'Edit'}
-                        listener={editListener}
+                        listener={this.onClickEdit}
                     />
                     <RippleButton
                         name={'Delete'}
-                        listener={deleteListener}
+                        listener={this.onClickDelete}
                     />
                 </React.Fragment>
             );
@@ -56,5 +74,15 @@ class StoryElement extends Component {
     };
 }
 
+const mapActionToProps = (dispatch) => {
+    return bindActionCreators({ deleteStory }, dispatch);
+};
 
-export default StoryElement;
+const mapStateToProps = (state) => {
+    return {
+        credentials: state.credentials,
+        profile: state.profile
+    }
+};
+
+export default connect(mapStateToProps, mapActionToProps)(withRouter(StoryElement));

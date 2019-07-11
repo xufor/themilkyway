@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import LoadingBar from 'react-redux-loading-bar';
 import Select from 'react-select';
 
+import { store } from '../../index';
 import TextEditor from '../textEditor/textEditor';
 import PageFooter from '../../components/pageFooter/pageFooter';
 import TopMostBar from '../topMostBar/topMostBar';
@@ -13,9 +14,12 @@ import RippleButton from '../../components/rippleButton/rippleButton';
 import GenreBox from '../../components/genreBox/genreBox';
 import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
-import { initiateSubmission } from '../../actions/submitStoryAction';
+import { fetchStory } from '../../actions/fetchStoryAction';
+import { submitStory } from '../../actions/submitStoryAction';
+import { updateStory } from '../../actions/updateStoryAction';
 import { throwOut } from '../../common';
 import { CANNOT_BE_EMPTY } from '../loginPage/loginPage';
+import { RESET_STORY_DATA } from '../../reducers/storyReducer';
 import { tags } from '../../strings';
 import './style.css';
 
@@ -33,9 +37,36 @@ class ComposePage extends Component {
         this.state = {
             summary: '',
             title: '',
+            story: undefined, // for editing functionality only
             genre: []
         };
+        this.isDataFresh = true;
     }
+
+    componentDidMount() {
+        if(this.inEditMode()) {
+            store.dispatch({type: RESET_STORY_DATA});
+            this.props.fetchStory(this.props.match.params.sid);
+        }
+    }
+
+    componentDidUpdate() {
+        // the one time run on update technique
+        if(this.inEditMode() && this.isDataFresh && Object.entries(this.props.story).length !== 0) {
+            let { genre, story, title, summary } = this.props.story;
+            // generate required array to set default value of genre
+            let value = genre.split(',')
+                .map((listItem) => {return {label: listItem, value: listItem}});
+            // if value is no t null set the state to reflect changes
+            this.setState({genre: value, story, title, summary});
+            // set the flag as false
+            this.isDataFresh = false;
+        }
+    }
+
+    inEditMode = () => {
+        return !!this.props.match.params.sid;
+    };
 
     onTitleChange = (event) => {
         this.setState({title: event.target.value})
@@ -49,17 +80,8 @@ class ComposePage extends Component {
         this.setState({genre: event})
     };
 
-    initSubmission = (genre, story, title, summary) => {
-        this.props.initiateSubmission({
-            genre,
-            story,
-            title,
-            summary
-        });
-    };
-
     onClickSubmit = () => {
-        let { title, summary, genre} = this.state, modifiedStory = '';
+        let { title, summary, genre } = this.state, modifiedStory = '';
         if(summary === '' || title === ''|| genre.length === 0)
             toastr.info('Cannot be empty', CANNOT_BE_EMPTY);
         else if (genre.length > 3)
@@ -83,13 +105,16 @@ class ComposePage extends Component {
                         genreString += ',';
                     }
                 }
-                toastr.confirm(ARE_YOU_SURE, {onOk: () => this.initSubmission(genreString, modifiedStory, title, summary)});
+                if(this.inEditMode())
+                    toastr.confirm(ARE_YOU_SURE, {onOk: () => this.props.updateStory(this.props.story.sid, title, summary, modifiedStory, genreString)});
+                else
+                    toastr.confirm(ARE_YOU_SURE, {onOk: () => this.props.submitStory(title, summary, modifiedStory, genreString)});
             }
         }
     };
 
-
     render() {
+        let { story, summary, title } = this.state;
         return (
             <div id={'m-b-compose-pg'}>
                 {throwOut()}
@@ -97,7 +122,7 @@ class ComposePage extends Component {
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
                 />
-                <BackgroundLoader bno={1}/>
+                <BackgroundLoader bno={0}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox formatType={'1'}/>
                 <ButtonSlider
@@ -108,16 +133,17 @@ class ComposePage extends Component {
                 <div id={'e-wrap-compose-pg'} className={'shadow-4'}>
                     <div id={'t-e-compose-pg'}>
                         <span>Title:</span>
-                        <input onChange={this.onTitleChange}/>
+                        <input onChange={this.onTitleChange} defaultValue={title}/>
                     </div>
                     <div id={'s-e-compose-pg'}>
                         <span>Summary:</span>
-                        <input onChange={this.onSummaryChange}/>
+                        <input onChange={this.onSummaryChange} defaultValue={summary}/>
                     </div>
                     <div id={'x-e-compose-pg'}>
                         <span>Genre:</span>
                         <Select
                             isMulti
+                            value={this.state.genre}
                             options={listForSelection}
                             name={'colors'}
                             className={'basic-multi-select'}
@@ -126,10 +152,11 @@ class ComposePage extends Component {
                             onChange={this.onOptionsChange}
                         />
                     </div>
-                    <TextEditor/>
+                    {/*If defaultValue is undefined no default text will be inserted*/}
+                    <TextEditor defaultValue={story}/>
                     <div id={'b-c-compose-pg'}>
                         <RippleButton
-                            name={'Submit'}
+                            name={(this.inEditMode)?'Save Changes':'Submit'}
                             listener={this.onClickSubmit}
                         />
                     </div>
@@ -141,8 +168,14 @@ class ComposePage extends Component {
 }
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ initiateSubmission }, dispatch);
+    return bindActionCreators({ submitStory, fetchStory, updateStory }, dispatch);
 };
 
-export default connect(null, mapActionToProps)(ComposePage);
+const mapStateToProps = (state) => {
+    return {
+        story: state.fetchedStory
+    }
+};
+
+export default connect(mapStateToProps, mapActionToProps)(ComposePage);
 
