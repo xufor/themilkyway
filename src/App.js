@@ -7,10 +7,12 @@ import { toastr } from 'react-redux-toastr';
 
 import HomePage from './components/homePage/homePage';
 import ComposePage from './components/composePage/composePage';
+import ResetPage from './components/resetPage/resetPage';
 import NotFound from './components/notFound/notFound';
 import LoginPage, {CANNOT_REACH_SERVER} from './components/loginPage/loginPage';
 import RegisterPage, {SUCCESSFULLY_REGISTERED} from './components/registerPage/registerPage';
 import ProfilePage from './components/profilePage/profilePage';
+import UpdatePassword from './components/updatePassword/updatePassword';
 import SearchPage from './components/searchPage/searchPage';
 import TagBrowser from './components/tagBrowser/tagBrowser';
 import StoryBrowser from './components/storyBrowser/storyBrowser';
@@ -33,11 +35,19 @@ import {
     CANNOT_UNLIKE_OWN,
     NO_MORE_SEARCH_DATA,
     FOLLOW_SUCCESSFUL,
-    UNFOLLOW_SUCCESSFUL, NO_MORE_GENRE_DATA, UPDATE_SUCCESSFUL, STORY_EDIT_SUCCESSFUL
+    UNFOLLOW_SUCCESSFUL,
+    NO_MORE_GENRE_DATA,
+    UPDATE_SUCCESSFUL,
+    STORY_EDIT_SUCCESSFUL,
+    NO_SUCH_ACCOUNT,
+    PASS_SUCCESSFULLY_UPDATED
 } from './reducers/showToastReducer';
 
 const NO_MORE_FEED = 'No more feed available. Please try again later.';
 const DELETE_SUCCESSFUL = 'Successfully deleted the story.';
+const LINK_SENT = 'A reset link has been sent to your email.';
+const LINK_EXPIRED = 'The link has expired please request a new link.';
+const INVALID_LINK = 'The link is invalid. Make sure it is the one you received via e-mail.';
 
 
 class App extends Component {
@@ -121,6 +131,16 @@ class App extends Component {
             toastr.success('Deletion Successful', DELETE_SUCCESSFUL);
         else if(showToast === 'se-su')
             toastr.success('Edit Successful', STORY_EDIT_SUCCESSFUL);
+        else if(showToast === 'no-sa')
+            toastr.error('No Account', NO_SUCH_ACCOUNT);
+        else if(showToast === 'em-se')
+            toastr.success('Link Sent', LINK_SENT);
+        else if(showToast === 'ps-us')
+            toastr.success('Password Updated', PASS_SUCCESSFULLY_UPDATED);
+        else if(showToast === 'ln-ex')
+            toastr.error('Link expired', LINK_EXPIRED);
+        else if(showToast === 'ln-in')
+            toastr.error('Invalid Link', INVALID_LINK);
     };
 
     render() {
@@ -136,7 +156,9 @@ class App extends Component {
                   <Route path= {'/genre/:genre'} exact component = { TagBrowser }/>
                   <Route path= {'/story/:sid'} exact component = {StoryBrowser}/>
                   <Route path= {'/home'} exact component = { HomePage }/>
-                  <Route exact component={NotFound}/>
+                  <Route path= {'/reset'} exact component = { ResetPage }/>
+                  <Route path= {'/update/:token'} exact component = { UpdatePassword }/>
+                  <Route exact component={ NotFound }/>
               </Switch>
           </BrowserRouter>
       );

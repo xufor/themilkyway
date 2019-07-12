@@ -7,7 +7,7 @@ const NotFound = () => {
     return(
         <div id={'n-f-pg'}>
             <HeadingBar mode={'home'}/>
-            <BackgroundLoader bno={1}/>
+            <BackgroundLoader bno={0}/>
             <div>Not Found!</div>
         </div>
     );

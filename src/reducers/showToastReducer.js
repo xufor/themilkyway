@@ -11,7 +11,10 @@ import { UNFOLLOW_USER } from '../actions/unfollowAction';
 import { APPEND_GENRE_DATA } from '../actions/fetchGenreDataAction';
 import { UPDATE_PROFILE } from '../actions/updateProfileAction';
 import { UPDATE_STORY } from '../actions/updateStoryAction';
+import { PASSWORD_RESET_REQ } from '../actions/resetPasswordAction';
 import { DELETE_STORY } from '../actions/deleteStoryAction';
+import { UPDATE_PASSWORD } from '../actions/updatePasswordAction';
+import { EXPIRED_TOKEN_RESPONSE } from './tokenStatusReducer';
 import { reloader } from '../common';
 import { vars } from '../strings';
 
@@ -36,6 +39,9 @@ export const STORY_EDIT_SUCCESSFUL = 'Story successfully updated.';
 export const FOLLOW_SUCCESSFUL = 'Follow Successful.';
 export const UPDATE_SUCCESSFUL = 'Update successful.';
 export const NO_MORE_GENRE_DATA = 'No more genre data available.';
+export const NO_SUCH_ACCOUNT = 'No such account exists.';
+export const PASS_SUCCESSFULLY_UPDATED = 'Password successfully updated.';
+export const INVALID_TOKEN = 'The token is invalid.';
 
 export default (state = 'disabled', action) => {
     switch(action.type) {
@@ -125,6 +131,27 @@ export default (state = 'disabled', action) => {
             if(action.payload.data.message === STORY_EDIT_SUCCESSFUL) {
                 reloader(1000);
                 return 'se-su';
+            }
+            break;
+        case PASSWORD_RESET_REQ + vars.r:
+            if(action.payload.response.data.message === NO_SUCH_ACCOUNT)
+                return 'no-sa';
+            break;
+        case PASSWORD_RESET_REQ + vars.f:
+            if(action.payload.data.message === OP_SCC) {
+                return 'em-se';
+            }
+            break;
+        case UPDATE_PASSWORD + vars.f:
+            if(action.payload.data.message === PASS_SUCCESSFULLY_UPDATED) {
+                return 'ps-us';
+            }
+            break;
+        case UPDATE_PASSWORD + vars.r:
+            if(action.payload.response.data.message === EXPIRED_TOKEN_RESPONSE) {
+                return 'ln-ex';
+            } else if(action.payload.response.data.message === INVALID_TOKEN) {
+                return 'ln-in';
             }
             break;
         default:

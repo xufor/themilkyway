@@ -4,8 +4,8 @@ import { RESET_TOKEN_STATUS } from '../actions/resetTokenStatusAction';
 import { NET_ERR } from './showToastReducer';
 import { REFRESH_TOKEN } from '../actions/refreshAction';
 
-const EXPIRED_TOKEN_RESPONSE = 'The token has expired. Please refresh it.';
-const REVOKED_TOKEN_RESPONSE = 'The token has been revoked. Please login again.';
+export const EXPIRED_TOKEN_RESPONSE = 'The token has expired. Please refresh it.';
+export const REVOKED_TOKEN_RESPONSE = 'The token has been revoked. Please login again.';
 
 export default (state = '', action) => {
     switch(action.type) {

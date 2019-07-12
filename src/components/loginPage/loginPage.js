@@ -130,6 +130,13 @@ class LoginPage extends Component {
                         >
                             Don't have an account?
                         </Link>
+                        <Link
+                            to={'/reset'}
+                            id={'rst-psw'}
+                            className={'grow'}
+                        >
+                            Forgot password?
+                        </Link>
                      </div>
                 </div>
             </React.Fragment>

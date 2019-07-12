@@ -1,0 +1,39 @@
+#b-h-rst-pg {
+    margin-top: 30px;
+    margin-bottom: 65px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: white;
+}
+
+#bx-rst-pg {
+    width: max-content;
+    min-height: max-content;
+    border: solid 1px white ;
+    border-radius: 1rem;
+    background: rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 15px;
+}
+
+#bx-rst-pg > span > button {
+    width: 100px;
+}
+
+#bx-rst-pg > span {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+#i-l-rst-pg {
+    text-align: left;
+    margin-left: 12px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+}
