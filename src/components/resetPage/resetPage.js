@@ -41,7 +41,7 @@ class ResetPage extends Component {
     render() {
         return (
             <React.Fragment>
-                <BackgroundLoader bno={0}/>
+                <BackgroundLoader bno={1}/>
                 <LoadingBar
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
