@@ -103,26 +103,28 @@ class LoginPage extends Component {
                 />
                 <div id={'m-b-login-pg'}>
                     <HeadingBar mode={'register'}/>
-                    <div id={'loginBox'}>
-                        <div className={'boxHeading'}>Login</div>
+                    <div id={'loginBox'} className={'w-80 w-40-m w-20-l'}>
+                        <div className={'boxHeading f2 f1-ns'}>Login</div>
                         <div id={'inputLabelLgBx'}>Email</div>
                         <input
                             onChange={this.onEmailChange}
-                            className={'inputBox'}
+                            className={'inputBox w-90'}
                             type={'email'}
                             required
                         />
                         <div id={'inputLabelLgBx'}>Password</div>
                         <input
                             onChange={this.onPasswordChange}
-                            className={'inputBox'}
+                            className={'inputBox w-90'}
                             type={'password'}
                             required
                         />
-                        <RippleButton
-                            name={'Login'}
-                            listener={this.onClickSignIn}
-                        />
+                        <span className={'flex justify-center'}>
+                            <RippleButton
+                                name={'Login'}
+                                listener={this.onClickSignIn}
+                            />
+                        </span>
                         <Link
                             to={'/register'}
                             id={'registerInstead'}
