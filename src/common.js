@@ -27,3 +27,5 @@ export const reloader = (delay) => {
         window.location.reload();
     }, delay);
 };
+
+// export const isObjectEmpty = (obj) => Object.keys(obj).length === 0;

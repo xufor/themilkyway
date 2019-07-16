@@ -152,11 +152,10 @@ class ComposePage extends Component {
                             onChange={this.onOptionsChange}
                         />
                     </div>
-                    {/*If defaultValue is undefined no default text will be inserted*/}
                     <TextEditor defaultValue={story}/>
                     <div id={'b-c-compose-pg'}>
                         <RippleButton
-                            name={(this.inEditMode)?'Save Changes':'Submit'}
+                            name={(this.inEditMode())?'Save Changes':'Submit'}
                             listener={this.onClickSubmit}
                         />
                     </div>
