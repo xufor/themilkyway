@@ -96,13 +96,13 @@ class LoginPage extends Component {
     render() {
         return (
             <React.Fragment>
+                <HeadingBar mode={'register'}/>
                 <BackgroundLoader bno={1}/>
                 <LoadingBar
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
                 />
                 <div id={'m-b-login-pg'}>
-                    <HeadingBar mode={'register'}/>
                     <div id={'loginBox'} className={'w-80 w-40-m w-20-l'}>
                         <div className={'boxHeading f2 f1-ns'}>Login</div>
                         <div id={'inputLabelLgBx'}>Email</div>

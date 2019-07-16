@@ -1,6 +1,4 @@
 #m-b-hd-bar {
-    top: 0;
-    position: fixed;
     display: flex;
     align-items: center;
     width: 100%;

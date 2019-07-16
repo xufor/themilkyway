@@ -1,4 +1,4 @@
-export const remote = 'https://themilkyway.ml';
+export const remote = 'https://www.themilkyway.ml';
 
 export const vars = {f:'_FULFILLED', p:'_PENDING', r:'_REJECTED'};
 
