@@ -1,13 +1,13 @@
-import React from 'react';
 import { store } from './index';
-import { Redirect } from 'react-router-dom';
 import { ACCEPTABLE_RESPONSE_MESSAGE } from './components/loginPage/loginPage';
 import { RESET_ANOMALY } from './reducers/anomalyReducer';
 import defaultImage from './assets/dPic.png';
 
-export const throwOut = () => {
-    if(store.getState().credentials.message !== ACCEPTABLE_RESPONSE_MESSAGE)
-        return <Redirect to={'/'}/>
+export const throwOut = (history) => {
+    if(store.getState().credentials.message !== ACCEPTABLE_RESPONSE_MESSAGE) {
+        history.push('/');
+        document.location.reload();
+    }
 };
 
 export const resetAnomaly = () => {
@@ -29,3 +29,7 @@ export const reloader = (delay) => {
 };
 
 // export const isObjectEmpty = (obj) => Object.keys(obj).length === 0;
+
+export const checkScreenSize = () => {
+
+};

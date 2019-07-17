@@ -48,12 +48,12 @@ class ResetPage extends Component {
                 />
                 <div id={'m-b-login-pg'}>
                     <HeadingBar mode={'login'}/>
-                    <div id={'bx-rst-pg'}>
+                    <div id={'bx-rst-pg'} className={'mt6-ns mt2'}>
                         <div id={'b-h-rst-pg'}>Reset Password</div>
                         <div id={'i-l-rst-pg'}>Email</div>
                         <input
                             onChange={this.onEmailChange}
-                            className={'inputBox'}
+                            className={'inputBox w-100 w-90-ns'}
                             type={'email'}
                             required
                         />

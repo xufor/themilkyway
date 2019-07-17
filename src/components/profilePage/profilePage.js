@@ -66,6 +66,10 @@ class ProfilePage extends Component {
 		this.profImg = React.createRef();	    // ref to the edit profile image
 	}
 
+	componentDidCatch() {
+		throwOut(this.props.history)
+	}
+
 	// will set the color of 'Basic' div initially
 	componentDidMount() {
     	const { uid } = this.props.match.params;
@@ -572,7 +576,6 @@ class ProfilePage extends Component {
     render() {
     	return (
        		<div id={'m-b-profile-pg'}>
-				{throwOut()}
 				<BackgroundLoader bno={0}/>
 				<TopMostBar formatType={'1'}/>
 				<GreetBox/>

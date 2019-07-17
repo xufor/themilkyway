@@ -43,6 +43,10 @@ class ComposePage extends Component {
         this.isDataFresh = true;
     }
 
+    componentDidCatch() {
+        throwOut(this.props.history)
+    }
+
     componentDidMount() {
         if(this.inEditMode()) {
             store.dispatch({type: RESET_STORY_DATA});
@@ -117,7 +121,6 @@ class ComposePage extends Component {
         let { story, summary, title } = this.state;
         return (
             <div id={'m-b-compose-pg'}>
-                {throwOut()}
                 <LoadingBar
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}

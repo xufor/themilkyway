@@ -7,8 +7,8 @@ const NotFound = () => {
     return(
         <div id={'n-f-pg'}>
             <HeadingBar mode={'home'}/>
-            <BackgroundLoader bno={0}/>
-            <div>Not Found!</div>
+            <BackgroundLoader bno={1}/>
+            <div className={'mt7-ns mt2'}>Not Found!</div>
         </div>
     );
 };

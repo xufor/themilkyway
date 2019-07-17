@@ -101,24 +101,24 @@ class RegisterPage extends Component {
                 />
                 <div id={'m-b-register-pg'}>
                     <HeadingBar mode={'login'}/>
-                    <div id={'registerBox'}>
+                    <div id={'registerBox'} className={'mt5-ns mt2'}>
                         <div className={'boxHeading'}>Register</div>
                         <div id={'inputLabelRgBx'}>Name</div>
                         <input
                             onChange={this.onNameChange}
-                            className={'inputBox'}
+                            className={'inputBox w-90-ns w-100'}
                             type={'text'}
                         />
                         <div id={'inputLabelRgBx'}>Email</div>
                         <input
                             onChange={this.onEmailChange}
-                            className={'inputBox'}
+                            className={'inputBox w-90-ns w-100'}
                             type={'email'}
                         />
                         <div id={'inputLabelRgBx'}>Password</div>
                         <input
                             onChange={this.onPasswordChange}
-                            className={'inputBox'}
+                            className={'inputBox w-90-ns w-100'}
                             type={'password'}
                         />
                         <RippleButton

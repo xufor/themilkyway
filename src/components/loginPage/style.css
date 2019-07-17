@@ -1,7 +1,6 @@
 #m-b-login-pg {
 	height: 95vh;
 	display: flex;
-	justify-content: center;
 	flex-direction: column;
 	align-items: center;
 }
@@ -18,9 +17,7 @@
 
 #loginBox {
 	height: max-content;
-	border: solid 1px white ;
 	border-radius: 1rem;
-	background: rgba(0,0,0,0.2);
 	text-align: center;
 	animation: fadeIn 0.5s 1 forwards;
 }
@@ -91,4 +88,18 @@
 	color: white;
 	margin: 10px 0;
 	cursor: pointer;
+}
+
+@media screen and (min-width: 30rem) {
+	#loginBox {
+		background: rgba(0,0,0,0.2) ;
+	}
+}
+
+@media screen and (max-width: 60em) and (min-width: 30em) {
+
+}
+
+@media screen and (min-width: 60em) {
+
 }

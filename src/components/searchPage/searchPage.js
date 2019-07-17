@@ -30,6 +30,10 @@ class SearchPage extends Component {
         this.version = 1
     }
 
+    componentDidCatch() {
+        throwOut(this.props.history)
+    }
+
     componentDidMount() {
         const string = this.props.match.params.query;
         if(string.length < 5 || string.length > 100)
@@ -165,7 +169,6 @@ class SearchPage extends Component {
         const resultBoxGen = this.resultBoxGen;
         return (
             <div id={'o-box-search-pg'}>
-                {throwOut()}
                 <BackgroundLoader bno={0}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>

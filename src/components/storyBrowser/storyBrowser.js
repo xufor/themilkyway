@@ -48,6 +48,10 @@ class StoryBrowser extends Component {
         }
     };
 
+    componentDidCatch() {
+        throwOut(this.props.history)
+    }
+
     componentDidMount() {
         const { sid } = this.props.match.params;
         store.dispatch({type: RESET_STORY_DATA});
@@ -190,7 +194,6 @@ class StoryBrowser extends Component {
     render() {
         return (
             <div id={'o-box-search-pg'}>
-                {throwOut()}
                 {this.anomalyHandler()}
                 <LoadingBar
                     showFastActions

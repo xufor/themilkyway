@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import LoadingBar from 'react-redux-loading-bar';
 import PageFooter from '../../components/pageFooter/pageFooter';
@@ -13,10 +14,13 @@ import { throwOut } from '../../common';
 import './style.css';
 
 class HomePage extends Component {
+    componentDidCatch() {
+        throwOut(this.props.history)
+    }
+
     render() {
         return (
             <React.Fragment>
-                {throwOut()}
                 <LoadingBar
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
@@ -41,4 +45,4 @@ class HomePage extends Component {
     }
 }
 
-export default (HomePage);
+export default withRouter(HomePage);

@@ -1,9 +1,8 @@
 #m-b-hd-bar {
-    display: flex;
     align-items: center;
     width: 100%;
     background: #0E0D0D;
-    height: 60px;
+    height: max-content;
     color: white;
     font-family: 'Caveat', cursive;
     padding: 5px 10px;

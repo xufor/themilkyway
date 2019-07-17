@@ -7,11 +7,12 @@ import './style.css';
 class HeadingBar extends Component {
     render() {
         return (
-            <div id={'m-b-hd-bar'} className={'justify-center'}>
+            <div id={'m-b-hd-bar'} className={'dn justify-center flex-ns'}>
                 <img
                     alt={'lg'}
                     id={'i-hd-bar'}
                     src={galaxyPic}
+                    className={'h2'}
                 />
                 <div
                     id={'l-hd-bar'}
@@ -19,7 +20,7 @@ class HeadingBar extends Component {
                 >
                     The Milky Way
                 </div>
-                <div className={'em-sp dn db-ns'}/>
+                <div className={'emptySpace'}/>
                 <Link to={(this.props.mode === 'login')?'/':'register'}>
                     <span className={'dn db-ns'}>
                         {this.props.mode.slice(0,1).toUpperCase() + this.props.mode.slice(1)}

@@ -1,4 +1,4 @@
-.em-sp {
+.emptySpace {
      flex-grow: 100;
  }
 
@@ -15,3 +15,20 @@ a {
 .rrt-message {
     font-family: 'Comfortaa', sans-serif!important;
 }
+
+
+/* Standard breakpoints
+
+@media screen and (min-width: 30rem) {
+
+}
+
+@media screen and (max-width: 60em) and (min-width: 30em) {
+    
+}
+
+@media screen and (min-width: 60em) {
+
+}
+
+*/

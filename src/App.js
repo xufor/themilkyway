@@ -16,6 +16,7 @@ import UpdatePassword from './components/updatePassword/updatePassword';
 import SearchPage from './components/searchPage/searchPage';
 import TagBrowser from './components/tagBrowser/tagBrowser';
 import StoryBrowser from './components/storyBrowser/storyBrowser';
+import BlackCover from './components/blackCover/blackCover';
 import { refreshToken } from './actions/refreshAction';
 import { resetTokenStatus } from './actions/resetTokenStatusAction';
 import { disableToast } from './actions/disableToastAction';
@@ -51,6 +52,33 @@ const INVALID_LINK = 'The link is invalid. Make sure it is the one you received 
 
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            ow: 0,
+            oh: 0,
+            ih: 0,
+            iw: 0
+        }
+    }
+
+    screenMapper = () => {
+        this.setState({
+            ow: window.outerWidth,
+            iw: window.innerWidth,
+        });
+    };
+
+    shouldCover = () => {
+        if(this.state.ow < 1140 || this.state.iw < 1140)
+            return <Route component={ BlackCover }/>
+    };
+
+    componentDidMount() {
+        this.screenMapper();
+        window.addEventListener('resize', this.screenMapper)
+    }
+
     componentDidUpdate() {
         /* > expired is set in tokenStatus if access token expires
            > revoked is set in tokenStatus if refresh token expires or logout occurred at some point
@@ -145,21 +173,22 @@ class App extends Component {
 
     render() {
         return(
-          <BrowserRouter>
-              <Switch>
-                  <Route path= {'/'} exact component = { LoginPage }/>
-                  <Route path= {'/register'} exact component = { RegisterPage }/>
-                  <Route path= {'/profile/:uid'} exact component = { ProfilePage }/>
-                  <Route path= {'/search/:query'} exact component = { SearchPage }/>
-                  <Route path= {'/compose'} exact component = { ComposePage }/>
-                  <Route path= {'/edit/:sid'} exact component = { ComposePage }/>
-                  <Route path= {'/genre/:genre'} exact component = { TagBrowser }/>
-                  <Route path= {'/story/:sid'} exact component = {StoryBrowser}/>
-                  <Route path= {'/home'} exact component = { HomePage }/>
-                  <Route path= {'/reset'} exact component = { ResetPage }/>
-                  <Route path= {'/update/:token'} exact component = { UpdatePassword }/>
-                  <Route exact component={ NotFound }/>
-              </Switch>
+            <BrowserRouter>
+                <Switch>
+                    { this.shouldCover() }
+                    <Route path= {'/'} exact component = { LoginPage }/>
+                    <Route path= {'/register'} exact component = { RegisterPage }/>
+                    <Route path= {'/profile/:uid'} exact component = { ProfilePage }/>
+                    <Route path= {'/search/:query'} exact component = { SearchPage }/>
+                    <Route path= {'/compose'} exact component = { ComposePage }/>
+                    <Route path= {'/edit/:sid'} exact component = { ComposePage }/>
+                    <Route path= {'/genre/:genre'} exact component = { TagBrowser }/>
+                    <Route path= {'/story/:sid'} exact component = {StoryBrowser}/>
+                    <Route path= {'/home'} exact component = { HomePage }/>
+                    <Route path= {'/reset'} exact component = { ResetPage }/>
+                    <Route path= {'/update/:token'} exact component = { UpdatePassword }/>
+                    <Route exact component={ NotFound }/>
+                </Switch>
           </BrowserRouter>
       );
   };

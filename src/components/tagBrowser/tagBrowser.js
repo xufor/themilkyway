@@ -28,6 +28,10 @@ class TagBrowser extends Component {
         }
     }
 
+    componentDidCatch() {
+        throwOut(this.props.history)
+    }
+
     componentDidMount() {
         // send to homepage if genre is not valid
         const { genre } = this.props.match.params;
@@ -112,7 +116,6 @@ class TagBrowser extends Component {
         const resultBoxGen = this.resultBoxGen;
         return (
             <div id={'m-b-tag-browser'}>
-                {throwOut()}
                 <BackgroundLoader bno={0}/>
                 <TopMostBar formatType={'1'}/>
                 <GreetBox/>

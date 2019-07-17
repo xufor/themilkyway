@@ -1,27 +1,11 @@
 #m-b-register-pg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 100;
-    }
-}
-
-
 #registerBox {
-    position: absolute;
     width: 350px;
     height: 520px;
     border: solid 1px white;
@@ -79,4 +63,13 @@
     font-weight: bolder;
     color: white;
     cursor: pointer;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+    }
 }
