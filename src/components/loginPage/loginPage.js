@@ -103,7 +103,7 @@ class LoginPage extends Component {
                 />
                 <div id={'m-b-login-pg'}>
                     <HeadingBar mode={'register'}/>
-                    <div id={'loginBox'} className={'w-80 w-40-m w-20-l mt2 mt5-ns pa2-ns mb4 bg-transparent ba-ns b--white'}>
+                    <div id={'loginBox'} className={'w-80 w-40-m w-20-l mt2 mt5-ns mb4 bg-transparent ba-ns b--white'}>
                         <div className={'boxHeading f2 f1-ns'}>Login</div>
                         <div id={'inputLabelLgBx'}>Email</div>
                         <input

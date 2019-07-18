@@ -175,7 +175,7 @@ class App extends Component {
         return(
             <BrowserRouter>
                 <Switch>
-                    { this.shouldCover() }
+                    {this.shouldCover()}
                     <Route path= {'/'} exact component = { LoginPage }/>
                     <Route path= {'/register'} exact component = { RegisterPage }/>
                     <Route path= {'/profile/:uid'} exact component = { ProfilePage }/>

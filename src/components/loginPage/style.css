@@ -17,6 +17,7 @@
 
 #loginBox {
 	height: max-content;
+	width: 310px;
 	border-radius: 1rem;
 	text-align: center;
 	animation: fadeIn 0.5s 1 forwards;
