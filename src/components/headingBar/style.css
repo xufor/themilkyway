@@ -6,7 +6,7 @@
     color: white;
     font-family: 'Caveat', cursive;
     padding: 5px 10px;
-    z-index: 5000;
+    z-index: 999;
     border-bottom: 7px white solid;
 }
 
