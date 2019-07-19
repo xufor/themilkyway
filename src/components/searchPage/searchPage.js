@@ -30,7 +30,8 @@ class SearchPage extends Component {
         this.version = 1
     }
 
-    componentDidCatch() {
+    componentWillMount() {
+        // runs before rendering and componentDidMount
         throwOut(this.props.history)
     }
 

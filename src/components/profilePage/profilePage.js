@@ -66,12 +66,13 @@ class ProfilePage extends Component {
 		this.profImg = React.createRef();	    // ref to the edit profile image
 	}
 
-	componentDidCatch() {
+	componentWillMount() {
+		// runs before rendering and componentDidMount
 		throwOut(this.props.history)
 	}
 
-	// will set the color of 'Basic' div initially
 	componentDidMount() {
+		// not letting the unauthorised enter the app
 		let { uid } = this.props.match.params;
 		// setting the color of first mode
 		this.mode1.current.style.color = '#3D5AFE';

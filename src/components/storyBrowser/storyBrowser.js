@@ -38,6 +38,11 @@ class StoryBrowser extends Component {
         this.islikeFresh = true;
     }
 
+    componentWillMount() {
+        // runs before rendering and componentDidMount
+        throwOut(this.props.history)
+    }
+
     onClickLike = () => {
         if(!this.props.isPending) {
             const { sid } = this.props.match.params;
@@ -57,10 +62,6 @@ class StoryBrowser extends Component {
             toastr.success('Link Copied to Clipboard', LINK_COPIED);
         })
     };
-
-    componentDidCatch() {
-        throwOut(this.props.history)
-    }
 
     componentDidMount() {
         const { sid } = this.props.match.params;

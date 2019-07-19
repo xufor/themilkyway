@@ -28,7 +28,8 @@ class TagBrowser extends Component {
         }
     }
 
-    componentDidCatch() {
+    componentWillMount() {
+        // runs before rendering and componentDidMount
         throwOut(this.props.history)
     }
 

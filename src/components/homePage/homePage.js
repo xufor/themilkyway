@@ -14,7 +14,8 @@ import { throwOut } from '../../common';
 import './style.css';
 
 class HomePage extends Component {
-    componentDidCatch() {
+    componentWillMount() {
+        // runs before rendering and componentDidMount
         throwOut(this.props.history)
     }
 
