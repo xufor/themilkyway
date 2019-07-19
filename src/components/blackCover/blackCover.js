@@ -8,7 +8,7 @@ class BlackCover extends Component {
             <div id={'b-cvr'} className={'f3-ns f5'}>
                 <img alt={'meme'}
                      className={'h-50 h-75-ns'}
-                     src={'https://www.clipartmax.com/png/middle/442-4423916_work-in-progress-funny.png'}/>
+                     src={'https://antitrustlair.files.wordpress.com/2012/09/work-in-progress.png'}/>
                 <p>Sorry! The website doesn't support such small screens sizes because it hasn't been optimized for small screens yet! You can always enjoy the services on a laptop or desktop!</p>
             </div>
         );
