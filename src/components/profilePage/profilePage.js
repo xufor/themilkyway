@@ -72,12 +72,9 @@ class ProfilePage extends Component {
 
 	// will set the color of 'Basic' div initially
 	componentDidMount() {
-    	const { uid } = this.props.match.params;
+		let { uid } = this.props.match.params;
 		// setting the color of first mode
 		this.mode1.current.style.color = '#3D5AFE';
-		// removing edit button based on user type
-		if(uid !== this.props.credentials.uid && this.editBtn.current)
-			this.editBtn.current.style.display = 'none';
 		// fetching user data
 		this.props.fetchProfile(uid);
 	}
@@ -226,7 +223,7 @@ class ProfilePage extends Component {
 
 	// will generate the content for 'Basic' mode of lower region of profile page
 	basicContentGen = () => {
-		let { basic } = this.props.profile;
+		let { basic } = this.props.profile, { uid } = this.props.match.params;
 		// checking if private
 		if( basic && basic.message && basic.message === IS_PRIVATE)
 			return (
@@ -243,14 +240,17 @@ class ProfilePage extends Component {
 					<div id={'n-b-dt-yt'} className={'shadow-5'}>
 						No basic data yet!
 					</div>
-					<img
-						id={'e-pic-profile-pg'}
-						alt={'e-pic-p-pg'}
-						onClick={this.onClickEditButton}
-						src={editProfile}
-						className={'grow'}
-						ref={this.editBtn}
-					/>
+					{
+						(uid === this.props.credentials.uid)?
+						<img
+							id={'e-pic-profile-pg'}
+							alt={'e-pic-p-pg'}
+							onClick={this.onClickEditButton}
+							src={editProfile}
+							className={'grow'}
+							ref={this.editBtn}
+						/>: undefined
+					}
 				</div>
 			);
 		// if data is available show normal response
@@ -281,14 +281,17 @@ class ProfilePage extends Component {
 						? <div>{`Email: ${basic.email}`}</div>
 						: <div><Skeleton/></div>
 				}
-				<img
-					id={'e-pic-profile-pg'}
-					alt={'e-pic-p-pg'}
-					onClick={this.onClickEditButton}
-					src={editProfile}
-					className={'grow'}
-					ref={this.editBtn}
-				/>
+				{
+					(uid === this.props.credentials.uid)?
+						<img
+							id={'e-pic-profile-pg'}
+							alt={'e-pic-p-pg'}
+							onClick={this.onClickEditButton}
+							src={editProfile}
+							className={'grow'}
+							ref={this.editBtn}
+						/>: undefined
+				}
 			</div>
 		)
 	};

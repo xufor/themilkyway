@@ -17,6 +17,7 @@ import SearchPage from './components/searchPage/searchPage';
 import TagBrowser from './components/tagBrowser/tagBrowser';
 import StoryBrowser from './components/storyBrowser/storyBrowser';
 import BlackCover from './components/blackCover/blackCover';
+import StripBrowser from './components/stripBrowser/stripBrowser';
 import { refreshToken } from './actions/refreshAction';
 import { resetTokenStatus } from './actions/resetTokenStatusAction';
 import { disableToast } from './actions/disableToastAction';
@@ -187,6 +188,7 @@ class App extends Component {
                     <Route path= {'/home'} exact component = { HomePage }/>
                     <Route path= {'/reset'} exact component = { ResetPage }/>
                     <Route path= {'/update/:token'} exact component = { UpdatePassword }/>
+                    <Route path= {'/shared/:sid'} exact component = { StripBrowser }/>
                     <Route exact component={ NotFound }/>
                 </Switch>
           </BrowserRouter>

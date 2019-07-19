@@ -1,4 +1,5 @@
-export const remote = 'https://www.themilkyway.ml';
+// export const remote = 'https://www.themilkyway.ml';
+export const remote = 'http://localhost:5000';
 
 export const vars = {f:'_FULFILLED', p:'_PENDING', r:'_REJECTED'};
 
@@ -88,5 +89,5 @@ export const matColorList =
 
 export const backgroundLinks = [
     'https://images.unsplash.com/photo-1496737018672-b1a6be2e949c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1191&q=80',
-    'https://images.unsplash.com/photo-1555016222-3e9abf6ef3dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&h=1080&q=80'
+    'https://images.unsplash.com/photo-1563373336-e8dd1e084c68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1896&q=80'
 ];

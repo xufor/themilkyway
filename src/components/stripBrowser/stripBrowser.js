@@ -1,67 +1,24 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import copy from 'clipboard-copy';
-import { toastr } from 'react-redux-toastr';
 import { Redirect } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import LoadingBar from 'react-redux-loading-bar';
 
 import { store } from '../../index';
-import TopMostBar from '../topMostBar/topMostBar';
-import GreetBox from '../greetBox/greetBox';
-import GenreBox from '../genreBox/genreBox';
-import PageFooter from '../../components/pageFooter/pageFooter';
-import ButtonSlider from '../../components/buttonSlider/buttonSlider';
 import BackgroundLoader from'../../components/backgroundLoader/backgroundLoader';
 import StoryParagraph from '../../components/storyParagraph/storyParagraph';
 import StoryBreaks from '../storyBreaks/storyBreaks';
-import { resetAnomaly, throwOut } from '../../common';
+import HeadingBar from '../headingBar/headingBar';
+import { resetAnomaly } from '../../common';
 import { INVALID_REQ, INVALID_SID } from '../../reducers/anomalyReducer';
 import { RESET_STORY_DATA } from '../../reducers/storyReducer';
 import { fetchStory } from '../../actions/fetchStoryAction';
-import { likeStory } from '../../actions/likeStoryAction';
-import { unlikeStory } from '../../actions/unlikeStoryAction';
-import bigLike from '../../assets/bigLike.png';
-import bigTick from '../../assets/bigTick.png';
-import bigShare from '../../assets/bigShare.png';
 import smallLike from '../../assets/smallLike.png';
 import smallEye from '../../assets/smallEye.png';
-import './style.css';
 
-const LINK_COPIED = 'You can now share this story via the link!';
 
-class StoryBrowser extends Component {
-    constructor(props) {
-        super(props);
-        this.like = React.createRef();
-        this.islikeFresh = true;
-    }
-
-    onClickLike = () => {
-        if(!this.props.isPending) {
-            const { sid } = this.props.match.params;
-            if (this.like.current.src === bigTick) {
-                this.like.current.src = bigLike;
-                this.props.unlikeStory(sid);
-            } else {
-                this.like.current.src = bigTick;
-                this.props.likeStory(sid);
-            }
-        }
-    };
-
-    onClickShare = () => {
-        let shareLink = `https://www.themilkyway.tk/shared/${this.props.match.params.sid}`;
-        copy(shareLink).then(() => {
-            toastr.success('Link Copied to Clipboard', LINK_COPIED);
-        })
-    };
-
-    componentDidCatch() {
-        throwOut(this.props.history)
-    }
-
+class StripBrowser extends Component {
     componentDidMount() {
         const { sid } = this.props.match.params;
         store.dispatch({type: RESET_STORY_DATA});
@@ -70,19 +27,6 @@ class StoryBrowser extends Component {
 
     componentWillUnmount() {
         store.dispatch({type: RESET_STORY_DATA});
-    }
-
-    componentDidUpdate() {
-        // if the user already liked a story then set the like button to tick
-        // the isLikeFresh flag alters the functionality to componentDidMount
-        // thus the componentDidUpdate becomes async componentDidMount
-        if(this.props.story) {
-            let { already_liked } = this.props.story;
-            if (already_liked && this.islikeFresh) {
-                this.like.current.src = bigTick;
-                this.islikeFresh = false;
-            }
-        }
     }
 
     topBoxGen = () => {
@@ -140,30 +84,6 @@ class StoryBrowser extends Component {
                             :<Skeleton height={20} width={500}/>
                     }
                 </div>
-                <div className={'emptySpace'}/>
-                {
-                    (story.time)?
-                    <img
-                        id={'l-t-b-browser-pg'}
-                        alt={'like'}
-                        onClick={this.onClickLike}
-                        src={bigLike}
-                        ref={this.like}
-                        className={'grow shadow-1'}
-                    />
-                    :undefined
-                }
-                {
-                    (story.time)?
-                    <img
-                        id={'x-t-b-browser-pg'}
-                        alt={'share'}
-                        src={bigShare}
-                        className={'grow shadow-1'}
-                        onClick={this.onClickShare}
-                    />
-                    :undefined
-                }
             </React.Fragment>
         );
     };
@@ -172,7 +92,7 @@ class StoryBrowser extends Component {
         // will redirect to homepage if server detects invalid sid or no such story
         if (this.props.anomaly === INVALID_SID || this.props.anomaly === INVALID_REQ) {
             resetAnomaly();
-            return <Redirect to={'/home'}/>
+            return <Redirect to={'/'}/>
         }
     };
 
@@ -215,18 +135,11 @@ class StoryBrowser extends Component {
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
                 />
                 <BackgroundLoader bno={0}/>
-                <TopMostBar formatType={'1'}/>
-                <GreetBox/>
-                <ButtonSlider
-                    targetComponent={GenreBox}
-                    dur={1.5}
-                    def={500}
-                />
-                <div id={'m-box-browser-pg'} className={'shadow-4'}>
+                <HeadingBar mode={'register'}/>
+                <div id={'m-box-browser-pg'} className={'shadow-4'} style={{marginTop: '50px'}}>
                     <div id={'t-box-browser-pg'}>{this.topBoxGen()}</div>
                     <div id={'b-box-browser-pg'}>{this.bottomBoxGen()}</div>
                 </div>
-                <PageFooter/>
             </div>
         );
     };
@@ -237,12 +150,11 @@ const mapStateToProps = (state) => {
     return {
         story: state.fetchedStory,
         anomaly: state.anomaly,
-        isPending: state.isPending
     }
 };
 
 const mapActionToProps = (dispatch) => {
-    return bindActionCreators({ fetchStory, unlikeStory, likeStory }, dispatch);
+    return bindActionCreators({ fetchStory }, dispatch);
 };
 
-export default connect(mapStateToProps, mapActionToProps)(StoryBrowser);
+export default connect(mapStateToProps, mapActionToProps)(StripBrowser);
