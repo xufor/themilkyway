@@ -2,13 +2,11 @@
     align-items: center;
     width: 100%;
     background: #0E0D0D;
-    /*height: max-content;*/
-    height: 60px;
+    height: max-content;
     color: white;
     font-family: 'Caveat', cursive;
     padding: 5px 10px;
     z-index: 999;
-    border-bottom: 7px white solid;
 }
 
 #m-b-hd-bar > a {

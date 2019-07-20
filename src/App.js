@@ -9,14 +9,13 @@ import HomePage from './components/homePage/homePage';
 import ComposePage from './components/composePage/composePage';
 import ResetPage from './components/resetPage/resetPage';
 import NotFound from './components/notFound/notFound';
-import LoginPage, {CANNOT_REACH_SERVER} from './components/loginPage/loginPage';
-import RegisterPage, {SUCCESSFULLY_REGISTERED} from './components/registerPage/registerPage';
+import LoginPage, { CANNOT_REACH_SERVER } from './components/loginPage/loginPage';
+import RegisterPage, { SUCCESSFULLY_REGISTERED } from './components/registerPage/registerPage';
 import ProfilePage from './components/profilePage/profilePage';
 import UpdatePassword from './components/updatePassword/updatePassword';
 import SearchPage from './components/searchPage/searchPage';
 import TagBrowser from './components/tagBrowser/tagBrowser';
 import StoryBrowser from './components/storyBrowser/storyBrowser';
-import BlackCover from './components/blackCover/blackCover';
 import StripBrowser from './components/stripBrowser/stripBrowser';
 import { refreshToken } from './actions/refreshAction';
 import { resetTokenStatus } from './actions/resetTokenStatusAction';
@@ -53,33 +52,6 @@ const INVALID_LINK = 'The link is invalid. Make sure it is the one you received 
 
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            ow: 0,
-            oh: 0,
-            ih: 0,
-            iw: 0
-        }
-    }
-
-    screenMapper = () => {
-        this.setState({
-            ow: window.outerWidth,
-            iw: window.innerWidth,
-        });
-    };
-
-    shouldCover = () => {
-        if(this.state.ow < 1140 || this.state.iw < 1140)
-            return <Route component={ BlackCover }/>
-    };
-
-    componentDidMount() {
-        this.screenMapper();
-        window.addEventListener('resize', this.screenMapper)
-    }
-
     componentDidUpdate() {
         /* > expired is set in tokenStatus if access token expires
            > revoked is set in tokenStatus if refresh token expires or logout occurred at some point
@@ -176,7 +148,6 @@ class App extends Component {
         return(
             <BrowserRouter>
                 <Switch>
-                    {this.shouldCover()}
                     <Route path= {'/'} exact component = { LoginPage }/>
                     <Route path= {'/register'} exact component = { RegisterPage }/>
                     <Route path= {'/profile/:uid'} exact component = { ProfilePage }/>

@@ -2,19 +2,13 @@
     margin-top: 30px;
     margin-bottom: 75px;
     font-family: 'Quicksand', sans-serif;
-    font-size: 2rem;
     font-weight: bolder;
     color: white;
 }
 
 #bx-rst-pg {
-    width: max-content;
-    min-height: max-content;
-    border: solid 1px white ;
     border-radius: 1rem;
-    background: rgba(0,0,0,0.2);
     text-align: center;
-    padding: 15px;
 }
 
 #bx-rst-pg > span > button {
@@ -29,9 +23,14 @@
 
 #i-l-rst-pg {
     text-align: left;
-    margin-left: 12px;
     font-family: 'Quicksand', sans-serif;
     font-size: 1rem;
     font-weight: bolder;
     color: white;
+}
+
+@media screen and (min-width: 30rem) {
+    #bx-rst-pg {
+        background: rgba(0,0,0,0.2) ;
+    }
 }

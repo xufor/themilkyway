@@ -19,8 +19,6 @@ import {
     EMAIL_TOO_LONG,
 } from '../loginPage/loginPage';
 
-import { OP_SCC } from '../../reducers/showToastReducer';
-
 export const NAME_TOO_LONG = 'The length of name cannot be greater than 80 characters.';
 export const SUCCESSFULLY_REGISTERED = 'Please check your inbox to confirm your account.';
 
@@ -33,20 +31,6 @@ class RegisterPage extends Component {
             password: '',
             name: '',
         }
-    }
-
-    checkResponseMessage = () => {
-        let { message } = this.props.registration;
-        if (message !== undefined && message === OP_SCC) {
-            setTimeout(() => {
-                this.props.history.push('/login');
-            }, 3000);
-        }
-    };
-
-    componentDidUpdate() {
-        // this will send user to login if he is registered just now
-        this.checkResponseMessage();
     }
 
     onEmailChange = (event) => {
@@ -101,21 +85,24 @@ class RegisterPage extends Component {
                 />
                 <div id={'m-b-register-pg'}>
                     <HeadingBar mode={'login'}/>
-                    <div id={'registerBox'} className={'mt5-ns mt2'}>
-                        <div className={'boxHeading'}>Register</div>
-                        <div id={'inputLabelRgBx'}>Name</div>
+                    <div
+                        id={'registerBox'}
+                        className={'w-90 w-40-m w-20-l mt2 mt5-ns mb4 bg-transparent ba-ns b--white'}
+                    >
+                        <div className={'boxHeading  f2 f1-ns white'}>Register</div>
+                        <div id={'inputLabelRgBx'} className={'ml3-ns'}>Name</div>
                         <input
                             onChange={this.onNameChange}
                             className={'inputBox w-90-ns w-100'}
                             type={'text'}
                         />
-                        <div id={'inputLabelRgBx'}>Email</div>
+                        <div id={'inputLabelRgBx'} className={'ml3-ns'}>Email</div>
                         <input
                             onChange={this.onEmailChange}
                             className={'inputBox w-90-ns w-100'}
                             type={'email'}
                         />
-                        <div id={'inputLabelRgBx'}>Password</div>
+                        <div id={'inputLabelRgBx'} className={'ml3-ns'}>Password</div>
                         <input
                             onChange={this.onPasswordChange}
                             className={'inputBox w-90-ns w-100'}
@@ -125,7 +112,7 @@ class RegisterPage extends Component {
                             name={'Register'}
                             listener={this.onClickRegister}
                         />
-                        <Link to={'/'} id='loginInstead' className='grow'>Already have an account?</Link>
+                        <Link to={'/'} id={'loginInstead'} className={'grow mb3'}>Already have an account?</Link>
                      </div>
                 </div>
             </React.Fragment>
@@ -139,7 +126,6 @@ const mapActionToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        registration: state.registration,
         isPending: state.isPending
     }
 };

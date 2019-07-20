@@ -103,16 +103,19 @@ class LoginPage extends Component {
                 />
                 <div id={'m-b-login-pg'}>
                     <HeadingBar mode={'register'}/>
-                    <div id={'loginBox'} className={'w-80 w-40-m w-20-l mt2 mt5-ns mb4 bg-transparent ba-ns b--white'}>
-                        <div className={'boxHeading f2 f1-ns'}>Login</div>
-                        <div id={'inputLabelLgBx'}>Email</div>
+                    <div
+                        id={'loginBox'}
+                        className={'w-90 w-40-m w-20-l mt2 mt5-ns mb4 bg-transparent ba-ns b--white'}
+                    >
+                        <div className={'boxHeading f2 f1-ns white'}>Login</div>
+                        <div id={'inputLabelLgBx'} className={'ml3-ns'}>Email</div>
                         <input
                             onChange={this.onEmailChange}
                             className={'inputBox w-90-ns w-100'}
                             type={'email'}
                             required
                         />
-                        <div id={'inputLabelLgBx'}>Password</div>
+                        <div id={'inputLabelLgBx'} className={'ml3-ns'}>Password</div>
                         <input
                             onChange={this.onPasswordChange}
                             className={'inputBox w-90-ns w-100'}

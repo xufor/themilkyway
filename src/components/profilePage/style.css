@@ -21,6 +21,21 @@
     border-radius: 50%;
 }
 
+#p-abs-profile-pg {
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    border-radius: 100%;
+    transition: all 0.3s ease-out;
+    padding: 34%;
+    cursor: pointer;
+    display: none;
+    left: 0;
+}
+
+#p-abs-profile-pg:hover {
+    background: rgba(0,0,0,0.3);
+}
+
 #n-u-profile-pg {
     text-align: center;
     font-family: 'Caveat', sans-serif;

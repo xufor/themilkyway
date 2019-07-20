@@ -62,6 +62,8 @@ export default (state = 'disabled', action) => {
                 return 'nt-co';
             else if(action.payload.response.data.message === ALREADY_REGISTERED)
                 return 'ac-pr';
+            else if(action.payload.data.message === OP_SCC)
+                return 'rg-sc';
             break;
         case INIT_REGISTRATION + vars.f:
             if(action.payload.data.message === OP_SCC)

@@ -6,11 +6,8 @@
 }
 
 #registerBox {
-    width: 325px;
-    height: 520px;
-    border: solid 1px white;
+    height: max-content;
     border-radius: 1rem;
-    background: rgba(0,0,0,0.2);
     text-align: center;
     animation: fadeIn 0.5s 1 forwards;
 }
@@ -32,7 +29,6 @@
 #inputLabelRgBx {
     margin-top: 60px;
     text-align: left;
-    margin-left: 30px;
     font-family: 'Quicksand', sans-serif;
     font-size: 1rem;
     font-weight: bolder;
@@ -71,5 +67,15 @@
     }
     100% {
         opacity: 100;
+    }
+}
+
+@media screen and (min-width: 30rem) {
+    #registerBox {
+        background: rgba(0,0,0,0.2);
+    }
+
+    #inputLabelRgBx {
+        color: white;
     }
 }

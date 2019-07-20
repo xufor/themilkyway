@@ -24,8 +24,8 @@ import { fetchProfile } from '../../actions/fetchProfileAction';
 import { throwOut, retImg } from '../../common';
 import { tags } from '../../strings';
 import editProfile from '../../assets/editProfile.png';
+import editProfilePic from '../../assets/editProfilePic.png';
 import './style.css';
-import './style-m.css';
 
 const PLEASE_CLICK_SAVE = 'Please click the save button in order to save changes.';
 const IS_PRIVATE = 'The author has decided not to show his private details.';
@@ -63,7 +63,7 @@ class ProfilePage extends Component {
 		this.mode4 = React.createRef(); 		// ref to the 'Following' div in middle region
 		this.mode5 = React.createRef(); 		// ref to the 'Followers' div in middle region
 		this.editBtn = React.createRef();   	// ref to the edit button in basic content
-		this.profImg = React.createRef();	    // ref to the edit profile image
+		this.editImg = React.createRef();	    // ref to the edit profile image
 	}
 
 	componentWillMount() {
@@ -98,12 +98,16 @@ class ProfilePage extends Component {
 			<div id={'n-p-profile-pg'}>
 				{
 					(basic)
-						? <img
+						?
+						<div style={{position: 'relative'}}>
+							<img
 							id={'p-p-profile-pg'}
 							alt={'p89ef'}
-							ref={this.profImg}
 							src={retImg(basic.image, 200, 200)}
-						/> : <Skeleton circle={true} width={150} height={150}/>
+							/>
+							<img id={'p-abs-profile-pg'} ref={this.editImg} alt={'edit'} src={editProfilePic}/>
+						</div>
+						: <Skeleton circle={true} width={150} height={150}/>
 				}
 				{
 					(basic)
@@ -169,12 +173,15 @@ class ProfilePage extends Component {
 				listOfModes[i].current.style.color = 'black';
 			}
 		}
+		// removing the edit profile pic overlay
+		if(this.editImg.current)
+			this.editImg.current.style.display = 'none';
 	};
 
 	// will change the mode to 'Editing' when the edit profile button is clicked
 	onClickEditButton = () => {
 		this.setState({lowerRegionMode: 'Editing'});
-		this.profImg.current.style.cursor = 'pointer';
+		this.editImg.current.style.display = 'inline-flex';
 		// cloudinary stuff
 		let widget = window.cloudinary.createUploadWidget({
 				cloudName: 'xufor',
@@ -206,7 +213,7 @@ class ProfilePage extends Component {
 			widget.open();
 		};
 		// adding the event listener
-		this.profImg.current.addEventListener('click', showWidget);
+		this.editImg.current.addEventListener('click', showWidget);
 		// Unloading all possible data
 		let { basic } = this.props.profile;
 		this.setState({

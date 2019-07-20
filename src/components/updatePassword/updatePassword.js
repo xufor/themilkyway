@@ -60,16 +60,16 @@ class UpdatePassword extends Component {
                 />
                 <div id={'m-b-login-pg'}>
                     <HeadingBar mode={'login'}/>
-                    <div id={'bx-rst-pg'} className={'mt6-ns mt2'}>
-                        <div id={'b-h-rst-pg'}>Set New Password</div>
-                        <div id={'i-l-rst-pg'}>New Password</div>
+                    <div id={'bx-upd-pg'} className={'w-90 w-40-m w-20-l mt2 mt5-ns mb4 bg-transparent ba-ns b--white'}>
+                        <div id={'b-h-upd-pg'}>Set New Password</div>
+                        <div id={'i-l-upd-pg'} className={'ml3-ns'}>New Password</div>
                         <input
                             onChange={this.firstChange}
                             className={'inputBox w-100 w-90-ns'}
                             type={'password'}
                             required
                         />
-                        <div id={'i-l-rst-pg'}>Confirm Password</div>
+                        <div id={'i-l-upd-pg'} className={'ml3-ns'}>Confirm Password</div>
                         <input
                             onChange={this.secondChange}
                             className={'inputBox w-100 w-90-ns'}
