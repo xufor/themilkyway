@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { store } from '../../index';
 import FeedView from '../feedView/feedView';
 import RippleButton from '../rippleButton/rippleButton';
 import { resetAnomaly } from '../../common';
 import { updateBarState } from '../../actions/barStateAction';
 import { fetchUserFeed } from '../../actions/fetchUserFeedAction';
 import { NO_FEED_DATA_FIRST_ATTEMPT } from '../../reducers/anomalyReducer';
+import { RESET_USER_FEED } from '../../reducers/feedReducer';
 import './style.css';
 
 class FeedBox extends Component {
@@ -30,8 +32,10 @@ class FeedBox extends Component {
     }
 
     componentWillUnmount() {
-        // The anomaly can be safely reset on unmount
+        // the anomaly can be safely reset on unmount
         resetAnomaly();
+        // also resetting the feed content here
+        store.dispatch({type: RESET_USER_FEED});
     }
 
     loadFeed = () => {
