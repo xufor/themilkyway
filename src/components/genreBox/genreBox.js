@@ -23,7 +23,7 @@ class GenreBox extends Component {
         const genreGen = this.genreGen;
         let {wrapperRef, goLeft, goRight} = this.props;
         return (
-            <div id={'genreWrapper'} className={'shadow-4'}>
+            <div id={'genreWrapper'} className={'shadow-4 dn db-ns'}>
                 <img id={'leftButtonGenreBox'}  onClick={goLeft} src={left} alt={'lft'}/>
                 <img id={'rightButtonGenreBox'} onClick={goRight} src={right} alt={'rht'}/>
                 <div id={'genreElementsWrapper'} ref={wrapperRef}>{genreGen()}</div>

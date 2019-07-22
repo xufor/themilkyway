@@ -21,10 +21,7 @@ class BackgroundLoader extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                <div id={'backgroundLoader'} className={'dn db-ns'}/>
-                <div id={'backgroundLoaderX'} className={'db dn-ns'}/>
-            </React.Fragment>
+            <div id={'backgroundLoader'}/>
         );
     };
 }

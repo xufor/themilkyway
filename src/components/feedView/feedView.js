@@ -7,8 +7,6 @@ import smallLike from '../../assets/smallLike.png';
 import smallEye from '../../assets/smallEye.png';
 import { retImg } from '../../common';
 import './style.css';
-import './style-m.css';
-
 
 class FeedView extends Component {
     genreElementsGen = (data) => {
@@ -36,7 +34,7 @@ class FeedView extends Component {
                             {
                                 (data)
                                     ? <Link to={`/story/${data.sid}`}>{data.title}</Link>
-                                    : <Skeleton/>
+                                    : <Skeleton width={300} count={1}/>
                             }
                         </div>
                         <div id={'intro'}>
@@ -61,7 +59,7 @@ class FeedView extends Component {
                                         id={'z-t-b-browser-pg'}
                                         alt={'likes'}
                                         src={smallLike}
-                                        className={'shadow-1'}
+                                        className={'shadow-1 ml1 ml0-ns'}
                                     />
                                     {data.likes}
                                     <img
@@ -86,19 +84,20 @@ class FeedView extends Component {
                                 id={'pPic'}
                                 src={retImg(data.image,200,200)}
                                 alt={'iPic'}
+                                className={'dn db-l'}
                                 title={data.name}
                             />
                             : <div id={'p-pic-sk-ldg'}><Skeleton circle={true} width={150} height={150}/></div>
                     }
                 </div>
-                <div id={'sumHeading'}>
+                <div id={'sumHeading'} className={'dn db-ns'}>
                     {
                         (data)
                             ? 'Summary:'
                             : <Skeleton/>
                     }
                 </div>
-                <div id={'summaryContainer'}>
+                <div id={'summaryContainer'} className={'dn db-ns'}>
                     <p id={'summary'}>
                         {
                             (data)

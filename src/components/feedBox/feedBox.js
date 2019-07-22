@@ -7,9 +7,8 @@ import RippleButton from '../rippleButton/rippleButton';
 import { resetAnomaly } from '../../common';
 import { updateBarState } from '../../actions/barStateAction';
 import { fetchUserFeed } from '../../actions/fetchUserFeedAction';
-import { NO_FEED_DATA_FIRST_ATTEMPT } from "../../reducers/anomalyReducer";
+import { NO_FEED_DATA_FIRST_ATTEMPT } from '../../reducers/anomalyReducer';
 import './style.css';
-import './style-m.css';
 
 class FeedBox extends Component {
     constructor(props) {
@@ -77,7 +76,11 @@ class FeedBox extends Component {
 
     render() {
         return (
-            <div onMouseEnter={this.onEnterHandler} id={'f-bx-wrapper'} className={'shadow-4'}>
+            <div
+                onMouseEnter={this.onEnterHandler}
+                id={'f-bx-wrapper'}
+                className={'shadow-4 w-60-ns w-100'}
+            >
                 {this.viewGen()}
                 <span ref={this.btn}>
                     <RippleButton

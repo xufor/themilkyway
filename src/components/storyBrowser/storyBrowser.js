@@ -141,7 +141,7 @@ class StoryBrowser extends Component {
                             :<Skeleton height={20} width={500}/>
                     }
                 </div>
-                <div className={'emptySpace'}/>
+                <div className={'emptySpace dn db-ns'}/>
                 {
                     (story.time)?
                     <img
@@ -150,7 +150,7 @@ class StoryBrowser extends Component {
                         onClick={this.onClickLike}
                         src={bigLike}
                         ref={this.like}
-                        className={'grow shadow-1'}
+                        className={'grow shadow-1 dn db-l'}
                     />
                     :undefined
                 }
@@ -160,7 +160,7 @@ class StoryBrowser extends Component {
                         id={'x-t-b-browser-pg'}
                         alt={'share'}
                         src={bigShare}
-                        className={'grow shadow-1'}
+                        className={'grow shadow-1 dn db-l'}
                         onClick={this.onClickShare}
                     />
                     :undefined
@@ -223,7 +223,7 @@ class StoryBrowser extends Component {
                     dur={1.5}
                     def={500}
                 />
-                <div id={'m-box-browser-pg'} className={'shadow-4'}>
+                <div id={'m-box-browser-pg'} className={'shadow-4 w-80-m w-70-l'}>
                     <div id={'t-box-browser-pg'}>{this.topBoxGen()}</div>
                     <div id={'b-box-browser-pg'}>{this.bottomBoxGen()}</div>
                 </div>

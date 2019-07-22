@@ -29,7 +29,3 @@ export const reloader = (delay) => {
 };
 
 // export const isObjectEmpty = (obj) => Object.keys(obj).length === 0;
-
-export const checkScreenSize = () => {
-
-};

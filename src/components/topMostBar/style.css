@@ -36,7 +36,7 @@
     height: 30px;
     width: 450px;
     display: block;
-    font-family: 'Consolas', monospace;
+    font-family: 'Open Sans', monospace;
     font-size: 1rem;
     font-weight: normal;
     padding: 0 10px 0 10px;
@@ -45,14 +45,12 @@
 }
 
 #profilePic {
-    display: block;
     height: 35px;
     border-radius: 50%;
     margin-right: 5px;
 }
 
 #searchOpenImage {
-    display: block;
     width: 35px;
     height: 35px;
     margin-right: 5px;
@@ -72,4 +70,10 @@
     height: 27px;
     width: 27px;
     margin-right: 5px;
+}
+
+@media screen and (max-width: 30rem) {
+    #goHomeBtn {
+        display: none !important;
+    }
 }

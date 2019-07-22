@@ -6,7 +6,7 @@ import './style.css';
 class UserRecBox extends Component {
     render() {
         return (
-            <div id={'recBoxWrapper'} className={'shadow-4'}>
+            <div id={'recBoxWrapper'} className={'shadow-4 dn flex-ns'}>
                 <ButtonSlider
                     targetComponent={UserRecList}
                     def={250}

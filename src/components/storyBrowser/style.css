@@ -3,7 +3,6 @@
 }
 
 #m-box-browser-pg {
-    width: 70%;
     min-height: 125vh;
     margin: 10px auto;
     display: flex;
@@ -93,4 +92,77 @@
     margin-right: 5px;
 }
 
+@media screen and (max-width: 30rem) {
+    #m-box-browser-pg {
+        width: 97%;
+        border-radius: 0.3rem;
+    }
+
+    #t-box-browser-pg {
+        padding: 15px;
+        flex-direction: column;
+        background: white;
+    }
+
+    #h-t-b-browser-pg {
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    #h-t-b-browser-pg:after {
+        content : "";
+        position: absolute;
+        z-index : 1;
+        bottom: 0;
+        right: 0;
+        pointer-events: none;
+        background-image: linear-gradient(to right,
+        rgba(255,255,255, 0) 95%,
+        rgba(255,255,255, 1) 100%);
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    #t-t-b-browser-pg {
+        font-size: 1.6rem;
+        line-height: 2rem;
+        width: max-content;
+    }
+
+    #i-t-b-browser-pg {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+        width: max-content;
+    }
+
+    #s-t-b-browser-pg {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+        width: max-content;
+    }
+
+    #j-t-b-browser-pg {
+        margin-top: 0.2rem;
+        margin-bottom: 0.3rem;
+        margin-left: 0.3rem;
+    }
+
+    #h-t-b-browser-pg > #j-t-b-browser-pg {
+        margin-top: 5px;
+        font-size: 15px;
+    }
+
+    #h-t-b-browser-pg > #j-t-b-browser-pg > img {
+        height: 15px;
+        width: 15px;
+    }
+
+    #b-box-browser-pg {
+        padding: 15px;
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+    }
+}
 

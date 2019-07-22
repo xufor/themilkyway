@@ -17,7 +17,6 @@ import { fetchStory } from '../../actions/fetchStoryAction';
 import smallLike from '../../assets/smallLike.png';
 import smallEye from '../../assets/smallEye.png';
 
-
 class StripBrowser extends Component {
     componentDidMount() {
         const { sid } = this.props.match.params;
@@ -134,9 +133,9 @@ class StripBrowser extends Component {
                     showFastActions
                     style={{ backgroundColor: '#448AFF', height: '4px', zIndex: 1000 }}
                 />
-                <BackgroundLoader bno={0}/>
+                <BackgroundLoader bno={1}/>
                 <HeadingBar mode={'register'}/>
-                <div id={'m-box-browser-pg'} className={'shadow-4'} style={{marginTop: '50px'}}>
+                <div id={'m-box-browser-pg'} className={'shadow-4 w-80-m w-70-l'}>
                     <div id={'t-box-browser-pg'}>{this.topBoxGen()}</div>
                     <div id={'b-box-browser-pg'}>{this.bottomBoxGen()}</div>
                 </div>

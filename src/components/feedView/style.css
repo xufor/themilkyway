@@ -36,7 +36,7 @@
 
 #headings {
     display: flex;
-    min-width: 350px;
+    width: max-content;
     flex-direction: column;
 }
 
@@ -46,10 +46,10 @@
     background-color: white;
     margin-bottom: 40px;
     min-height: 320px;
+    overflow-x: hidden;
 }
 
 #pPic {
-    display: inline-block;
     width: 150px;
     height : 150px;
     border-radius: 50%;
@@ -107,4 +107,92 @@
     align-items: center;
     color: black;
     display: flex;
+}
+
+@media screen and (max-width: 30rem) {
+    #feedView {
+        margin-bottom: 10px;
+        border-radius: 1rem;
+        padding: 23px;
+    }
+
+    #headings {
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    #title {
+        width: max-content;
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    #headings:after {
+        content : "";
+        position: absolute;
+        z-index : 1;
+        bottom: 0;
+        right: 0;
+        pointer-events: none;
+        background-image: linear-gradient(to right,
+        rgba(255,255,255, 0) 95%,
+        rgba(255,255,255, 1) 100%);
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    #p-pic-sk-ldg {
+        display: none;
+    }
+
+    #intro {
+        font-size: 18px;
+        line-height: 27px;
+        width: max-content;
+    }
+
+    #intro > a {
+        pointer-events: none;
+    }
+
+    #s-t-fd-view > div > a {
+        pointer-events: none;
+    }
+
+    #timestamp {
+        font-size: 15px;
+        line-height: 25px;
+        width: max-content;
+    }
+
+    #s-t-fd-view > div > a > div {
+        font-size: 15px;
+        line-height: 25px;
+    }
+
+    #feedView > #upper > #headings > #j-t-b-browser-pg {
+        margin-top: 5px;
+        font-size: 15px;
+        line-height: 25px;
+    }
+
+    #feedView > #upper > #headings > #j-t-b-browser-pg > img {
+        height: 15px;
+        width: 15px;
+    }
+
+    #s-t-fd-view {
+        margin-bottom: 10px;
+    }
+
+    #f-bx-wrapper > span > button {
+        transform: scale(0.8,0.8);
+    }
+
+    #feedView {
+        min-height: max-content;
+    }
 }

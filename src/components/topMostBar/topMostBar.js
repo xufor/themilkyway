@@ -11,7 +11,6 @@ import searchOpener from '../../assets/searchOpener.png';
 import goHome from '../../assets/goHome.png';
 import { updateBarState } from '../../actions/barStateAction';
 import './style.css';
-import './style-m.css';
 
 const SEARCH_STRING_EMPTY = 'Search field cannot be empty.';
 const LESS_OR_GREATER_STRING = 'The length of search string should be between 5 and 100 characters.';
@@ -110,7 +109,7 @@ class TopMostBar extends Component {
             <div
                 id={'topMostBar'}
                 ref={this.bar}
-                className={'shadow-5'}
+                className={'shadow-5 justify-center'}
             >
                 <img
                     id={'galaxyPic'}
@@ -123,7 +122,7 @@ class TopMostBar extends Component {
                     <div
                         id={'logoText'}
                         ref={this.logo}
-                        className={'white pointer'}
+                        className={'white pointer mr3 mr0-ns'}
                     >
                         The Milky Way
                     </div>
@@ -149,10 +148,11 @@ class TopMostBar extends Component {
                         src={searchGlass}
                     />
                 </div>
-                <div className={'emptySpace'}/>
+                <div className={'emptySpace dn db-ns'}/>
                 <img
                     src={searchOpener}
                     ref={this.opn}
+                    className={'dn db-ns'}
                     onClick={this.expand}
                     alt={'srhOpn'}
                     id={'searchOpenImage'}
@@ -160,6 +160,7 @@ class TopMostBar extends Component {
                 <Link to={`/profile/${this.props.credentials.uid}`}>
                     <img
                         id={'profilePic'}
+                        className={'dn db-ns'}
                         ref={this.user}
                         src={profilePic}
                         alt={'pPic'}

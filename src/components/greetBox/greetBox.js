@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './style.css';
-import './style-m.css';
 
 class GreetBox extends Component {
     constructor(props) {
@@ -52,10 +51,10 @@ class GreetBox extends Component {
         let { name } = this.props.credentials;
         let firstName = name.split(" ")[0];
         return (
-            <div id={'greetBox'} className={'shadow-5'}>
+            <div id={'greetBox'} className={'shadow-5 flex justify-center'}>
                 <div id={'greeting'}>Good {suffixGen()} {firstName} !</div>
-                <div className={'emptySpace'}/>
-                <Link id={'composeLink'} className={'link black'} to={'/compose'}>
+                <div className={'emptySpace dn db-ns'}/>
+                <Link id={'composeLink'} className={'link black dn db-ns'} to={'/compose'}>
                     <div ref={this.write}>Want to write Something?</div>
                 </Link>
                 <div id={'wishText'} ref={this.luck}>Best of luck with the story!</div>

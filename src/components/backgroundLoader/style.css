@@ -1,18 +1,7 @@
 #backgroundLoader {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    height: 100%;
+    width: 100%;
     position: fixed;
     z-index: -1000;
-}
-
-#backgroundLoaderX {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: fixed;
-    z-index: -1000;
-    background: linear-gradient(to top, #48c6ef, #6f86d6);
+    background-attachment: fixed;
 }
