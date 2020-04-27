@@ -62,7 +62,7 @@ class ComposePage extends Component {
             // generate required array to set default value of genre
             let value = genre.split(',')
                 .map((listItem) => {return {label: listItem, value: listItem}});
-            // if value is no t null set the state to reflect changes
+            // if value is not null set the state to reflect changes
             this.setState({genre: value, story, title, summary});
             // set the flag as false
             this.isDataFresh = false;
