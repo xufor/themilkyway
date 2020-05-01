@@ -3,7 +3,7 @@ import { FETCH_USER_FEED } from '../actions/fetchUserFeedAction';
 import { NO_MORE_FEED } from './showToastReducer';
 import { FETCH_STORY } from '../actions/fetchStoryAction';
 import { FETCH_SEARCH_DATA } from '../actions/fetchSearchDataAction';
-import {FETCH_GENRE_DATA} from "../actions/fetchGenreDataAction";
+import { FETCH_GENRE_DATA } from '../actions/fetchGenreDataAction';
 
 export const NO_FEED_DATA_FIRST_ATTEMPT = 'No feed data on first attempt.';
 export const NO_SEARCH_DATA_FIRST_ATTEMPT = 'No more search data available.';
